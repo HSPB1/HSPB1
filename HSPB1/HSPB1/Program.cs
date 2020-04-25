@@ -10,7 +10,7 @@ namespace HSPB1
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Bitte Kantenlänge 1 eingeben");
+            Console.WriteLine("Bitte erste Kantenlänge eingeben");
             
         }
     }
