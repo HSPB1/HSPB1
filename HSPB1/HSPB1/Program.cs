@@ -10,7 +10,7 @@ namespace HSPB1
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Bitte erste Kantenlänge eingeben");
+            Console.WriteLine("Bitte erste Kantenlänge eingeben"); //Thobias
             
         }
     }
