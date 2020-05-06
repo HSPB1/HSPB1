@@ -346,10 +346,10 @@ namespace HSPB1
                 Console.WriteLine("|__________________________________|\n");
                 Console.WriteLine(" -> " + Geometrie + " mit den Maßen " + breite + " mm x " + höhe + " mm x mit einer Wandstärke von " + wandstärke + " mm" + " und einer länge von " + länge + " mm ");
                 Console.WriteLine("\n");
-                Console.WriteLine(" -> Die Querschnittsfläche beträgt: " + QFläche() + "mm² ");
-                Console.WriteLine(" -> Ihr Volumen des Profils entspricht : " + Volumen() + "mm³");
-                Console.WriteLine(" -> Das Gewicht des Profils entspricht : " + Gewicht() + "Kg ");
-                Console.WriteLine(" -> Das Flächenträgheitsmoment beträgt : " + FlächeTrägheitsMoment() + "cm^4");
+                Console.WriteLine(" -> Die Querschnittsfläche beträgt: " + QFläche() + " mm² ");
+                Console.WriteLine(" -> Ihr Volumen des Profils entspricht : " + Volumen() + " mm³");
+                Console.WriteLine(" -> Das Gewicht des Profils entspricht : " + Gewicht() + " Kg ");
+                Console.WriteLine(" -> Das Flächenträgheitsmoment beträgt : " + FlächeTrägheitsMoment() + " cm^4");
 
 
             }
