@@ -149,7 +149,7 @@ namespace HSPB1
                     case 2:
                         Geometrie = "Hohlprofil";
                         Console.WriteLine(" _____________________________________________________________________________________");
-                        Console.WriteLine("|Bitte gebene Sie eine Wandstärke in mm und in Zahlen ein!  bestätigen Sie mit Enter! |");
+                        Console.WriteLine("|Bitte geben Sie eine Wandstärke in mm und in Zahlen ein!  Bestätigen Sie mit Enter! |");
                         Console.WriteLine("|_____________________________________________________________________________________|");
                         wandstärke = Convert.ToDouble(Console.ReadLine());
                         Console.Clear();
@@ -175,7 +175,7 @@ namespace HSPB1
         {
             Kopf(); // Programmkopf nochmal ausführen
             Console.WriteLine(" ____________________________________________________________________________________ "); //geschriebenes Layout für Menü
-            Console.WriteLine("| Wie Breit ist Profil was berechnet werden soll?                                    |");
+            Console.WriteLine("| Wie Breit ist das Profil, was berechnet werden soll?                                    |");
             Console.WriteLine("|------------------------------------------------------------------------------------|");
             Console.WriteLine("|-> Bitte geben Sie die Breite in mm und in Zahlen ein und bestätigen Sie mit Enter! |");
             Console.WriteLine("|____________________________________________________________________________________|");
@@ -184,9 +184,9 @@ namespace HSPB1
             Console.Clear(); //Reinigung der Konosle
             Kopf();           // Programmkopf nochmal ausführen
             Console.WriteLine(" _____________________________________________________________________________________ ");//geschriebenes Layout für Menü
-            Console.WriteLine("| Wie Hoch ist das  Profil was berechnet werden soll?                                 |");
+            Console.WriteLine("| Wie Hoch ist das Profil, was berechnet werden soll?                                 |");
             Console.WriteLine("|-------------------------------------------------------------------------------------|");
-            Console.WriteLine("|-> Bitte geben Sie die Höhe in mm und in Zahlen ein an und bestätigen Sie mit Enter! |");
+            Console.WriteLine("|-> Bitte geben Sie die Höhe in mm und in Zahlen an und bestätigen Sie mit Enter! |");
             Console.WriteLine("|_____________________________________________________________________________________|");
             höhe = Convert.ToDouble(Console.ReadLine()); // initialisieren des Parameters
 
@@ -210,10 +210,10 @@ namespace HSPB1
             do           // Do while schleife für Wiederholung bei Fehleingae
             {
                 Console.WriteLine(" ___________________________________________________________________________ ");     //Layout Menue für Eingabe 
-                Console.WriteLine("|Aus welchem Material soll das Profil sein?                                 |");
+                Console.WriteLine("|Aus welchem Material besteht das Profil?                                 |");
                 Console.WriteLine("|-------------------------------------------------------------------------- |");
                 Console.WriteLine("|-> für Stahl drücken Sie die        -> (1)  bestätigen Sie mit Enter!      |");
-                Console.WriteLine("|-> für Aluminium drücken Sie die    -> (2)  bestätigen Sie mit Enter       |");
+                Console.WriteLine("|-> für Aluminium drücken Sie die    -> (2)  bestätigen Sie mit Enter!       |");
                 Console.WriteLine("|___________________________________________________________________________|");
 
                 eingabe = Convert.ToInt32(Console.ReadLine());      //initialisiern von Eingabe
@@ -381,7 +381,7 @@ namespace HSPB1
                         break;
 
                     case 2:         //Beenden des Programms
-                        Console.WriteLine("Das Programm wird nach drücken von Eingabetaste geschlossen!");
+                        Console.WriteLine("Das Programm wird nach drücken von der Eingabetaste geschlossen!");
                         Console.ReadKey();
                         break;
 
