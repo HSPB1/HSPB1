@@ -595,12 +595,12 @@ namespace HSPB1
                     //Aufruf der Returnergebnisse von Mathematischen Methoden aus Class Profil_Parameter zur Ausgabe
                     Console.WriteLine(" -> Die Querschnittsfläche beträgt:     " + QFläche() + " mm²");
                     Console.WriteLine(" -> Ihr Volumen des Profils entspricht: " + Volumen() + " mm³");
-                    Console.WriteLine(" -> Das Gewicht des Profils entsprcht : " + Gewicht() + " Kg ");
-                    Console.WriteLine(" -> Das Axiale Wiederstandsmoment Wx entspricht :                   " + WiederstandsMoment_Axial_Wx() + " cm³");
-                    Console.WriteLine(" -> Das Axiale Wiederstandsmoment Wy entspricht:                    " + WiederstandsMoment_Axial_Wy() + " cm³");
+                    Console.WriteLine(" -> Das Gewicht des Profils entsprcht : " + Gewicht() + " Kg \n\n");
+                    Console.WriteLine(" -> Das Axiale Wiederstandsmoment Wx entspricht:                    " + WiederstandsMoment_Axial_Wx() + " cm³");
+                    Console.WriteLine(" -> Das Axiale Wiederstandsmoment Wy entspricht:                    " + WiederstandsMoment_Axial_Wy() + " cm³\n\n");
                     Console.WriteLine(" -> Das Axiale Flächenträgheitsmoment Ix entspricht:                " + FlächenträgeitsMoment_Axial_Ix() + " cm^4");
                     Console.WriteLine(" -> Das Axiale Flächenträgheitsmoment Iy entspricht:                " + FlächenträgheitsMoment_Axial_Iy() + " cm^4");
-                    Console.WriteLine(" -> Das Polare Flächenträgheitsmoment (Ix + Iy) entspricht :        " + FlächeTrägheitsMoment_Polar() + " cm^4");
+                    Console.WriteLine(" -> Das Polare Flächenträgheitsmoment (Ix + Iy) entspricht:         " + FlächeTrägheitsMoment_Polar() + " cm^4");
                 }
 
                 //IF Bedinung für Ausgabe an User mit Wandstärke und Hohlprofil
@@ -616,14 +616,14 @@ namespace HSPB1
                     Console.WriteLine("\n");
 
                     //Aufruf der Returnergebnisse von Mathematischen Methoden aus Class Profil_Parameter zur Ausgabe
-                    Console.WriteLine(" -> Die Querschnittsfläche beträgt :                      " + QFläche() + " mm² ");
-                    Console.WriteLine(" -> Ihr Volumen des Profils entspricht :                  " + Volumen() + " mm³");
-                    Console.WriteLine(" -> Das Gewicht des Profils entspricht :                  " + Gewicht() + " Kg ");
-                    Console.WriteLine(" -> Das Axiale Wiederstandsmoment Wx entspricht :                   " + WiederstandsMoment_Axial_Wx() + " cm³");
-                    Console.WriteLine(" -> Das Axiale Wiederstandsmoment Wy entspricht:                    " + WiederstandsMoment_Axial_Wy() + " cm³");
+                    Console.WriteLine(" -> Die Querschnittsfläche beträgt:                      " + QFläche() + " mm² ");
+                    Console.WriteLine(" -> Ihr Volumen des Profils entspricht:                  " + Volumen() + " mm³");
+                    Console.WriteLine(" -> Das Gewicht des Profils entspricht:                  " + Gewicht() + " Kg \n\n");
+                    Console.WriteLine(" -> Das Axiale Wiederstandsmoment Wx entspricht:                    " + WiederstandsMoment_Axial_Wx() + " cm³");
+                    Console.WriteLine(" -> Das Axiale Wiederstandsmoment Wy entspricht:                    " + WiederstandsMoment_Axial_Wy() + " cm³\n\n");
                     Console.WriteLine(" -> Das Axiale Flächenträgheitsmoment Ix entspricht:                " + FlächenträgeitsMoment_Axial_Ix() + " cm^4");
                     Console.WriteLine(" -> Das Axiale Flächenträgheitsmoment Iy entspricht:                " + FlächenträgheitsMoment_Axial_Iy() + " cm^4");
-                    Console.WriteLine(" -> Das Polare Flächenträgheitsmoment (Ix + Iy) entspricht :        " + FlächeTrägheitsMoment_Polar() + " cm^4");
+                    Console.WriteLine(" -> Das Polare Flächenträgheitsmoment (Ix + Iy) entspricht:         " + FlächeTrägheitsMoment_Polar() + " cm^4");
 
 
                 }
