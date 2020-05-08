@@ -15,9 +15,9 @@ namespace HSPB1
 
             /*Update von Version 1.04 auf Version 1.05
             
-            -Methode Programm_Start_Eingabe() hinzugefügt für Besseres Aussehen/Struktur und vermeidung von Permanenten Methodenaufruf;
-            -Methode Programm_Start_Eingabe() hinzugefügt für Besseres Aussehen/Struktur und vermeidung von Permanenten Methodenaufruf;
-            -Methode Programmschließen()      hinzugefügt für Besseres Aussehen und Struktur mit neuem Text und Layout;
+            -Methode Programm_Start_Eingabe() hinzugefügt für besseres Aussehen/Struktur und vermeidung von Permanenten Methodenaufruf;
+            -Methode Programm_Start_Eingabe() hinzugefügt für besseres Aussehen/Struktur und vermeidung von Permanenten Methodenaufruf;
+            -Methode Programmschließen()      hinzugefügt für besseres Aussehen und Struktur mit neuem Text und Layout;
             -Mehtode Catch_Text_Zahl ()       hinzugefügt mit Text und Layout; 
             -Mehtode Catch_Text_Buchstabe()   hinzugefügt mit Text und Layout;
             -Methode Flächenträgheismoment_Axial Ix hinzugefügt mit Berrechnung;
@@ -331,9 +331,9 @@ namespace HSPB1
                         //Wenn die 2 eingegeben wird
                         case 2:
                             Geometrie = "Hohlprofil";
-                            Console.WriteLine(" _____________________________________________________________________________________");
-                            Console.WriteLine("|Bitte gebene Sie eine Wandstärke in mm und in Zahlen ein!  bestätigen Sie mit Enter! |");
-                            Console.WriteLine("|_____________________________________________________________________________________|");
+                            Console.WriteLine(" ____________________________________________________________________________________");
+                            Console.WriteLine("|Bitte gebene Sie die Wandstärke in mm und in Zahlen ein!  Bestätigen Sie mit Enter! |");
+                            Console.WriteLine("|____________________________________________________________________________________|");
                             wandstärke = Convert.ToDouble(Console.ReadLine());
                             Console.Clear();
                             break;
@@ -380,7 +380,7 @@ namespace HSPB1
 
                     //geschriebenes Layout für Menü via ConsoleWriteLine mit Eingabeaufforderung
                     Console.WriteLine(" ____________________________________________________________________________________ ");
-                    Console.WriteLine("| Wie Breit ist Profil was berechnet werden soll?                                    |");
+                    Console.WriteLine("| Wie breit ist das Profil das berechnet werden soll?                                |");
                     Console.WriteLine("|------------------------------------------------------------------------------------|");
                     Console.WriteLine("|-> Bitte geben Sie die Breite in mm und in Zahlen ein und bestätigen Sie mit Enter! |");
                     Console.WriteLine("|____________________________________________________________________________________|");
@@ -397,7 +397,7 @@ namespace HSPB1
 
                     //geschriebenes Layout für Menü via ConsoleWriteLine mit Eingabeaufforderung
                     Console.WriteLine(" _____________________________________________________________________________________ ");
-                    Console.WriteLine("| Wie Hoch ist das  Profil was berechnet werden soll?                                 |");
+                    Console.WriteLine("| Wie hoch ist das  Profil das berechnet werden soll?                                 |");
                     Console.WriteLine("|-------------------------------------------------------------------------------------|");
                     Console.WriteLine("|-> Bitte geben Sie die Höhe in mm und in Zahlen ein an und bestätigen Sie mit Enter! |");
                     Console.WriteLine("|_____________________________________________________________________________________|");
@@ -450,7 +450,7 @@ namespace HSPB1
                     Console.WriteLine("|Aus welchem Material soll das Profil sein?                                 |");
                     Console.WriteLine("|-------------------------------------------------------------------------- |");
                     Console.WriteLine("|-> für Stahl drücken Sie die        -> (1)  bestätigen Sie mit Enter!      |");
-                    Console.WriteLine("|-> für Aluminium drücken Sie die    -> (2)  bestätigen Sie mit Enter       |");
+                    Console.WriteLine("|-> für Aluminium drücken Sie die    -> (2)  bestätigen Sie mit Enter!      |");
                     Console.WriteLine("|___________________________________________________________________________|");
 
 
@@ -586,7 +586,7 @@ namespace HSPB1
                 {
                     Console.WriteLine("\n");
                     Console.WriteLine(" __________________________________");
-                    Console.WriteLine("|Ergebnis für Ihr gewältes Profil: |");
+                    Console.WriteLine("|Ergebnis für Ihr gewähltes Profil: |");
                     Console.WriteLine("|__________________________________|\n");
 
                     //Wiederaufruf des Profils für Information an den User
@@ -594,7 +594,7 @@ namespace HSPB1
                     Console.WriteLine("\n");
                     //Aufruf der Returnergebnisse von Mathematischen Methoden aus Class Profil_Parameter zur Ausgabe
                     Console.WriteLine(" -> Die Querschnittsfläche beträgt:     " + QFläche() + " mm²");
-                    Console.WriteLine(" -> Ihr Volumen des Profils entspricht: " + Volumen() + " mm³");
+                    Console.WriteLine(" -> Das Volumen des Profils entspricht: " + Volumen() + " mm³");
                     Console.WriteLine(" -> Das Gewicht des Profils entsprcht : " + Gewicht() + " Kg \n\n");
                     Console.WriteLine(" -> Das Axiale Wiederstandsmoment Wx entspricht:                    " + WiederstandsMoment_Axial_Wx() + " cm³");
                     Console.WriteLine(" -> Das Axiale Wiederstandsmoment Wy entspricht:                    " + WiederstandsMoment_Axial_Wy() + " cm³\n\n");
@@ -608,7 +608,7 @@ namespace HSPB1
                 {
                     Console.WriteLine("\n");
                     Console.WriteLine(" __________________________________");
-                    Console.WriteLine("|Ergebnis für Ihr gewältes Profil: |");
+                    Console.WriteLine("|Ergebnis für Ihr gewähltes Profil: |");
                     Console.WriteLine("|__________________________________|\n");
 
                     //Wiederaufruf des Profils für Information an den User
@@ -617,7 +617,7 @@ namespace HSPB1
 
                     //Aufruf der Returnergebnisse von Mathematischen Methoden aus Class Profil_Parameter zur Ausgabe
                     Console.WriteLine(" -> Die Querschnittsfläche beträgt:                      " + QFläche() + " mm² ");
-                    Console.WriteLine(" -> Ihr Volumen des Profils entspricht:                  " + Volumen() + " mm³");
+                    Console.WriteLine(" -> Das Volumen des Profils entspricht:                  " + Volumen() + " mm³");
                     Console.WriteLine(" -> Das Gewicht des Profils entspricht:                  " + Gewicht() + " Kg \n\n");
                     Console.WriteLine(" -> Das Axiale Wiederstandsmoment Wx entspricht:                    " + WiederstandsMoment_Axial_Wx() + " cm³");
                     Console.WriteLine(" -> Das Axiale Wiederstandsmoment Wy entspricht:                    " + WiederstandsMoment_Axial_Wy() + " cm³\n\n");
