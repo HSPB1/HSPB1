@@ -585,9 +585,9 @@ namespace HSPB1
                 if (Geometrie == "Vollmaterial")
                 {
                     Console.WriteLine("\n");
-                    Console.WriteLine(" __________________________________");
+                    Console.WriteLine(" ___________________________________");
                     Console.WriteLine("|Ergebnis für Ihr gewähltes Profil: |");
-                    Console.WriteLine("|__________________________________|\n");
+                    Console.WriteLine("|___________________________________|\n");
 
                     //Wiederaufruf des Profils für Information an den User
                     Console.WriteLine(" -> " + Geometrie + " mit den Maßen " + breite + " mm x " + höhe + " mm" + " und einer Länge von " + länge + " mm");
@@ -607,9 +607,9 @@ namespace HSPB1
                 if (Geometrie == "Hohlprofil")
                 {
                     Console.WriteLine("\n");
-                    Console.WriteLine(" __________________________________");
+                    Console.WriteLine(" ___________________________________");
                     Console.WriteLine("|Ergebnis für Ihr gewähltes Profil: |");
-                    Console.WriteLine("|__________________________________|\n");
+                    Console.WriteLine("|___________________________________|\n");
 
                     //Wiederaufruf des Profils für Information an den User
                     Console.WriteLine(" -> " + Geometrie + " mit den Maßen " + breite + " mm x " + höhe + " mm x mit einer Wandstärke von " + wandstärke + " mm" + " und einer länge von " + länge + " mm ");
