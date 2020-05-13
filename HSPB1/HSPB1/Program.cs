@@ -6,47 +6,49 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace HSPB1
-{
+{   
+  
+    
 
     class Program
-    {
+    {   
         static void Main(string[] args)
         {
 
-            /*Update von Version 1.04 auf Version 1.05
-            
-            -Methode Programm_Start_Eingabe() hinzugefügt für besseres Aussehen/Struktur und vermeidung von Permanenten Methodenaufruf;
-            -Methode Programm_Start_Eingabe() hinzugefügt für besseres Aussehen/Struktur und vermeidung von Permanenten Methodenaufruf;
-            -Methode Programmschließen()      hinzugefügt für besseres Aussehen und Struktur mit neuem Text und Layout;
-            -Mehtode Catch_Text_Zahl ()       hinzugefügt mit Text und Layout; 
-            -Mehtode Catch_Text_Buchstabe()   hinzugefügt mit Text und Layout;
-            -Methode Flächenträgheismoment_Axial Ix hinzugefügt mit Berrechnung;
-            -Methode FlächenträgheitsMoment_Axial Iy hinzugefügt mit Berrechnung;
-            -Methode Flächenträgheitsmoment in FlächentragheitsMoment_Polar umbennant das es ein Polares ist und dessen Berechnung Korregiert!
-            -Methode WiederstandsMoment_Axial_Wx hinzugefügt mit berechnung und in Methode_Ergebnise eingebettet;
-            -Methode WiederstandsMoment_Axial_Wy hinzugefügt mit berechnung und in Methode_Ergebnise eingebettet;
+        /*Update von Version 1.04 auf Version 1.05
+
+        -Methode Programm_Start_Eingabe() hinzugefügt für besseres Aussehen/Struktur und vermeidung von Permanenten Methodenaufruf;
+        -Methode Programm_Start_Eingabe() hinzugefügt für besseres Aussehen/Struktur und vermeidung von Permanenten Methodenaufruf;
+        -Methode Programmschließen()      hinzugefügt für besseres Aussehen und Struktur mit neuem Text und Layout;
+        -Mehtode Catch_Text_Zahl ()       hinzugefügt mit Text und Layout; 
+        -Mehtode Catch_Text_Buchstabe()   hinzugefügt mit Text und Layout;
+        -Methode Flächenträgheismoment_Axial Ix hinzugefügt mit Berrechnung;
+        -Methode FlächenträgheitsMoment_Axial Iy hinzugefügt mit Berrechnung;
+        -Methode Flächenträgheitsmoment in FlächentragheitsMoment_Polar umbennant das es ein Polares ist und dessen Berechnung Korregiert!
+        -Methode WiederstandsMoment_Axial_Wx hinzugefügt mit berechnung und in Methode_Ergebnise eingebettet;
+        -Methode WiederstandsMoment_Axial_Wy hinzugefügt mit berechnung und in Methode_Ergebnise eingebettet;
 
 
-            - In allen Methoden mit Eingabeaufforderung !!!!Try/Catch-Block!!!: Es können jetzt Sowohl Kommazahlen wie auch Buchstaben eingegeben Werden ohne dass das Programm abstürzt;
+        - In allen Methoden mit Eingabeaufforderung !!!!Try/Catch-Block!!!: Es können jetzt Sowohl Kommazahlen wie auch Buchstaben eingegeben Werden ohne dass das Programm abstürzt;
 
-            - in Methode Eingabe_Parameter weitere Do-While Schleife, da es Keine Profile gibt mit dem Wert <= 0 ;
-            
-            - Bug entfernt der das Programm nicht geschlossen hat wegen Permannten Methodenaufruf von Bestätigung_Der_Eingaben();
+        - in Methode Eingabe_Parameter weitere Do-While Schleife, da es Keine Profile gibt mit dem Wert <= 0 ;
 
-            - Änderung von Programmablauf;
+        - Bug entfernt der das Programm nicht geschlossen hat wegen Permannten Methodenaufruf von Bestätigung_Der_Eingaben();
 
-            - Kommentare geändert und sauber geordnet;
+        - Änderung von Programmablauf;
 
-            - Methode Gewichtsberechnung überarbeitet da falsche Ergebnisse!
+        - Kommentare geändert und sauber geordnet;
 
-            
-          
-
-
-            */
+        - Methode Gewichtsberechnung überarbeitet da falsche Ergebnisse!
 
 
 
+
+
+        */
+
+
+        
 
             // Erzeugen des Objekts  Rechteck
             Profilberechnung Rechteck = new Profilberechnung();
@@ -249,7 +251,6 @@ namespace HSPB1
         public void Programm_Start_Eingabe()
         {
             // Programmablauf!!
-
             Kopf();                          // Programmstart und Initialisierung der Methoden
             Eingabe_Profilgeometrie();       // Eingabe ob vollmaterial oder Hohlprofil
             Eingabe_Parameter();             // Eingabe der Profilparameter wie höhe breite und länge
@@ -272,6 +273,7 @@ namespace HSPB1
         // Kopfzeile /Info was  soll das Programm tun Layout via Console.WriteLine
         public void Kopf()
         {
+           
 
             Console.WriteLine(" ___________________________");
             Console.WriteLine("|                           |");
