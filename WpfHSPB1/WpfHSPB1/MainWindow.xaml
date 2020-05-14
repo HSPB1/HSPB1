@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfHSPB1"
         mc:Ignorable="d"
-           Title="Pro.File Rechner" Icon="/Frontbild_Programmicon.png"  MinWidth="400" MinHeight="200" Height="500" Width="900" >
+           Title="Pro.File Rechner" Icon="/Frontbild_Programmicon.png"  MinWidth="600" MinHeight="500" Height="500" Width="900" >
 
     <!--Background Farbe-->
     <Window.Background>
@@ -16,75 +16,88 @@
         </LinearGradientBrush>
     </Window.Background>
 
-    <!-- Umrandung für schickers Layout -->
-    <Border Padding="10" >
 
 
-        <Grid>
 
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="350" />
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
+    <!-- Hauptlayout -->
+    <Grid VerticalAlignment="Center" HorizontalAlignment="left" Margin="10">
 
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="360" />
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
 
-            <StackPanel Grid.Column="0">
+        <!--Umrandung fürs Layout Spalte 1 zur Abgrenzung -->
+        <Border Padding="10" BorderThickness="1" BorderBrush="White">
 
+            <!-- Stackpanel für Untereinander legen -->
+            <StackPanel Grid.Column="0" Height="414" Margin="-0.429,-1.429,0.143,0" VerticalAlignment="Bottom">
+                <!-- Logo der Jade HS -->
                 <Image Height="90" Width="300" Margin="10" Source="logo_woe.jpg"   ></Image>
-                <TextBlock Foreground="White"  Margin="5" FontSize="20" > Modul Hochsprachenprogrammierung SS2020</TextBlock>
-                <TextBlock Foreground="White" FontSize="16" Margin="60 1 15 0" >Ein Produkt der Gruppe Hsp_B1</TextBlock>
-
+                
+                <!-- überschriften -->
+                <TextBlock Foreground="White"  Margin="5" FontSize="18" FontWeight="Bold"> Modul Hochsprachenprogrammierung</TextBlock>
+                <TextBlock Foreground="White" FontSize="16" Margin="60 1 15 0" FontWeight="Light" >Ein Produkt der Gruppe Hsp_B1</TextBlock>
+                
+                <!-- Gleiches Bild wie Icon -->
                 <Image Height="240" Width="357" Margin="3"  Stretch="Uniform" Grid.Column="0" Source="/Frontbild_Programmicon.png"/>
 
             </StackPanel>
 
-            <StackPanel Grid.Column="1">
+        </Border>
 
-                <Grid>
 
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="80"/>
-                        <RowDefinition Height="30"/>
-                        <RowDefinition Height="10"/>
-                        <RowDefinition Height="30"/>
-                        <RowDefinition Height="30"/>
-                        <RowDefinition Height="30"/>
-                        <RowDefinition Height="30"/>
-                        <RowDefinition Height="30"/>
-                        <RowDefinition Height="30"/>
-                        <RowDefinition Height="30"/>
-                        <RowDefinition/>
-                    </Grid.RowDefinitions>
 
-                    <TextBlock  Grid.Row="0" Foreground="White" FontSize="28" Grid.Column="1" Margin="30,20,40,5" >Herzlich Willkommen</TextBlock>
-                    <TextBlock Grid.Row="1" Foreground="White" FontSize="16" Margin="30 5 40 5" > Vielen Dank,</TextBlock>
-                    <TextBlock Grid.Row="2"></TextBlock>
-                    <TextBlock Grid.Row="3" Foreground="White" FontSize="13" Margin="30 0 0 0">dass Sie sich für die Softwarelösung der Gruppe Hsp_B1 entschieden haben</TextBlock>
-                    <TextBlock Grid.Row="4" Foreground="White" FontSize="13" Margin="30 0 0 0 ">Dieses Programm ergmöglicht Ihnen ein Profil auszuwählen und nach Eingabe</TextBlock>
-                    <TextBlock Grid.Row="5" Foreground="White" FontSize="13" Margin="30 0 0 0 "> der Parameter zu berechnen .</TextBlock>
-                    <TextBlock Grid.Row="6" Foreground="White" FontSize="13" Margin="30 0 0 0 ">Die Berechnung erfolgen anhand der eingegebenen Paramteter</TextBlock>
-                    <TextBlock Grid.Row="7" Foreground="White" FontSize="13" Margin="30 0 0 0 ">und können daher von Literarturwerten abweichen!</TextBlock>
-                    <TextBlock Grid.Row="8" Foreground="White" FontSize="13" Margin="30 0 0 0 ">Implementierte Berechnungen sind:</TextBlock>
-                    <TextBlock Grid.Row="9" Foreground="White" FontSize="13" Margin="30 0 0 0 ">Querschnitt, Volumen,Gewicht, Massenträgheitsmomente und Biegemomente</TextBlock>
+        <!-- Hinweis für den User, Danksagung + Was macht das Programm -->
+        <StackPanel Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center">
 
-                    <Grid Grid.Row="10" Margin="0 43 0 40">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition />
-                            <ColumnDefinition/>
+            <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
 
-                        </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="80"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
 
-                        <Button  x:Name="btn_Weiter" Grid.Column="0"   Width="100" Click="btn_Weiter_Click" >Weiter</Button>
-                        <Button  x:Name="btn_Beenden" Grid.Column="1"  Width="100" Click="btn_Beenden_Click">Beenden</Button>
+                <TextBlock  Grid.Row="0" Foreground="White" FontSize="28" Grid.Column="1" Margin="30,15,40,5"  HorizontalAlignment="Left">Herzlich Willkommen</TextBlock>
+                <TextBlock Grid.Row="1" Foreground="White" FontSize="13" Margin="30 5 40 5" > Vielen Dank,</TextBlock>
+                <TextBlock Grid.Row="2"></TextBlock>
+                <TextBlock Grid.Row="3" Foreground="White" FontSize="13" Margin="30 0 0 0">dass Sie sich für die Softwarelösung der Gruppe Hsp_B1 entschieden haben</TextBlock>
+                <TextBlock Grid.Row="4" Foreground="White" FontSize="13" Margin="30 0 0 0 ">Dieses Programm ergmöglicht Ihnen ein Profil auszuwählen und nach Eingabe</TextBlock>
+                <TextBlock Grid.Row="5" Foreground="White" FontSize="13" Margin="30 0 0 0 "> der Parameter zu berechnen .</TextBlock>
+                <TextBlock Grid.Row="6" Foreground="White" FontSize="13" Margin="30 0 0 0 ">Die Berechnung erfolgen anhand der eingegebenen Paramteter</TextBlock>
+                <TextBlock Grid.Row="7" Foreground="White" FontSize="13" Margin="30 0 0 0 ">und können daher von Literarturwerten abweichen!</TextBlock>
+                <TextBlock Grid.Row="8" Foreground="White" FontSize="13" Margin="30 0 0 0 ">Implementierte Berechnungen sind:</TextBlock>
+                <TextBlock Grid.Row="9" Foreground="White" FontSize="13" Margin="30 0 0 0 ">Querschnitt, Volumen,Gewicht, Massenträgheitsmomente und Biegemomente</TextBlock>
 
-                    </Grid>
+                <Grid Grid.Row="10" Margin="0 90 0 0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition/>
 
+                    </Grid.ColumnDefinitions>
+                    
+                    <!-- Buttons zum Weiterführen oder Beenden des Programms -->
+                    <Button  x:Name="btn_Weiter" Grid.Column="0"   Width="100" Click="btn_Weiter_Click" >Weiter</Button>
+                    <Button  x:Name="btn_Beenden" Grid.Column="1"  Width="100" Click="btn_Beenden_Click">Beenden</Button>
 
                 </Grid>
 
 
-            </StackPanel>
-        </Grid>
+            </Grid>
 
-    </Border>
+
+        </StackPanel>
+
+    </Grid>
+
+
 </Window>

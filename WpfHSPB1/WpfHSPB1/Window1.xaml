@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfHSPB1"
         mc:Ignorable="d"
-                  Title="Pro.File Rechner" Icon="Frontbild_Programmicon.png"  MinWidth="400" MinHeight="200" Height="500" Width="600" >
+        Title="Pro.File Rechner" Icon="Frontbild_Programmicon.png"  MinWidth="400" MinHeight="200" Height="500" Width="600" >
 
     <!--Background Farbe-->
     <Window.Background>
@@ -16,78 +16,134 @@
         </LinearGradientBrush>
     </Window.Background>
 
-
+    <!-- Erste Grundgitter für Layout-->
     <Grid>
+        
+        <!-- Spaltenconfiguration -->
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="250"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <Grid Grid.Column="0">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="200"/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
+        <Border Margin="5"  BorderThickness="1" BorderBrush="White">
+            <!-- Anordnung Elemente Gitterspalte 1 -->
+            <Grid Grid.Column="0" >
 
-            <Image Margin="10" Width="250" Height="150" Grid.Row="0" Source="/Frontbild_Programmicon.png"></Image>
+                <!-- Zeielen Definition für Layout Spalte 1 -->
+              
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="150"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+              
+
+                <!-- Bild eingefügt in der ersten Spalte -->
+                    <Image Margin="10" Width="250" Height="150" Grid.Row="0" Source="/Frontbild_Programmicon.png" OpacityMask="#FF100E0E" ></Image>
+                
+                <!-- Erzeugung des Treeviewes -->
+                <TreeView FontSize="18" x:Name="trv_Profile" Margin="10" Grid.Row="1" BorderBrush="#FFC7CBD2"  >
+                    
+                    <TreeView.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="Black" Offset="0"/>
+                            <GradientStop Color="#FFDCD2D2" Offset="1"/>
+                        </LinearGradientBrush>
+                    </TreeView.Background>
+
+                    <!-- Treeview Baum für Rechteckige Profile mit unterpunkten  der Vollmaterial-->
+                    <TreeViewItem x:Name="trv_VerzRechteckigeProfile" Foreground="White" Header="Rechteckige Profile" Selected="trv_VerzRechteckigeProfile_Selected">
+
+                        <TreeViewItem x:Name="trv_VollmaterialRechteck" Foreground="White" Header="Vollmaterial" Selected="trv_VollmaterialRechteck_Selected"/>
 
 
-            <TreeView x:Name="VerzeichnisProfile" Margin="10" Grid.Row="1" >
 
-
-                <TreeViewItem Header="Rechteckige Profile">
-                    <TreeViewItem Header="Vollmaterial">
-                        <TreeViewItem Header="Vierkant Profil"/>
-                        <TreeViewItem Header="Flach Profil"/>
+                        <!-- Treeview Baum für Rechteckige Profile mit unterpunkten vom Hohlprofil -->
+                        <TreeViewItem x:Name="trv_HohlProfilRechteck" Foreground="White" Header="HohlProfile" Selected="trv_HohlProfilRechteck_Selected"></TreeViewItem>
+                        
                     </TreeViewItem>
 
-                    <TreeViewItem Header="HohlProfile">
-                        <TreeViewItem Header="Quadrahtrohr"/>
-                        <TreeViewItem Header="Rechteckrohr" />
+                    <!-- Treeview Baum für Runde Profile mit unterpunkten -->
+                    <TreeViewItem x:Name="trv_VerzRundeProifle" Foreground="White"  Header="Runde Profile" Selected="trv_VerzRundeProifle_Selected">
+
+                        <!-- Treeview Baum für RundeProfile mit unterpunkten  der Vollprofilen-->
+                        <TreeViewItem x:Name="trv_VerzRundVoll" Foreground="White" Header="Vollmaterial">
+                            
+                            <TreeViewItem x:Name="trv_RundProfilVoll" Foreground="White" Header="Rund Profil" Selected="trv_RundProfilVoll_Selected"/>
+                            <TreeViewItem x:Name="trv_HalbrundProfilVoll" Foreground="White" Header="Halbrund Profil" Selected="trv_HalbrundProfilVoll_Selected"/>
+                            
+                        </TreeViewItem>
+
+                        <!-- Treeview Baum für Runde Profile mit unterpunkten  der Hohlprofile-->
+                        <TreeViewItem x:Name="trv_VerzRundHohl" Foreground="White" Header="Hohlprofile" Selected="trv_VerzRundHohl_Selected">
+                            
+                            <TreeViewItem x:Name="trv_RundRohr" Foreground="White" Header="Rohre" Selected="trv_RundRohr_Selected"/>
+                            
+                        </TreeViewItem>
+
                     </TreeViewItem>
 
-                </TreeViewItem>
-
-                <TreeViewItem Header="Runde Profile">
+                </TreeView>
 
 
-                    <TreeViewItem Header="Vollmaterial">
-                        <TreeViewItem Header="Rund Profil"/>
-                        <TreeViewItem Header="Halbrund Profil"/>
-                    </TreeViewItem>
+            </Grid>
+        </Border>
 
-                    <TreeViewItem Header="Hohlprofile">
-                        <TreeViewItem Header="Rohre"></TreeViewItem>
-                    </TreeViewItem>
-
-                </TreeViewItem>
-
-
-
-
-
-
-
-
-
-            </TreeView>
-
-
-
-
-
-
+         <!-- Grid ist jetzt gerade Hidden!! -->
+        <Grid x:Name="grd_Aufforderung" Grid.Column="1" Visibility="Hidden" >
+            <Label VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="White" BorderThickness="1"  Foreground="White" FontSize="16">Bitte wählen Sie ein Profil aus der Liste</Label>
         </Grid>
 
-        <StackPanel Grid.Column="1">
+        
+        
+        <Grid x:Name="grd_RechteckHohl" Grid.Column="1" Visibility="Visible">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="150"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
 
-            <Label Foreground="White">adaf</Label>
-            <TextBox></TextBox>
+            <Grid  Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="30"/>
+                    <ColumnDefinition Width="40"/>
+                    <ColumnDefinition Width="40"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
 
+                <StackPanel Grid.Column="0">
 
+                    <Label Margin="5" Foreground="White">h:</Label>
+                    <Label Margin="5" Foreground="White">b:</Label>
+                    <Label Margin="5" Foreground="White" VerticalAlignment="Center" >t:</Label>
+                    <Label Margin="5" Foreground="White" VerticalAlignment="Center">L:</Label>
+                </StackPanel>
 
-        </StackPanel>
+                <StackPanel Grid.Column="1">
+                    <TextBox Margin="5 10 5 5"  VerticalAlignment="Center"/>
+                    <TextBox Margin="5 15 5 5"  VerticalAlignment="Center"/>
+                    <TextBox Margin="5 15 5 5"  VerticalAlignment="Center"/>                             
+                    <TextBox Margin="5 10 5 5"  VerticalAlignment="Center"/>
+                    
+                </StackPanel>
 
+                <StackPanel Grid.Column="2">
+                    <ComboBox Margin="5 9 5 5"/>
+                    <ComboBox Margin="5 10 5 5"/>
+                    <ComboBox Margin="5 13 5 5"/>
+                    <ComboBox Margin="5 6 5 5"/>
+                   
+                    
+                </StackPanel>
+
+                <Image Grid.Column="3"  Source="RechteckVollProfile.JPG" Stretch="Uniform"></Image>
+                
+                
+            </Grid>
+            
+            
+        </Grid>
+        
+        
+        
 
     </Grid>
 

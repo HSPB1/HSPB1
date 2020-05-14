@@ -107,5 +107,8 @@
   <ItemGroup>
     <Resource Include="logo_woe.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="RechteckVollProfile.JPG" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
