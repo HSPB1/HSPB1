@@ -5,11 +5,86 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfHSPB1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+           Title="Pro.File Rechner" Icon="/Frontbild_Programmicon.png"  MinWidth="400" MinHeight="200" Height="500" Width="900" >
+
+    <!--Background Farbe-->
+    <Window.Background>
+        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="#FF28354C" Offset="0.155"/>
+            <GradientStop Color="#FF7493CC" Offset="1"/>
+
+        </LinearGradientBrush>
+    </Window.Background>
+
+    <!-- Umrandung für schickers Layout -->
+    <Border Padding="10" >
 
 
-        <Button Width="60" Height="40">Link</Button>
-        
-    </Grid>
+        <Grid>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="350" />
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+
+            <StackPanel Grid.Column="0">
+
+                <Image Height="90" Width="300" Margin="10" Source="logo_woe.jpg"   ></Image>
+                <TextBlock Foreground="White"  Margin="5" FontSize="20" > Modul Hochsprachenprogrammierung SS2020</TextBlock>
+                <TextBlock Foreground="White" FontSize="16" Margin="60 1 15 0" >Ein Produkt der Gruppe Hsp_B1</TextBlock>
+
+                <Image Height="240" Width="357" Margin="3"  Stretch="Uniform" Grid.Column="0" Source="/Frontbild_Programmicon.png"/>
+
+            </StackPanel>
+
+            <StackPanel Grid.Column="1">
+
+                <Grid>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="80"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="10"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock  Grid.Row="0" Foreground="White" FontSize="28" Grid.Column="1" Margin="30,20,40,5" >Herzlich Willkommen</TextBlock>
+                    <TextBlock Grid.Row="1" Foreground="White" FontSize="16" Margin="30 5 40 5" > Vielen Dank,</TextBlock>
+                    <TextBlock Grid.Row="2"></TextBlock>
+                    <TextBlock Grid.Row="3" Foreground="White" FontSize="13" Margin="30 0 0 0">dass Sie sich für die Softwarelösung der Gruppe Hsp_B1 entschieden haben</TextBlock>
+                    <TextBlock Grid.Row="4" Foreground="White" FontSize="13" Margin="30 0 0 0 ">Dieses Programm ergmöglicht Ihnen ein Profil auszuwählen und nach Eingabe</TextBlock>
+                    <TextBlock Grid.Row="5" Foreground="White" FontSize="13" Margin="30 0 0 0 "> der Parameter zu berechnen .</TextBlock>
+                    <TextBlock Grid.Row="6" Foreground="White" FontSize="13" Margin="30 0 0 0 ">Die Berechnung erfolgen anhand der eingegebenen Paramteter</TextBlock>
+                    <TextBlock Grid.Row="7" Foreground="White" FontSize="13" Margin="30 0 0 0 ">und können daher von Literarturwerten abweichen!</TextBlock>
+                    <TextBlock Grid.Row="8" Foreground="White" FontSize="13" Margin="30 0 0 0 ">Implementierte Berechnungen sind:</TextBlock>
+                    <TextBlock Grid.Row="9" Foreground="White" FontSize="13" Margin="30 0 0 0 ">Querschnitt, Volumen,Gewicht, Massenträgheitsmomente und Biegemomente</TextBlock>
+
+                    <Grid Grid.Row="10" Margin="0 43 0 40">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition/>
+
+                        </Grid.ColumnDefinitions>
+
+                        <Button  x:Name="btn_Weiter" Grid.Column="0"   Width="100" Click="btn_Weiter_Click" >Weiter</Button>
+                        <Button  x:Name="btn_Beenden" Grid.Column="1"  Width="100" Click="btn_Beenden_Click">Beenden</Button>
+
+                    </Grid>
+
+
+                </Grid>
+
+
+            </StackPanel>
+        </Grid>
+
+    </Border>
 </Window>

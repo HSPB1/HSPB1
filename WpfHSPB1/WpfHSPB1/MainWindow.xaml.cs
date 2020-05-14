@@ -24,5 +24,30 @@ namespace WpfHSPB1
         {
             InitializeComponent();
         }
+
+        private void btn_Weiter_Click(object sender, RoutedEventArgs e)
+        {
+            //Objekterzeugung
+
+            Window1 Berechnung = new Window1();
+
+
+            //Aufruf des neuen Fensters
+            Berechnung.Show();
+
+            //schließt dieses Fenster bei Ausführung des neuen!
+            this.Close();
+        }
+
+        private void btn_Beenden_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
     }
+
+
+
+
+
+
 }
