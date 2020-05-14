@@ -89,19 +89,19 @@
         </Border>
 
          <!-- Grid ist jetzt gerade Hidden!! -->
-        <Grid x:Name="grd_Aufforderung" Grid.Column="1" Visibility="Hidden" >
+        <Grid x:Name="grd_Aufforderung" Grid.Column="1" >
             <Label VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="White" BorderThickness="1"  Foreground="White" FontSize="16">Bitte wählen Sie ein Profil aus der Liste</Label>
         </Grid>
 
         
         
-        <Grid x:Name="grd_RechteckHohl" Grid.Column="1" Visibility="Visible">
+        <Grid x:Name="grd_RechteckHohl" Grid.Column="1" Visibility="Hidden">
             <Grid.RowDefinitions>
                 <RowDefinition Height="150"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-            <Grid  Grid.Row="0">
+            <Grid   Grid.Row="0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="30"/>
                     <ColumnDefinition Width="40"/>
