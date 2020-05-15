@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfHSPB1"
         mc:Ignorable="d"
-        Title="Pro.File Rechner" Icon="Frontbild_Programmicon.png"  MinWidth="400" MinHeight="200" Height="500" Width="600" >
+        Title="Pro.File Rechner" Icon="Frontbild_Programmicon.png"  MinWidth="400" MinHeight="200" Height="500" Width="900" >
 
     <!--Background Farbe-->
     <Window.Background>
@@ -18,35 +18,38 @@
 
     <!-- Erste Grundgitter für Layout-->
     <Grid>
-        
+
         <!-- Spaltenconfiguration -->
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="250"/>
+            <ColumnDefinition Width="240"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <Border Margin="5"  BorderThickness="1" BorderBrush="White">
+        <Border Margin="20"  BorderThickness="1" BorderBrush="White"  CornerRadius="10">
             <!-- Anordnung Elemente Gitterspalte 1 -->
             <Grid Grid.Column="0" >
 
                 <!-- Zeielen Definition für Layout Spalte 1 -->
-              
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="150"/>
-                        <RowDefinition/>
-                    </Grid.RowDefinitions>
-              
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="150"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
 
                 <!-- Bild eingefügt in der ersten Spalte -->
-                    <Image Margin="10" Width="250" Height="150" Grid.Row="0" Source="/Frontbild_Programmicon.png" OpacityMask="#FF100E0E" ></Image>
+                <Image Margin="10" Width="200" Height="150" Grid.Row="0" Source="/Frontbild_Programmicon.png" OpacityMask="#FF100E0E" ></Image>
+
+                <Label Grid.Row="1" Foreground="White" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center">Profil Verzeichnis</Label>
                 
                 <!-- Erzeugung des Treeviewes -->
-                <TreeView FontSize="18" x:Name="trv_Profile" Margin="10" Grid.Row="1" BorderBrush="#FFC7CBD2"  >
-                    
+                <TreeView   Width="200" Height="300" FontSize="18" x:Name="trv_Profile" Margin="5" Grid.Row="2" BorderBrush="#FFC7CBD2" >
+
                     <TreeView.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                             <GradientStop Color="Black" Offset="0"/>
-                            <GradientStop Color="#FFDCD2D2" Offset="1"/>
+                            <GradientStop Color="#FF82A1F1" Offset="1"/>
                         </LinearGradientBrush>
                     </TreeView.Background>
 
@@ -59,7 +62,7 @@
 
                         <!-- Treeview Baum für Rechteckige Profile mit unterpunkten vom Hohlprofil -->
                         <TreeViewItem x:Name="trv_HohlProfilRechteck" Foreground="White" Header="HohlProfile" Selected="trv_HohlProfilRechteck_Selected"></TreeViewItem>
-                        
+
                     </TreeViewItem>
 
                     <!-- Treeview Baum für Runde Profile mit unterpunkten -->
@@ -67,17 +70,17 @@
 
                         <!-- Treeview Baum für RundeProfile mit unterpunkten  der Vollprofilen-->
                         <TreeViewItem x:Name="trv_VerzRundVoll" Foreground="White" Header="Vollmaterial">
-                            
+
                             <TreeViewItem x:Name="trv_RundProfilVoll" Foreground="White" Header="Rund Profil" Selected="trv_RundProfilVoll_Selected"/>
                             <TreeViewItem x:Name="trv_HalbrundProfilVoll" Foreground="White" Header="Halbrund Profil" Selected="trv_HalbrundProfilVoll_Selected"/>
-                            
+
                         </TreeViewItem>
 
                         <!-- Treeview Baum für Runde Profile mit unterpunkten  der Hohlprofile-->
                         <TreeViewItem x:Name="trv_VerzRundHohl" Foreground="White" Header="Hohlprofile" Selected="trv_VerzRundHohl_Selected">
-                            
+
                             <TreeViewItem x:Name="trv_RundRohr" Foreground="White" Header="Rohre" Selected="trv_RundRohr_Selected"/>
-                            
+
                         </TreeViewItem>
 
                     </TreeViewItem>
@@ -88,64 +91,224 @@
             </Grid>
         </Border>
 
-         <!-- Grid ist jetzt gerade Hidden!! -->
-        <Grid x:Name="grd_Aufforderung" Grid.Column="1" >
-            <Label VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="White" BorderThickness="1"  Foreground="White" FontSize="16">Bitte wählen Sie ein Profil aus der Liste</Label>
+        <!-- Grid ist jetzt gerade Hidden!! -->
+        <Grid x:Name="grd_Aufforderung" Grid.Column="1" Visibility="Visible">
+            <Label VerticalAlignment="Center" HorizontalAlignment="Center" BorderBrush="White" BorderThickness="1" Foreground="White" FontSize="16" >Bitte wählen Sie ein Profil aus der Liste</Label>
         </Grid>
 
-        
-        
-        <Grid x:Name="grd_RechteckHohl" Grid.Column="1" Visibility="Hidden">
+
+        <!-- wieder hidden nicht vergessen!-->
+        <!-- Grid für layout eingabe Parameter-->
+        <Grid x:Name="grd_RechteckVoll" Grid.Column="1" Visibility="Hidden" Margin="0,0,0.286,0.429">
+
+
+            <!-- Basisaufteilung für Ein und Ausgabe-->
             <Grid.RowDefinitions>
-                <RowDefinition Height="150"/>
-                <RowDefinition Height="*"/>
+                <RowDefinition Height="240"/>
+
+                <RowDefinition/>
             </Grid.RowDefinitions>
 
-            <Grid   Grid.Row="0">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="30"/>
-                    <ColumnDefinition Width="40"/>
-                    <ColumnDefinition Width="40"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
+            <!-- Erzeugen von einer weiteren Spalte für Aufteilung Eingabe/Bild-->
+            <Grid  Grid.Column="0">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="200"/>
+                    </Grid.ColumnDefinitions>
 
-                <StackPanel Grid.Column="0">
+                    <!-- Zeilen für Eingabe natürlich in einem weiteren Gitter ;D ;D  -->
+                    <!-- Mit schickem Rahmen (Border) -->
+                    <Border Margin="20" Grid.Column="0" BorderBrush="White" BorderThickness="1" CornerRadius="10">
+                        <Grid Grid.Column="0" >
+                            <!-- Zeilendefinierung für Eingabe-->
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="36"/>
+                                <RowDefinition Height="36"/>
+                                <RowDefinition Height="36"/>
+                                <RowDefinition Height="36"/>
+                                <RowDefinition Height="36"/>
+                            </Grid.RowDefinitions>
 
-                    <Label Margin="5" Foreground="White">h:</Label>
-                    <Label Margin="5" Foreground="White">b:</Label>
-                    <Label Margin="5" Foreground="White" VerticalAlignment="Center" >t:</Label>
-                    <Label Margin="5" Foreground="White" VerticalAlignment="Center">L:</Label>
-                </StackPanel>
+                            <Label Foreground="White" FontWeight="Bold" FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Center">Eingabe Parameter</Label>
 
-                <StackPanel Grid.Column="1">
-                    <TextBox Margin="5 10 5 5"  VerticalAlignment="Center"/>
-                    <TextBox Margin="5 15 5 5"  VerticalAlignment="Center"/>
-                    <TextBox Margin="5 15 5 5"  VerticalAlignment="Center"/>                             
-                    <TextBox Margin="5 10 5 5"  VerticalAlignment="Center"/>
-                    
-                </StackPanel>
+                            <!-- Eingabefeld 1 -->
+                            <StackPanel HorizontalAlignment="Center" Grid.Row="1" Orientation="Horizontal">
 
-                <StackPanel Grid.Column="2">
-                    <ComboBox Margin="5 9 5 5"/>
-                    <ComboBox Margin="5 10 5 5"/>
-                    <ComboBox Margin="5 13 5 5"/>
-                    <ComboBox Margin="5 6 5 5"/>
-                   
-                    
-                </StackPanel>
+                                <Label Margin="5 5 1 5" Foreground="White" Content="Höhe h:" />
+                                <TextBox Height="20" Margin="2 5 1 5" Width="30" />
+                                <Label  Margin="1 5 0 5" Foreground="White" Content="mm"/>
+                            </StackPanel>
 
-                <Image Grid.Column="3"  Source="RechteckVollProfile.JPG" Stretch="Uniform"></Image>
-                
-                
+                            <!--Eingabefeld 2 -->
+                            <StackPanel HorizontalAlignment="Center" Grid.Row="2" Orientation="Horizontal">
+
+                                <Label Margin="5 5 1 5" Foreground="White" Content="Höhe h:" />
+                                <TextBox Height="20" Margin="2 5 1 5" Width="30"/>
+                                <Label  Margin="1 5 0 5" Foreground="White" Content="mm"/>
+                            </StackPanel>
+
+                            <!-- Eingabefeld 3-->
+                            <StackPanel HorizontalAlignment="Center" Grid.Row="3" Orientation="Horizontal">
+
+                                <Label Margin="5 5 1 5" Foreground="White" Content="Länge L:" />
+                                <TextBox Height="20" Margin="0 5 1 5" Width="30"/>
+                                <Label  Margin="1 5 0 5" Foreground="White" Content="mm"/>
+                            </StackPanel>
+
+                            <Button Grid.Row="4" Margin="177,9.714,154.429,-3.143" Width="80" Height="25" VerticalAlignment="Center" HorizontalAlignment="Center">Berechnung</Button>
+
+                        </Grid>
+                    </Border>
+                    <!-- Hier Endet das Eingabefenster -->
+
+                    <!-- Rand Für das Bild-->
+                    <Border Grid.Column="1" BorderBrush="White" BorderThickness="1" Margin="20" CornerRadius="10" Height="160">
+
+                        <Image Margin="5" Grid.Column="1"  Source="RechteckVollProfile.JPG"></Image>
+                    </Border> <!-- Ab hier endet das Bild-->
+
+
+                </Grid>
+                <!-- Ende des Bereichs Eingabe und Bild -->
+
             </Grid>
-            
-            
+            <!-- Ende des Gesamten Eingabe/Ausgabefelds -->
+
+            <!-- Rand für Ergebnis Ausgabe -->
+            <Border Grid.Row="1" BorderBrush="White" BorderThickness="2" CornerRadius="10" Margin="10">
+
+                <!-- Ergebniss Fenster Gitter -->
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="50*"/>
+                    </Grid.ColumnDefinitions>
+                    <!-- Gitter für Überschrift -->
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="40"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                    <!-- Überschrift -->
+                    <Label Grid.Row="0" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="20" Grid.Column="1" Margin="238.478,2,250.428,2">Ergebnisse</Label>
+
+                    <!-- Gitter für Ergebnis -->
+                    <Grid Grid.Row="1" Grid.ColumnSpan="2" Margin="0,0,0.428,-0.429">
+
+                        <!-- Gitter Definition Spalten-->
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <!-- Gitter Definiton Spalten-->
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+
+                        <!-- Anzeige Querschnittsfläche-->
+                        <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
+                            <Label  HorizontalAlignment="Left" Foreground="White" FontSize="14">Querschnittsfläche:</Label>
+                            <TextBox  Margin="0 5 0 5" Width="50"></TextBox>
+                            <TextBlock  VerticalAlignment="Center" Foreground="White" FontSize="14" Margin="2">mm²</TextBlock>
+                        </StackPanel>
+
+                        <!-- Anzeige Volumen -->
+                        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
+                            <Label   HorizontalAlignment="Left" Foreground="White" FontSize="14">Volumen:</Label>
+                            <TextBox  Margin="58 5 0 5" Width="50"></TextBox>
+                            <TextBlock  VerticalAlignment="Center" Foreground="White" FontSize="14" Margin="2" >mm³</TextBlock>
+                        </StackPanel>
+
+                        <!-- Anzeige Gewicht -->
+                        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
+                            <Label   HorizontalAlignment="Left" Foreground="White" FontSize="14">Gewicht:</Label>
+                            <TextBox  Margin="63 5 0 5" Width="50"></TextBox>
+                            <TextBlock  VerticalAlignment="Center" Foreground="White" FontSize="14" Margin="2">kg</TextBlock>
+                        </StackPanel>
+
+                        <!-- Anzeige Wiederstandsmoment Axial Wx -->
+                        <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
+                            <Label   HorizontalAlignment="Left" Foreground="White" FontSize="14">Wiederstandsmoment Axial Wx:</Label>
+                            <TextBox  Margin="0 5 0 5" Width="50"></TextBox>
+                            <TextBlock  VerticalAlignment="Center" Foreground="White" FontSize="14" Margin="2">mm³</TextBlock>
+                        </StackPanel>
+
+                        <!-- Anzeige Wiederstandsmoment Axial Wy -->
+                        <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
+                            <Label   HorizontalAlignment="Left" Foreground="White" FontSize="14">Wiederstandsmoment Axial Wy:</Label>
+                            <TextBox  Margin="0 5 0 5" Width="50" ></TextBox>
+                            <TextBlock  VerticalAlignment="Center" Foreground="White" FontSize="14" Margin="2">mm³</TextBlock>
+                        </StackPanel>
+
+                        <!-- Anzeige FlächenträgeitsMoment Axial Ix -->
+                        <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
+                            <Label   HorizontalAlignment="Left" Foreground="White" FontSize="14">FlächenträgeitsMoment Axial Ix:</Label>
+                            <TextBox  Margin="0 5 0 5" Width="50" ></TextBox>
+                            <TextBlock  VerticalAlignment="Center" Foreground="White" FontSize="14"  Margin="2 ">mm^4</TextBlock>
+                        </StackPanel>
+
+
+                        <!-- Anzeige FlächenträgeitsMoment Axial Iy -->
+                        <StackPanel Grid.Row="3" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
+                            <Label   HorizontalAlignment="Left" Foreground="White" FontSize="14"  >FlächenträgeitsMoment Axial Iy:</Label>
+                            <TextBox  Margin="0 5 0 5" Width="50"></TextBox>
+                            <TextBlock  VerticalAlignment="Center" Foreground="White" FontSize="14" Margin="2">mm^4</TextBlock>
+                        </StackPanel>
+
+                        <!-- Anzeige FlächenträgeitsMoment Polar -->
+                        <StackPanel Grid.Row="4" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
+                            <Label   HorizontalAlignment="Left" Foreground="White" FontSize="14">FlächenträgeitsMoment Polar:</Label>
+                            <TextBox  Margin="12 5 0 5" Width="50"></TextBox>
+                            <TextBlock  VerticalAlignment="Center" Foreground="White" FontSize="14" Margin="2">mm^4</TextBlock>
+                        </StackPanel>
+
+                        <!-- Anzeige Preis -->
+                        <StackPanel Grid.Row="3" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
+                            <Label   HorizontalAlignment="Left" Foreground="White" FontSize="14">Preis:</Label>
+                            <TextBox  Margin="83 5 0 5" Width="50"></TextBox>
+                            <TextBlock  VerticalAlignment="Center" Foreground="White" FontSize="14" Margin="2" >Euro</TextBlock>
+                        </StackPanel>
+
+                        <!-- Anzeige Button Programm Schließen-->
+                        <StackPanel Grid.Row="4" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+
+                            <Button x:Name="Schließen" Click="Schließen_Click">Programm schließen</Button>
+                            
+                        </StackPanel>
+                        
+                    </Grid>
+
+
+
+
+
+                </Grid>
+
+
+
+
+
+
+
+
+
+            </Border>
+
         </Grid>
-        
-        
-        
+
 
     </Grid>
+
+
+
+
+
 
 
 

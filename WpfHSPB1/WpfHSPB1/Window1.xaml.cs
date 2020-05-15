@@ -30,31 +30,31 @@ namespace WpfHSPB1
         private void trv_RundRohr_Selected(object sender, RoutedEventArgs e)
         {
             grd_Aufforderung.Visibility = Visibility.Hidden ;
-            grd_RechteckHohl.Visibility = Visibility.Hidden;
+            grd_RechteckVoll.Visibility = Visibility.Hidden;
         }
 
         private void trv_HalbrundProfilVoll_Selected(object sender, RoutedEventArgs e)
         {
             grd_Aufforderung.Visibility = Visibility.Hidden;
-            grd_RechteckHohl.Visibility = Visibility.Hidden;
+            grd_RechteckVoll.Visibility = Visibility.Hidden;
         }
 
         private void trv_RundProfilVoll_Selected(object sender, RoutedEventArgs e)
         {
             grd_Aufforderung.Visibility = Visibility.Hidden;
-            grd_RechteckHohl.Visibility = Visibility.Hidden;
+            grd_RechteckVoll.Visibility = Visibility.Hidden;
         }
 
         private void trv_VollmaterialRechteck_Selected(object sender, RoutedEventArgs e)
         {
             grd_Aufforderung.Visibility = Visibility.Hidden;
-            grd_RechteckHohl.Visibility = Visibility.Visible;
+            grd_RechteckVoll.Visibility = Visibility.Visible;
         }
 
         private void trv_HohlProfilRechteck_Selected(object sender, RoutedEventArgs e)
         {
             grd_Aufforderung.Visibility = Visibility.Hidden;
-            grd_RechteckHohl.Visibility = Visibility.Hidden;
+            grd_RechteckVoll.Visibility = Visibility.Hidden;
         }
 
         private void trv_VerzRechteckigeProfile_Selected(object sender, RoutedEventArgs e)
@@ -70,6 +70,14 @@ namespace WpfHSPB1
         private void trv_VerzRundHohl_Selected(object sender, RoutedEventArgs e)
         {
             
+        }
+
+     
+
+
+        private void Schließen_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
     }
 }
