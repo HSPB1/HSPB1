@@ -30,31 +30,58 @@ namespace WpfHSPB1
         private void trv_RundRohr_Selected(object sender, RoutedEventArgs e)
         {
             grd_Aufforderung.Visibility = Visibility.Hidden ;
+<<<<<<< Updated upstream
+=======
+            grd_RechteckVoll.Visibility = Visibility.Hidden;
+            grd_Ergebnisse.Visibility = Visibility.Visible;
+>>>>>>> Stashed changes
             grd_RechteckHohl.Visibility = Visibility.Hidden;
         }
 
         private void trv_HalbrundProfilVoll_Selected(object sender, RoutedEventArgs e)
         {
             grd_Aufforderung.Visibility = Visibility.Hidden;
+<<<<<<< Updated upstream
+=======
+            grd_RechteckVoll.Visibility = Visibility.Hidden;
+            grd_Ergebnisse.Visibility = Visibility.Visible;
+>>>>>>> Stashed changes
             grd_RechteckHohl.Visibility = Visibility.Hidden;
         }
 
         private void trv_RundProfilVoll_Selected(object sender, RoutedEventArgs e)
         {
             grd_Aufforderung.Visibility = Visibility.Hidden;
+<<<<<<< Updated upstream
+=======
+            grd_RechteckVoll.Visibility = Visibility.Hidden;
+            grd_Ergebnisse.Visibility = Visibility.Visible;
+>>>>>>> Stashed changes
             grd_RechteckHohl.Visibility = Visibility.Hidden;
         }
 
         private void trv_VollmaterialRechteck_Selected(object sender, RoutedEventArgs e)
         {
             grd_Aufforderung.Visibility = Visibility.Hidden;
+<<<<<<< Updated upstream
             grd_RechteckHohl.Visibility = Visibility.Visible;
+=======
+            grd_RechteckVoll.Visibility = Visibility.Visible;
+            grd_Ergebnisse.Visibility = Visibility.Visible;
+            grd_RechteckHohl.Visibility = Visibility.Hidden;
+>>>>>>> Stashed changes
         }
 
         private void trv_HohlProfilRechteck_Selected(object sender, RoutedEventArgs e)
         {
             grd_Aufforderung.Visibility = Visibility.Hidden;
+<<<<<<< Updated upstream
             grd_RechteckHohl.Visibility = Visibility.Hidden;
+=======
+            grd_RechteckVoll.Visibility = Visibility.Hidden;
+            grd_Ergebnisse.Visibility = Visibility.Visible;
+            grd_RechteckHohl.Visibility = Visibility.Visible;
+>>>>>>> Stashed changes
         }
 
         private void trv_VerzRechteckigeProfile_Selected(object sender, RoutedEventArgs e)
