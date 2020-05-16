@@ -25,14 +25,13 @@ namespace WpfHSPB1
             InitializeComponent();
         }
 
-            
-
         private void trv_RundRohr_Selected(object sender, RoutedEventArgs e)
         {
             grd_Aufforderung.Visibility = Visibility.Hidden ;
             grd_RechteckVoll.Visibility = Visibility.Hidden;
             grd_Ergebnisse.Visibility = Visibility.Visible;
             grd_RechteckHohl.Visibility = Visibility.Hidden;
+            grd_HalbrundProfilVoll.Visibility = Visibility.Hidden;
         }
 
         private void trv_HalbrundProfilVoll_Selected(object sender, RoutedEventArgs e)
@@ -41,6 +40,7 @@ namespace WpfHSPB1
             grd_RechteckVoll.Visibility = Visibility.Hidden;
             grd_Ergebnisse.Visibility = Visibility.Visible;
             grd_RechteckHohl.Visibility = Visibility.Hidden;
+            grd_HalbrundProfilVoll.Visibility = Visibility.Visible;
         }
 
         private void trv_RundProfilVoll_Selected(object sender, RoutedEventArgs e)
@@ -49,6 +49,7 @@ namespace WpfHSPB1
             grd_RechteckVoll.Visibility = Visibility.Hidden;
             grd_Ergebnisse.Visibility = Visibility.Visible;
             grd_RechteckHohl.Visibility = Visibility.Hidden;
+            grd_HalbrundProfilVoll.Visibility = Visibility.Hidden;
         }
 
         private void trv_VollmaterialRechteck_Selected(object sender, RoutedEventArgs e)
@@ -57,6 +58,7 @@ namespace WpfHSPB1
             grd_RechteckVoll.Visibility = Visibility.Visible;
             grd_Ergebnisse.Visibility = Visibility.Visible;
             grd_RechteckHohl.Visibility = Visibility.Hidden;
+            grd_HalbrundProfilVoll.Visibility = Visibility.Hidden;
         }
 
         private void trv_HohlProfilRechteck_Selected(object sender, RoutedEventArgs e)
@@ -64,7 +66,8 @@ namespace WpfHSPB1
             grd_Aufforderung.Visibility = Visibility.Hidden;
             grd_RechteckVoll.Visibility = Visibility.Hidden;
             grd_Ergebnisse.Visibility = Visibility.Visible;
-            grd_RechteckHohl.Visibility = Visibility.Visible;            
+            grd_RechteckHohl.Visibility = Visibility.Visible;
+            grd_HalbrundProfilVoll.Visibility = Visibility.Hidden;
         }
 
         private void trv_VerzRechteckigeProfile_Selected(object sender, RoutedEventArgs e)
