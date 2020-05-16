@@ -131,7 +131,7 @@ namespace WpfHSPB1
                 double höhe = Convert.ToDouble(TxtBox_ReVo_Höhe.Text);
                 double breite = Convert.ToDouble(TxtBox_ReVo_Breite.Text);
                 double länge = Convert.ToDouble(TxtBox_ReVo_Länge.Text);
-
+                 
                 double qfläche = höhe * breite;
                 double volumen = qfläche * länge;
                 double Wy = breite * höhe * höhe / 6;
@@ -142,6 +142,7 @@ namespace WpfHSPB1
 
                 double gewicht = 0;
                 double preis = 0;
+                
                 if (cbi_Stahl.IsSelected)
                 {
                     gewicht = volumen * 0.00000785;
@@ -169,7 +170,7 @@ namespace WpfHSPB1
 
         private void btn_ReHo_berechnung_Click(object sender, RoutedEventArgs e)
         {
-
+            
             if (TxtBox_ReHo_Höhe.Text == "" || TxtBox_ReHo_Breite.Text == "" || TxtBox_ReHo_Länge.Text == ""|| TxtBox_ReHo_Wandstärke.Text=="")
             {
                 MessageBox.Show("Bitte überprüfen sie ihre Eingabe!");
@@ -180,7 +181,7 @@ namespace WpfHSPB1
                 double breite = Convert.ToDouble(TxtBox_ReHo_Breite.Text);
                 double länge = Convert.ToDouble(TxtBox_ReHo_Länge.Text);
                 double wandstärke = Convert.ToDouble(TxtBox_ReHo_Wandstärke.Text);
-
+                
                 double qfläche = (höhe * breite) - ((höhe - 2 * wandstärke) * (breite - 2 * wandstärke));
                 double volumen = qfläche * länge;
                 double Wy = ((breite * höhe * höhe * höhe) - ((breite - 2 * wandstärke) * (höhe - 2 * wandstärke) * (höhe - 2 * wandstärke) * (höhe - 2 * wandstärke))) / (6 * höhe);
@@ -191,19 +192,20 @@ namespace WpfHSPB1
 
                 double gewicht = 0;
                 double preis = 0;
-                if (cb_Material.Text == "Stahl")
+                
+                if (cbi_Stahl.IsSelected)
                 {
                     gewicht = volumen * 0.00000785;
                     preis = gewicht * 1.5;
 
                 }
-
-                if (cb_Material.Text == "Aluminium")
+                
+                if (cbi_Aluminium.IsSelected)
                 {
                     gewicht = volumen * 0.0000027;
                     preis = gewicht * 2.5;
                 }
-
+                
                 lbl_Gewicht.Content = gewicht;
                 lbl_Preis.Content = preis;
                 lbl_qfläche.Content = qfläche;
@@ -217,7 +219,7 @@ namespace WpfHSPB1
         }
 
         private void btn_RuVo_berechnung_Click(object sender, RoutedEventArgs e)
-        {
+        {/// Sind Parameter eingegeben worden
             if (TxtBox_RuVo_Durchmesser.Text == "" || TxtBox_RuVo_Länge.Text == "")
             {
                 MessageBox.Show("Bitte überprüfen sie ihre Eingabe!");
@@ -226,7 +228,7 @@ namespace WpfHSPB1
             {
                 double durchmesser = Convert.ToDouble(TxtBox_RuVo_Durchmesser.Text);
                 double länge = Convert.ToDouble(TxtBox_RuVo_Länge.Text);
-
+                ///Berechnungen
                 double qfläche = Math.PI * durchmesser * durchmesser / 4;
                 double volumen = qfläche * länge;
                 double Wy = Math.PI * durchmesser * durchmesser * durchmesser / 32;
@@ -238,19 +240,20 @@ namespace WpfHSPB1
 
                 double gewicht = 0;
                 double preis = 0;
-                if (cb_Material.Text == "Stahl")
-                {
+                ///Auswahl Stahl
+                if (cbi_Stahl.IsSelected)
+                {///Berechnung
                     gewicht = volumen * 0.00000785;
                     preis = gewicht * 1.5;
 
                 }
-
-                if (cb_Material.Text == "Aluminium")
-                {
+                /// Auswahl Aluminim
+                if (cbi_Aluminium.IsSelected)
+                {///Berechnung
                     gewicht = volumen * 0.0000027;
                     preis = gewicht * 2.5;
                 }
-
+                ///Ausgabe der berechneten Werte für das Profil Vollmaterial Rund
                 lbl_Gewicht.Content = gewicht;
                 lbl_Preis.Content = preis;
                 lbl_qfläche.Content = qfläche;

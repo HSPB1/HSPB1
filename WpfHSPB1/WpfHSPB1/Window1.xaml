@@ -29,7 +29,7 @@
             <!-- Anordnung Elemente Gitterspalte 1 -->
             <Grid Grid.Column="0" >
 
-                <!-- Zeielen Definition für Layout Spalte 1 -->
+                <!-- Zeilen Definition für Layout Spalte 1 -->
 
                 <Grid.RowDefinitions>
                     <RowDefinition Height="150"/>
@@ -53,22 +53,22 @@
                         </LinearGradientBrush>
                     </TreeView.Background>
 
-                    <!-- Treeview Baum für Rechteckige Profile mit unterpunkten  der Vollmaterial-->
+                    <!-- Treeview Baum für Rechteckige Profile mit Unterpunkten der Vollmaterial-->
                     <TreeViewItem x:Name="trv_VerzRechteckigeProfile" Foreground="White" Header="Rechteckige Profile" Selected="trv_VerzRechteckigeProfile_Selected">
 
                         <TreeViewItem x:Name="trv_VollmaterialRechteck" Foreground="White" Header="Vollmaterial" Selected="trv_VollmaterialRechteck_Selected"/>
 
 
 
-                        <!-- Treeview Baum für Rechteckige Profile mit unterpunkten vom Hohlprofil -->
+                        <!-- Treeview Baum für Rechteckige Profile mit Unterpunkten vom Hohlprofil -->
                         <TreeViewItem x:Name="trv_HohlProfilRechteck" Foreground="White" Header="HohlProfile" Selected="trv_HohlProfilRechteck_Selected"></TreeViewItem>
 
                     </TreeViewItem>
 
-                    <!-- Treeview Baum für Runde Profile mit unterpunkten -->
+                    <!-- Treeview Baum für Runde Profile mit Unterpunkten -->
                     <TreeViewItem x:Name="trv_VerzRundeProifle" Foreground="White"  Header="Runde Profile" Selected="trv_VerzRundeProifle_Selected">
 
-                        <!-- Treeview Baum für RundeProfile mit unterpunkten  der Vollprofilen-->
+                        <!-- Treeview Baum für RundeProfile mit Unterpunkten  der Vollprofilen-->
                         <TreeViewItem x:Name="trv_VerzRundVoll" Foreground="White" Header="Vollmaterial">
 
                             <TreeViewItem x:Name="trv_RundProfilVoll" Foreground="White" Header="Rund Profil" Selected="trv_RundProfilVoll_Selected"/>
@@ -76,7 +76,7 @@
 
                         </TreeViewItem>
 
-                        <!-- Treeview Baum für Runde Profile mit unterpunkten  der Hohlprofile-->
+                        <!-- Treeview Baum für Runde Profile mit Unterpunkten  der Hohlprofile-->
                         <TreeViewItem x:Name="trv_VerzRundHohl" Foreground="White" Header="Hohlprofile" Selected="trv_VerzRundHohl_Selected">
 
                             <TreeViewItem x:Name="trv_RundRohr" Foreground="White" Header="Rohre" Selected="trv_RundRohr_Selected"/>
@@ -381,7 +381,7 @@
             <!-- Ende des Gesamten Eingabe/Ausgabefelds -->
 
 
-            <!-- Erzeugen von einer weiteren Spalte für Aufteilung Eingabe/Bild-->
+            <!-- Anfang RundmaterialVoll-->
             <Grid  x:Name="grd_RundVoll"  Grid.Column="0" Visibility="Hidden">
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -389,8 +389,8 @@
                         <ColumnDefinition Width="200"/>
                     </Grid.ColumnDefinitions>
 
-                    <!-- Zeilen für Eingabe natürlich in einem weiteren Gitter ;D ;D  -->
-                    <!-- Mit schickem Rahmen (Border) -->
+                    <!-- Zeilen für Eingabe in einem weiteren Gitter-->
+                    <!-- Mit Rahmen (Border) -->
                     <Border Margin="20" Grid.Column="0" BorderBrush="White" BorderThickness="1" CornerRadius="10">
                         <Grid Grid.Column="0" >
                             <!-- Zeilendefinierung für Eingabe-->
