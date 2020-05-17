@@ -37,6 +37,8 @@ namespace WpfHSPB1
             grd_HalbRund.Visibility = Visibility.Hidden;
             grd_Rohr.Visibility = Visibility.Visible;
             grd_material.Visibility = Visibility.Visible;
+            grd_VollmaterialSechseck.Visibility = Visibility.Hidden;
+            grd_TProfil.Visibility = Visibility.Hidden;
 
         }
 
@@ -50,6 +52,8 @@ namespace WpfHSPB1
             grd_HalbRund.Visibility = Visibility.Visible;
             grd_Rohr.Visibility = Visibility.Hidden;
             grd_material.Visibility = Visibility.Visible;
+            grd_VollmaterialSechseck.Visibility = Visibility.Hidden;
+            grd_TProfil.Visibility = Visibility.Hidden;
 
         }
 
@@ -63,6 +67,8 @@ namespace WpfHSPB1
             grd_HalbRund.Visibility = Visibility.Hidden;
             grd_Rohr.Visibility = Visibility.Hidden;
             grd_material.Visibility = Visibility.Visible;
+            grd_VollmaterialSechseck.Visibility = Visibility.Hidden;
+            grd_TProfil.Visibility = Visibility.Hidden;
 
 
         }
@@ -77,6 +83,8 @@ namespace WpfHSPB1
             grd_HalbRund.Visibility = Visibility.Hidden;
             grd_Rohr.Visibility = Visibility.Hidden;
             grd_material.Visibility = Visibility.Visible;
+            grd_VollmaterialSechseck.Visibility = Visibility.Hidden;
+            grd_TProfil.Visibility = Visibility.Hidden;
 
 
         }
@@ -91,6 +99,67 @@ namespace WpfHSPB1
             grd_HalbRund.Visibility = Visibility.Hidden;
             grd_Rohr.Visibility = Visibility.Hidden;
             grd_material.Visibility = Visibility.Visible;
+            grd_VollmaterialSechseck.Visibility = Visibility.Hidden;
+            grd_TProfil.Visibility = Visibility.Hidden;
+
+
+        }
+        internal void trv_VollmaterialSechseck_Selected(object sender, RoutedEventArgs e)
+        {
+            grd_Aufforderung.Visibility = Visibility.Hidden;
+            grd_RechteckVoll.Visibility = Visibility.Hidden;
+            grd_Ergebnisse.Visibility = Visibility.Visible;
+            grd_RechteckHohl.Visibility = Visibility.Hidden;
+            grd_RundVoll.Visibility = Visibility.Hidden;
+            grd_HalbRund.Visibility = Visibility.Hidden;
+            grd_Rohr.Visibility = Visibility.Hidden;
+            grd_material.Visibility = Visibility.Visible;
+            grd_VollmaterialSechseck.Visibility = Visibility.Visible;
+            grd_TProfil.Visibility = Visibility.Hidden;
+
+        }
+        internal void trv_LProfil_Selected(object sender, RoutedEventArgs e) 
+        {
+            grd_Aufforderung.Visibility = Visibility.Hidden;
+            grd_RechteckVoll.Visibility = Visibility.Hidden;
+            grd_Ergebnisse.Visibility = Visibility.Visible;
+            grd_RechteckHohl.Visibility = Visibility.Hidden;
+            grd_RundVoll.Visibility = Visibility.Hidden;
+            grd_HalbRund.Visibility = Visibility.Hidden;
+            grd_Rohr.Visibility = Visibility.Hidden;
+            grd_material.Visibility = Visibility.Visible;
+            grd_VollmaterialSechseck.Visibility = Visibility.Hidden;
+            grd_TProfil.Visibility = Visibility.Hidden;
+
+        }
+        internal void trv_TProfil_Selected(object sender, RoutedEventArgs e) 
+        {
+            grd_Aufforderung.Visibility = Visibility.Hidden;
+            grd_RechteckVoll.Visibility = Visibility.Hidden;
+            grd_Ergebnisse.Visibility = Visibility.Visible;
+            grd_RechteckHohl.Visibility = Visibility.Hidden;
+            grd_RundVoll.Visibility = Visibility.Hidden;
+            grd_HalbRund.Visibility = Visibility.Hidden;
+            grd_Rohr.Visibility = Visibility.Hidden;
+            grd_material.Visibility = Visibility.Visible;
+            grd_VollmaterialSechseck.Visibility = Visibility.Hidden;
+            grd_TProfil.Visibility = Visibility.Visible;
+
+
+        }
+
+        internal void trv_UProfil_Selected(object sender, RoutedEventArgs e)
+        {
+            grd_Aufforderung.Visibility = Visibility.Hidden;
+            grd_RechteckVoll.Visibility = Visibility.Hidden;
+            grd_Ergebnisse.Visibility = Visibility.Visible;
+            grd_RechteckHohl.Visibility = Visibility.Hidden;
+            grd_RundVoll.Visibility = Visibility.Hidden;
+            grd_HalbRund.Visibility = Visibility.Hidden;
+            grd_Rohr.Visibility = Visibility.Hidden;
+            grd_material.Visibility = Visibility.Visible;
+            grd_VollmaterialSechseck.Visibility = Visibility.Hidden;
+            grd_TProfil.Visibility = Visibility.Hidden;
 
 
         }
@@ -110,12 +179,22 @@ namespace WpfHSPB1
 
         }
 
-     
+
+        private void trv_VerzProfile_Selected(object sender, RoutedEventArgs e)
+        {
+
+        }
 
         
-       
 
-    private void Schließen_Click(object sender, RoutedEventArgs e)
+        
+
+
+
+
+
+
+        private void Schließen_Click(object sender, RoutedEventArgs e)
         {
             Close();
         }
@@ -266,6 +345,104 @@ namespace WpfHSPB1
             }
         }
 
+        private void btn_SeVo_berechnung_Click(object sender, RoutedEventArgs e)
+        {/// Sind Parameter eingegeben worden
+            if (TxtBox_SeVo_Radius.Text == "" || TxtBox_SeVo_Länge.Text == "")
+            {
+                MessageBox.Show("Bitte überprüfen sie ihre Eingabe!");
+            }
+            else
+            {
+                double radius = Convert.ToDouble(TxtBox_SeVo_Radius.Text);
+                double länge = Convert.ToDouble(TxtBox_SeVo_Länge.Text);
+                ///Berechnungen
+                double qfläche = 3 * (Math.Sqrt(3)) / 2 * (radius * radius);
+                double volumen = qfläche * länge;
+                double Wy = radius * radius * radius * 5 /8;
+                double Wz = 5 * (Math.Sqrt(3)) / 16 * (radius * radius * radius);
+                double Iy = 5 * (Math.Sqrt(3)) / 16 * (radius * radius * radius * radius);
+                double Iz = 5 * (Math.Sqrt(3)) / 16 * (radius * radius * radius * radius);
+                double Polar = Iy + Iz;
+
+
+                double gewicht = 0;
+                double preis = 0;
+                ///Auswahl Stahl
+                if (cbi_Stahl.IsSelected)
+                {///Berechnung
+                    gewicht = volumen * 0.00000785;
+                    preis = gewicht * 1.5;
+
+                }
+                /// Auswahl Aluminim
+                if (cbi_Aluminium.IsSelected)
+                {///Berechnung
+                    gewicht = volumen * 0.0000027;
+                    preis = gewicht * 2.5;
+                }
+                ///Ausgabe der berechneten Werte für das Profil Vollmaterial Sechseck
+                lbl_Gewicht.Content = gewicht;
+                lbl_Preis.Content = preis;
+                lbl_qfläche.Content = qfläche;
+                lbl_volumen.Content = volumen;
+                lbl_Wy.Content = Wy;
+                lbl_Wz.Content = Wz;
+                lbl_Iy.Content = Iy;
+                Lbl_Iz.Content = Iz;
+                lbl_Polar.Content = Polar;
+            }
+        }
+
+        private void btn_TPro_berechnung_Click(object sender, RoutedEventArgs e)
+        {
+
+            if (TxtBox_TPro_Höhe.Text == "" || TxtBox_TPro_Breite.Text == "" || TxtBox_TPro_Länge.Text == "" || TxtBox_TPro_Wandstärkeh.Text == "" || TxtBox_TPro_Wandstärkeb.Text == "")
+            {
+                MessageBox.Show("Bitte überprüfen sie ihre Eingabe!");
+            }
+            else
+            {
+                double H = Convert.ToDouble(TxtBox_TPro_Höhe.Text);
+                double B = Convert.ToDouble(TxtBox_TPro_Breite.Text);
+                double länge = Convert.ToDouble(TxtBox_TPro_Länge.Text);
+                double h  = Convert.ToDouble(TxtBox_TPro_Wandstärkeh.Text);
+                double b  = Convert.ToDouble(TxtBox_TPro_Wandstärkeb.Text);
+
+                double qfläche = (H * B) -((H-h)*(B-b));
+                double volumen = qfläche * länge;
+                double Wy = 0;
+                double Wz = (h*B*B*B+(H-h)*b*b*b)/(6*B);
+                double Iy = 0;
+                double Iz = (h*B*B*B+(H-h)*b*b*b)/12;
+                double Polar = Iy + Iz;
+
+                double gewicht = 0;
+                double preis = 0;
+
+                if (cbi_Stahl.IsSelected)
+                {
+                    gewicht = volumen * 0.00000785;
+                    preis = gewicht * 1.5;
+
+                }
+
+                if (cbi_Aluminium.IsSelected)
+                {
+                    gewicht = volumen * 0.0000027;
+                    preis = gewicht * 2.5;
+                }
+
+                lbl_Gewicht.Content = gewicht;
+                lbl_Preis.Content = preis;
+                lbl_qfläche.Content = qfläche;
+                lbl_volumen.Content = volumen;
+                lbl_Wy.Content = Wy;
+                lbl_Wz.Content = Wz;
+                lbl_Iy.Content = Iy;
+                Lbl_Iz.Content = Iz;
+                lbl_Polar.Content = Polar;
+            }
+        }
         private void btn_HaRu_berechnung_Click(object sender, RoutedEventArgs e)
         {
             if (TxtBox_HaRu_Radius.Text == "" || TxtBox_HaRu_Länge.Text == "")
