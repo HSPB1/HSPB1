@@ -916,6 +916,91 @@
             </Grid>
             <!-- Ende des Gesamten Eingabe/Ausgabefelds -->
 
+            <!-- Anfang L Profil -->
+
+
+            <!-- Erzeugen von einer weiteren Spalte für Aufteilung Eingabe/Bild-->
+            <Grid  x:Name="grd_LProfil"  Grid.Column="0" Visibility="Hidden">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="200"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Zeilen für Eingabe natürlich in einem weiteren Gitter ;D ;D  -->
+                    <!-- Mit schickem Rahmen (Border) -->
+                    <Border Margin="20" Grid.Column="0" BorderBrush="White" BorderThickness="1" CornerRadius="10">
+                        <Grid Grid.Column="0" >
+                            <!-- Zeilendefinierung für Eingabe-->
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="36"/>
+                                <RowDefinition Height="36"/>
+                                <RowDefinition Height="36"/>
+                                <RowDefinition Height="36"/>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="17"/>
+                                <RowDefinition Height="20"/>
+                            </Grid.RowDefinitions>
+
+                            <Label Foreground="White" FontWeight="Bold" FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="120,2,120,1">Eingabe Parameter</Label>
+
+                            <!-- Eingabefeld 1 -->
+                            <StackPanel HorizontalAlignment="Right" Grid.Row="1" Orientation="Horizontal">
+
+                                <Label Margin="5 5 1 5" Foreground="White" Content="Höhe H:" />
+                                <TextBox x:Name="TxtBox_LPro_Höhe" Height="20" Margin="2 5 1 5" Width="30" />
+                                <Label  Margin="1 5 0 5" Foreground="White" Content="mm"/>
+                            </StackPanel>
+
+                            <!--Eingabefeld 2 -->
+                            <StackPanel HorizontalAlignment="Right" Grid.Row="2" Orientation="Horizontal">
+
+                                <Label Margin="5 5 1 5" Foreground="White" Content="Breite B:" />
+                                <TextBox x:Name="TxtBox_LPro_Breite" Height="20" Margin="2 5 1 5" Width="30"/>
+                                <Label  Margin="1 5 0 5" Foreground="White" Content="mm"/>
+                            </StackPanel>
+
+                            <!-- Eingabefeld 3-->
+                            <StackPanel HorizontalAlignment="Right" Grid.Row="3" Orientation="Horizontal">
+
+                                <Label Margin="-22 5 1 5" Foreground="White" Content="Wandstärke h:" />
+                                <TextBox x:Name="TxtBox_LPro_Wandstärkeh" Height="20" Margin="0 5 1 5" Width="30"/>
+                                <Label  Margin="1 5 0 5" Foreground="White" Content="mm"/>
+                            </StackPanel>
+                            <!-- Eingabefeld 4-->
+                            <StackPanel HorizontalAlignment="Right" Grid.Row="4" Orientation="Horizontal" Grid.RowSpan="2">
+
+                                <Label Margin="-22 5 1 5" Foreground="White" Content="Wandstärke b:" />
+                                <TextBox x:Name="TxtBox_LPro_Wandstärkeb" Height="20" Margin="0 5 1 5" Width="30"/>
+                                <Label  Margin="1 5 0 5" Foreground="White" Content="mm"/>
+                            </StackPanel>
+
+                            <!-- Eingabefeld 5-->
+                            <StackPanel HorizontalAlignment="Right" Grid.Row="5" Orientation="Horizontal" Grid.RowSpan="2">
+
+                                <Label Margin="5 5 1 5" Foreground="White" Content="Länge L:" />
+                                <TextBox x:Name="TxtBox_LPro_Länge" Height="20" Margin="0 5 1 5" Width="30"/>
+                                <Label  Margin="1 5 0 5" Foreground="White" Content="mm"/>
+                            </StackPanel>
+
+                        </Grid>
+                    </Border>
+                    <!-- Hier Endet das Eingabefenster -->
+
+                    <!-- Rand Für das Bild-->
+                    <Border Grid.Column="1" BorderBrush="White" BorderThickness="1" Margin="20" CornerRadius="10" Height="160">
+
+                        <Image Margin="5" Grid.Column="1"  Source=""></Image>
+                    </Border>
+                    <!-- Ab hier endet das Bild-->
+                    <Button x:Name="btn_LPro_Berechnung" Margin="50,175,52.333,40" Width="80" Height="25" VerticalAlignment="Center" HorizontalAlignment="Center" Click="btn_LPro_Berechnung_Click">Berechnung</Button>
+
+                </Grid>
+                <!-- Ende des Bereichs Eingabe und Bild -->
+
+            </Grid>
+            <!-- Ende des Gesamten Eingabe/Ausgabefelds -->
+
             <!---Materialauswahl-->
             <Grid  x:Name="grd_material"  Height="100" Margin="0,65,0.047,75" Visibility="Hidden">
                 <ComboBox x:Name="cb_Material" HorizontalAlignment="Left" Margin="99,17,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="cb_Material_SelectionChanged">
