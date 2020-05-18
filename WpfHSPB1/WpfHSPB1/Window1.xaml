@@ -87,21 +87,26 @@
                         </TreeViewItem>
 
                     </TreeViewItem>
-                    <!-- Treeview Baum für Profile mit Unterpunkten der L,U,T-->
+                    <!-- Treeview Baum für Profile mit Unterpunkten der L,U,T I-->
                     <TreeViewItem x:Name="trv_VerzProfile" Foreground="White" Header="Profile" Selected="trv_VerzProfile_Selected">
 
                         <TreeViewItem x:Name="trv_TProfil" Foreground="White" Header="T-Profil" Selected="trv_TProfil_Selected"/>
 
 
 
-                        <!-- Treeview Baum für  Profile mit Unterpunkten von I -->
+                        <!-- Treeview Baum für  Profile mit Unterpunkten von L -->
                         <TreeViewItem x:Name="trv_LProfil" Foreground="White" Header="L-Profil" Selected="trv_LProfil_Selected"></TreeViewItem>
 
 
                         <!-- Treeview Baum für  Profile mit Unterpunkten  U -->
                         <TreeViewItem x:Name="trv_UProfil" Foreground="White" Header="U-Profil" Selected="trv_UProfil_Selected"></TreeViewItem>
+                        
+                        <!-- Treeview Baum für  Profile mit Unterpunkten von I -->
+                    <TreeViewItem x:Name="trv_IProfil" Foreground="White" Header="I-Profil" Selected="trv_IProfil_Selected"></TreeViewItem>
                     </TreeViewItem>
+
                     
+
                     <!-- Neu!!!!-->
                     <!-- Scrollleistte eingefügt-->
                     <ScrollBar Visibility="Hidden" Height="200"/>
@@ -509,7 +514,7 @@
                     <!-- Rand Für das Bild-->
                     <Border Grid.Column="1" BorderBrush="White" BorderThickness="1" Margin="20" CornerRadius="10" Height="160">
 
-                        <Image Margin="5" Grid.Column="1"  Source="C:\Users\antho\Desktop\HSPB1 - Kopie\WpfHSPB1\WpfHSPB1\Sechseck.png"></Image>
+                        <Image Margin="5" Grid.Column="1"  Source=""></Image>
                     </Border>
                     <!-- Ab hier endet das Bild-->
                     <Button x:Name="btn_SeVo_Berechnung" Margin="50,175,52.333,40" Width="80" Height="25" VerticalAlignment="Center" HorizontalAlignment="Center" Click="btn_SeVo_berechnung_Click">Berechnung</Button>
@@ -598,10 +603,188 @@
                     <!-- Rand Für das Bild-->
                     <Border Grid.Column="1" BorderBrush="White" BorderThickness="1" Margin="20" CornerRadius="10" Height="160">
 
-                        <Image Margin="5" Grid.Column="1"  Source="C:\Users\antho\Desktop\HSPB1 - Kopie\WpfHSPB1\WpfHSPB1\T Profil.png"></Image>
+                        <Image Margin="5" Grid.Column="1"  Source=""></Image>
                     </Border>
                     <!-- Ab hier endet das Bild-->
                     <Button x:Name="btn_TPro_Berechnung" Margin="50,175,52.333,40" Width="80" Height="25" VerticalAlignment="Center" HorizontalAlignment="Center" Click="btn_TPro_berechnung_Click">Berechnung</Button>
+
+                </Grid>
+                <!-- Ende des Bereichs Eingabe und Bild -->
+
+            </Grid>
+            <!-- Ende des Gesamten Eingabe/Ausgabefelds -->
+
+            <!-- Eingabe U Profil -->
+            <!-- Erzeugen von einer weiteren Spalte für Aufteilung Eingabe/Bild-->
+            <Grid  x:Name="grd_UProfil"  Grid.Column="0" Visibility="Hidden">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="200"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Zeilen für Eingabe natürlich in einem weiteren Gitter ;D ;D  -->
+                    <!-- Mit schickem Rahmen (Border) -->
+                    <Border Margin="20" Grid.Column="0" BorderBrush="White" BorderThickness="1" CornerRadius="10">
+                        <Grid Grid.Column="0" >
+                            <!-- Zeilendefinierung für Eingabe-->
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="36"/>
+                                <RowDefinition Height="36"/>
+                                <RowDefinition Height="36"/>
+                                <RowDefinition Height="36"/>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="17"/>
+                                <RowDefinition Height="20"/>
+                            </Grid.RowDefinitions>
+
+                            <Label Foreground="White" FontWeight="Bold" FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="120,2,120,1">Eingabe Parameter</Label>
+
+                            <!-- Eingabefeld 1 -->
+                            <StackPanel HorizontalAlignment="Left" Grid.Row="1" Orientation="Horizontal">
+
+                                <Label Margin="100 5 1 5" Foreground="White" Content="Höhe h:" />
+                                <TextBox x:Name="TxtBox_UPro_Höhe" Height="20" Margin="2 5 1 5" Width="30" ToolTip="Geben Sie hier die Höhe Ihres Profils ein" />
+                                <Label  Margin="1 5 0 5" Foreground="White" Content="mm"/>
+
+
+                                <!-- Eingabe Wandstärke h-->
+                                <Label Margin="150 5 1 5" Foreground="White" Content="Wandstärke h:" />
+                                <TextBox x:Name="TxtBox_UPro_Wandstärkeh" Height="20" Margin="0 5 1 5" Width="30" ToolTip="Geben Sie hier die Wandstärke h Ihres Profils in Millimeter ein"/>
+                                <Label  Margin="1 5 0 5" Foreground="White" Content="mm"/>
+
+
+
+                            </StackPanel>
+
+                            <!--Eingabefeld 2 -->
+                            <StackPanel HorizontalAlignment="Left" Grid.Row="2" Orientation="Horizontal">
+
+                                <Label Margin="100 5 1 5" Foreground="White" Content="Breite b:" />
+                                <TextBox x:Name="TxtBox_UPro_Breite" Height="20" Margin="0 5 1 5" Width="30" ToolTip="Geben Sie hier die Breite Ihres Profils ein"/>
+                                <Label  Margin="1 5 0 5" Foreground="White" Content="mm"/>
+
+                                <!--Eingabe für Wandstärke b-->
+                                <Label Margin="150 5 1 5" Foreground="White" Content="Wandstärke b:" />
+                                <TextBox x:Name="TxtBox_UPro_Wandstärkeb" Height="20" Margin="0 5 1 5" Width="30" ToolTip="Geben Sie hier die Wandstärke b Ihres Profils in Millimeter ein"/>
+                                <Label  Margin="1 5 0 5" Foreground="White" Content="mm"/>
+
+
+                            </StackPanel>
+
+
+
+
+                            <!-- Eingabefeld 5-->
+                            <StackPanel HorizontalAlignment="Left" Grid.Row="3" Orientation="Horizontal" Grid.RowSpan="2">
+
+                                <Label Margin="100 5 1 5" Foreground="White" Content="Länge L:" />
+                                <TextBox x:Name="TxtBox_UPro_Länge" Height="20" Margin="0 5 1 25" Width="30" ToolTip="Bitte geben Sie hier die Breite Ihres Profils in Millimeter ein"/>
+                                <Label  Margin="1 5 0 5" Foreground="White" Content="mm"/>
+                            </StackPanel>
+
+
+
+                        </Grid>
+                    </Border>
+                    <!-- Hier Endet das Eingabefenster -->
+
+                    <!-- Rand Für das Bild-->
+                    <Border Grid.Column="1" BorderBrush="White" BorderThickness="1" Margin="20" CornerRadius="10" Height="160">
+
+                        <Image Margin="5" Grid.Column="1"  Source=""></Image>
+                    </Border>
+                    <!-- Ab hier endet das Bild-->
+                    <Button x:Name="btn_UPro_Berechnung" Margin="50,175,52.333,40" Width="80" Height="25" VerticalAlignment="Center" HorizontalAlignment="Center" Click="btn_UPro_berechnung_Click">Berechnung</Button>
+
+                </Grid>
+                <!-- Ende des Bereichs Eingabe und Bild -->
+
+            </Grid>
+            <!-- Ende des Gesamten Eingabe/Ausgabefelds -->
+
+            <!-- Eingabe I Profil -->
+            <!-- Erzeugen von einer weiteren Spalte für Aufteilung Eingabe/Bild-->
+            <Grid  x:Name="grd_IProfil"  Grid.Column="0" Visibility="Hidden">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="200"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Zeilen für Eingabe natürlich in einem weiteren Gitter ;D ;D  -->
+                    <!-- Mit schickem Rahmen (Border) -->
+                    <Border Margin="20" Grid.Column="0" BorderBrush="White" BorderThickness="1" CornerRadius="10">
+                        <Grid Grid.Column="0" >
+                            <!-- Zeilendefinierung für Eingabe-->
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="36"/>
+                                <RowDefinition Height="36"/>
+                                <RowDefinition Height="36"/>
+                                <RowDefinition Height="36"/>
+                                <RowDefinition Height="20"/>
+                                <RowDefinition Height="17"/>
+                                <RowDefinition Height="20"/>
+                            </Grid.RowDefinitions>
+
+                            <Label Foreground="White" FontWeight="Bold" FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="120,2,120,1">Eingabe Parameter</Label>
+
+                            <!-- Eingabefeld 1 -->
+                            <StackPanel HorizontalAlignment="Left" Grid.Row="1" Orientation="Horizontal">
+
+                                <Label Margin="100 5 1 5" Foreground="White" Content="Höhe h:" />
+                                <TextBox x:Name="TxtBox_IPro_Höhe" Height="20" Margin="2 5 1 5" Width="30" ToolTip="Geben Sie hier die Höhe Ihres Profils ein" />
+                                <Label  Margin="1 5 0 5" Foreground="White" Content="mm"/>
+
+
+                                <!-- Eingabe Wandstärke h-->
+                                <Label Margin="150 5 1 5" Foreground="White" Content="Wandstärke h:" />
+                                <TextBox x:Name="TxtBox_IPro_Wandstärkeh" Height="20" Margin="0 5 1 5" Width="30" ToolTip="Geben Sie hier die Wandstärke h Ihres Profils in Millimeter ein"/>
+                                <Label  Margin="1 5 0 5" Foreground="White" Content="mm"/>
+
+
+
+                            </StackPanel>
+
+                            <!--Eingabefeld 2 -->
+                            <StackPanel HorizontalAlignment="Left" Grid.Row="2" Orientation="Horizontal">
+
+                                <Label Margin="100 5 1 5" Foreground="White" Content="Breite b:" />
+                                <TextBox x:Name="TxtBox_IPro_Breite" Height="20" Margin="0 5 1 5" Width="30" ToolTip="Geben Sie hier die Breite Ihres Profils ein"/>
+                                <Label  Margin="1 5 0 5" Foreground="White" Content="mm"/>
+
+                                <!--Eingabe für Wandstärke b-->
+                                <Label Margin="150 5 1 5" Foreground="White" Content="Wandstärke b:" />
+                                <TextBox x:Name="TxtBox_IPro_Wandstärkeb" Height="20" Margin="0 5 1 5" Width="30" ToolTip="Geben Sie hier die Wandstärke b Ihres Profils in Millimeter ein"/>
+                                <Label  Margin="1 5 0 5" Foreground="White" Content="mm"/>
+
+
+                            </StackPanel>
+
+
+
+
+                            <!-- Eingabefeld 5-->
+                            <StackPanel HorizontalAlignment="Left" Grid.Row="3" Orientation="Horizontal" Grid.RowSpan="2">
+
+                                <Label Margin="100 5 1 5" Foreground="White" Content="Länge L:" />
+                                <TextBox x:Name="TxtBox_IPro_Länge" Height="20" Margin="0 5 1 25" Width="30" ToolTip="Bitte geben Sie hier die Breite Ihres Profils in Millimeter ein"/>
+                                <Label  Margin="1 5 0 5" Foreground="White" Content="mm"/>
+                            </StackPanel>
+
+
+
+                        </Grid>
+                    </Border>
+                    <!-- Hier Endet das Eingabefenster -->
+
+                    <!-- Rand Für das Bild-->
+                    <Border Grid.Column="1" BorderBrush="White" BorderThickness="1" Margin="20" CornerRadius="10" Height="160">
+
+                        <Image Margin="5" Grid.Column="1"  Source=""></Image>
+                    </Border>
+                    <!-- Ab hier endet das Bild-->
+                    <Button x:Name="btn_IPro_Berechnung" Margin="50,175,52.333,40" Width="80" Height="25" VerticalAlignment="Center" HorizontalAlignment="Center" Click="btn_IPro_berechnung_Click">Berechnung</Button>
 
                 </Grid>
                 <!-- Ende des Bereichs Eingabe und Bild -->
