@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfHSPB1"
         mc:Ignorable="d"
-        Title="Pro.File Rechner" Icon="Frontbild_Programmicon.png"  MinWidth="400" MinHeight="200" Height="500" Width="900" >
+        Title="Pro.File Rechner" Icon="Frontbild_Programmicon.png"  MinWidth="400" MinHeight="200" Height="500" Width="1100" >
 
     <!--Background Farbe-->
     <Window.Background>
@@ -54,7 +54,7 @@
                     </TreeView.Background>
 
                     <!-- Treeview Baum für Rechteckige Profile mit Unterpunkten der Vollmaterial-->
-                    <TreeViewItem x:Name="trv_VerzRechteckigeProfile" Foreground="White" Header="Rechteckige Profile" Selected="trv_VerzRechteckigeProfile_Selected">
+                    <TreeViewItem x:Name="trv_VerzRechteckigeProfile" Foreground="White" Header="Eckige Profile" Selected="trv_VerzRechteckigeProfile_Selected">
 
                         <TreeViewItem x:Name="trv_VollmaterialRechteck" Foreground="White" Header="Vollmaterial" Selected="trv_VollmaterialRechteck_Selected"/>
 
@@ -101,6 +101,11 @@
                         <!-- Treeview Baum für  Profile mit Unterpunkten  U -->
                         <TreeViewItem x:Name="trv_UProfil" Foreground="White" Header="U-Profil" Selected="trv_UProfil_Selected"></TreeViewItem>
                     </TreeViewItem>
+                    
+                    <!-- Neu!!!!-->
+                    <!-- Scrollleistte eingefügt-->
+                    <ScrollBar Visibility="Hidden" Height="200"/>
+
 
                 </TreeView>
 
@@ -126,80 +131,13 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
-            <!-- Erzeugen von einer weiteren Spalte für Aufteilung Eingabe/Bild-->
-            <Grid  x:Name="grd_RechteckVoll"  Grid.Column="0" Visibility="Hidden">
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                        <ColumnDefinition Width="200"/>
-                    </Grid.ColumnDefinitions>
-
-                    <!-- Zeilen für Eingabe natürlich in einem weiteren Gitter ;D ;D  -->
-                    <!-- Mit schickem Rahmen (Border) -->
-                    <Border Margin="20" Grid.Column="0" BorderBrush="White" BorderThickness="1" CornerRadius="10">
-                        <Grid Grid.Column="0" >
-                            <!-- Zeilendefinierung für Eingabe-->
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="36"/>
-                                <RowDefinition Height="36"/>
-                                <RowDefinition Height="36"/>
-                                <RowDefinition Height="36"/>
-                                <RowDefinition Height="36"/>
-                            </Grid.RowDefinitions>
-
-                            <Label Foreground="White" FontWeight="Bold" FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Center">Eingabe Parameter</Label>
-
-                            <!-- Eingabefeld 1 -->
-                            <StackPanel HorizontalAlignment="Right" Grid.Row="1" Orientation="Horizontal">
-
-                                <Label Margin="5 5 1 5" Foreground="White" Content="Höhe h:" />
-                                <TextBox x:Name="TxtBox_ReVo_Höhe" Height="20" Margin="2 5 1 5" Width="30" />
-                                <Label  Margin="1 5 0 5" Foreground="White" Content="mm"/>
-                            </StackPanel>
-
-                            <!--Eingabefeld 2 -->
-                            <StackPanel HorizontalAlignment="Right" Grid.Row="2" Orientation="Horizontal">
-
-                                <Label Margin="5 5 1 5" Foreground="White" Content="Breite b:" />
-                                <TextBox x:Name="TxtBox_ReVo_Breite" Height="20" Margin="2 5 1 5" Width="30"/>
-                                <Label  Margin="1 5 0 5" Foreground="White" Content="mm"/>
-                            </StackPanel>
-
-                            <!-- Eingabefeld 3-->
-                            <StackPanel HorizontalAlignment="Right" Grid.Row="3" Orientation="Horizontal">
-
-                                <Label Margin="5 5 1 5" Foreground="White" Content="Länge L:" />
-                                <TextBox x:Name="TxtBox_ReVo_Länge" Height="20" Margin="0 5 1 5" Width="30"/>
-                                <Label  Margin="1 5 0 5" Foreground="White" Content="mm"/>
-                            </StackPanel>
-
-
-
-
-
-                        </Grid>
-                    </Border>
-                    <!-- Hier Endet das Eingabefenster -->
-
-                    <!-- Rand Für das Bild-->
-                    <Border Grid.Column="1" BorderBrush="White" BorderThickness="1" Margin="20" CornerRadius="10" Height="160">
-
-                        <Image Margin="5" Grid.Column="1"  Source="RechteckVollProfile.JPG"></Image>
-                    </Border>
-                    <!-- Ab hier endet das Bild-->
-                    <Button x:Name="btn_ReVo_Berechnung" Margin="50,175,50,40" Width="80" Height="25" VerticalAlignment="Center" HorizontalAlignment="Center" Click="btn_ReVo_berechnung_Click">Berechnung</Button>
-
-                </Grid>
-                <!-- Ende des Bereichs Eingabe und Bild -->
-
-            </Grid>
-            <!-- Ende des Gesamten Eingabe/Ausgabefelds -->
+            
 
             <!-- Rand für Ergebnis Ausgabe -->
             <Border x:Name="grd_Ergebnisse" Grid.Row="1" BorderBrush="White" BorderThickness="2" CornerRadius="10" Margin="10" Visibility="Hidden">
 
                 <!-- Ergebniss Fenster Gitter -->
-                <Grid>
+                <Grid x:Name="grd_ErgebnisFenster">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
                         <ColumnDefinition Width="50*"/>
@@ -234,42 +172,42 @@
                         <!-- Anzeige Querschnittsfläche-->
                         <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
                             <Label  HorizontalAlignment="Left" Foreground="White" FontSize="14">Querschnittsfläche:</Label>
-                            <Label x:Name="lbl_qfläche"  Margin="0 5 0 5" Width="50"></Label>
+                            <Label x:Name="lbl_qfläche"  Foreground="White" FontSize="13" Margin="0 1 0 5" Width="80"></Label>
                             <TextBlock  VerticalAlignment="Center" Foreground="White" FontSize="14" Margin="2">mm²</TextBlock>
                         </StackPanel>
 
                         <!-- Anzeige Volumen -->
                         <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
                             <Label   HorizontalAlignment="Left" Foreground="White" FontSize="14">Volumen:</Label>
-                            <Label x:Name="lbl_volumen"  Margin="58 5 0 5" Width="50"></Label>
+                            <Label x:Name="lbl_volumen"  Foreground="White" FontSize="13" Margin="58 1 0 5" Width="80"></Label>
                             <TextBlock  VerticalAlignment="Center" Foreground="White" FontSize="14" Margin="2" >mm³</TextBlock>
                         </StackPanel>
 
                         <!-- Anzeige Gewicht -->
                         <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
                             <Label   HorizontalAlignment="Left" Foreground="White" FontSize="14">Gewicht:</Label>
-                            <Label x:Name="lbl_Gewicht"  Margin="63 5 0 5" Width="50"></Label>
+                            <Label x:Name="lbl_Gewicht"  Foreground="White" FontSize="13" Margin="63 1 0 5" Width="80"></Label>
                             <TextBlock  VerticalAlignment="Center" Foreground="White" FontSize="14" Margin="2">kg</TextBlock>
                         </StackPanel>
 
                         <!-- Anzeige Wiederstandsmoment Axial Wx -->
                         <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
                             <Label   HorizontalAlignment="Left" Foreground="White" FontSize="14">Wiederstandsmoment Axial Wy:</Label>
-                            <Label x:Name="lbl_Wy"  Margin="0 5 0 5" Width="50"></Label>
+                            <Label x:Name="lbl_Wy" Foreground="White" FontSize="13" Margin="0 1 0 5" Width="140"></Label>
                             <TextBlock  VerticalAlignment="Center" Foreground="White" FontSize="14" Margin="2">mm³</TextBlock>
                         </StackPanel>
 
                         <!-- Anzeige Wiederstandsmoment Axial Wy -->
                         <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
                             <Label   HorizontalAlignment="Left" Foreground="White" FontSize="14">Wiederstandsmoment Axial Wz:</Label>
-                            <Label x:Name="lbl_Wz"  Margin="0 5 0 5" Width="50" ></Label>
+                            <Label x:Name="lbl_Wz"  Foreground="White" FontSize="13" Margin="0 1 0 5" Width="140" ></Label>
                             <TextBlock  VerticalAlignment="Center" Foreground="White" FontSize="14" Margin="2">mm³</TextBlock>
                         </StackPanel>
 
                         <!-- Anzeige FlächenträgeitsMoment Axial Ix -->
                         <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
                             <Label   HorizontalAlignment="Left" Foreground="White" FontSize="14">FlächenträgeitsMoment Axial Iy:</Label>
-                            <Label x:Name="lbl_Iy"  Margin="0 5 0 5" Width="50" ></Label>
+                            <Label x:Name="lbl_Iy" Foreground="White" FontSize="13" Margin="0 1 0 5" Width="140" ></Label>
                             <TextBlock  VerticalAlignment="Center" Foreground="White" FontSize="14"  Margin="2 ">mm^4</TextBlock>
                         </StackPanel>
 
@@ -277,21 +215,21 @@
                         <!-- Anzeige FlächenträgeitsMoment Axial Iy -->
                         <StackPanel Grid.Row="3" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
                             <Label   HorizontalAlignment="Left" Foreground="White" FontSize="14"  >FlächenträgeitsMoment Axial Iz:</Label>
-                            <Label x:Name="Lbl_Iz"  Margin="0 5 0 5" Width="50"></Label>
+                            <Label x:Name="Lbl_Iz" Foreground="White" FontSize="13" Margin="0 1 0 5" Width="140"></Label>
                             <TextBlock  VerticalAlignment="Center" Foreground="White" FontSize="14" Margin="2">mm^4</TextBlock>
                         </StackPanel>
 
                         <!-- Anzeige FlächenträgeitsMoment Polar -->
                         <StackPanel Grid.Row="4" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
                             <Label   HorizontalAlignment="Left" Foreground="White" FontSize="14">FlächenträgeitsMoment Polar:</Label>
-                            <Label x:Name="lbl_Polar"  Margin="12 5 0 5" Width="50"></Label>
+                            <Label x:Name="lbl_Polar" Foreground="White" FontSize="13" Margin="12 1 0 5" Width="140"></Label>
                             <TextBlock  VerticalAlignment="Center" Foreground="White" FontSize="14" Margin="2">mm^4</TextBlock>
                         </StackPanel>
 
                         <!-- Anzeige Preis -->
                         <StackPanel Grid.Row="3" Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
                             <Label   HorizontalAlignment="Left" Foreground="White" FontSize="14">Preis:</Label>
-                            <Label x:Name="lbl_Preis" Margin="83 5 0 5" Width="50"></Label>
+                            <Label x:Name="lbl_Preis" Foreground="White" FontSize="13" Margin="83 1 0 5" Width="80"></Label>
                             <TextBlock  VerticalAlignment="Center" Foreground="White" FontSize="14" Margin="2" >Euro</TextBlock>
                         </StackPanel>
 
@@ -320,9 +258,76 @@
 
             </Border>
 
+            <!-- Eingabe für RechteckVoll-->
+            <Grid  x:Name="grd_RechteckVoll"  Grid.Column="0" Visibility="Hidden">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="200"/>
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Zeilen für Eingabe natürlich in einem weiteren Gitter ;D ;D  -->
+                    <!-- Mit schickem Rahmen (Border) -->
+                    <Border Margin="20" Grid.Column="0" BorderBrush="White" BorderThickness="1" CornerRadius="10">
+                        <Grid Grid.Column="0" >
+                            <!-- Zeilendefinierung für Eingabe-->
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="36"/>
+                                <RowDefinition Height="36"/>
+                                <RowDefinition Height="36"/>
+                                <RowDefinition Height="36"/>
+                                <RowDefinition Height="36"/>
+                            </Grid.RowDefinitions>
+
+                            <Label Foreground="White" FontWeight="Bold" FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Center">Eingabe Parameter</Label>
+
+                            <!-- Eingabefeld 1 -->
+                            <StackPanel HorizontalAlignment="center" Grid.Row="1" Orientation="Horizontal" ToolTip="Geben Sie hier die Höhe des Profils in Millimeter ein">
+
+                                <Label Margin="5 5 1 5" Foreground="White" Content="Höhe h:" />
+                                <TextBox x:Name="TxtBox_ReVo_Höhe" Height="20" Margin="2 5 1 5" Width="30" />
+                                <Label  Margin="1 5 0 5" Foreground="White" Content="mm"/>
+                            </StackPanel>
+
+                            <!--Eingabefeld 2 -->
+                            <StackPanel HorizontalAlignment="Center" Grid.Row="2" Orientation="Horizontal" ToolTip="Geben Sie hier die Breite des Profils in Millimeter ein">
+
+                                <Label Margin="5 5 1 5" Foreground="White" Content="Breite b:" />
+                                <TextBox x:Name="TxtBox_ReVo_Breite" Height="20" Margin="0 5 1 5" Width="30"/>
+                                <Label  Margin="1 5 0 5" Foreground="White" Content="mm"/>
+                            </StackPanel>
+
+                            <!-- Eingabefeld 3-->
+                            <StackPanel HorizontalAlignment="Center" Grid.Row="3" Orientation="Horizontal" ToolTip="Geben Sie hier die Länge des Profils in Millimeter ein">
+
+                                <Label Margin="5 5 1 5" Foreground="White" Content="Länge L:" />
+                                <TextBox x:Name="TxtBox_ReVo_Länge" Height="20" Margin="0 5 1 5" Width="30"/>
+                                <Label  Margin="1 5 0 5" Foreground="White" Content="mm"/>
+                            </StackPanel>
 
 
-            <!-- Erzeugen von einer weiteren Spalte für Aufteilung Eingabe/Bild-->
+
+
+
+                        </Grid>
+                    </Border>
+                    <!-- Hier Endet das Eingabefenster -->
+
+                    <!-- Rand Für das Bild-->
+                    <Border Grid.Column="1" BorderBrush="White" BorderThickness="1" Margin="20" CornerRadius="10" Height="160">
+
+                        <Image Margin="5" Grid.Column="1"  Source="RechteckVollProfile.JPG"></Image>
+                    </Border>
+                    <!-- Ab hier endet das Bild-->
+                    <Button x:Name="btn_ReVo_Berechnung" Margin="50,175,50,40" Width="80" Height="25" VerticalAlignment="Center" HorizontalAlignment="Center" Click="btn_ReVo_berechnung_Click">Berechnung</Button>
+
+                </Grid>
+                <!-- Ende des Bereichs Eingabe und Bild -->
+
+            </Grid>
+            <!-- Ende des Gesamten Eingabe/Ausgabefelds -->
+
+            <!-- Eingabe für RechteckHohl-->
             <Grid  x:Name="grd_RechteckHohl"  Grid.Column="0" Visibility="Hidden">
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -346,34 +351,35 @@
                             <Label Foreground="White" FontWeight="Bold" FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Center">Eingabe Parameter</Label>
 
                             <!-- Eingabefeld 1 -->
-                            <StackPanel HorizontalAlignment="Right" Grid.Row="1" Orientation="Horizontal">
+                            <StackPanel HorizontalAlignment="Left" Grid.Row="1" Orientation="Horizontal">
 
-                                <Label Margin="5 5 1 5" Foreground="White" Content="Höhe h:" />
-                                <TextBox x:Name="TxtBox_ReHo_Höhe" Height="20" Margin="2 5 1 5" Width="30" />
+                                <Label Margin="100 5 1 5" Foreground="White" Content="Höhe h:" />
+                                <TextBox x:Name="TxtBox_ReHo_Höhe" Height="20" Margin="3 5 1 5" Width="30" ToolTip="Geben Sie hier die Höhe Ihres Profils in Millimeter ein"/>
                                 <Label  Margin="1 5 0 5" Foreground="White" Content="mm"/>
+
+
+                                <!-- Eingabe Wandstärke-->
+                                <Label Margin="150 5 1 5" Foreground="White" Content="Wandstärke t:" />
+                                <TextBox x:Name="TxtBox_ReHo_Wandstärke" Height="20" Margin="0 5 1 5" Width="30" ToolTip="Geben Sie hier die Wandstärke Ihres Profils in Millimeter ein"/>
+                                <Label  Margin="1 5 0 5" Foreground="White" Content="mm"/>
+
+
                             </StackPanel>
 
                             <!--Eingabefeld 2 -->
-                            <StackPanel HorizontalAlignment="Right" Grid.Row="2" Orientation="Horizontal">
+                            <StackPanel HorizontalAlignment="left" Grid.Row="2" Orientation="Horizontal">
 
-                                <Label Margin="5 5 1 5" Foreground="White" Content="Breite b:" />
-                                <TextBox x:Name="TxtBox_ReHo_Breite" Height="20" Margin="2 5 1 5" Width="30"/>
+                                <Label Margin="100 5 1 5" Foreground="White" Content="Breite b:" />
+                                <TextBox x:Name="TxtBox_ReHo_Breite" Height="20" Margin="0 5 1 5" Width="30" ToolTip="Geben Sie hier die Breite Ihres Profils in Millimeter ein"/>
                                 <Label  Margin="1 5 0 5" Foreground="White" Content="mm"/>
                             </StackPanel>
 
-                            <!-- Eingabefeld 3-->
-                            <StackPanel HorizontalAlignment="Right" Grid.Row="3" Orientation="Horizontal">
-
-                                <Label Margin="-22 5 1 5" Foreground="White" Content="Wandstärke t:" />
-                                <TextBox x:Name="TxtBox_ReHo_Wandstärke" Height="20" Margin="0 5 1 5" Width="30"/>
-                                <Label  Margin="1 5 0 5" Foreground="White" Content="mm"/>
-                            </StackPanel>
-
+                      
                             <!-- Eingabefeld 4-->
-                            <StackPanel HorizontalAlignment="Right" Grid.Row="4" Orientation="Horizontal">
+                            <StackPanel HorizontalAlignment="Left" Grid.Row="3" Orientation="Horizontal">
 
-                                <Label Margin="5 5 1 5" Foreground="White" Content="Länge L:" />
-                                <TextBox x:Name="TxtBox_ReHo_Länge" Height="20" Margin="0 5 1 5" Width="30"/>
+                                <Label Margin="100 5 1 5" Foreground="White" Content="Länge L:" />
+                                <TextBox x:Name="TxtBox_ReHo_Länge" Height="20" Margin="0 5 1 5" Width="30" ToolTip="Geben Sie hier die Länge Ihres Profils in Millimeter ein"/>
                                 <Label  Margin="1 5 0 5" Foreground="White" Content="mm"/>
                             </StackPanel>
 
@@ -398,7 +404,7 @@
             <!-- Ende des Gesamten Eingabe/Ausgabefelds -->
 
 
-            <!-- Anfang RundmaterialVoll-->
+            <!-- Eingabe RundmaterialVoll-->
             <Grid  x:Name="grd_RundVoll"  Grid.Column="0" Visibility="Hidden">
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -422,18 +428,18 @@
                             <Label Foreground="White" FontWeight="Bold" FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Center">Eingabe Parameter</Label>
 
                             <!-- Eingabefeld 1 -->
-                            <StackPanel HorizontalAlignment="Right" Grid.Row="1" Orientation="Horizontal">
+                            <StackPanel HorizontalAlignment="Center" Grid.Row="1" Orientation="Horizontal" >
 
                                 <Label Margin="5 5 1 5" Foreground="White" Content="Durchmesser D:" />
-                                <TextBox x:Name="TxtBox_RuVo_Durchmesser" Height="20" Margin="2 5 1 5" Width="30" />
+                                <TextBox x:Name="TxtBox_RuVo_Durchmesser" Height="20" Margin="2 5 1 5" Width="30" ToolTip="Geben Sie hier den Durchmesser Ihres Profils in Millimeter ein" />
                                 <Label  Margin="1 5 0 5" Foreground="White" Content="mm"/>
                             </StackPanel>
 
                             <!--Eingabefeld 2 -->
-                            <StackPanel HorizontalAlignment="Right" Grid.Row="2" Orientation="Horizontal">
+                            <StackPanel HorizontalAlignment="Center" Grid.Row="2" Orientation="Horizontal">
 
-                                <Label Margin="5 5 1 5" Foreground="White" Content="Länge l:" />
-                                <TextBox x:Name="TxtBox_RuVo_Länge" Height="20" Margin="2 5 1 5" Width="30"/>
+                                <Label Margin="50 5 1 5" Foreground="White" Content="Länge l:" />
+                                <TextBox x:Name="TxtBox_RuVo_Länge" Height="20" Margin="2 5 1 5" Width="30" ToolTip="Geben Sie hier die Länge Ihres Profils in Millimeter ein"/>
                                 <Label  Margin="1 5 0 5" Foreground="White" Content="mm"/>
                             </StackPanel>
 
@@ -456,7 +462,7 @@
             </Grid>
             <!-- Ende des Gesamten Eingabe/Ausgabefelds -->
 
-            <!-- Anfang SechseckVoll-->
+            <!-- Eingabe SechseckVoll-->
             <Grid  x:Name="grd_VollmaterialSechseck"  Grid.Column="0" Visibility="Hidden">
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -480,18 +486,18 @@
                             <Label Foreground="White" FontWeight="Bold" FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Center">Eingabe Parameter</Label>
 
                             <!-- Eingabefeld 1 -->
-                            <StackPanel HorizontalAlignment="Right" Grid.Row="1" Orientation="Horizontal">
+                            <StackPanel HorizontalAlignment="Center" Grid.Row="1" Orientation="Horizontal">
 
                                 <Label Margin="5 5 1 5" Foreground="White" Content="Radius r:" />
-                                <TextBox x:Name="TxtBox_SeVo_Radius" Height="20" Margin="2 5 1 5" Width="30" />
+                                <TextBox x:Name="TxtBox_SeVo_Radius" Height="20" Margin="2 5 1 5" Width="30" ToolTip="Geben Sie hier den Radius Ihres Profils in Millimeter ein"/>
                                 <Label  Margin="1 5 0 5" Foreground="White" Content="mm"/>
                             </StackPanel>
 
                             <!--Eingabefeld 2 -->
-                            <StackPanel HorizontalAlignment="Right" Grid.Row="2" Orientation="Horizontal">
+                            <StackPanel HorizontalAlignment="Center" Grid.Row="2" Orientation="Horizontal">
 
-                                <Label Margin="5 5 1 5" Foreground="White" Content="Länge l:" />
-                                <TextBox x:Name="TxtBox_SeVo_Länge" Height="20" Margin="2 5 1 5" Width="30"/>
+                                <Label Margin="10 5 1 5" Foreground="White" Content="Länge l:" />
+                                <TextBox x:Name="TxtBox_SeVo_Länge" Height="20" Margin="2 5 1 5" Width="30" ToolTip="Geben Sie hier die Länge Ihres Profils in Millimeter ein"/>
                                 <Label  Margin="1 5 0 5" Foreground="White" Content="mm"/>
                             </StackPanel>
 
@@ -513,9 +519,8 @@
 
             </Grid>
             <!-- Ende des Gesamten Eingabe/Ausgabefelds -->
-            <!-- Anfang T Profil -->
-
-
+            
+            <!-- Eingabe T Profil -->
             <!-- Erzeugen von einer weiteren Spalte für Aufteilung Eingabe/Bild-->
             <Grid  x:Name="grd_TProfil"  Grid.Column="0" Visibility="Hidden">
                 <Grid>
@@ -542,41 +547,45 @@
                             <Label Foreground="White" FontWeight="Bold" FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="120,2,120,1">Eingabe Parameter</Label>
 
                             <!-- Eingabefeld 1 -->
-                            <StackPanel HorizontalAlignment="Right" Grid.Row="1" Orientation="Horizontal">
+                            <StackPanel HorizontalAlignment="Left" Grid.Row="1" Orientation="Horizontal">
 
-                                <Label Margin="5 5 1 5" Foreground="White" Content="Höhe h:" />
-                                <TextBox x:Name="TxtBox_TPro_Höhe" Height="20" Margin="2 5 1 5" Width="30" />
+                                <Label Margin="100 5 1 5" Foreground="White" Content="Höhe h:" />
+                                <TextBox x:Name="TxtBox_TPro_Höhe" Height="20" Margin="2 5 1 5" Width="30" ToolTip="Geben Sie hier die Höhe Ihres Profils ein" />
                                 <Label  Margin="1 5 0 5" Foreground="White" Content="mm"/>
+                                
+                                
+                                <!-- Eingabe Wandstärke h-->
+                                <Label Margin="150 5 1 5" Foreground="White" Content="Wandstärke h:" />
+                                <TextBox x:Name="TxtBox_TPro_Wandstärkeh" Height="20" Margin="0 5 1 5" Width="30" ToolTip="Geben Sie hier die Wandstärke h Ihres Profils in Millimeter ein"/>
+                                <Label  Margin="1 5 0 5" Foreground="White" Content="mm"/>
+
+
+
                             </StackPanel>
 
                             <!--Eingabefeld 2 -->
-                            <StackPanel HorizontalAlignment="Right" Grid.Row="2" Orientation="Horizontal">
+                            <StackPanel HorizontalAlignment="Left" Grid.Row="2" Orientation="Horizontal">
 
-                                <Label Margin="5 5 1 5" Foreground="White" Content="Breite b:" />
-                                <TextBox x:Name="TxtBox_TPro_Breite" Height="20" Margin="2 5 1 5" Width="30"/>
+                                <Label Margin="100 5 1 5" Foreground="White" Content="Breite b:" />
+                                <TextBox x:Name="TxtBox_TPro_Breite" Height="20" Margin="0 5 1 5" Width="30" ToolTip="Geben Sie hier die Breite Ihres Profils ein"/>
                                 <Label  Margin="1 5 0 5" Foreground="White" Content="mm"/>
+
+                               <!--Eingabe für Wandstärke b-->
+                                <Label Margin="150 5 1 5" Foreground="White" Content="Wandstärke b:" />
+                                <TextBox x:Name="TxtBox_TPro_Wandstärkeb" Height="20" Margin="0 5 1 5" Width="30" ToolTip="Geben Sie hier die Wandstärke b Ihres Profils in Millimeter ein"/>
+                                <Label  Margin="1 5 0 5" Foreground="White" Content="mm"/>
+
+
                             </StackPanel>
 
-                            <!-- Eingabefeld 3-->
-                            <StackPanel HorizontalAlignment="Right" Grid.Row="3" Orientation="Horizontal">
-
-                                <Label Margin="-22 5 1 5" Foreground="White" Content="Wandstärke h:" />
-                                <TextBox x:Name="TxtBox_TPro_Wandstärkeh" Height="20" Margin="0 5 1 5" Width="30"/>
-                                <Label  Margin="1 5 0 5" Foreground="White" Content="mm"/>
-                            </StackPanel>
-                            <!-- Eingabefeld 3-->
-                            <StackPanel HorizontalAlignment="Right" Grid.Row="4" Orientation="Horizontal" Grid.RowSpan="2">
-
-                                <Label Margin="-22 5 1 5" Foreground="White" Content="Wandstärke b:" />
-                                <TextBox x:Name="TxtBox_TPro_Wandstärkeb" Height="20" Margin="0 5 1 5" Width="30"/>
-                                <Label  Margin="1 5 0 5" Foreground="White" Content="mm"/>
-                            </StackPanel>
+                   
+                           
 
                             <!-- Eingabefeld 5-->
-                            <StackPanel HorizontalAlignment="Right" Grid.Row="5" Orientation="Horizontal" Grid.RowSpan="2">
+                            <StackPanel HorizontalAlignment="Left" Grid.Row="3" Orientation="Horizontal" Grid.RowSpan="2">
 
-                                <Label Margin="5 5 1 5" Foreground="White" Content="Länge L:" />
-                                <TextBox x:Name="TxtBox_TPro_Länge" Height="20" Margin="0 5 1 5" Width="30"/>
+                                <Label Margin="100 5 1 5" Foreground="White" Content="Länge L:" />
+                                <TextBox x:Name="TxtBox_TPro_Länge" Height="20" Margin="0 5 1 25" Width="30" ToolTip="Bitte geben Sie hier die Breite Ihres Profils in Millimeter ein"/>
                                 <Label  Margin="1 5 0 5" Foreground="White" Content="mm"/>
                             </StackPanel>
 
@@ -600,7 +609,7 @@
             </Grid>
             <!-- Ende des Gesamten Eingabe/Ausgabefelds -->
 
-            <!-- Erzeugen von einer weiteren Spalte für Aufteilung Eingabe/Bild-->
+            <!-- Eingabe Halbrund-->
             <Grid  x:Name="grd_HalbRund"  Grid.Column="0" Visibility="Hidden">
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -624,18 +633,18 @@
                             <Label Foreground="White" FontWeight="Bold" FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Center">Eingabe Parameter</Label>
 
                             <!-- Eingabefeld 1 -->
-                            <StackPanel HorizontalAlignment="Right" Grid.Row="1" Orientation="Horizontal" >
+                            <StackPanel HorizontalAlignment="Center" Grid.Row="1" Orientation="Horizontal" >
 
                                 <Label Margin="5 5 1 5" Foreground="White" Content="Radius r:" />
-                                <TextBox x:Name="TxtBox_HaRu_Radius" Height="20" Margin="2 5 1 5" Width="30" />
+                                <TextBox x:Name="TxtBox_HaRu_Radius" Height="20" Margin="2 5 1 5" Width="30" ToolTip="Geben Sie hier den Radius in Millimeter ein" />
                                 <Label  Margin="1 5 0 5" Foreground="White" Content="mm"/>
                             </StackPanel>
 
                             <!--Eingabefeld 2 -->
-                            <StackPanel HorizontalAlignment="Right" Grid.Row="2" Orientation="Horizontal">
+                            <StackPanel HorizontalAlignment="Center" Grid.Row="2" Orientation="Horizontal">
 
                                 <Label Margin="5 5 1 5" Foreground="White" Content="Länge l:" />
-                                <TextBox x:Name="TxtBox_HaRu_Länge" Height="20" Margin="2 5 1 5" Width="30"/>
+                                <TextBox x:Name="TxtBox_HaRu_Länge" Height="20" Margin="8 5 1 5" Width="30" ToolTip="Geben Sie hier die Länge Ihres Profils ein"/>
                                 <Label  Margin="1 5 0 5" Foreground="White" Content="mm"/>
                             </StackPanel>
 
@@ -658,7 +667,7 @@
             </Grid>
             <!-- Ende des Gesamten Eingabe/Ausgabefelds -->
 
-            <!-- Erzeugen von einer weiteren Spalte für Aufteilung Eingabe/Bild-->
+            <!-- Eingabe Rohr-->
             <Grid  x:Name="grd_Rohr"  Grid.Column="0" Visibility="Hidden">
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -682,26 +691,26 @@
                             <Label Foreground="White" FontWeight="Bold" FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Center">Eingabe Parameter</Label>
 
                             <!-- Eingabefeld 1 -->
-                            <StackPanel HorizontalAlignment="Right" Grid.Row="1" Orientation="Horizontal" >
+                            <StackPanel HorizontalAlignment="Center" Grid.Row="1" Orientation="Horizontal" >
 
                                 <Label Margin="5 5 1 5" Foreground="White" Content="Durchmesser D:" />
-                                <TextBox x:Name="TxtBox_Rohr_Durchmesser" Height="20" Margin="2 5 1 5" Width="30" />
+                                <TextBox x:Name="TxtBox_Rohr_Durchmesser" Height="20" Margin="2 5 1 5" Width="30" ToolTip="Geben Sie hier den Durchmesser Ihres Profils in Millimeter ein" />
                                 <Label  Margin="1 5 0 5" Foreground="White" Content="mm"/>
                             </StackPanel>
 
                             <!--Eingabefeld 2 -->
-                            <StackPanel HorizontalAlignment="Right" Grid.Row="2" Orientation="Horizontal" Grid.RowSpan="2">
+                            <StackPanel HorizontalAlignment="Center" Grid.Row="2" Orientation="Horizontal" Grid.RowSpan="2">
 
-                                <Label Margin="5 5 1 5" Foreground="White" Content="Wandstärke t:" />
-                                <TextBox x:Name="TxtBox_Rohr_Wandstärke" Height="20" Margin="2 5 1 5" Width="30" VerticalAlignment="Top"/>
+                                <Label Margin="18 5 1 5" Foreground="White" Content="Wandstärke t:" />
+                                <TextBox x:Name="TxtBox_Rohr_Wandstärke" Height="20" Margin="2 5 1 5" Width="30" VerticalAlignment="Top" ToolTip="Geben Sie hier die Wandstärke Ihres Profils in Millimeter ein"/>
                                 <Label  Margin="1 5 0 5" Foreground="White" Content="mm"/>
                             </StackPanel>
 
                             <!--Eingabefeld 3 -->
-                            <StackPanel HorizontalAlignment="Right" Grid.Row="3" Orientation="Horizontal">
+                            <StackPanel HorizontalAlignment="Center" Grid.Row="3" Orientation="Horizontal">
 
-                                <Label Margin="5 5 1 5" Foreground="White" Content="Länge l:" />
-                                <TextBox x:Name="TxtBox_Rohr_Länge" Height="20" Margin="2 5 1 5" Width="30"/>
+                                <Label Margin="50 5 1 5" Foreground="White" Content="Länge l:" />
+                                <TextBox x:Name="TxtBox_Rohr_Länge" Height="20" Margin="2 5 1 5" Width="30" ToolTip="Geben Sie hier die Länge Ihres Profils in Millimeter ein"/>
                                 <Label  Margin="1 5 0 5" Foreground="White" Content="mm"/>
                             </StackPanel>
 
@@ -725,7 +734,7 @@
             <!-- Ende des Gesamten Eingabe/Ausgabefelds -->
 
             <!---Materialauswahl-->
-            <Grid x:Name="grd_material" Height="100" Margin="0,65,0.047,75" Visibility="Hidden">
+            <Grid  x:Name="grd_material"  Height="100" Margin="0,65,0.047,75" Visibility="Hidden">
                 <ComboBox x:Name="cb_Material" HorizontalAlignment="Left" Margin="99,17,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="cb_Material_SelectionChanged">
                     <ListBoxItem x:Name="cbi_Stahl" Background="Transparent" Content="Stahl"/>
                     <ListBoxItem x:Name="cbi_Aluminium" Content="Aluminium"/>
