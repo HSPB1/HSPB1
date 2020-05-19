@@ -139,7 +139,7 @@
             
 
             <!-- Rand für Ergebnis Ausgabe -->
-            <Border x:Name="grd_Ergebnisse" Grid.Row="1" BorderBrush="White" BorderThickness="2" CornerRadius="10" Margin="10" Visibility="Visible">
+            <Border x:Name="grd_Ergebnisse" Grid.Row="1" BorderBrush="White" BorderThickness="2" CornerRadius="10" Margin="10" Visibility="Hidden">
 
                 <!-- Ergebniss Fenster Gitter -->
                 <Grid x:Name="grd_ErgebnisFenster">
