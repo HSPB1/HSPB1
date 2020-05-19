@@ -265,20 +265,22 @@ namespace WpfHSPB1
                     double gewicht = 0;
                     double preis = 0;
 
-                    if (höhe < 0 || breite < 0 || länge < 0)
-                    {
-                        MessageBox.Show("Ihre Parameter Eingabe war Fehlerhaft");
-                    }
-                        
+                if (höhe < 0 || breite < 0 || länge < 0)
+                {
+                    MessageBox.Show("Ihre Parameter Eingabe war Fehlerhaft");
+                }
+                else
+                {
 
-                    if (cbi_Stahl.IsSelected)
+
+                    if (cb_Material.Text=="Stahl")
                     {
                         gewicht = volumen * 0.00000785;
                         preis = gewicht * 1.5;
 
                     }
 
-                    if (cbi_Aluminium.IsSelected)
+                    if (cb_Material.Text=="Aluminium")
                     {
                         gewicht = volumen * 0.0000027;
                         preis = gewicht * 2.5;
@@ -293,7 +295,7 @@ namespace WpfHSPB1
                     lbl_Iy.Content = Iy;
                     Lbl_Iz.Content = Iz;
                     lbl_Polar.Content = Polar;
-                
+                }
             }
             catch
             { MessageBox.Show("Ihre Eingabe war Fehlerhaft! Bitte verwenden Sie nur Zahlen!"); }
@@ -324,19 +326,22 @@ namespace WpfHSPB1
                     double gewicht = 0;
                     double preis = 0;
 
-                    if(höhe <=0 || breite <=0 || länge <=0 || wandstärke <= 0)
-                    {
+                if (höhe <= 0 || breite <= 0 || länge <= 0 || wandstärke <= 0)
+                {
                     MessageBox.Show("Ihre Parameter Eingabe war Fehlerhaft");
-                     }
+                }
+                else
+                {
 
-                    if (cbi_Stahl.IsSelected)
+
+                    if (cb_Material.Text == "Stahl")
                     {
                         gewicht = volumen * 0.00000785;
                         preis = gewicht * 1.5;
 
                     }
 
-                    if (cbi_Aluminium.IsSelected)
+                    if (cb_Material.Text == "Aluminium")
                     {
                         gewicht = volumen * 0.0000027;
                         preis = gewicht * 2.5;
@@ -351,7 +356,7 @@ namespace WpfHSPB1
                     lbl_Iy.Content = Iy;
                     Lbl_Iz.Content = Iz;
                     lbl_Polar.Content = Polar;
-                
+                }
             }
 
             catch
@@ -380,21 +385,23 @@ namespace WpfHSPB1
                     double gewicht = 0;
                     double preis = 0;
 
-                    if(durchmesser <=0 || länge <=0)
-                    {
-                        MessageBox.Show("Ihre Parameter Eingabe war Fehlerhaft");
-                    }
+                if (durchmesser <= 0 || länge <= 0)
+                {
+                    MessageBox.Show("Ihre Parameter Eingabe war Fehlerhaft");
+                }
+                else
+                {
 
 
                     ///Auswahl Stahl
-                    if (cbi_Stahl.IsSelected)
+                    if (cb_Material.Text=="Stahl")
                     {///Berechnung
                         gewicht = volumen * 0.00000785;
                         preis = gewicht * 1.5;
 
                     }
                     /// Auswahl Aluminim
-                    if (cbi_Aluminium.IsSelected)
+                    if (cb_Material.Text=="Aluminium")
                     {///Berechnung
                         gewicht = volumen * 0.0000027;
                         preis = gewicht * 2.5;
@@ -409,7 +416,7 @@ namespace WpfHSPB1
                     lbl_Iy.Content = Iy;
                     Lbl_Iz.Content = Iz;
                     lbl_Polar.Content = Polar;
-
+                }
                 
             }
 
@@ -439,21 +446,22 @@ namespace WpfHSPB1
                     double gewicht = 0;
                     double preis = 0;
 
-                    if(radius <=0 || länge <=0)
-                    {
-                        MessageBox.Show("Ihre Parameter Eingabe war Fehlerhaft");
+                if (radius <= 0 || länge <= 0)
+                {
+                    MessageBox.Show("Ihre Parameter Eingabe war Fehlerhaft");
 
-                    }
-
+                }
+                else
+                {
                     ///Auswahl Stahl
-                    if (cbi_Stahl.IsSelected)
+                    if (cb_Material.Text == "Stahl")
                     {///Berechnung
                         gewicht = volumen * 0.00000785;
                         preis = gewicht * 1.5;
 
                     }
                     /// Auswahl Aluminim
-                    if (cbi_Aluminium.IsSelected)
+                    if (cb_Material.Text == "Aluminium")
                     {///Berechnung
                         gewicht = volumen * 0.0000027;
                         preis = gewicht * 2.5;
@@ -468,7 +476,7 @@ namespace WpfHSPB1
                     lbl_Iy.Content = Iy;
                     Lbl_Iz.Content = Iz;
                     lbl_Polar.Content = Polar;
-                
+                }
 
             }
 
@@ -506,21 +514,24 @@ namespace WpfHSPB1
                 double gewicht = 0;
                     double preis = 0;
 
-                    if(H <= 0 || B <=0 || länge <=0 || h <=0 || b <=0 )
+                if (H <= 0 || B <= 0 || länge <= 0 || h <= 0 || b <= 0)
 
-                    {
-                         MessageBox.Show("Ihre Parameter Eingabe war Fehlerhaft");
-                    }
+                {
+                    MessageBox.Show("Ihre Parameter Eingabe war Fehlerhaft");
+                }
+                else
+                {
 
-                    if (cbi_Stahl.IsSelected)
-                    {
+                    ///Auswahl Stahl
+                    if (cb_Material.Text == "Stahl")
+                    {///Berechnung
                         gewicht = volumen * 0.00000785;
                         preis = gewicht * 1.5;
 
                     }
-
-                    if (cbi_Aluminium.IsSelected)
-                    {
+                    /// Auswahl Aluminim
+                    if (cb_Material.Text == "Aluminium")
+                    {///Berechnung
                         gewicht = volumen * 0.0000027;
                         preis = gewicht * 2.5;
                     }
@@ -534,8 +545,8 @@ namespace WpfHSPB1
                     lbl_Iy.Content = Iy;
                     Lbl_Iz.Content = Iz;
                     lbl_Polar.Content = Polar;
-                
 
+                }
             }
             catch
             { MessageBox.Show("Ihre Eingabe war Fehlerhaft! Bitte verwenden Sie nur Zahlen!"); }
@@ -576,30 +587,33 @@ namespace WpfHSPB1
                 {
                     MessageBox.Show("Ihre Parameter Eingabe war Fehlerhaft");
                 }
-
-                if (cbi_Stahl.IsSelected)
+                else
                 {
-                    gewicht = volumen * 0.00000785;
-                    preis = gewicht * 1.5;
 
+                    ///Auswahl Stahl
+                    if (cb_Material.Text == "Stahl")
+                    {///Berechnung
+                        gewicht = volumen * 0.00000785;
+                        preis = gewicht * 1.5;
+
+                    }
+                    /// Auswahl Aluminim
+                    if (cb_Material.Text == "Aluminium")
+                    {///Berechnung
+                        gewicht = volumen * 0.0000027;
+                        preis = gewicht * 2.5;
+                    }
+
+                    lbl_Gewicht.Content = gewicht;
+                    lbl_Preis.Content = preis;
+                    lbl_qfläche.Content = qfläche;
+                    lbl_volumen.Content = volumen;
+                    lbl_Wy.Content = Wy;
+                    lbl_Wz.Content = Wz;
+                    lbl_Iy.Content = Iy;
+                    Lbl_Iz.Content = Iz;
+                    lbl_Polar.Content = Polar;
                 }
-
-                if (cbi_Aluminium.IsSelected)
-                {
-                    gewicht = volumen * 0.0000027;
-                    preis = gewicht * 2.5;
-                }
-
-                lbl_Gewicht.Content = gewicht;
-                lbl_Preis.Content = preis;
-                lbl_qfläche.Content = qfläche;
-                lbl_volumen.Content = volumen;
-                lbl_Wy.Content = Wy;
-                lbl_Wz.Content = Wz;
-                lbl_Iy.Content = Iy;
-                Lbl_Iz.Content = Iz;
-                lbl_Polar.Content = Polar;
-
 
             }
             catch
@@ -634,30 +648,32 @@ namespace WpfHSPB1
                 {
                     MessageBox.Show("Ihre Parameter Eingabe war Fehlerhaft");
                 }
-
-                if (cbi_Stahl.IsSelected)
+                else
                 {
-                    gewicht = volumen * 0.00000785;
-                    preis = gewicht * 1.5;
+                    ///Auswahl Stahl
+                    if (cb_Material.Text == "Stahl")
+                    {///Berechnung
+                        gewicht = volumen * 0.00000785;
+                        preis = gewicht * 1.5;
 
+                    }
+                    /// Auswahl Aluminim
+                    if (cb_Material.Text == "Aluminium")
+                    {///Berechnung
+                        gewicht = volumen * 0.0000027;
+                        preis = gewicht * 2.5;
+                    }
+
+                    lbl_Gewicht.Content = gewicht;
+                    lbl_Preis.Content = preis;
+                    lbl_qfläche.Content = qfläche;
+                    lbl_volumen.Content = volumen;
+                    lbl_Wy.Content = Wy;
+                    lbl_Wz.Content = Wz;
+                    lbl_Iy.Content = Iy;
+                    Lbl_Iz.Content = Iz;
+                    lbl_Polar.Content = Polar;
                 }
-
-                if (cbi_Aluminium.IsSelected)
-                {
-                    gewicht = volumen * 0.0000027;
-                    preis = gewicht * 2.5;
-                }
-
-                lbl_Gewicht.Content = gewicht;
-                lbl_Preis.Content = preis;
-                lbl_qfläche.Content = qfläche;
-                lbl_volumen.Content = volumen;
-                lbl_Wy.Content = Wy;
-                lbl_Wz.Content = Wz;
-                lbl_Iy.Content = Iy;
-                Lbl_Iz.Content = Iz;
-                lbl_Polar.Content = Polar;
-
 
             }
             catch
@@ -683,22 +699,25 @@ namespace WpfHSPB1
                     double gewicht = 0;
                     double preis = 0;
 
-                    if(radius <= 0 || länge <= 0)
-                    {
+                if (radius <= 0 || länge <= 0)
+                {
 
-                        MessageBox.Show("Ihre Parameter Eingabe war Fehlerhaft");
+                    MessageBox.Show("Ihre Parameter Eingabe war Fehlerhaft");
 
-                    }
+                }
+                else
+                {
 
+                    ///Auswahl Stahl
                     if (cb_Material.Text == "Stahl")
-                    {
+                    {///Berechnung
                         gewicht = volumen * 0.00000785;
                         preis = gewicht * 1.5;
 
                     }
-
+                    /// Auswahl Aluminim
                     if (cb_Material.Text == "Aluminium")
-                    {
+                    {///Berechnung
                         gewicht = volumen * 0.0000027;
                         preis = gewicht * 2.5;
                     }
@@ -713,7 +732,7 @@ namespace WpfHSPB1
                     lbl_Iy.Content = Iy;
                     Lbl_Iz.Content = Iz;
                     lbl_Polar.Content = Polar;
-                
+                }
             }
 
             catch
@@ -726,40 +745,41 @@ namespace WpfHSPB1
 
             try
             {
-           
-                    double durchmesser = Convert.ToDouble(TxtBox_Rohr_Durchmesser.Text);
-                    double wandstärke = Convert.ToDouble(TxtBox_Rohr_Wandstärke.Text);
-                    double länge = Convert.ToDouble(TxtBox_Rohr_Länge.Text);
 
-                    double qfläche = (Math.PI * durchmesser * durchmesser / 4) - (Math.PI * (durchmesser - 2 * wandstärke) * (durchmesser - 2 * wandstärke) / 4);
-                    double volumen = qfläche * länge;
-                    double Wy = Math.PI * (durchmesser * durchmesser * durchmesser * durchmesser - (durchmesser - 2 * wandstärke) * (durchmesser - 2 * wandstärke) * (durchmesser - 2 * wandstärke) * (durchmesser - 2 * wandstärke) * (durchmesser - 2 * wandstärke)) / (32 * durchmesser);
-                    double Wz = Math.PI * (durchmesser * durchmesser * durchmesser * durchmesser - (durchmesser - 2 * wandstärke) * (durchmesser - 2 * wandstärke) * (durchmesser - 2 * wandstärke) * (durchmesser - 2 * wandstärke) * (durchmesser - 2 * wandstärke)) / (32 * durchmesser);
-                    double Iy = Math.PI * (durchmesser * durchmesser * durchmesser * durchmesser - (durchmesser - 2 * wandstärke) * (durchmesser - 2 * wandstärke) * (durchmesser - 2 * wandstärke) * (durchmesser - 2 * wandstärke) * (durchmesser - 2 * wandstärke)) / 64;
-                    double Iz = Math.PI * (durchmesser * durchmesser * durchmesser * durchmesser - (durchmesser - 2 * wandstärke) * (durchmesser - 2 * wandstärke) * (durchmesser - 2 * wandstärke) * (durchmesser - 2 * wandstärke) * (durchmesser - 2 * wandstärke)) / 64;
-                    double Polar = Iy + Iz;
+                double durchmesser = Convert.ToDouble(TxtBox_Rohr_Durchmesser.Text);
+                double wandstärke = Convert.ToDouble(TxtBox_Rohr_Wandstärke.Text);
+                double länge = Convert.ToDouble(TxtBox_Rohr_Länge.Text);
 
-                    double gewicht = 0;
-                    double preis = 0;
+                double qfläche = (Math.PI * durchmesser * durchmesser / 4) - (Math.PI * (durchmesser - 2 * wandstärke) * (durchmesser - 2 * wandstärke) / 4);
+                double volumen = qfläche * länge;
+                double Wy = Math.PI * (durchmesser * durchmesser * durchmesser * durchmesser - (durchmesser - 2 * wandstärke) * (durchmesser - 2 * wandstärke) * (durchmesser - 2 * wandstärke) * (durchmesser - 2 * wandstärke) * (durchmesser - 2 * wandstärke)) / (32 * durchmesser);
+                double Wz = Math.PI * (durchmesser * durchmesser * durchmesser * durchmesser - (durchmesser - 2 * wandstärke) * (durchmesser - 2 * wandstärke) * (durchmesser - 2 * wandstärke) * (durchmesser - 2 * wandstärke) * (durchmesser - 2 * wandstärke)) / (32 * durchmesser);
+                double Iy = Math.PI * (durchmesser * durchmesser * durchmesser * durchmesser - (durchmesser - 2 * wandstärke) * (durchmesser - 2 * wandstärke) * (durchmesser - 2 * wandstärke) * (durchmesser - 2 * wandstärke) * (durchmesser - 2 * wandstärke)) / 64;
+                double Iz = Math.PI * (durchmesser * durchmesser * durchmesser * durchmesser - (durchmesser - 2 * wandstärke) * (durchmesser - 2 * wandstärke) * (durchmesser - 2 * wandstärke) * (durchmesser - 2 * wandstärke) * (durchmesser - 2 * wandstärke)) / 64;
+                double Polar = Iy + Iz;
 
-                    if(durchmesser <= 0 || wandstärke <=0 || länge <=0)
+                double gewicht = 0;
+                double preis = 0;
 
-                    {
-                         MessageBox.Show("Ihre Parameter Eingabe war Fehlerhaft");
+                if (durchmesser <= 0 || wandstärke <= 0 || länge <= 0)
 
-                    }
+                {
+                    MessageBox.Show("Ihre Parameter Eingabe war Fehlerhaft");
 
+                }
+                else
+                {
 
+                    ///Auswahl Stahl
                     if (cb_Material.Text == "Stahl")
-
-                    {
+                    {///Berechnung
                         gewicht = volumen * 0.00000785;
                         preis = gewicht * 1.5;
 
                     }
-
+                    /// Auswahl Aluminim
                     if (cb_Material.Text == "Aluminium")
-                    {
+                    {///Berechnung
                         gewicht = volumen * 0.0000027;
                         preis = gewicht * 2.5;
                     }
@@ -773,7 +793,7 @@ namespace WpfHSPB1
                     lbl_Iy.Content = Iy;
                     Lbl_Iz.Content = Iz;
                     lbl_Polar.Content = Polar;
-                
+                }
 
             }
 
@@ -816,31 +836,34 @@ namespace WpfHSPB1
                 {
                     MessageBox.Show("Ihre Parameter Eingabe war Fehlerhaft");
                 }
-
-                if (cbi_Stahl.IsSelected)
+                else
                 {
-                    gewicht = volumen * 0.00000785;
-                    preis = gewicht * 1.5;
+
+                    ///Auswahl Stahl
+                    if (cb_Material.Text == "Stahl")
+                    {///Berechnung
+                        gewicht = volumen * 0.00000785;
+                        preis = gewicht * 1.5;
+
+                    }
+                    /// Auswahl Aluminim
+                    if (cb_Material.Text == "Aluminium")
+                    {///Berechnung
+                        gewicht = volumen * 0.0000027;
+                        preis = gewicht * 2.5;
+                    }
+
+                    lbl_Gewicht.Content = gewicht;
+                    lbl_Preis.Content = preis;
+                    lbl_qfläche.Content = qfläche;
+                    lbl_volumen.Content = volumen;
+                    lbl_Wy.Content = Wy;
+                    lbl_Wz.Content = Wz;
+                    lbl_Iy.Content = Iy;
+                    Lbl_Iz.Content = Iz;
+                    lbl_Polar.Content = Polar;
 
                 }
-
-                if (cbi_Aluminium.IsSelected)
-                {
-                    gewicht = volumen * 0.0000027;
-                    preis = gewicht * 2.5;
-                }
-
-                lbl_Gewicht.Content = gewicht;
-                lbl_Preis.Content = preis;
-                lbl_qfläche.Content = qfläche;
-                lbl_volumen.Content = volumen;
-                lbl_Wy.Content = Wy;
-                lbl_Wz.Content = Wz;
-                lbl_Iy.Content = Iy;
-                Lbl_Iz.Content = Iz;
-                lbl_Polar.Content = Polar;
-
-
             }
             catch
             { MessageBox.Show("Ihre Eingabe war Fehlerhaft! Bitte verwenden Sie nur Zahlen!"); }
