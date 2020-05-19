@@ -475,15 +475,15 @@ namespace WpfHSPB1
 
                     grd_Ergebnisse.Visibility = Visibility.Visible;
 
-                    lbl_Gewicht.Content = gewicht;
-                    lbl_Preis.Content = preis;
-                    lbl_qfläche.Content = qfläche;
-                    lbl_volumen.Content = volumen;
-                    lbl_Wy.Content = Wy;
-                    lbl_Wz.Content = Wz;
-                    lbl_Iy.Content = Iy;
-                    Lbl_Iz.Content = Iz;
-                    lbl_Polar.Content = Polar;
+                    lbl_Gewicht.Content = gewicht.ToString("0.###");
+                    lbl_Preis.Content = preis.ToString("0.###");
+                    lbl_qfläche.Content = qfläche.ToString("0.###");
+                    lbl_volumen.Content = volumen.ToString("0.###");
+                    lbl_Wy.Content = Wy.ToString("0.###");
+                    lbl_Wz.Content = Wz.ToString("0.###");
+                    lbl_Iy.Content = Iy.ToString("0.###");
+                    Lbl_Iz.Content = Iz.ToString("0.###");
+                    lbl_Polar.Content = Polar.ToString("0.###");
                 }
             }
             catch
@@ -677,17 +677,19 @@ namespace WpfHSPB1
 
              
                         grd_Ergebnisse.Visibility = Visibility.Visible;
+               
+                   
+                        
+                    lbl_Gewicht.Content = gewicht.ToString("0.###");
+                    lbl_Preis.Content = preis.ToString("0.###");
+                    lbl_qfläche.Content = qfläche.ToString("0.###");
+                    lbl_volumen.Content = volumen.ToString("0.###");
+                    lbl_Wy.Content = Wy.ToString("0.###");
+                    lbl_Wz.Content = Wz.ToString("0.###");
+                    lbl_Iy.Content = Iy.ToString("0.###");
+                    Lbl_Iz.Content = Iz.ToString("0.###");
+                    lbl_Polar.Content = Polar.ToString("0.###");
 
-                        lbl_Gewicht.Content = gewicht;
-                        lbl_Preis.Content = preis;
-                        lbl_qfläche.Content = qfläche;
-                        lbl_volumen.Content = volumen;
-                        lbl_Wy.Content = Wy;
-                        lbl_Wz.Content = Wz;
-                        lbl_Iy.Content = Iy;
-                        Lbl_Iz.Content = Iz;
-                        lbl_Polar.Content = Polar;
-                    
                 }
             }
 
@@ -878,15 +880,15 @@ namespace WpfHSPB1
                     grd_Ergebnisse.Visibility = Visibility.Visible;
 
                     ///Ausgabe der berechneten Werte für das Profil Vollmaterial Rund
-                    lbl_Gewicht.Content = gewicht;
-                    lbl_Preis.Content = preis;
-                    lbl_qfläche.Content = qfläche;
-                    lbl_volumen.Content = volumen;
-                    lbl_Wy.Content = Wy;
-                    lbl_Wz.Content = Wz;
-                    lbl_Iy.Content = Iy;
-                    Lbl_Iz.Content = Iz;
-                    lbl_Polar.Content = Polar;
+                    lbl_Gewicht.Content = gewicht.ToString("0.###");
+                    lbl_Preis.Content = preis.ToString("0.###");
+                    lbl_qfläche.Content = qfläche.ToString("0.###");
+                    lbl_volumen.Content = volumen.ToString("0.###");
+                    lbl_Wy.Content = Wy.ToString("0.###");
+                    lbl_Wz.Content = Wz.ToString("0.###");
+                    lbl_Iy.Content = Iy.ToString("0.###");
+                    Lbl_Iz.Content = Iz.ToString("0.###");
+                    lbl_Polar.Content = Polar.ToString("0.###");
                 }
                 
             }
@@ -1078,15 +1080,15 @@ namespace WpfHSPB1
                     grd_Ergebnisse.Visibility = Visibility.Visible;
 
                     ///Ausgabe der berechneten Werte für das Profil Vollmaterial Sechseck
-                    lbl_Gewicht.Content = gewicht;
-                    lbl_Preis.Content = preis;
-                    lbl_qfläche.Content = qfläche;
-                    lbl_volumen.Content = volumen;
-                    lbl_Wy.Content = Wy;
-                    lbl_Wz.Content = Wz;
-                    lbl_Iy.Content = Iy;
-                    Lbl_Iz.Content = Iz;
-                    lbl_Polar.Content = Polar;
+                    lbl_Gewicht.Content = gewicht.ToString("0.###");
+                    lbl_Preis.Content = preis.ToString("0.###");
+                    lbl_qfläche.Content = qfläche.ToString("0.###");
+                    lbl_volumen.Content = volumen.ToString("0.###");
+                    lbl_Wy.Content = Wy.ToString("0.###");
+                    lbl_Wz.Content = Wz.ToString("0.###");
+                    lbl_Iy.Content = Iy.ToString("0.###");
+                    Lbl_Iz.Content = Iz.ToString("0.###");
+                    lbl_Polar.Content = Polar.ToString("0.###");
                 }
 
             }
@@ -1287,15 +1289,15 @@ namespace WpfHSPB1
 
                     grd_Ergebnisse.Visibility = Visibility.Visible;
 
-                    lbl_Gewicht.Content = gewicht;
-                    lbl_Preis.Content = preis;
-                    lbl_qfläche.Content = qfläche;
-                    lbl_volumen.Content = volumen;
-                    lbl_Wy.Content = Wy;
-                    lbl_Wz.Content = Wz;
-                    lbl_Iy.Content = Iy;
-                    Lbl_Iz.Content = Iz;
-                    lbl_Polar.Content = Polar;
+                    lbl_Gewicht.Content = gewicht.ToString("0.###");
+                    lbl_Preis.Content = preis.ToString("0.###");
+                    lbl_qfläche.Content = qfläche.ToString("0.###");
+                    lbl_volumen.Content = volumen.ToString("0.###");
+                    lbl_Wy.Content = Wy.ToString("0.###");
+                    lbl_Wz.Content = Wz.ToString("0.###");
+                    lbl_Iy.Content = Iy.ToString("0.###");
+                    Lbl_Iz.Content = Iz.ToString("0.###");
+                    lbl_Polar.Content = Polar.ToString("0.###");
 
                 }
             }
@@ -1494,15 +1496,15 @@ namespace WpfHSPB1
 
                     grd_Ergebnisse.Visibility = Visibility.Visible;
 
-                    lbl_Gewicht.Content = gewicht;
-                    lbl_Preis.Content = preis;
-                    lbl_qfläche.Content = qfläche;
-                    lbl_volumen.Content = volumen;
-                    lbl_Wy.Content = Wy;
-                    lbl_Wz.Content = Wz;
-                    lbl_Iy.Content = Iy;
-                    Lbl_Iz.Content = Iz;
-                    lbl_Polar.Content = Polar;
+                    lbl_Gewicht.Content = gewicht.ToString("0.###");
+                    lbl_Preis.Content = preis.ToString("0.###");
+                    lbl_qfläche.Content = qfläche.ToString("0.###");
+                    lbl_volumen.Content = volumen.ToString("0.###");
+                    lbl_Wy.Content = Wy.ToString("0.###");
+                    lbl_Wz.Content = Wz.ToString("0.###");
+                    lbl_Iy.Content = Iy.ToString("0.###");
+                    Lbl_Iz.Content = Iz.ToString("0.###");
+                    lbl_Polar.Content = Polar.ToString("0.###");
                 }
 
             }
@@ -1695,15 +1697,15 @@ namespace WpfHSPB1
 
                     grd_Ergebnisse.Visibility = Visibility.Visible;
 
-                    lbl_Gewicht.Content = gewicht;
-                    lbl_Preis.Content = preis;
-                    lbl_qfläche.Content = qfläche;
-                    lbl_volumen.Content = volumen;
-                    lbl_Wy.Content = Wy;
-                    lbl_Wz.Content = Wz;
-                    lbl_Iy.Content = Iy;
-                    Lbl_Iz.Content = Iz;
-                    lbl_Polar.Content = Polar;
+                    lbl_Gewicht.Content = gewicht.ToString("0.###");
+                    lbl_Preis.Content = preis.ToString("0.###");
+                    lbl_qfläche.Content = qfläche.ToString("0.###");
+                    lbl_volumen.Content = volumen.ToString("0.###");
+                    lbl_Wy.Content = Wy.ToString("0.###");
+                    lbl_Wz.Content = Wz.ToString("0.###");
+                    lbl_Iy.Content = Iy.ToString("0.###");
+                    Lbl_Iz.Content = Iz.ToString("0.###");
+                    lbl_Polar.Content = Polar.ToString("0.###");
                 }
 
             }
@@ -1894,16 +1896,16 @@ namespace WpfHSPB1
                     grd_Ergebnisse.Visibility = Visibility.Visible;
 
 
-                    lbl_Gewicht.Content = gewicht;
-                    lbl_Preis.Content = preis;
+                    lbl_Gewicht.Content = gewicht.ToString("0.###");
+                    lbl_Preis.Content = preis.ToString("0.###");
 
-                    lbl_qfläche.Content = qfläche;
-                    lbl_volumen.Content = volumen;
-                    lbl_Wy.Content = Wy;
-                    lbl_Wz.Content = Wz;
-                    lbl_Iy.Content = Iy;
-                    Lbl_Iz.Content = Iz;
-                    lbl_Polar.Content = Polar;
+                    lbl_qfläche.Content = qfläche.ToString("0.###");
+                    lbl_volumen.Content = volumen.ToString("0.###");
+                    lbl_Wy.Content = Wy.ToString("0.###");
+                    lbl_Wz.Content = Wz.ToString("0.###");
+                    lbl_Iy.Content = Iy.ToString("0.###");
+                    Lbl_Iz.Content = Iz.ToString("0.###");
+                    lbl_Polar.Content = Polar.ToString("0.###");
                 }
             }
 
@@ -2095,15 +2097,15 @@ namespace WpfHSPB1
 
                     grd_Ergebnisse.Visibility = Visibility.Visible;
 
-                    lbl_Gewicht.Content = gewicht;
-                    lbl_Preis.Content = preis;
-                    lbl_qfläche.Content = qfläche;
-                    lbl_volumen.Content = volumen;
-                    lbl_Wy.Content = Wy;
-                    lbl_Wz.Content = Wz;
-                    lbl_Iy.Content = Iy;
-                    Lbl_Iz.Content = Iz;
-                    lbl_Polar.Content = Polar;
+                    lbl_Gewicht.Content = gewicht.ToString("0.###");
+                    lbl_Preis.Content = preis.ToString("0.###");
+                    lbl_qfläche.Content = qfläche.ToString("0.###");
+                    lbl_volumen.Content = volumen.ToString("0.###");
+                    lbl_Wy.Content = Wy.ToString("0.###");
+                    lbl_Wz.Content = Wz.ToString("0.###");
+                    lbl_Iy.Content = Iy.ToString("0.###");
+                    Lbl_Iz.Content = Iz.ToString("0.###");
+                    lbl_Polar.Content = Polar.ToString("0.###");
                 }
 
             }
@@ -2302,15 +2304,15 @@ namespace WpfHSPB1
 
                     grd_Ergebnisse.Visibility = Visibility.Visible;
 
-                    lbl_Gewicht.Content = gewicht;
-                    lbl_Preis.Content = preis;
-                    lbl_qfläche.Content = qfläche;
-                    lbl_volumen.Content = volumen;
-                    lbl_Wy.Content = Wy;
-                    lbl_Wz.Content = Wz;
-                    lbl_Iy.Content = Iy;
-                    Lbl_Iz.Content = Iz;
-                    lbl_Polar.Content = Polar;
+                    lbl_Gewicht.Content = gewicht.ToString("0.###");
+                    lbl_Preis.Content = preis.ToString("0.###");
+                    lbl_qfläche.Content = qfläche.ToString("0.###");
+                    lbl_volumen.Content = volumen.ToString("0.###");
+                    lbl_Wy.Content = Wy.ToString("0.###");
+                    lbl_Wz.Content = Wz.ToString("0.###");
+                    lbl_Iy.Content = Iy.ToString("0.###");
+                    Lbl_Iz.Content = Iz.ToString("0.###");
+                    lbl_Polar.Content = Polar.ToString("0.###");
 
                 }
             }
