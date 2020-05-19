@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfHSPB1"
         mc:Ignorable="d"
-           Title="Pro.File Rechner" Icon="/Frontbild_Programmicon.png"  MinWidth="600" MinHeight="500" Height="500" Width="1000" >
+           Title="Pro.File Rechner" Icon="/Frontbild_Programmicon.png"  MinWidth="1100" MinHeight="500" Height="500" Width="1100"  MaxHeight="500" MaxWidth="1100" WindowStartupLocation="CenterScreen">
 
     <!--Background Farbe-->
     <Window.Background>

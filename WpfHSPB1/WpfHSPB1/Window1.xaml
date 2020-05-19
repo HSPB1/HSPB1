@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfHSPB1"
         mc:Ignorable="d"
-        Title="Pro.File Rechner" Icon="Frontbild_Programmicon.png"  MinWidth="400" MinHeight="200" Height="500" Width="1100" >
+        Title="Pro.File Rechner" Icon="Frontbild_Programmicon.png"   MinWidth="1100" MinHeight="500" Height="500" Width="1100"  MaxHeight="500" MaxWidth="1100" WindowStartupLocation="CenterScreen" >
 
     <!--Background Farbe-->
     <Window.Background>
@@ -43,78 +43,85 @@
 
                 <Label Grid.Row="1" Foreground="White" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center">Profil Verzeichnis</Label>
 
-                <!-- Erzeugung des Treeviewes -->
-                <TreeView   Width="200" Height="300" FontSize="18" x:Name="trv_Profile" Margin="5" Grid.Row="2" BorderBrush="#FFC7CBD2" >
+                    <!-- Erzeugung des Treeviewes -->
+                    <TreeView   Width="180" Height="300" FontSize="18" x:Name="trv_Profile" Margin="5" Grid.Row="2" BorderBrush="#FFC7CBD2" ToolTip="Hier können Sie ein Profi auswählen was Sie berechnen lassen möchten">
 
-                    <TreeView.Background>
-                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                            <GradientStop Color="Black" Offset="0"/>
-                            <GradientStop Color="#FF82A1F1" Offset="1"/>
-                        </LinearGradientBrush>
-                    </TreeView.Background>
-
-                    <!-- Treeview Baum für Rechteckige Profile mit Unterpunkten der Vollmaterial-->
-                    <TreeViewItem x:Name="trv_VerzRechteckigeProfile" Foreground="White" Header="Eckige Profile" Selected="trv_VerzRechteckigeProfile_Selected">
-
-                        <TreeViewItem x:Name="trv_VollmaterialRechteck" Foreground="White" Header="Vollmaterial" Selected="trv_VollmaterialRechteck_Selected"/>
+                        <TreeView.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="Black" Offset="0"/>
+                                <GradientStop Color="#FF82A1F1" Offset="1"/>
+                            </LinearGradientBrush>
+                        </TreeView.Background>
 
 
 
-                        <!-- Treeview Baum für Rechteckige Profile mit Unterpunkten vom Hohlprofil -->
-                        <TreeViewItem x:Name="trv_HohlProfilRechteck" Foreground="White" Header="HohlProfile" Selected="trv_HohlProfilRechteck_Selected"></TreeViewItem>
+                        <!-- Treeview Baum für Rechteckige Profile mit Unterpunkten der Vollmaterial-->                
+                        <TreeViewItem x:Name="trv_VerzRechteckigeProfile" Foreground="White" Header="Eckige Profile" Selected="trv_VerzRechteckigeProfile_Selected">
+
+                            
+                                <TreeViewItem x:Name="trv_VollmaterialRechteck" Foreground="White" Header="Rechteck voll" Selected="trv_VollmaterialRechteck_Selected"/>
 
 
-                        <!-- Treeview Baum für Rechteckige Profile mit Unterpunkten von einem Sechseck -->
-                        <TreeViewItem x:Name="trv_VollmaterialSechseck" Foreground="White" Header="Sechseck" Selected="trv_VollmaterialSechseck_Selected"></TreeViewItem>
-                    </TreeViewItem>
 
-                    <!-- Treeview Baum für Runde Profile mit Unterpunkten -->
-                    <TreeViewItem x:Name="trv_VerzRundeProifle" Foreground="White"  Header="Runde Profile" Selected="trv_VerzRundeProifle_Selected">
+                            <!-- Treeview Baum für Rechteckige Profile mit Unterpunkten vom Hohlprofil -->
+                            <TreeViewItem x:Name="trv_HohlProfilRechteck" Foreground="White" Header="Rechteck hohl" Selected="trv_HohlProfilRechteck_Selected"></TreeViewItem>
 
-                        <!-- Treeview Baum für RundeProfile mit Unterpunkten  der Vollprofilen-->
-                        <TreeViewItem x:Name="trv_VerzRundVoll" Foreground="White" Header="Vollmaterial">
 
-                            <TreeViewItem x:Name="trv_RundProfilVoll" Foreground="White" Header="Rund Profil" Selected="trv_RundProfilVoll_Selected"/>
-                            <TreeViewItem x:Name="trv_HalbrundProfilVoll" Foreground="White" Header="Halbrund Profil" Selected="trv_HalbrundProfilVoll_Selected"/>
-
+                            <!-- Treeview Baum für Rechteckige Profile mit Unterpunkten von einem Sechseck -->
+                            <TreeViewItem x:Name="trv_VollmaterialSechseck" Foreground="White" Header="Sechseck" Selected="trv_VollmaterialSechseck_Selected"></TreeViewItem>
                         </TreeViewItem>
-
-                        <!-- Treeview Baum für Runde Profile mit Unterpunkten  der Hohlprofile-->
-                        <TreeViewItem x:Name="trv_VerzRundHohl" Foreground="White" Header="Hohlprofile" Selected="trv_VerzRundHohl_Selected">
-
-                            <TreeViewItem x:Name="trv_RundRohr" Foreground="White" Header="Rohre" Selected="trv_RundRohr_Selected"/>
-
-                        </TreeViewItem>
-
-                    </TreeViewItem>
-                    <!-- Treeview Baum für Profile mit Unterpunkten der L,U,T I-->
-                    <TreeViewItem x:Name="trv_VerzProfile" Foreground="White" Header="Profile" Selected="trv_VerzProfile_Selected">
-
-                        <TreeViewItem x:Name="trv_TProfil" Foreground="White" Header="T-Profil" Selected="trv_TProfil_Selected"/>
-
-
-
-                        <!-- Treeview Baum für  Profile mit Unterpunkten von L -->
-                        <TreeViewItem x:Name="trv_LProfil" Foreground="White" Header="L-Profil" Selected="trv_LProfil_Selected"></TreeViewItem>
-
-
-                        <!-- Treeview Baum für  Profile mit Unterpunkten  U -->
-                        <TreeViewItem x:Name="trv_UProfil" Foreground="White" Header="U-Profil" Selected="trv_UProfil_Selected"></TreeViewItem>
-                        
-                        <!-- Treeview Baum für  Profile mit Unterpunkten von I -->
-                    <TreeViewItem x:Name="trv_IProfil" Foreground="White" Header="I-Profil" Selected="trv_IProfil_Selected"></TreeViewItem>
-                    </TreeViewItem>
 
                     
 
-                    <!-- Neu!!!!-->
-                    <!-- Scrollleistte eingefügt-->
-                    <ScrollBar Visibility="Hidden" Height="200"/>
+
+                    <!-- Treeview Baum für Runde Profile mit Unterpunkten -->
+                        <TreeViewItem x:Name="trv_VerzRundeProifle" Foreground="White"  Header="Runde Profile" Selected="trv_VerzRundeProifle_Selected">
+
+                            <!-- Treeview Baum für RundeProfile mit Unterpunkten  der Vollprofilen-->
+                            <TreeViewItem x:Name="trv_VerzRundVoll" Foreground="White" Header="Rund voll">
+
+                                <TreeViewItem x:Name="trv_RundProfilVoll" Foreground="White" Header="Rund " Selected="trv_RundProfilVoll_Selected"/>
+                                <TreeViewItem x:Name="trv_HalbrundProfilVoll" Foreground="White" Header="Halbrund " Selected="trv_HalbrundProfilVoll_Selected"/>
+
+                            </TreeViewItem>
+
+                            <!-- Treeview Baum für Runde Profile mit Unterpunkten  der Hohlprofile-->
+                            <TreeViewItem x:Name="trv_VerzRundHohl" Foreground="White" Header="Hohlprofile" Selected="trv_VerzRundHohl_Selected">
+
+                                <TreeViewItem x:Name="trv_RundRohr" Foreground="White" Header="Rund hohl" Selected="trv_RundRohr_Selected"/>
+
+                            </TreeViewItem>
+
+                        </TreeViewItem>
+                        <!-- Treeview Baum für Profile mit Unterpunkten der L,U,T I-->
+                        <TreeViewItem x:Name="trv_VerzProfile" Foreground="White" Header="Form Profile" Selected="trv_VerzProfile_Selected">
+
+                            <TreeViewItem x:Name="trv_TProfil" Foreground="White" Header="T-Profil" Selected="trv_TProfil_Selected"/>
 
 
-                </TreeView>
+
+                            <!-- Treeview Baum für  Profile mit Unterpunkten von L -->
+                            <TreeViewItem x:Name="trv_LProfil" Foreground="White" Header="L-Profil" Selected="trv_LProfil_Selected"></TreeViewItem>
 
 
+                            <!-- Treeview Baum für  Profile mit Unterpunkten  U -->
+                            <TreeViewItem x:Name="trv_UProfil" Foreground="White" Header="U-Profil" Selected="trv_UProfil_Selected"></TreeViewItem>
+
+                            <!-- Treeview Baum für  Profile mit Unterpunkten von I -->
+                            <TreeViewItem x:Name="trv_IProfil" Foreground="White" Header="I-Profil" Selected="trv_IProfil_Selected"></TreeViewItem>
+                        </TreeViewItem>
+
+
+
+                        <!-- Neu!!!!-->
+                        <!-- Scrollleistte eingefügt-->
+                        <ScrollBar Visibility="Hidden" Height="200"/>
+
+
+
+                    </TreeView>
+
+                
             </Grid>
         </Border>
 
@@ -142,7 +149,7 @@
             <Border x:Name="grd_Ergebnisse" Grid.Row="1" BorderBrush="White" BorderThickness="2" CornerRadius="10" Margin="10" Visibility="Hidden">
 
                 <!-- Ergebniss Fenster Gitter -->
-                <Grid x:Name="grd_ErgebnisFenster">
+                <Grid x:Name="grd_ErgebnisFenster" >
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
                         <ColumnDefinition Width="50*"/>
@@ -157,7 +164,7 @@
                     <Label Grid.Row="0" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="20" Grid.Column="1" Margin="238.478,2,250.428,2">Ergebnisse</Label>
 
                     <!-- Gitter für Ergebnis -->
-                    <Grid Grid.Row="1" Grid.ColumnSpan="2" Margin="0,0,0.428,-0.429">
+                    <Grid Grid.Row="1" Grid.ColumnSpan="2" Margin="0,0,0.428,-0.429" ToolTip="Wenn Sie die Ergebnisse umgerechnet haben möchten, müssen Sie erneut den Berechungbutton betätigen">
 
                         <!-- Gitter Definition Spalten-->
                         <Grid.ColumnDefinitions>
@@ -178,7 +185,7 @@
                         <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
                             <Label  HorizontalAlignment="Left" Foreground="White" FontSize="14">Querschnittsfläche:</Label>
                             <Label x:Name="lbl_qfläche"  Foreground="White" FontSize="13" Margin="0 1 0 5" Width="80"></Label>
-                            <ComboBox HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="cbx_Qfläche" SelectedIndex="0" >
+                            <ComboBox HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="cbx_Qfläche" SelectedIndex="0" ToolTip="Hier können Sie Ihr Ergebnis nach Wunsch von der Einheit umrechnen">
                                 <ListBoxItem Content="mm²" ></ListBoxItem>
                                 <ListBoxItem Content="cm²"></ListBoxItem>
                                 <ListBoxItem Content="m²"></ListBoxItem>
@@ -190,7 +197,7 @@
                         <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
                             <Label   HorizontalAlignment="Left" Foreground="White" FontSize="14">Volumen:</Label>
                             <Label x:Name="lbl_volumen"  Foreground="White" FontSize="13" Margin="58 1 0 5" Width="80"></Label>
-                            <ComboBox HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="cbx_Volumen" SelectedIndex="0" >
+                            <ComboBox HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="cbx_Volumen" SelectedIndex="0" ToolTip="Hier können Sie Ihr Ergebnis nach Wunsch von der Einheit umrechnen" >
                                 <ListBoxItem Content="mm³" ></ListBoxItem>
                                 <ListBoxItem Content="cm³"></ListBoxItem>
                                 <ListBoxItem Content="m³"></ListBoxItem>
@@ -208,9 +215,9 @@
                         <!-- Anzeige Wiederstandsmoment Axial Wx -->
                         <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
                             <Label   HorizontalAlignment="Left" Foreground="White" FontSize="14">Widerstandsmoment Axial Wy:</Label>
-                            <Label x:Name="lbl_Wy" Foreground="White" FontSize="13" Margin="0 1 0 5" Width="140"></Label>
+                            <Label x:Name="lbl_Wy" Foreground="White" FontSize="13" Margin="17 1 -16 5" Width="85"></Label>
 
-                            <ComboBox HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="cbx_Wx" SelectedIndex="1" >
+                            <ComboBox HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="cbx_Wx" SelectedIndex="1" ToolTip="Hier können Sie Ihr Ergebnis nach Wunsch von der Einheit umrechnen" >
                                 <ListBoxItem Content="mm³" ></ListBoxItem>
                                 <ListBoxItem Content="cm³"></ListBoxItem>
                                 <ListBoxItem Content="m³"></ListBoxItem>
@@ -221,8 +228,8 @@
                         <!-- Anzeige Wiederstandsmoment Axial Wy -->
                         <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
                             <Label   HorizontalAlignment="Left" Foreground="White" FontSize="14">Widerstandsmoment Axial Wz:</Label>
-                            <Label x:Name="lbl_Wz"  Foreground="White" FontSize="13" Margin="0 1 0 5" Width="140" ></Label>
-                            <ComboBox HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="cbx_Wy" SelectedIndex="1" >
+                            <Label x:Name="lbl_Wz"  Foreground="White" FontSize="13" Margin="17 1 -17 5" Width="85" ></Label>
+                            <ComboBox HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="cbx_Wy" SelectedIndex="1"  ToolTip="Hier können Sie Ihr Ergebnis nach Wunsch von der Einheit umrechnen">
                                 <ListBoxItem Content="mm³" ></ListBoxItem>
                                 <ListBoxItem Content="cm³"></ListBoxItem>
                                 <ListBoxItem Content="m³"></ListBoxItem>
@@ -234,8 +241,8 @@
                         <!-- Anzeige FlächenträgeitsMoment Axial Ix -->
                         <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
                             <Label   HorizontalAlignment="Left" Foreground="White" FontSize="14">FlächenträgheitsMoment Axial Iy:</Label>
-                            <Label x:Name="lbl_Iy" Foreground="White" FontSize="13" Margin="0 1 0 5" Width="140" ></Label>
-                            <ComboBox HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="cbx_Ix" SelectedIndex="1" >
+                            <Label x:Name="lbl_Iy" Foreground="White" FontSize="13" Margin="0 1 0 5" Width="70" ></Label>
+                            <ComboBox HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="cbx_Ix" SelectedIndex="1" ToolTip="Hier können Sie Ihr Ergebnis nach Wunsch von der Einheit umrechnen" >
                                 <ListBoxItem Content="mm^4" ></ListBoxItem>
                                 <ListBoxItem Content="cm^4"></ListBoxItem>
                            
@@ -246,8 +253,8 @@
                         <!-- Anzeige FlächenträgeitsMoment Axial Iy -->
                         <StackPanel Grid.Row="3" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
                             <Label   HorizontalAlignment="Left" Foreground="White" FontSize="14"  >FlächenträgheitsMoment Axial Iz:</Label>
-                            <Label x:Name="Lbl_Iz" Foreground="White" FontSize="13" Margin="0 1 0 5" Width="140"></Label>
-                            <ComboBox HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="cbx_Iy" SelectedIndex="1" >
+                            <Label x:Name="Lbl_Iz" Foreground="White" FontSize="13" Margin="0 1 0 5" Width="70"></Label>
+                            <ComboBox HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="cbx_Iy" SelectedIndex="1" ToolTip="Hier können Sie Ihr Ergebnis nach Wunsch von der Einheit umrechnen" >
                                 <ListBoxItem Content="mm^4" ></ListBoxItem>
                                 <ListBoxItem Content="cm^4"></ListBoxItem>
                               
@@ -258,8 +265,8 @@
                         <!-- Anzeige FlächenträgeitsMoment Polar -->
                         <StackPanel Grid.Row="4" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
                             <Label   HorizontalAlignment="Left" Foreground="White" FontSize="14">FlächenträgheitsMoment Polar:</Label>
-                            <Label x:Name="lbl_Polar" Foreground="White" FontSize="13" Margin="12 1 0 5" Width="140"></Label>
-                            <ComboBox HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="cbx_Polar" SelectedIndex="1" >
+                            <Label x:Name="lbl_Polar" Foreground="White" FontSize="13" Margin="12 1 0 5" Width="70"></Label>
+                            <ComboBox HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="cbx_Polar" SelectedIndex="1"  ToolTip="Hier können Sie Ihr Ergebnis nach Wunsch von der Einheit umrechnen">
                                 <ListBoxItem Content="mm^4" ></ListBoxItem>
                                 <ListBoxItem Content="cm^4"></ListBoxItem>
                                 
@@ -367,7 +374,7 @@
                     <!-- Hier Endet das Eingabefenster -->
 
                     <!-- Rand Für das Bild-->
-                    <Border Grid.Column="1" BorderBrush="White" BorderThickness="1" Margin="20" CornerRadius="10" Height="160">
+                    <Border Grid.Column="1" BorderBrush="White" BorderThickness="1" Margin="20" CornerRadius="10" Height="160" ToolTip="Quelle: Dubel Taschenbuch für Maschinenbauer">
 
                         <Image Margin="5" Grid.Column="1"  Source="Rechteckprofil_Voll_bearbeitet.jpg"></Image>
                     </Border>
@@ -453,7 +460,7 @@
                     <!-- Hier Endet das Eingabefenster -->
 
                     <!-- Rand Für das Bild-->
-                    <Border Grid.Column="1" BorderBrush="White" BorderThickness="1" Margin="20" CornerRadius="10" Height="160">
+                    <Border Grid.Column="1" BorderBrush="White" BorderThickness="1" Margin="20" CornerRadius="10" Height="160" ToolTip="Quelle: Rolof Matek Maschinenelemente" >
 
                         <Image Margin="5" Grid.Column="1"  Source="Rechteckprofil_Hohl.jpg"></Image>
                     </Border>
@@ -522,7 +529,7 @@
                     <!-- Hier Endet das Eingabefenster -->
 
                     <!-- Rand Für das Bild-->
-                    <Border Grid.Column="1" BorderBrush="White" BorderThickness="1" Margin="20" CornerRadius="10" Height="160">
+                    <Border Grid.Column="1" BorderBrush="White" BorderThickness="1" Margin="20" CornerRadius="10" Height="160" ToolTip="Quelle: Dubel Taschenbuch für Maschinenbauer" >
 
                         <Image Margin="5" Grid.Column="1"  Source="Rundprofil_Voll.jpg"></Image>
                     </Border>
@@ -591,7 +598,7 @@
                     <!-- Hier Endet das Eingabefenster -->
 
                     <!-- Rand Für das Bild-->
-                    <Border Grid.Column="1" BorderBrush="White" BorderThickness="1" Margin="20" CornerRadius="10" Height="160">
+                    <Border Grid.Column="1" BorderBrush="White" BorderThickness="1" Margin="20" CornerRadius="10" Height="160" ToolTip="Quelle: Dubel Taschenbuch für Maschinenbauer">
 
                         <Image Margin="5" Grid.Column="1"  Source="Eckig_Profil_Sechseck.jpg"></Image>
                     </Border>
@@ -689,7 +696,7 @@
                     <!-- Hier Endet das Eingabefenster -->
 
                     <!-- Rand Für das Bild-->
-                    <Border Grid.Column="1" BorderBrush="White" BorderThickness="1" Margin="20" CornerRadius="10" Height="160">
+                    <Border Grid.Column="1" BorderBrush="White" BorderThickness="1" Margin="20" CornerRadius="10" Height="160" ToolTip="Quelle: Rolof Matek Maschinenelemente">
 
                         <Image Margin="5" Grid.Column="1"  Source="T-Profil_bearbeitet.jpg"></Image>
                     </Border>
@@ -788,7 +795,7 @@
                     <!-- Hier Endet das Eingabefenster -->
 
                     <!-- Rand Für das Bild-->
-                    <Border Grid.Column="1" BorderBrush="White" BorderThickness="1" Margin="20" CornerRadius="10" Height="160">
+                    <Border Grid.Column="1" BorderBrush="White" BorderThickness="1" Margin="20" CornerRadius="10" Height="160" ToolTip="Quelle: Roloff Matek Maschinenelemente">
 
                         <Image Margin="5" Grid.Column="1"  Source="U-Profil_bearbeitet.jpg"></Image>
                     </Border>
@@ -886,7 +893,7 @@
                     <!-- Hier Endet das Eingabefenster -->
 
                     <!-- Rand Für das Bild-->
-                    <Border Grid.Column="1" BorderBrush="White" BorderThickness="1" Margin="20" CornerRadius="10" Height="160">
+                    <Border Grid.Column="1" BorderBrush="White" BorderThickness="1" Margin="20" CornerRadius="10" Height="160" ToolTip="Quelle: Roloff Matek Maschinenelemente" >
 
                         <Image Margin="5" Grid.Column="1"  Source="I-Profil_bearbeitet.jpg"></Image>
                     </Border>
@@ -956,7 +963,7 @@
                     <!-- Hier Endet das Eingabefenster -->
 
                     <!-- Rand Für das Bild-->
-                    <Border Grid.Column="1" BorderBrush="White" BorderThickness="1" Margin="20" CornerRadius="10" Height="160">
+                    <Border Grid.Column="1" BorderBrush="White" BorderThickness="1" Margin="20" CornerRadius="10" Height="160" ToolTip="Quelle: Dubel Taaschenbuch für Maschinenebauer">
 
                         <Image Margin="5" Grid.Column="1"  Source="Rundprofil_HalbrundVoll_bearbeitet.jpg"></Image>
                     </Border>
@@ -1031,7 +1038,7 @@
                     <!-- Hier Endet das Eingabefenster -->
 
                     <!-- Rand Für das Bild-->
-                    <Border Grid.Column="1" BorderBrush="White" BorderThickness="1" Margin="20" CornerRadius="10" Height="160">
+                    <Border Grid.Column="1" BorderBrush="White" BorderThickness="1" Margin="20" CornerRadius="10" Height="160" ToolTip="Quelle: Roloff Matek Maschinenelemente">
 
                         <Image Margin="5" Grid.Column="1"  Source="Rundprofil_Hohl.jpg"></Image>
                     </Border>
@@ -1121,7 +1128,7 @@
                     <!-- Hier Endet das Eingabefenster -->
 
                     <!-- Rand Für das Bild-->
-                    <Border Grid.Column="1" BorderBrush="White" BorderThickness="1" Margin="20" CornerRadius="10" Height="160">
+                    <Border Grid.Column="1" BorderBrush="White" BorderThickness="1" Margin="20" CornerRadius="10" Height="160" ToolTip="Quelle: Dubel Taschenbuch für Maschinenbauer">
 
                         <Image Margin="5" Grid.Column="1"  Source="L-ProfilAchsen_bearbeitet.jpg"></Image>
                     </Border>
