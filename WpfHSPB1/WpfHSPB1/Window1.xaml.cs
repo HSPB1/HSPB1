@@ -1725,9 +1725,9 @@ namespace WpfHSPB1
                     double qfläche = Math.PI * radius * radius / 2;
                     double volumen = qfläche * länge;
                     double Wy = 0.1908 * radius * radius;
-                    double Wz = 00;
+                double Wz = (Math.PI * (radius * radius * radius * radius)) / 8;
                     double Iy = 0.1098 * radius * radius * radius * radius;
-                    double Iz = 00;
+                double Iz = (Math.PI * ((2 * radius) * (2 * radius) * (2 * radius))) / 64;
                     double Polar = 00;
 
                     double gewicht = 0;

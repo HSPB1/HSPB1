@@ -128,5 +128,38 @@
   <ItemGroup>
     <Resource Include="T Profil.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Rechteckprofil_Voll_bearbeitet.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Bilder\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Rechteckprofil_Hohl.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Rundprofil_Voll.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Eckig_Profil_Sechseck.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="T-Profil_bearbeitet.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="U-Profil_bearbeitet.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="I-Profil_bearbeitet.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Rundprofil_HalbrundVoll_bearbeitet.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Rundprofil_Hohl.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="L-ProfilAchsen_bearbeitet.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

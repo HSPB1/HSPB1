@@ -207,7 +207,7 @@
 
                         <!-- Anzeige Wiederstandsmoment Axial Wx -->
                         <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
-                            <Label   HorizontalAlignment="Left" Foreground="White" FontSize="14">Wiederstandsmoment Axial Wy:</Label>
+                            <Label   HorizontalAlignment="Left" Foreground="White" FontSize="14">Widerstandsmoment Axial Wy:</Label>
                             <Label x:Name="lbl_Wy" Foreground="White" FontSize="13" Margin="0 1 0 5" Width="140"></Label>
 
                             <ComboBox HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="cbx_Wx" SelectedIndex="1" >
@@ -220,7 +220,7 @@
 
                         <!-- Anzeige Wiederstandsmoment Axial Wy -->
                         <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
-                            <Label   HorizontalAlignment="Left" Foreground="White" FontSize="14">Wiederstandsmoment Axial Wz:</Label>
+                            <Label   HorizontalAlignment="Left" Foreground="White" FontSize="14">Widerstandsmoment Axial Wz:</Label>
                             <Label x:Name="lbl_Wz"  Foreground="White" FontSize="13" Margin="0 1 0 5" Width="140" ></Label>
                             <ComboBox HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="cbx_Wy" SelectedIndex="1" >
                                 <ListBoxItem Content="mm³" ></ListBoxItem>
@@ -233,7 +233,7 @@
 
                         <!-- Anzeige FlächenträgeitsMoment Axial Ix -->
                         <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
-                            <Label   HorizontalAlignment="Left" Foreground="White" FontSize="14">FlächenträgeitsMoment Axial Iy:</Label>
+                            <Label   HorizontalAlignment="Left" Foreground="White" FontSize="14">FlächenträgheitsMoment Axial Iy:</Label>
                             <Label x:Name="lbl_Iy" Foreground="White" FontSize="13" Margin="0 1 0 5" Width="140" ></Label>
                             <ComboBox HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="cbx_Ix" SelectedIndex="1" >
                                 <ListBoxItem Content="mm^4" ></ListBoxItem>
@@ -245,7 +245,7 @@
 
                         <!-- Anzeige FlächenträgeitsMoment Axial Iy -->
                         <StackPanel Grid.Row="3" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
-                            <Label   HorizontalAlignment="Left" Foreground="White" FontSize="14"  >FlächenträgeitsMoment Axial Iz:</Label>
+                            <Label   HorizontalAlignment="Left" Foreground="White" FontSize="14"  >FlächenträgheitsMoment Axial Iz:</Label>
                             <Label x:Name="Lbl_Iz" Foreground="White" FontSize="13" Margin="0 1 0 5" Width="140"></Label>
                             <ComboBox HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="cbx_Iy" SelectedIndex="1" >
                                 <ListBoxItem Content="mm^4" ></ListBoxItem>
@@ -257,7 +257,7 @@
 
                         <!-- Anzeige FlächenträgeitsMoment Polar -->
                         <StackPanel Grid.Row="4" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
-                            <Label   HorizontalAlignment="Left" Foreground="White" FontSize="14">FlächenträgeitsMoment Polar:</Label>
+                            <Label   HorizontalAlignment="Left" Foreground="White" FontSize="14">FlächenträgheitsMoment Polar:</Label>
                             <Label x:Name="lbl_Polar" Foreground="White" FontSize="13" Margin="12 1 0 5" Width="140"></Label>
                             <ComboBox HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="cbx_Polar" SelectedIndex="1" >
                                 <ListBoxItem Content="mm^4" ></ListBoxItem>
@@ -369,7 +369,7 @@
                     <!-- Rand Für das Bild-->
                     <Border Grid.Column="1" BorderBrush="White" BorderThickness="1" Margin="20" CornerRadius="10" Height="160">
 
-                        <Image Margin="5" Grid.Column="1"  Source="RechteckVollProfile.JPG"></Image>
+                        <Image Margin="5" Grid.Column="1"  Source="Rechteckprofil_Voll_bearbeitet.jpg"></Image>
                     </Border>
                     <!-- Ab hier endet das Bild-->
 
@@ -455,7 +455,7 @@
                     <!-- Rand Für das Bild-->
                     <Border Grid.Column="1" BorderBrush="White" BorderThickness="1" Margin="20" CornerRadius="10" Height="160">
 
-                        <Image Margin="5" Grid.Column="1"  Source="RechteckHohlProfil.JPG"></Image>
+                        <Image Margin="5" Grid.Column="1"  Source="Rechteckprofil_Hohl.jpg"></Image>
                     </Border>
                     <!-- Ab hier endet das Bild-->
                     <Button x:Name="btn_ReHo_Berechnung" Margin="50,175,52.333,40" Width="80" Height="25" VerticalAlignment="Center" HorizontalAlignment="Center" Click="btn_ReHo_berechnung_Click">Berechnung</Button>
@@ -493,7 +493,7 @@
                             <!-- Eingabefeld 1 -->
                             <StackPanel HorizontalAlignment="Center" Grid.Row="1" Orientation="Horizontal" >
 
-                                <Label Margin="5 5 1 5" Foreground="White" Content="Durchmesser D:" />
+                                <Label Margin="5 5 1 5" Foreground="White" Content="Durchmesser d:" />
                                 <TextBox x:Name="TxtBox_RuVo_Durchmesser" Height="20" Margin="2 5 1 5" Width="30" ToolTip="Geben Sie hier den Durchmesser Ihres Profils in Millimeter ein" />
                                 <Label  Margin="1 5 0 5" Foreground="White" Content="mm"/>
                             </StackPanel>
@@ -524,7 +524,7 @@
                     <!-- Rand Für das Bild-->
                     <Border Grid.Column="1" BorderBrush="White" BorderThickness="1" Margin="20" CornerRadius="10" Height="160">
 
-                        <Image Margin="5" Grid.Column="1"  Source="RundVollProfil.JPG"></Image>
+                        <Image Margin="5" Grid.Column="1"  Source="Rundprofil_Voll.jpg"></Image>
                     </Border>
                     <!-- Ab hier endet das Bild-->
                     <Button x:Name="btn_RuVo_Berechnung" Margin="50,175,52.333,40" Width="80" Height="25" VerticalAlignment="Center" HorizontalAlignment="Center" Click="btn_RuVo_berechnung_Click">Berechnung</Button>
@@ -561,7 +561,7 @@
                             <!-- Eingabefeld 1 -->
                             <StackPanel HorizontalAlignment="Center" Grid.Row="1" Orientation="Horizontal">
 
-                                <Label Margin="5 5 1 5" Foreground="White" Content="Radius r:" />
+                                <Label Margin="5 5 1 5" Foreground="White" Content="Radius R:" />
                                 <TextBox x:Name="TxtBox_SeVo_Radius" Height="20" Margin="2 5 1 5" Width="30" ToolTip="Geben Sie hier den Radius Ihres Profils in Millimeter ein"/>
                                 <Label  Margin="1 5 0 5" Foreground="White" Content="mm"/>
                             </StackPanel>
@@ -593,7 +593,7 @@
                     <!-- Rand Für das Bild-->
                     <Border Grid.Column="1" BorderBrush="White" BorderThickness="1" Margin="20" CornerRadius="10" Height="160">
 
-                        <Image Margin="5" Grid.Column="1"  Source=""></Image>
+                        <Image Margin="5" Grid.Column="1"  Source="Eckig_Profil_Sechseck.jpg"></Image>
                     </Border>
                     <!-- Ab hier endet das Bild-->
                     <Button x:Name="btn_SeVo_Berechnung" Margin="90,175,52.333,40" Width="80" Height="25" VerticalAlignment="Center" HorizontalAlignment="Center" Click="btn_SeVo_berechnung_Click">Berechnung</Button>
@@ -639,7 +639,7 @@
                                 
                                 
                                 <!-- Eingabe Wandstärke h-->
-                                <Label Margin="150 5 1 5" Foreground="White" Content="Wandstärke h:" />
+                                <Label Margin="150 5 1 5" Foreground="White" Content="Wandstärke t:" />
                                 <TextBox x:Name="TxtBox_TPro_Wandstärkeh" Height="20" Margin="0 5 1 5" Width="30" ToolTip="Geben Sie hier die Wandstärke h Ihres Profils in Millimeter ein"/>
                                 <Label  Margin="1 5 0 5" Foreground="White" Content="mm"/>
 
@@ -655,7 +655,7 @@
                                 <Label  Margin="1 5 0 5" Foreground="White" Content="mm"/>
 
                                <!--Eingabe für Wandstärke b-->
-                                <Label Margin="150 5 1 5" Foreground="White" Content="Wandstärke b:" />
+                                <Label Margin="150 5 1 5" Foreground="White" Content="Wandstärke s:" />
                                 <TextBox x:Name="TxtBox_TPro_Wandstärkeb" Height="20" Margin="0 5 1 5" Width="30" ToolTip="Geben Sie hier die Wandstärke b Ihres Profils in Millimeter ein"/>
                                 <Label  Margin="1 5 0 5" Foreground="White" Content="mm"/>
 
@@ -691,7 +691,7 @@
                     <!-- Rand Für das Bild-->
                     <Border Grid.Column="1" BorderBrush="White" BorderThickness="1" Margin="20" CornerRadius="10" Height="160">
 
-                        <Image Margin="5" Grid.Column="1"  Source=""></Image>
+                        <Image Margin="5" Grid.Column="1"  Source="T-Profil_bearbeitet.jpg"></Image>
                     </Border>
                     <!-- Ab hier endet das Bild-->
                     <Button x:Name="btn_TPro_Berechnung" Margin="50,175,52.333,40" Width="80" Height="25" VerticalAlignment="Center" HorizontalAlignment="Center" Click="btn_TPro_berechnung_Click">Berechnung</Button>
@@ -737,7 +737,7 @@
 
 
                                 <!-- Eingabe Wandstärke h-->
-                                <Label Margin="150 5 1 5" Foreground="White" Content="Wandstärke h:" />
+                                <Label Margin="150 5 1 5" Foreground="White" Content="Wandstärke t:" />
                                 <TextBox x:Name="TxtBox_UPro_Wandstärkeh" Height="20" Margin="0 5 1 5" Width="30" ToolTip="Geben Sie hier die Wandstärke h Ihres Profils in Millimeter ein"/>
                                 <Label  Margin="1 5 0 5" Foreground="White" Content="mm"/>
 
@@ -753,7 +753,7 @@
                                 <Label  Margin="1 5 0 5" Foreground="White" Content="mm"/>
 
                                 <!--Eingabe für Wandstärke b-->
-                                <Label Margin="150 5 1 5" Foreground="White" Content="Wandstärke b:" />
+                                <Label Margin="150 5 1 5" Foreground="White" Content="Wandstärke s:" />
                                 <TextBox x:Name="TxtBox_UPro_Wandstärkeb" Height="20" Margin="0 5 1 5" Width="30" ToolTip="Geben Sie hier die Wandstärke b Ihres Profils in Millimeter ein"/>
                                 <Label  Margin="1 5 0 5" Foreground="White" Content="mm"/>
 
@@ -790,7 +790,7 @@
                     <!-- Rand Für das Bild-->
                     <Border Grid.Column="1" BorderBrush="White" BorderThickness="1" Margin="20" CornerRadius="10" Height="160">
 
-                        <Image Margin="5" Grid.Column="1"  Source=""></Image>
+                        <Image Margin="5" Grid.Column="1"  Source="U-Profil_bearbeitet.jpg"></Image>
                     </Border>
                     <!-- Ab hier endet das Bild-->
                     <Button x:Name="btn_UPro_Berechnung" Margin="50,175,52.333,40" Width="80" Height="25" VerticalAlignment="Center" HorizontalAlignment="Center" Click="btn_UPro_berechnung_Click">Berechnung</Button>
@@ -836,7 +836,7 @@
 
 
                                 <!-- Eingabe Wandstärke h-->
-                                <Label Margin="150 5 1 5" Foreground="White" Content="Wandstärke h:" />
+                                <Label Margin="150 5 1 5" Foreground="White" Content="Wandstärke t:" />
                                 <TextBox x:Name="TxtBox_IPro_Wandstärkeh" Height="20" Margin="0 5 1 5" Width="30" ToolTip="Geben Sie hier die Wandstärke h Ihres Profils in Millimeter ein"/>
                                 <Label  Margin="1 5 0 5" Foreground="White" Content="mm"/>
 
@@ -852,7 +852,7 @@
                                 <Label  Margin="1 5 0 5" Foreground="White" Content="mm"/>
 
                                 <!--Eingabe für Wandstärke b-->
-                                <Label Margin="150 5 1 5" Foreground="White" Content="Wandstärke b:" />
+                                <Label Margin="150 5 1 5" Foreground="White" Content="Wandstärke s:" />
                                 <TextBox x:Name="TxtBox_IPro_Wandstärkeb" Height="20" Margin="0 5 1 5" Width="30" ToolTip="Geben Sie hier die Wandstärke b Ihres Profils in Millimeter ein"/>
                                 <Label  Margin="1 5 0 5" Foreground="White" Content="mm"/>
 
@@ -888,7 +888,7 @@
                     <!-- Rand Für das Bild-->
                     <Border Grid.Column="1" BorderBrush="White" BorderThickness="1" Margin="20" CornerRadius="10" Height="160">
 
-                        <Image Margin="5" Grid.Column="1"  Source=""></Image>
+                        <Image Margin="5" Grid.Column="1"  Source="I-Profil_bearbeitet.jpg"></Image>
                     </Border>
                     <!-- Ab hier endet das Bild-->
                     <Button x:Name="btn_IPro_Berechnung" Margin="50,175,52.333,40" Width="80" Height="25" VerticalAlignment="Center" HorizontalAlignment="Center" Click="btn_IPro_berechnung_Click">Berechnung</Button>
@@ -958,7 +958,7 @@
                     <!-- Rand Für das Bild-->
                     <Border Grid.Column="1" BorderBrush="White" BorderThickness="1" Margin="20" CornerRadius="10" Height="160">
 
-                        <Image Margin="5" Grid.Column="1"  Source="HalbRundProfil.JPG"></Image>
+                        <Image Margin="5" Grid.Column="1"  Source="Rundprofil_HalbrundVoll_bearbeitet.jpg"></Image>
                     </Border>
                     <!-- Ab hier endet das Bild-->
                     <Button x:Name="btn_HaRu_Berechnung" Margin="80,175,52.333,40" Width="80" Height="25" VerticalAlignment="Center" HorizontalAlignment="Center" Click="btn_HaRu_berechnung_Click">Berechnung</Button>
@@ -995,7 +995,7 @@
                             <!-- Eingabefeld 1 -->
                             <StackPanel  Grid.Row="1" Orientation="Horizontal" >
 
-                                <Label Margin="227 5 1 5" Foreground="White" Content="Durchmesser D:" />
+                                <Label Margin="227 5 1 5" Foreground="White" Content="Durchmesser d:" />
                                 <TextBox x:Name="TxtBox_Rohr_Durchmesser" Height="20" Margin="2 5 1 5" Width="30" ToolTip="Geben Sie hier den Durchmesser Ihres Profils in Millimeter ein" />
                                 <Label  Margin="1 5 0 5" Foreground="White" Content="mm"/>
 
@@ -1033,7 +1033,7 @@
                     <!-- Rand Für das Bild-->
                     <Border Grid.Column="1" BorderBrush="White" BorderThickness="1" Margin="20" CornerRadius="10" Height="160">
 
-                        <Image Margin="5" Grid.Column="1"  Source="RohrProfil.JPG"></Image>
+                        <Image Margin="5" Grid.Column="1"  Source="Rundprofil_Hohl.jpg"></Image>
                     </Border>
                     <!-- Ab hier endet das Bild-->
                     <Button x:Name="btn_Rohr_Berechnung" Margin="50,175,52.333,40" Width="80" Height="25" VerticalAlignment="Center" HorizontalAlignment="Center" Click="btn_Rohr_berechnung_Click">Berechnung</Button>
@@ -1080,7 +1080,7 @@
                                 <Label  Margin="1 5 0 5" Foreground="White" Content="mm"/>
 
                                 <!-- Eingabe Wandstärke h-->
-                                <Label Margin="150 5 1 5"  Foreground="White" Content="Wandstärke h:" />
+                                <Label Margin="150 5 1 5"  Foreground="White" Content="Wandstärke t:" />
                                 <TextBox x:Name="TxtBox_LPro_Wandstärkeh" Height="20" Margin="0 5 1 5" Width="30" ToolTip="Geben Sie hier die Wandstärke h in Millimeter ein"/>
                                 <Label  Margin="1 5 0 5" Foreground="White" Content="mm"/>
                             </StackPanel>
@@ -1088,12 +1088,12 @@
                             <!--Eingabefeld 2 -->
                             <StackPanel HorizontalAlignment="Left" Grid.Row="2" Orientation="Horizontal">
 
-                                <Label Margin="99 5 1 5" Foreground="White" Content="Breite B:" />
+                                <Label Margin="99 5 1 5" Foreground="White" Content="Breite b:" />
                                 <TextBox x:Name="TxtBox_LPro_Breite" Height="20" Margin="3 5 1 5" Width="30" ToolTip="Geben Sie hier die Breite Ihres Profils in Millimeter ein"/>
                                 <Label  Margin="1 5 0 5" Foreground="White" Content="mm"/>
 
                              <!-- Eingabe Wandstärke b-->
-                                <Label Margin="150 5 1 5" Foreground="White" Content="Wandstärke b:" />
+                                <Label Margin="150 5 1 5" Foreground="White" Content="Wandstärke s:" />
                                 <TextBox x:Name="TxtBox_LPro_Wandstärkeb" Height="20" Margin="0 5 1 5" Width="30" ToolTip="Geben Sie hier die Wandstärke Ihres Profils in Millimeter ein"/>
                                 <Label  Margin="1 5 0 5" Foreground="White" Content="mm"/>
 
@@ -1123,7 +1123,7 @@
                     <!-- Rand Für das Bild-->
                     <Border Grid.Column="1" BorderBrush="White" BorderThickness="1" Margin="20" CornerRadius="10" Height="160">
 
-                        <Image Margin="5" Grid.Column="1"  Source=""></Image>
+                        <Image Margin="5" Grid.Column="1"  Source="L-ProfilAchsen_bearbeitet.jpg"></Image>
                     </Border>
                     <!-- Ab hier endet das Bild-->
                     <Button x:Name="btn_LPro_Berechnung" Margin="50,175,52.333,40" Width="80" Height="25" VerticalAlignment="Center" HorizontalAlignment="Center" Click="btn_LPro_Berechnung_Click">Berechnung</Button>
