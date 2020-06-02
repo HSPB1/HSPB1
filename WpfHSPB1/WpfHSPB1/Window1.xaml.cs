@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Profile_Muster;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
@@ -13,6 +14,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+
 
 namespace WpfHSPB1
 {
@@ -294,60 +296,49 @@ namespace WpfHSPB1
             Close();
         }
 
+
+
+
+
+        //Rechteckige Profile
         private void btn_ReVo_berechnung_Click(object sender, RoutedEventArgs e)
         {
-            
+            //Erzeugen des Objekts für ein RechteckVollprofil
+            RechteckVoll rechteckVoll = new RechteckVoll();
             
             try
-            {
+            { 
                                              
-                    double höhe = Convert.ToDouble(TxtBox_ReVo_Höhe.Text);
-                    double breite = Convert.ToDouble(TxtBox_ReVo_Breite.Text);
-                    double länge = Convert.ToDouble(TxtBox_ReVo_Länge.Text);
+                    rechteckVoll.Höhe = Convert.ToDouble(TxtBox_ReVo_Höhe.Text);
+                    rechteckVoll.Breite = Convert.ToDouble(TxtBox_ReVo_Breite.Text);
+                    rechteckVoll.Länge = Convert.ToDouble(TxtBox_ReVo_Länge.Text);
 
-           
-
-                double qfläche = höhe * breite;
-                    double volumen = qfläche * länge;
-                    double Wy = breite * höhe * höhe / 6;
-                    double Wz = höhe * breite * breite / 6;
-                    double Iy = breite * höhe * höhe * höhe / 12;
-                    double Iz = höhe * breite * breite * breite / 12;
-                    double Polar = Iy + Iz;
-
-                    double gewicht = 0;
                     double preis = 0;
+                    double gewicht = 0;
 
-                if (höhe < 0 || breite < 0 || länge < 0)
+
                 {
-                    MessageBox.Show("Ihre Parameter Eingabe war Fehlerhaft");
-                }
-
-
-           
-
-                else
-                {
-
                     //Hier Beginnen Die Comboxen Für ErgebnisFenster
-
                     //Für Qfläche
                     if (cbx_Qfläche.Text == "mm²")
 
                     {
-                        qfläche = qfläche * 1;
+
+                        lbl_qfläche.Content = rechteckVoll.QFläche() * 1;
 
                     }
 
                     if (cbx_Qfläche.Text == "cm²")
                     {
-                        qfläche = qfläche / 100;
+
+                        lbl_qfläche.Content = rechteckVoll.QFläche() / 100;
 
                     }
 
                     if (cbx_Qfläche.Text == "m²")
                     {
-                        qfläche = qfläche / 10000;
+
+                        lbl_qfläche.Content = rechteckVoll.QFläche() / 10000;
 
                     }
 
@@ -355,19 +346,19 @@ namespace WpfHSPB1
                     if (cbx_Volumen.Text == "mm³")
 
                     {
-                        volumen = volumen * 1;
+                        lbl_volumen.Content = rechteckVoll.Volumen() * 1;
 
                     }
 
                     if (cbx_Volumen.Text == "cm³")
                     {
-                        volumen = volumen / 1000;
+                        lbl_volumen.Content = rechteckVoll.Volumen() / 1000;
 
                     }
 
                     if (cbx_Volumen.Text == "m³")
                     {
-                        volumen = volumen / 1000000;
+                        lbl_volumen.Content = rechteckVoll.Volumen() / 1000000;
 
                     }
 
@@ -375,19 +366,19 @@ namespace WpfHSPB1
                     if (cbx_Wx.Text == "mm³")
 
                     {
-                        Wy = Wy * 1;
+                        lbl_Wy.Content = rechteckVoll.WiederstandsMoment_Wy() * 1;
 
                     }
 
                     if (cbx_Wx.Text == "cm³")
                     {
-                        Wy = Wy / 1000;
+                        lbl_Wy.Content = rechteckVoll.WiederstandsMoment_Wy() / 1000;
 
                     }
 
                     if (cbx_Wx.Text == "m³")
                     {
-                        Wy = Wy / 1000000;
+                        lbl_Wy.Content = rechteckVoll.WiederstandsMoment_Wy() / 1000000;
 
                     }
 
@@ -396,19 +387,19 @@ namespace WpfHSPB1
                     if (cbx_Wy.Text == "mm³")
 
                     {
-                        Wz = Wz * 1;
+                        lbl_Wz.Content = rechteckVoll.WiederstandsMoment_Wz() * 1;
 
                     }
 
                     if (cbx_Wy.Text == "cm³")
                     {
-                        Wz = Wz / 1000;
+                        lbl_Wz.Content = rechteckVoll.WiederstandsMoment_Wz() / 1000;
 
                     }
 
                     if (cbx_Wy.Text == "m³")
                     {
-                        Wz = Wz / 1000000;
+                        lbl_Wz.Content = rechteckVoll.WiederstandsMoment_Wz() / 1000000;
 
                     }
 
@@ -417,80 +408,73 @@ namespace WpfHSPB1
                     if (cbx_Ix.Text == "mm^4")
 
                     {
-                        Iy = Iy * 1;
+                        lbl_Iy.Content = rechteckVoll.FTM_Iy() * 1;
 
                     }
 
                     if (cbx_Ix.Text == "cm^4")
                     {
-                        Iy = Iy / 10000;
+                        lbl_Iy.Content = rechteckVoll.FTM_Iy() / 10000;
 
                     }
-
-
 
 
                     //Für TrägheitsMoment Iy
                     if (cbx_Iy.Text == "mm^4")
 
                     {
-                        Iz = Iz * 1;
+                        lbl_Iy.Content = rechteckVoll.FTM_Iz() * 1;
 
                     }
 
                     if (cbx_Iy.Text == "cm^4")
                     {
-                        Iz = Iz / 10000;
+                        lbl_Iy.Content = rechteckVoll.FTM_Iz() / 10000;
 
                     }
-
-
-
 
 
                     //Für TrägheitsMoment Polar
                     if (cbx_Polar.Text == "mm^4")
 
                     {
-                        Polar = Polar * 1;
+                        lbl_Polar.Content = rechteckVoll.FTM_Polar() * 1;
 
                     }
 
                     if (cbx_Polar.Text == "cm^4")
                     {
-                        Polar = Polar / 10000;
+                        lbl_Polar.Content = rechteckVoll.FTM_Polar() / 10000;
 
                     }
-
-
                     //Hier Enden Die Comboboxen!
+                }//Comboboxen Ergebnisfenster
 
-
-                    if (cb_Material.Text == "Stahl")
+                 //Materialauswahl
+                if (cb_Material.Text == "Stahl")
                     {
-                        gewicht = volumen * 0.00000785;
+                        gewicht = rechteckVoll.Volumen() * 0.00000785;
                         preis = gewicht * 1.5;
 
                     }
-
-                    if (cb_Material.Text == "Aluminium")
+                if (cb_Material.Text == "Aluminium")
                     {
-                        gewicht = volumen * 0.0000027;
-                        preis = gewicht * 2.5;
+                        gewicht = rechteckVoll.Volumen() * 0.0000027;
+                         preis = gewicht * 2.5;
                     }
+
 
                     grd_Ergebnisse.Visibility = Visibility.Visible;
 
-                    lbl_Gewicht.Content = gewicht.ToString("0.###");
-                    lbl_Preis.Content = preis.ToString("0.###");
-                    lbl_qfläche.Content = qfläche.ToString("0.###");
-                    lbl_volumen.Content = volumen.ToString("0.###");
-                    lbl_Wy.Content = Wy.ToString("0.###");
-                    lbl_Wz.Content = Wz.ToString("0.###");
-                    lbl_Iy.Content = Iy.ToString("0.###");
-                    Lbl_Iz.Content = Iz.ToString("0.###");
-                    lbl_Polar.Content = Polar.ToString("0.###");
-                }
+                    lbl_qfläche.Content = rechteckVoll.QFläche().ToString("0.###");
+                    lbl_volumen.Content = rechteckVoll.Volumen().ToString("0.###");
+                    lbl_Wy.Content = rechteckVoll.WiederstandsMoment_Wy().ToString("0.###");
+                    lbl_Wz.Content = rechteckVoll.WiederstandsMoment_Wz().ToString("0.###");
+                    lbl_Iy.Content = rechteckVoll.FTM_Iy().ToString("0.###");
+                    Lbl_Iz.Content = rechteckVoll.FTM_Iz().ToString("0.###");
+                    lbl_Polar.Content = rechteckVoll.FTM_Polar().ToString("0.###");
+                    lbl_Preis.Content = preis.ToString("#.###");
+                lbl_Gewicht.Content = gewicht.ToString("#.###");
             }
             catch
             { MessageBox.Show("Ihre Eingabe war Fehlerhaft! Bitte verwenden Sie nur Zahlen!"); }
@@ -501,73 +485,60 @@ namespace WpfHSPB1
 
         private void btn_ReHo_berechnung_Click(object sender, RoutedEventArgs e)
         {
-
+            RechteckHohl rechteckHohl = new RechteckHohl();
             try
             {
              
-                    double höhe = Convert.ToDouble(TxtBox_ReHo_Höhe.Text);
-                    double breite = Convert.ToDouble(TxtBox_ReHo_Breite.Text);
-                    double länge = Convert.ToDouble(TxtBox_ReHo_Länge.Text);
-                    double wandstärke = Convert.ToDouble(TxtBox_ReHo_Wandstärke.Text);
+                    rechteckHohl.Höhe = Convert.ToDouble(TxtBox_ReHo_Höhe.Text);
+                    rechteckHohl.Breite = Convert.ToDouble(TxtBox_ReHo_Breite.Text);
+                    rechteckHohl.Länge = Convert.ToDouble(TxtBox_ReHo_Länge.Text);
+                    rechteckHohl.Wandstärke = Convert.ToDouble(TxtBox_ReHo_Wandstärke.Text);
 
-                    double qfläche = (höhe * breite) - ((höhe - 2 * wandstärke) * (breite - 2 * wandstärke));
-                    double volumen = qfläche * länge;
-                    double Wy = ((breite * höhe * höhe * höhe) - ((breite - 2 * wandstärke) * (höhe - 2 * wandstärke) * (höhe - 2 * wandstärke) * (höhe - 2 * wandstärke))) / (6 * höhe);
-                    double Wz = ((höhe * breite * breite * breite) - ((höhe - 2 * wandstärke) * (breite - 2 * wandstärke) * (breite - 2 * wandstärke) * (breite - 2 * wandstärke))) / (6 * breite);
-                    double Iy = ((breite * höhe * höhe * höhe) - ((breite - 2 * wandstärke) * (höhe - 2 * wandstärke) * (höhe - 2 * wandstärke) * (höhe - 2 * wandstärke))) / 12;
-                    double Iz = ((höhe * breite * breite * breite) - ((höhe - 2 * wandstärke) * (breite - 2 * wandstärke) * (breite - 2 * wandstärke) * (breite - 2 * wandstärke))) / 12;
-                    double Polar = Iy + Iz;
 
                     double gewicht = 0;
                     double preis = 0;
 
 
-                if (höhe <= 0 || breite <= 0 || länge <= 0 || wandstärke <= 0)
                 {
-                    MessageBox.Show("Ihre Parameter Eingabe war Fehlerhaft");
-                }
-                else
-                {
-
                     //Hier Beginnen Die Comboxen Für ErgebnisFenster
 
                     //Für Qfläche
-                    if(cbx_Qfläche.Text == "mm²")
+                    if (cbx_Qfläche.Text == "mm²")
 
                     {
-                        qfläche = qfläche * 1;
-                        
+                        lbl_qfläche.Content = rechteckHohl.QFläche() * 1;
+
                     }
 
                     if (cbx_Qfläche.Text == "cm²")
                     {
-                        qfläche = qfläche / 100;
-                      
+                        lbl_qfläche.Content = rechteckHohl.QFläche() / 100;
+
                     }
 
-                    if (cbx_Qfläche.Text =="m²")
+                    if (cbx_Qfläche.Text == "m²")
                     {
-                        qfläche = qfläche / 10000;
-                      
+                        lbl_qfläche.Content = rechteckHohl.QFläche() / 10000;
+
                     }
 
                     //Für Volumen
                     if (cbx_Volumen.Text == "mm³")
 
                     {
-                        volumen = volumen * 1;
+                        lbl_volumen.Content = rechteckHohl.Volumen() * 1;
 
                     }
 
                     if (cbx_Volumen.Text == "cm³")
                     {
-                        volumen = volumen / 1000;
+                        lbl_volumen.Content = rechteckHohl.Volumen() / 1000;
 
                     }
 
                     if (cbx_Volumen.Text == "m³")
                     {
-                        volumen  = volumen / 1000000;
+                        lbl_volumen.Content = rechteckHohl.Volumen() / 1000000;
 
                     }
 
@@ -575,19 +546,19 @@ namespace WpfHSPB1
                     if (cbx_Wx.Text == "mm³")
 
                     {
-                        Wy = Wy * 1;
+                        lbl_Wy.Content = rechteckHohl.WiederstandsMoment_Wy() * 1;
 
                     }
 
                     if (cbx_Wx.Text == "cm³")
                     {
-                        Wy = Wy / 1000;
+                        lbl_Wy.Content = rechteckHohl.WiederstandsMoment_Wy() / 1000;
 
                     }
 
                     if (cbx_Wx.Text == "m³")
                     {
-                        Wy = Wy / 1000000;
+                        lbl_Wy.Content = rechteckHohl.WiederstandsMoment_Wy() / 1000000;
 
                     }
 
@@ -596,19 +567,19 @@ namespace WpfHSPB1
                     if (cbx_Wy.Text == "mm³")
 
                     {
-                        Wz = Wz * 1;
+                        lbl_Wz.Content = rechteckHohl.WiederstandsMoment_Wz() * 1;
 
                     }
 
                     if (cbx_Wy.Text == "cm³")
                     {
-                        Wz = Wz / 1000;
+                        lbl_Wz.Content = rechteckHohl.WiederstandsMoment_Wz() / 1000;
 
                     }
 
                     if (cbx_Wy.Text == "m³")
                     {
-                        Wz = Wz / 1000000;
+                        lbl_Wz.Content = rechteckHohl.WiederstandsMoment_Wz() / 1000000;
 
                     }
 
@@ -617,67 +588,60 @@ namespace WpfHSPB1
                     if (cbx_Ix.Text == "mm^4")
 
                     {
-                        Iy = Iy * 1;
+                        lbl_Iy.Content = rechteckHohl.FTM_Iy() * 1;
 
                     }
 
                     if (cbx_Ix.Text == "cm^4")
                     {
-                        Iy = Iy / 10000;
+                        lbl_Iy.Content = rechteckHohl.FTM_Iy() / 10000;
 
                     }
-
-               
 
 
                     //Für TrägheitsMoment Iy
                     if (cbx_Iy.Text == "mm^4")
 
                     {
-                        Iz = Iz * 1;
+                        Lbl_Iz.Content = rechteckHohl.FTM_Iz() * 1;
 
                     }
 
                     if (cbx_Iy.Text == "cm^4")
                     {
-                        Iz = Iz / 10000;
+                        Lbl_Iz.Content = rechteckHohl.FTM_Iz() / 10000;
 
                     }
-
-        
-
 
 
                     //Für TrägheitsMoment Polar
                     if (cbx_Polar.Text == "mm^4")
 
                     {
-                        Polar = Polar * 1;
+                        lbl_Polar.Content = rechteckHohl.FTM_Polar() * 1;
 
                     }
 
                     if (cbx_Polar.Text == "cm^4")
                     {
-                        Polar = Polar/ 10000;
+                        lbl_Polar.Content = rechteckHohl.FTM_Polar() / 10000;
 
                     }
 
-
                     //Hier Enden Die Comboboxen!
+                }//Comboboxen Ergebnisfenster
 
-
-
-
+                    //Materialauswahl
                     if (cb_Material_ReHo.Text == "Stahl")
                     {
-                        gewicht = volumen * 0.00000785;
+                        gewicht = rechteckHohl.Volumen() * 0.00000785;
                         preis = gewicht * 1.5;
 
                     }
 
                     if (cb_Material_ReHo.Text == "Aluminium")
                     {
-                        gewicht = volumen * 0.0000027;
+                        gewicht = rechteckHohl.Volumen() * 0.0000027;
                         preis = gewicht * 2.5;
                     }
 
@@ -688,69 +652,56 @@ namespace WpfHSPB1
                         
                     lbl_Gewicht.Content = gewicht.ToString("0.###");
                     lbl_Preis.Content = preis.ToString("0.###");
-                    lbl_qfläche.Content = qfläche.ToString("0.###");
-                    lbl_volumen.Content = volumen.ToString("0.###");
-                    lbl_Wy.Content = Wy.ToString("0.###");
-                    lbl_Wz.Content = Wz.ToString("0.###");
-                    lbl_Iy.Content = Iy.ToString("0.###");
-                    Lbl_Iz.Content = Iz.ToString("0.###");
-                    lbl_Polar.Content = Polar.ToString("0.###");
+                    lbl_qfläche.Content = rechteckHohl.QFläche().ToString("0.###");
+                    lbl_volumen.Content = rechteckHohl.Volumen().ToString("0.###");
+                    lbl_Wy.Content = rechteckHohl.WiederstandsMoment_Wy().ToString("0.###");
+                    lbl_Wz.Content = rechteckHohl.WiederstandsMoment_Wz().ToString("0.###");
+                    lbl_Iy.Content = rechteckHohl.FTM_Iy().ToString("0.###");
+                    Lbl_Iz.Content = rechteckHohl.FTM_Iz().ToString("0.###");
+                    lbl_Polar.Content = rechteckHohl.FTM_Polar().ToString("0.###");
 
-                }
+                
             }
 
             catch
             { MessageBox.Show("Ihre Eingabe war Fehlerhaft! Bitte verwenden Sie nur Zahlen!"); }
         }
         
-
-        private void btn_RuVo_berechnung_Click(object sender, RoutedEventArgs e)
-        {/// Sind Parameter eingegeben worden
+       private void btn_SeVo_berechnung_Click(object sender, RoutedEventArgs e)
+        {   //Erzeugen eines Objektes vom Typ SechseckVollProfiö
+            SechseckVoll neuSechseckVoll = new SechseckVoll();
 
             try
             {
-            
-                    double durchmesser = Convert.ToDouble(TxtBox_RuVo_Durchmesser.Text);
-                    double länge = Convert.ToDouble(TxtBox_RuVo_Länge.Text);
-                    ///Berechnungen
-                    double qfläche = Math.PI * durchmesser * durchmesser / 4;
-                    double volumen = qfläche * länge;
-                    double Wy = Math.PI * durchmesser * durchmesser * durchmesser / 32;
-                    double Wz = Math.PI * durchmesser * durchmesser * durchmesser / 32;
-                    double Iy = Math.PI * durchmesser * durchmesser * durchmesser * durchmesser / 64;
-                    double Iz = Math.PI * durchmesser * durchmesser * durchmesser * durchmesser / 64;
-                    double Polar = Iy + Iz;
 
-
+              
+                    neuSechseckVoll.Radius = Convert.ToDouble(TxtBox_SeVo_Radius.Text);
+                    neuSechseckVoll.Länge = Convert.ToDouble(TxtBox_SeVo_Länge.Text);
+                
                     double gewicht = 0;
                     double preis = 0;
 
-                if (durchmesser <= 0 || länge <= 0)
-                {
-                    MessageBox.Show("Ihre Parameter Eingabe war Fehlerhaft");
-                }
-                else
-                {
 
+                {
                     //Hier Beginnen Die Comboxen Für ErgebnisFenster
 
                     //Für Qfläche
                     if (cbx_Qfläche.Text == "mm²")
 
                     {
-                        qfläche = qfläche * 1;
+                        lbl_qfläche.Content = neuSechseckVoll.QFläche() * 1;
 
                     }
 
                     if (cbx_Qfläche.Text == "cm²")
                     {
-                        qfläche = qfläche / 100;
+                        lbl_qfläche.Content = neuSechseckVoll.QFläche() / 100;
 
                     }
 
                     if (cbx_Qfläche.Text == "m²")
                     {
-                        qfläche = qfläche / 10000;
+                        lbl_qfläche.Content = neuSechseckVoll.QFläche() / 10000;
 
                     }
 
@@ -758,19 +709,19 @@ namespace WpfHSPB1
                     if (cbx_Volumen.Text == "mm³")
 
                     {
-                        volumen = volumen * 1;
+                        lbl_volumen.Content = neuSechseckVoll.Volumen() * 1;
 
                     }
 
                     if (cbx_Volumen.Text == "cm³")
                     {
-                        volumen = volumen / 1000;
+                        lbl_volumen.Content = neuSechseckVoll.Volumen() / 1000;
 
                     }
 
                     if (cbx_Volumen.Text == "m³")
                     {
-                        volumen = volumen / 1000000;
+                        lbl_volumen.Content = neuSechseckVoll.Volumen() / 1000000;
 
                     }
 
@@ -778,19 +729,19 @@ namespace WpfHSPB1
                     if (cbx_Wx.Text == "mm³")
 
                     {
-                        Wy = Wy * 1;
+                        lbl_Wy.Content = neuSechseckVoll.WiederstandsMoment_Wy() * 1;
 
                     }
 
                     if (cbx_Wx.Text == "cm³")
                     {
-                        Wy = Wy / 1000;
+                        lbl_Wy.Content = neuSechseckVoll.WiederstandsMoment_Wy() / 1000;
 
                     }
 
                     if (cbx_Wx.Text == "m³")
                     {
-                        Wy = Wy / 1000000;
+                        lbl_Wy.Content = neuSechseckVoll.WiederstandsMoment_Wy() / 1000000;
 
                     }
 
@@ -799,19 +750,19 @@ namespace WpfHSPB1
                     if (cbx_Wy.Text == "mm³")
 
                     {
-                        Wz = Wz * 1;
+                        lbl_Wz.Content = neuSechseckVoll.WiederstandsMoment_Wz() * 1;
 
                     }
 
                     if (cbx_Wy.Text == "cm³")
                     {
-                        Wz = Wz / 1000;
+                        lbl_Wz.Content = neuSechseckVoll.WiederstandsMoment_Wz() / 1000;
 
                     }
 
                     if (cbx_Wy.Text == "m³")
                     {
-                        Wz = Wz / 1000000;
+                        lbl_Wz.Content = neuSechseckVoll.WiederstandsMoment_Wz() / 1000000;
 
                     }
 
@@ -820,13 +771,13 @@ namespace WpfHSPB1
                     if (cbx_Ix.Text == "mm^4")
 
                     {
-                        Iy = Iy * 1;
+                        lbl_Iy.Content = neuSechseckVoll.FTM_Iy() * 1;
 
                     }
 
                     if (cbx_Ix.Text == "cm^4")
                     {
-                        Iy = Iy / 10000;
+                        lbl_Iy.Content = neuSechseckVoll.FTM_Iy() / 10000;
 
                     }
 
@@ -837,48 +788,224 @@ namespace WpfHSPB1
                     if (cbx_Iy.Text == "mm^4")
 
                     {
-                        Iz = Iz * 1;
+                        Lbl_Iz.Content = neuSechseckVoll.FTM_Iz() * 1;
 
                     }
 
                     if (cbx_Iy.Text == "cm^4")
                     {
-                        Iz = Iz / 10000;
+                        Lbl_Iz.Content = neuSechseckVoll.FTM_Iz() / 10000;
 
                     }
-
-
-
 
 
                     //Für TrägheitsMoment Polar
                     if (cbx_Polar.Text == "mm^4")
 
                     {
-                        Polar = Polar * 1;
+                        lbl_Polar.Content = neuSechseckVoll.FTM_Polar() * 1;
 
                     }
 
                     if (cbx_Polar.Text == "cm^4")
                     {
-                        Polar = Polar / 10000;
+                        lbl_Polar.Content = neuSechseckVoll.FTM_Polar() / 10000;
 
-                    }
-
-
-                    //Hier Enden Die Comboboxen!
-
+                    }//Hier Enden Die Comboboxen!
+                } // Comboboxen für Ergebnisfenster
+                    
                     ///Auswahl Stahl
-                    if (cb_Material_RuVoll.Text=="Stahl")
+                    if (cb_Material_SeVoll.Text == "Stahl")
                     {///Berechnung
-                        gewicht = volumen * 0.00000785;
+                        gewicht = neuSechseckVoll.Volumen() * 0.00000785;
                         preis = gewicht * 1.5;
 
                     }
                     /// Auswahl Aluminim
+                    if (cb_Material_SeVoll.Text == "Aluminium")
+                    {///Berechnung
+                        gewicht = neuSechseckVoll.Volumen() * 0.0000027;
+                        preis = gewicht * 2.5;
+                    }
+
+                    grd_Ergebnisse.Visibility = Visibility.Visible;
+
+                    ///Ausgabe der berechneten Werte für das Profil Vollmaterial Sechseck
+                    lbl_Gewicht.Content = gewicht.ToString("0.###");
+                    lbl_Preis.Content = preis.ToString("0.###");
+                    lbl_qfläche.Content = neuSechseckVoll.QFläche().ToString("0.###");
+                    lbl_volumen.Content = neuSechseckVoll.Volumen().ToString("0.###");
+                    lbl_Wy.Content = neuSechseckVoll.WiederstandsMoment_Wy().ToString("0.###");
+                    lbl_Wz.Content = neuSechseckVoll.WiederstandsMoment_Wz().ToString("0.###");
+                    lbl_Iy.Content = neuSechseckVoll.FTM_Iy().ToString("0.###");
+                    Lbl_Iz.Content = neuSechseckVoll.FTM_Iz().ToString("0.###");
+                    lbl_Polar.Content = neuSechseckVoll.FTM_Polar().ToString("0.###");
+                
+            }
+
+            catch
+            { MessageBox.Show("Ihre Eingabe war Fehlerhaft! Bitte verwenden Sie nur Zahlen!"); }
+        }
+
+        //Runde Profile
+        private void btn_RuVo_berechnung_Click(object sender, RoutedEventArgs e)
+        {       //Erzeugen eines Objektes vom Typ RunVollProfil
+                RundVollProfil neuRundVoll = new RundVollProfil();
+
+            try
+            {
+            
+                    neuRundVoll.Durchmesser = Convert.ToDouble(TxtBox_RuVo_Durchmesser.Text);
+                    neuRundVoll.Länge = Convert.ToDouble(TxtBox_RuVo_Länge.Text);    
+
+                    double gewicht = 0;
+                    double preis = 0;
+
+                {
+
+                    //Hier Beginnen Die Comboxen Für ErgebnisFenster
+
+                    //Für Qfläche
+                    if (cbx_Qfläche.Text == "mm²")
+
+                    {
+                        lbl_qfläche.Content = neuRundVoll.QFläche() * 1;
+
+                    }
+
+                    if (cbx_Qfläche.Text == "cm²")
+                    {
+                        lbl_qfläche.Content = neuRundVoll.QFläche() / 100;
+
+                    }
+
+                    if (cbx_Qfläche.Text == "m²")
+                    {
+                        lbl_qfläche.Content = neuRundVoll.QFläche() / 10000;
+
+                    }
+
+                    //Für Volumen
+                    if (cbx_Volumen.Text == "mm³")
+
+                    {
+                        lbl_volumen.Content = neuRundVoll.Volumen() * 1;
+
+                    }
+
+                    if (cbx_Volumen.Text == "cm³")
+                    {
+                        lbl_volumen.Content = neuRundVoll.Volumen() / 1000;
+
+                    }
+
+                    if (cbx_Volumen.Text == "m³")
+                    {
+                        lbl_volumen.Content = neuRundVoll.Volumen() / 1000000;
+
+                    }
+
+                    //Für Wiederstandsmoment Wx
+                    if (cbx_Wx.Text == "mm³")
+
+                    {
+                        lbl_Wy.Content = neuRundVoll.WiederstandsMoment_Wy() * 1;
+
+                    }
+
+                    if (cbx_Wx.Text == "cm³")
+                    {
+                        lbl_Wy.Content = neuRundVoll.WiederstandsMoment_Wy() / 1000;
+
+                    }
+
+                    if (cbx_Wx.Text == "m³")
+                    {
+                        lbl_Wy.Content = neuRundVoll.WiederstandsMoment_Wy() / 1000000;
+
+                    }
+
+
+                    //Für Wiederstandsmoment Wy
+                    if (cbx_Wy.Text == "mm³")
+
+                    {
+                        lbl_Wy.Content = neuRundVoll.WiederstandsMoment_Wz() * 1;
+
+                    }
+
+                    if (cbx_Wy.Text == "cm³")
+                    {
+                        lbl_Wy.Content = neuRundVoll.WiederstandsMoment_Wz() / 1000;
+
+                    }
+
+                    if (cbx_Wy.Text == "m³")
+                    {
+                        lbl_Wy.Content = neuRundVoll.WiederstandsMoment_Wz() / 1000000;
+
+                    }
+
+
+                    //Für TrägheitsMoment Ix
+                    if (cbx_Ix.Text == "mm^4")
+
+                    {
+                        lbl_Iy.Content = neuRundVoll.FTM_Iy() * 1;
+
+                    }
+
+                    if (cbx_Ix.Text == "cm^4")
+                    {
+                        lbl_Iy.Content = neuRundVoll.FTM_Iy() / 10000;
+
+                    }
+
+
+
+
+                    //Für TrägheitsMoment Iy
+                    if (cbx_Iy.Text == "mm^4")
+
+                    {
+                        Lbl_Iz.Content = neuRundVoll.FTM_Iz() * 1;
+
+                    }
+
+                    if (cbx_Iy.Text == "cm^4")
+                    {
+                        Lbl_Iz.Content = neuRundVoll.FTM_Iz() / 10000;
+
+                    }
+
+                    //Für TrägheitsMoment Polar
+                    if (cbx_Polar.Text == "mm^4")
+
+                    {
+                        lbl_Polar.Content = neuRundVoll.FTM_Polar() * 1;
+
+                    }
+
+                    if (cbx_Polar.Text == "cm^4")
+                    {
+                        lbl_Polar.Content = neuRundVoll.FTM_Polar() / 10000;
+
+                    }
+
+                    //Hier Enden Die Comboboxen!
+                }//Comboboxen für das Ergebnisfenster 
+
+                    ///Auswahl Stahl
+                    if (cb_Material_RuVoll.Text=="Stahl")
+                    {///Berechnung
+                        gewicht = neuRundVoll.Volumen() * 0.00000785;
+                        preis = gewicht * 1.5;
+                    }
+
+                    /// Auswahl Aluminim
                     if (cb_Material_RuVoll.Text=="Aluminium")
                     {///Berechnung
-                        gewicht = volumen * 0.0000027;
+                        gewicht = neuRundVoll.Volumen() * 0.0000027;
                         preis = gewicht * 2.5;
                     }
 
@@ -888,14 +1015,774 @@ namespace WpfHSPB1
                     ///Ausgabe der berechneten Werte für das Profil Vollmaterial Rund
                     lbl_Gewicht.Content = gewicht.ToString("0.###");
                     lbl_Preis.Content = preis.ToString("0.###");
-                    lbl_qfläche.Content = qfläche.ToString("0.###");
-                    lbl_volumen.Content = volumen.ToString("0.###");
-                    lbl_Wy.Content = Wy.ToString("0.###");
-                    lbl_Wz.Content = Wz.ToString("0.###");
-                    lbl_Iy.Content = Iy.ToString("0.###");
-                    Lbl_Iz.Content = Iz.ToString("0.###");
-                    lbl_Polar.Content = Polar.ToString("0.###");
-                }
+                    lbl_qfläche.Content = neuRundVoll.QFläche().ToString("0.###");
+                    lbl_volumen.Content = neuRundVoll.Volumen().ToString("0.###");
+                    lbl_Wy.Content = neuRundVoll.WiederstandsMoment_Wy().ToString("0.###");
+                    lbl_Wz.Content = neuRundVoll.WiederstandsMoment_Wz().ToString("0.###");
+                    lbl_Iy.Content = neuRundVoll.FTM_Iy().ToString("0.###");
+                    Lbl_Iz.Content = neuRundVoll.FTM_Iz().ToString("0.###");
+                    lbl_Polar.Content = neuRundVoll.FTM_Polar().ToString("0.###");
+                
+                
+            }
+
+            catch
+            { MessageBox.Show("Ihre Eingabe war Fehlerhaft! Bitte verwenden Sie nur Zahlen!"); }
+        }
+        private void btn_Rohr_berechnung_Click(object sender, RoutedEventArgs e)
+        {   
+            //Erzeugung eines neuen Objekts der Klasse RundHohlProfil
+            RundHohlProfil neuRundHohl = new RundHohlProfil();
+                
+            try
+            {
+
+                neuRundHohl.Durchmesser = Convert.ToDouble(TxtBox_Rohr_Durchmesser.Text);
+                neuRundHohl.Wandstärke = Convert.ToDouble(TxtBox_Rohr_Wandstärke.Text);
+                neuRundHohl.Länge = Convert.ToDouble(TxtBox_Rohr_Länge.Text);
+
+     
+
+                double gewicht = 0;
+                double preis = 0;
+
+
+                {
+
+
+                    //Hier Beginnen Die Comboxen Für ErgebnisFenster
+
+                    //Für Qfläche
+                    if (cbx_Qfläche.Text == "mm²")
+
+                    {
+                        lbl_qfläche.Content = neuRundHohl.QFläche() * 1;
+
+                    }
+
+                    if (cbx_Qfläche.Text == "cm²")
+                    {
+                        lbl_qfläche.Content = neuRundHohl.QFläche() / 100;
+
+                    }
+
+                    if (cbx_Qfläche.Text == "m²")
+                    {
+                        lbl_qfläche.Content = neuRundHohl.QFläche() / 10000;
+
+                    }
+
+                    //Für Volumen
+                    if (cbx_Volumen.Text == "mm³")
+
+                    {
+                        lbl_volumen.Content = neuRundHohl.Volumen() * 1;
+
+                    }
+
+                    if (cbx_Volumen.Text == "cm³")
+                    {
+                        lbl_volumen.Content = neuRundHohl.Volumen() / 1000;
+
+                    }
+
+                    if (cbx_Volumen.Text == "m³")
+                    {
+                        lbl_volumen.Content = neuRundHohl.Volumen() / 1000000;
+
+                    }
+
+                    //Für Wiederstandsmoment Wx
+                    if (cbx_Wx.Text == "mm³")
+
+                    {
+                        lbl_Wy.Content = neuRundHohl.WiederstandsMoment_Wy() * 1;
+
+                    }
+
+                    if (cbx_Wx.Text == "cm³")
+                    {
+                        lbl_Wy.Content = neuRundHohl.WiederstandsMoment_Wy() / 1000;
+
+                    }
+
+                    if (cbx_Wx.Text == "m³")
+                    {
+                        lbl_Wy.Content = neuRundHohl.WiederstandsMoment_Wy() / 1000000;
+
+                    }
+
+
+                    //Für Wiederstandsmoment Wy
+                    if (cbx_Wy.Text == "mm³")
+
+                    {
+                        lbl_Wz.Content = neuRundHohl.WiederstandsMoment_Wz() * 1;
+
+                    }
+
+                    if (cbx_Wy.Text == "cm³")
+                    {
+                        lbl_Wz.Content = neuRundHohl.WiederstandsMoment_Wz() / 1000;
+
+                    }
+
+                    if (cbx_Wy.Text == "m³")
+                    {
+                        lbl_Wz.Content = neuRundHohl.WiederstandsMoment_Wz() / 1000000;
+
+                    }
+
+
+                    //Für TrägheitsMoment Ix
+                    if (cbx_Ix.Text == "mm^4")
+
+                    {
+                        lbl_Iy.Content = neuRundHohl.FTM_Iy() * 1;
+
+                    }
+
+                    if (cbx_Ix.Text == "cm^4")
+                    {
+                        lbl_Iy.Content = neuRundHohl.FTM_Iy() / 10000;
+
+                    }
+
+
+                    //Für TrägheitsMoment Iy
+                    if (cbx_Iy.Text == "mm^4")
+
+                    {
+                        Lbl_Iz.Content = neuRundHohl.FTM_Iz() * 1;
+
+                    }
+
+                    if (cbx_Iy.Text == "cm^4")
+                    {
+                        Lbl_Iz.Content = neuRundHohl.FTM_Iz() / 10000;
+
+                    }
+
+
+                    //Für TrägheitsMoment Polar
+                    if (cbx_Polar.Text == "mm^4")
+
+                    {
+                        lbl_Polar.Content = neuRundHohl.FTM_Polar() * 1;
+
+                    }
+
+                    if (cbx_Polar.Text == "cm^4")
+                    {
+                        lbl_Polar.Content = neuRundHohl.FTM_Polar() / 10000;
+
+                    }
+
+
+                    //Hier Enden Die Comboboxen!
+                }// Combboxen Ergebnisfenster
+                    ///Auswahl Stahl
+                    if (cb_Material_RuHo.Text == "Stahl")
+                    {///Berechnung
+                        gewicht = neuRundHohl.Volumen() * 0.00000785;
+                        preis = gewicht * 1.5;
+                    }
+                    /// Auswahl Aluminim
+                    if (cb_Material_RuHo.Text == "Aluminium")
+                    {///Berechnung
+                        gewicht = neuRundHohl.Volumen() * 0.0000027;
+                        preis = gewicht * 2.5;
+                    }
+
+
+                    grd_Ergebnisse.Visibility = Visibility.Visible;
+
+                    lbl_Gewicht.Content = gewicht.ToString("0.###");
+                    lbl_Preis.Content = preis.ToString("0.###");
+                    lbl_qfläche.Content = neuRundHohl.QFläche().ToString("0.###");
+                    lbl_volumen.Content = neuRundHohl.Volumen().ToString("0.###");
+                    lbl_Wy.Content = neuRundHohl.WiederstandsMoment_Wy().ToString("0.###");
+                    lbl_Wz.Content = neuRundHohl.WiederstandsMoment_Wz().ToString("0.###");
+                    lbl_Iy.Content = neuRundHohl.FTM_Iy().ToString("0.###");
+                    Lbl_Iz.Content = neuRundHohl.FTM_Iz().ToString("0.###");
+                    lbl_Polar.Content = neuRundHohl.FTM_Polar().ToString("0.###");
+               
+            }
+
+            catch
+            { MessageBox.Show("Ihre Eingabe war Fehlerhaft! Bitte verwenden Sie nur Zahlen!"); }
+        }
+        private void btn_HaRu_berechnung_Click(object sender, RoutedEventArgs e)
+        {   
+            //Erzeugun eines Objektes der klasse HalbRundProfil
+            HalbrundProfil neuHalbRund = new HalbrundProfil();
+
+            try
+            {
+
+             
+                    neuHalbRund.Radius = Convert.ToDouble(TxtBox_HaRu_Radius.Text);
+                    neuHalbRund.Länge = Convert.ToDouble(TxtBox_HaRu_Länge.Text);
+
+             
+
+                    double gewicht = 0;
+                    double preis = 0;
+
+                {
+
+
+                    //Hier Beginnen Die Comboxen Für ErgebnisFenster
+
+                    //Für Qfläche
+                    if (cbx_Qfläche.Text == "mm²")
+
+                    {
+                        lbl_qfläche.Content = neuHalbRund.QFläche() * 1;
+
+                    }
+
+                    if (cbx_Qfläche.Text == "cm²")
+                    {
+                        lbl_qfläche.Content = neuHalbRund.QFläche() / 100;
+
+                    }
+
+                    if (cbx_Qfläche.Text == "m²")
+                    {
+                        lbl_qfläche.Content = neuHalbRund.QFläche() / 10000;
+
+                    }
+
+                    //Für Volumen
+                    if (cbx_Volumen.Text == "mm³")
+
+                    {
+                        lbl_volumen.Content = neuHalbRund.Volumen() * 1;
+
+                    }
+
+                    if (cbx_Volumen.Text == "cm³")
+                    {
+                        lbl_volumen.Content = neuHalbRund.Volumen() / 1000;
+
+                    }
+
+                    if (cbx_Volumen.Text == "m³")
+                    {
+                        lbl_volumen.Content = neuHalbRund.Volumen() / 1000000;
+
+                    }
+
+                    //Für Wiederstandsmoment Wx
+                    if (cbx_Wx.Text == "mm³")
+
+                    {
+                        lbl_Wy.Content = neuHalbRund.WiederstandsMoment_Wy() * 1;
+
+                    }
+
+                    if (cbx_Wx.Text == "cm³")
+                    {
+                        lbl_Wy.Content = neuHalbRund.WiederstandsMoment_Wy() / 1000;
+
+                    }
+
+                    if (cbx_Wx.Text == "m³")
+                    {
+                        lbl_Wy.Content = neuHalbRund.WiederstandsMoment_Wy() / 1000000;
+
+                    }
+
+
+                    //Für Wiederstandsmoment Wy
+                    if (cbx_Wy.Text == "mm³")
+
+                    {
+                        lbl_Wz.Content = neuHalbRund.WiederstandsMoment_Wz() * 1;
+
+                    }
+
+                    if (cbx_Wy.Text == "cm³")
+                    {
+                        lbl_Wz.Content = neuHalbRund.WiederstandsMoment_Wz() / 1000;
+
+                    }
+
+                    if (cbx_Wy.Text == "m³")
+                    {
+                        lbl_Wz.Content = neuHalbRund.WiederstandsMoment_Wz() / 1000000;
+
+                    }
+
+
+                    //Für TrägheitsMoment Ix
+                    if (cbx_Ix.Text == "mm^4")
+
+                    {
+                        lbl_Iy.Content = neuHalbRund.FTM_Iy() * 1;
+
+                    }
+
+                    if (cbx_Ix.Text == "cm^4")
+                    {
+                        lbl_Iy.Content = neuHalbRund.FTM_Iy() / 10000;
+
+                    }
+
+
+
+
+                    //Für TrägheitsMoment Iy
+                    if (cbx_Iy.Text == "mm^4")
+
+                    {
+                        Lbl_Iz.Content = neuHalbRund.FTM_Iz() * 1;
+
+                    }
+
+                    if (cbx_Iy.Text == "cm^4")
+                    {
+                        Lbl_Iz.Content = neuHalbRund.FTM_Iz() / 10000;
+
+                    }
+
+
+
+
+
+                    //Für TrägheitsMoment Polar
+                    if (cbx_Polar.Text == "mm^4")
+
+                    {
+                        lbl_Polar.Content = neuHalbRund.FTM_Polar() * 1;
+
+                    }
+
+                    if (cbx_Polar.Text == "cm^4")
+                    {
+                        lbl_Polar.Content = neuHalbRund.FTM_Polar() / 10000;
+
+                    }
+
+
+                    //Hier Enden Die Comboboxen!
+                }//Comboboxen Ergebnisfenster
+
+                    ///Auswahl Stahl
+                    if (cb_Material_HaRu.Text == "Stahl")
+                    {///Berechnung
+                        gewicht = neuHalbRund.Volumen() * 0.00000785;
+                        preis = gewicht * 1.5;
+
+                    }
+                    /// Auswahl Aluminim
+                    if (cb_Material_HaRu.Text == "Aluminium")
+                    {///Berechnung
+                        gewicht = neuHalbRund.Volumen() * 0.0000027;
+                        preis = gewicht * 2.5;
+                    }
+
+                    grd_Ergebnisse.Visibility = Visibility.Visible;
+
+
+                    lbl_Gewicht.Content = gewicht.ToString("0.###");
+                    lbl_Preis.Content = preis.ToString("0.###");
+
+                    lbl_qfläche.Content = neuHalbRund.QFläche().ToString("0.###");
+                    lbl_volumen.Content = neuHalbRund.Volumen().ToString("0.###");
+                    lbl_Wy.Content = neuHalbRund.WiederstandsMoment_Wy().ToString("0.###");
+                    lbl_Wz.Content = neuHalbRund.WiederstandsMoment_Wz().ToString("0.###");
+                    lbl_Iy.Content = neuHalbRund.FTM_Iy().ToString("0.###");
+                    Lbl_Iz.Content = neuHalbRund.FTM_Iz().ToString("0.###");
+                    lbl_Polar.Content = neuHalbRund.FTM_Polar().ToString("0.###");
+                
+            }
+
+            catch
+            { MessageBox.Show("Ihre Eingabe war Fehlerhaft! Bitte verwenden Sie nur Zahlen!"); }
+
+        }
+
+
+        //Form Profile
+        private void btn_TPro_berechnung_Click(object sender, RoutedEventArgs e)
+        {   
+
+            //Erzeugung eines Objektes der Klasse TProfil
+            TProfil neuTProfil = new TProfil();
+
+            try
+            {
+     
+                    neuTProfil.H1 = Convert.ToDouble(TxtBox_TPro_Höhe.Text);
+                    neuTProfil.B1 = Convert.ToDouble(TxtBox_TPro_Breite.Text);
+                    neuTProfil.Länge = Convert.ToDouble(TxtBox_TPro_Länge.Text);
+                    neuTProfil.H2 = Convert.ToDouble(TxtBox_TPro_Wandstärkeh.Text);
+                    neuTProfil.B2 = Convert.ToDouble(TxtBox_TPro_Wandstärkeb.Text);
+      
+                double gewicht = 0;
+                    double preis = 0;
+
+          
+
+                {
+
+
+                    //Hier Beginnen Die Comboxen Für ErgebnisFenster
+
+                    //Für Qfläche
+                    if (cbx_Qfläche.Text == "mm²")
+
+                    {
+                        lbl_qfläche.Content = neuTProfil.QFläche() * 1;
+
+                    }
+
+                    if (cbx_Qfläche.Text == "cm²")
+                    {
+                        lbl_qfläche.Content = neuTProfil.QFläche() / 100;
+
+                    }
+
+                    if (cbx_Qfläche.Text == "m²")
+                    {
+                        lbl_qfläche.Content = neuTProfil.QFläche() / 10000;
+
+                    }
+
+                    //Für Volumen
+                    if (cbx_Volumen.Text == "mm³")
+
+                    {
+                        lbl_volumen.Content = neuTProfil.Volumen() * 1;
+
+                    }
+
+                    if (cbx_Volumen.Text == "cm³")
+                    {
+                        lbl_volumen.Content = neuTProfil.Volumen() / 1000;
+
+                    }
+
+                    if (cbx_Volumen.Text == "m³")
+                    {
+                        lbl_volumen.Content = neuTProfil.Volumen() / 1000000;
+
+                    }
+
+                    //Für Wiederstandsmoment Wx
+                    if (cbx_Wx.Text == "mm³")
+
+                    {
+                        lbl_Wy.Content = neuTProfil.WiederstandsMoment_Wy() * 1;
+
+                    }
+
+                    if (cbx_Wx.Text == "cm³")
+                    {
+                        lbl_Wy.Content = neuTProfil.WiederstandsMoment_Wy()/ 1000;
+
+                    }
+
+                    if (cbx_Wx.Text == "m³")
+                    {
+                        lbl_Wy.Content = neuTProfil.WiederstandsMoment_Wy() / 1000000;
+
+                    }
+
+
+                    //Für Wiederstandsmoment Wy
+                    if (cbx_Wy.Text == "mm³")
+
+                    {
+                        lbl_Wz.Content = neuTProfil.WiederstandsMoment_Wz() * 1;
+
+                    }
+
+                    if (cbx_Wy.Text == "cm³")
+                    {
+                        lbl_Wz.Content = neuTProfil.WiederstandsMoment_Wz() / 1000;
+
+                    }
+
+                    if (cbx_Wy.Text == "m³")
+                    {
+                        lbl_Wz.Content = neuTProfil.WiederstandsMoment_Wz() / 1000000;
+
+                    }
+
+
+                    //Für TrägheitsMoment Ix
+                    if (cbx_Ix.Text == "mm^4")
+
+                    {
+                        lbl_Iy.Content = neuTProfil.FTM_Iy() * 1;
+
+                    }
+
+                    if (cbx_Ix.Text == "cm^4")
+                    {
+                        lbl_Iy.Content = neuTProfil.FTM_Iy()/ 10000;
+
+                    }
+
+
+
+
+                    //Für TrägheitsMoment Iy
+                    if (cbx_Iy.Text == "mm^4")
+
+                    {
+                        Lbl_Iz.Content = neuTProfil.FTM_Iz() * 1;
+
+                    }
+
+                    if (cbx_Iy.Text == "cm^4")
+                    {
+                        Lbl_Iz.Content = neuTProfil.FTM_Iz() / 10000;
+
+                    }
+
+
+
+
+
+                    //Für TrägheitsMoment Polar
+                    if (cbx_Polar.Text == "mm^4")
+
+                    {
+                        lbl_Polar.Content = neuTProfil.FTM_Polar() * 1;
+
+                    }
+
+                    if (cbx_Polar.Text == "cm^4")
+                    {
+                        lbl_Polar.Content = neuTProfil.FTM_Polar() / 10000;
+
+                    }
+
+
+                    //Hier Enden Die Comboboxen!
+                } // Comboboxen Ergebnisfenster
+
+                    ///Auswahl Stahl
+                    if (cb_Material_TPro.Text == "Stahl")
+                    {///Berechnung
+                        gewicht = neuTProfil.Volumen() * 0.00000785;
+                        preis = gewicht * 1.5;
+
+                    }
+                    /// Auswahl Aluminim
+                    if (cb_Material_TPro.Text == "Aluminium")
+                    {///Berechnung
+                        gewicht = neuTProfil.Volumen() * 0.0000027;
+                        preis = gewicht * 2.5;
+                    }
+
+                    grd_Ergebnisse.Visibility = Visibility.Visible;
+
+                    lbl_Gewicht.Content = gewicht.ToString("0.###");
+                    lbl_Preis.Content = preis.ToString("0.###");
+                    lbl_qfläche.Content = neuTProfil.QFläche().ToString("0.###");
+                    lbl_volumen.Content = neuTProfil.Volumen().ToString("0.###");
+                    lbl_Wy.Content = neuTProfil.WiederstandsMoment_Wy().ToString("0.###");
+                    lbl_Wz.Content = neuTProfil.WiederstandsMoment_Wz().ToString("0.###");
+                    lbl_Iy.Content = neuTProfil.FTM_Iy().ToString("0.###");
+                    Lbl_Iz.Content = neuTProfil.FTM_Iz().ToString("0.###");
+                    lbl_Polar.Content = neuTProfil.FTM_Polar().ToString("0.###");
+
+                
+            }
+            catch
+            { MessageBox.Show("Ihre Eingabe war Fehlerhaft! Bitte verwenden Sie nur Zahlen!"); }
+        }
+
+        private void btn_UPro_berechnung_Click(object sender, RoutedEventArgs e)
+        {   
+
+            //Erzeugung des Objektes der Klasse UProfil
+            UProfil neuUProfil = new UProfil();
+
+            try
+            {
+
+                neuUProfil.H1 = Convert.ToDouble(TxtBox_UPro_Höhe.Text);
+                neuUProfil.B1 = Convert.ToDouble(TxtBox_UPro_Breite.Text);
+                neuUProfil.Länge = Convert.ToDouble(TxtBox_UPro_Länge.Text);
+                neuUProfil.H2 = Convert.ToDouble(TxtBox_UPro_Wandstärkeh.Text);
+                neuUProfil.B2 = Convert.ToDouble(TxtBox_UPro_Wandstärkeb.Text);
+
+
+                double gewicht = 0;
+                double preis = 0;
+
+
+                {
+
+                    //Hier Beginnen Die Comboxen Für ErgebnisFenster
+
+                    //Für Qfläche
+                    if (cbx_Qfläche.Text == "mm²")
+
+                    {
+                        lbl_qfläche.Content = neuUProfil.QFläche() * 1;
+
+                    }
+
+                    if (cbx_Qfläche.Text == "cm²")
+                    {
+                        lbl_qfläche.Content = neuUProfil.QFläche() / 100;
+
+                    }
+
+                    if (cbx_Qfläche.Text == "m²")
+                    {
+                        lbl_qfläche.Content = neuUProfil.QFläche() / 10000;
+
+                    }
+
+                    //Für Volumen
+                    if (cbx_Volumen.Text == "mm³")
+
+                    {
+                        lbl_volumen.Content = neuUProfil.Volumen() * 1;
+
+                    }
+
+                    if (cbx_Volumen.Text == "cm³")
+                    {
+                        lbl_volumen.Content = neuUProfil.Volumen() / 1000;
+
+                    }
+
+                    if (cbx_Volumen.Text == "m³")
+                    {
+                        lbl_volumen.Content = neuUProfil.Volumen() / 1000000;
+
+                    }
+
+                    //Für Wiederstandsmoment Wx
+                    if (cbx_Wx.Text == "mm³")
+
+                    {
+                         lbl_Wy.Content = neuUProfil.WiederstandsMoment_Wy() * 1;
+
+                    }
+
+                    if (cbx_Wx.Text == "cm³")
+                    {
+                        lbl_Wy.Content = neuUProfil.WiederstandsMoment_Wy() / 1000;
+
+                    }
+
+                    if (cbx_Wx.Text == "m³")
+                    {
+                        lbl_Wy.Content = neuUProfil.WiederstandsMoment_Wy() / 1000000;
+
+                    }
+
+
+                    //Für Wiederstandsmoment Wy
+                    if (cbx_Wy.Text == "mm³")
+
+                    {
+                        lbl_Wz.Content = neuUProfil.WiederstandsMoment_Wz() * 1;
+
+                    }
+
+                    if (cbx_Wy.Text == "cm³")
+                    {
+                        lbl_Wz.Content = neuUProfil.WiederstandsMoment_Wz() / 1000;
+
+                    }
+
+                    if (cbx_Wy.Text == "m³")
+                    {
+                        lbl_Wz.Content = neuUProfil.WiederstandsMoment_Wz() / 1000000;
+
+                    }
+
+
+                    //Für TrägheitsMoment Ix
+                    if (cbx_Ix.Text == "mm^4")
+
+                    {
+                        lbl_Iy.Content = neuUProfil.FTM_Iy() * 1;
+
+                    }
+
+                    if (cbx_Ix.Text == "cm^4")
+                    {
+                        lbl_Iy.Content = neuUProfil.FTM_Iy() / 10000;
+
+                    }
+
+
+
+
+                    //Für TrägheitsMoment Iy
+                    if (cbx_Iy.Text == "mm^4")
+
+                    {
+                        Lbl_Iz.Content = neuUProfil.FTM_Iz() * 1;
+
+                    }
+
+                    if (cbx_Iy.Text == "cm^4")
+                    {
+                        Lbl_Iz.Content = neuUProfil.FTM_Iz() / 10000;
+
+                    }
+
+
+
+
+
+                    //Für TrägheitsMoment Polar
+                    if (cbx_Polar.Text == "mm^4")
+
+                    {
+                        lbl_Polar.Content = neuUProfil.FTM_Polar() * 1;
+
+                    }
+
+                    if (cbx_Polar.Text == "cm^4")
+                    {
+                        lbl_Polar.Content = neuUProfil.FTM_Polar() / 10000;
+
+                    }
+
+
+                    //Hier Enden Die Comboboxen!
+
+                } //Comboxen Ergebnisfenster
+
+                    ///Auswahl Stahl
+                    if (cb_Material_UPro.Text == "Stahl")
+                    {///Berechnung
+                        gewicht = neuUProfil.Volumen() * 0.00000785;
+                        preis = gewicht * 1.5;
+
+                    }
+                    /// Auswahl Aluminim
+                    if (cb_Material_UPro.Text == "Aluminium")
+                    {///Berechnung
+                        gewicht = neuUProfil.Volumen() * 0.0000027;
+                        preis = gewicht * 2.5;
+                    }
+
+                    grd_Ergebnisse.Visibility = Visibility.Visible;
+
+                    lbl_Gewicht.Content = gewicht.ToString("0.###");
+                    lbl_Preis.Content = preis.ToString("0.###");
+                    lbl_qfläche.Content = neuUProfil.QFläche().ToString("0.###");
+                    lbl_volumen.Content = neuUProfil.Volumen().ToString("0.###");
+                    lbl_Wy.Content = neuUProfil.WiederstandsMoment_Wy().ToString("0.###");
+                    lbl_Wz.Content = neuUProfil.WiederstandsMoment_Wz().ToString("0.###");
+                    lbl_Iy.Content = neuUProfil.FTM_Iy().ToString("0.###");
+                    Lbl_Iz.Content = neuUProfil.FTM_Iz().ToString("0.###");
+                    lbl_Polar.Content = neuUProfil.FTM_Polar().ToString("0.###");
                 
             }
 
@@ -903,450 +1790,25 @@ namespace WpfHSPB1
             { MessageBox.Show("Ihre Eingabe war Fehlerhaft! Bitte verwenden Sie nur Zahlen!"); }
         }
 
-        private void btn_SeVo_berechnung_Click(object sender, RoutedEventArgs e)
-        {/// Sind Parameter eingegeben worden
+        private void btn_IPro_berechnung_Click(object sender, RoutedEventArgs e)
+        {   
+            //Erzeugung eines Objektes der Klasse IProfil
+            IProfil neuIProfil = new IProfil();
 
             try
             {
+
+                neuIProfil.H1 = Convert.ToDouble(TxtBox_IPro_Höhe.Text);
+                neuIProfil.B1 = Convert.ToDouble(TxtBox_IPro_Breite.Text);
+                neuIProfil.Länge = Convert.ToDouble(TxtBox_IPro_Länge.Text);
+                neuIProfil.H2 = Convert.ToDouble(TxtBox_IPro_Wandstärkeh.Text);
+                neuIProfil.B2 = Convert.ToDouble(TxtBox_IPro_Wandstärkeb.Text);
 
               
-                    double radius = Convert.ToDouble(TxtBox_SeVo_Radius.Text);
-                    double länge = Convert.ToDouble(TxtBox_SeVo_Länge.Text);
-                    ///Berechnungen
-                    double qfläche = 3 * (Math.Sqrt(3)) / 2 * (radius * radius);
-                    double volumen = qfläche * länge;
-                    double Wy = radius * radius * radius * 5 / 8;
-                    double Wz = 5 * (Math.Sqrt(3)) / 16 * (radius * radius * radius);
-                    double Iy = 5 * (Math.Sqrt(3)) / 16 * (radius * radius * radius * radius);
-                    double Iz = 5 * (Math.Sqrt(3)) / 16 * (radius * radius * radius * radius);
-                    double Polar = Iy + Iz;
-
-
-                    double gewicht = 0;
-                    double preis = 0;
-
-                if (radius <= 0 || länge <= 0)
-                {
-                    MessageBox.Show("Ihre Parameter Eingabe war Fehlerhaft");
-
-                }
-                else
-                {
-                    //Hier Beginnen Die Comboxen Für ErgebnisFenster
-
-                    //Für Qfläche
-                    if (cbx_Qfläche.Text == "mm²")
-
-                    {
-                        qfläche = qfläche * 1;
-
-                    }
-
-                    if (cbx_Qfläche.Text == "cm²")
-                    {
-                        qfläche = qfläche / 100;
-
-                    }
-
-                    if (cbx_Qfläche.Text == "m²")
-                    {
-                        qfläche = qfläche / 10000;
-
-                    }
-
-                    //Für Volumen
-                    if (cbx_Volumen.Text == "mm³")
-
-                    {
-                        volumen = volumen * 1;
-
-                    }
-
-                    if (cbx_Volumen.Text == "cm³")
-                    {
-                        volumen = volumen / 1000;
-
-                    }
-
-                    if (cbx_Volumen.Text == "m³")
-                    {
-                        volumen = volumen / 1000000;
-
-                    }
-
-                    //Für Wiederstandsmoment Wx
-                    if (cbx_Wx.Text == "mm³")
-
-                    {
-                        Wy = Wy * 1;
-
-                    }
-
-                    if (cbx_Wx.Text == "cm³")
-                    {
-                        Wy = Wy / 1000;
-
-                    }
-
-                    if (cbx_Wx.Text == "m³")
-                    {
-                        Wy = Wy / 1000000;
-
-                    }
-
-
-                    //Für Wiederstandsmoment Wy
-                    if (cbx_Wy.Text == "mm³")
-
-                    {
-                        Wz = Wz * 1;
-
-                    }
-
-                    if (cbx_Wy.Text == "cm³")
-                    {
-                        Wz = Wz / 1000;
-
-                    }
-
-                    if (cbx_Wy.Text == "m³")
-                    {
-                        Wz = Wz / 1000000;
-
-                    }
-
-
-                    //Für TrägheitsMoment Ix
-                    if (cbx_Ix.Text == "mm^4")
-
-                    {
-                        Iy = Iy * 1;
-
-                    }
-
-                    if (cbx_Ix.Text == "cm^4")
-                    {
-                        Iy = Iy / 10000;
-
-                    }
-
-
-
-
-                    //Für TrägheitsMoment Iy
-                    if (cbx_Iy.Text == "mm^4")
-
-                    {
-                        Iz = Iz * 1;
-
-                    }
-
-                    if (cbx_Iy.Text == "cm^4")
-                    {
-                        Iz = Iz / 10000;
-
-                    }
-
-
-
-
-
-                    //Für TrägheitsMoment Polar
-                    if (cbx_Polar.Text == "mm^4")
-
-                    {
-                        Polar = Polar * 1;
-
-                    }
-
-                    if (cbx_Polar.Text == "cm^4")
-                    {
-                        Polar = Polar / 10000;
-
-                    }
-
-
-                    //Hier Enden Die Comboboxen!
-
-
-                    ///Auswahl Stahl
-                    if (cb_Material_SeVoll.Text == "Stahl")
-                    {///Berechnung
-                        gewicht = volumen * 0.00000785;
-                        preis = gewicht * 1.5;
-
-                    }
-                    /// Auswahl Aluminim
-                    if (cb_Material_SeVoll.Text == "Aluminium")
-                    {///Berechnung
-                        gewicht = volumen * 0.0000027;
-                        preis = gewicht * 2.5;
-                    }
-
-                    grd_Ergebnisse.Visibility = Visibility.Visible;
-
-                    ///Ausgabe der berechneten Werte für das Profil Vollmaterial Sechseck
-                    lbl_Gewicht.Content = gewicht.ToString("0.###");
-                    lbl_Preis.Content = preis.ToString("0.###");
-                    lbl_qfläche.Content = qfläche.ToString("0.###");
-                    lbl_volumen.Content = volumen.ToString("0.###");
-                    lbl_Wy.Content = Wy.ToString("0.###");
-                    lbl_Wz.Content = Wz.ToString("0.###");
-                    lbl_Iy.Content = Iy.ToString("0.###");
-                    Lbl_Iz.Content = Iz.ToString("0.###");
-                    lbl_Polar.Content = Polar.ToString("0.###");
-                }
-
-            }
-
-            catch
-            { MessageBox.Show("Ihre Eingabe war Fehlerhaft! Bitte verwenden Sie nur Zahlen!"); }
-        }
-
-        private void btn_TPro_berechnung_Click(object sender, RoutedEventArgs e)
-        {
-
-            try
-            {
-     
-                    double H = Convert.ToDouble(TxtBox_TPro_Höhe.Text);
-                    double B = Convert.ToDouble(TxtBox_TPro_Breite.Text);
-                    double länge = Convert.ToDouble(TxtBox_TPro_Länge.Text);
-                    double h = Convert.ToDouble(TxtBox_TPro_Wandstärkeh.Text);
-                    double b = Convert.ToDouble(TxtBox_TPro_Wandstärkeb.Text);
-
-                ///Zwischenergebnisse
-                double e2 = ((b * H * H + (B - b) * h * h) * 0.5) / (b * H + (B - b) * h);
-                double y = (b * H + (B - b) * h);
-                double z = (b * H * H * H + (B - b) * h * h * h) / 3;
-
-
-                double qfläche = (H * B) - ((H - h) * (B - b));
-                double volumen = qfläche * länge;
-
-                double Wz = (h * B * B * B + (H - h) * b * b * b) / (6 * B);
-                double Iy = z - y * (e2 * e2);
-                double Iz = (h * B * B * B + (H - h) * b * b * b) / 12;
-                double Wy = Iy / (H - e2);
-                double Polar = Iy + Iz;
-
-                double gewicht = 0;
-                    double preis = 0;
-
-                if (H <= 0 || B <= 0 || länge <= 0 || h <= 0 || b <= 0)
-
-                {
-                    MessageBox.Show("Ihre Parameter Eingabe war Fehlerhaft");
-                }
-                else
-                {
-
-
-                    //Hier Beginnen Die Comboxen Für ErgebnisFenster
-
-                    //Für Qfläche
-                    if (cbx_Qfläche.Text == "mm²")
-
-                    {
-                        qfläche = qfläche * 1;
-
-                    }
-
-                    if (cbx_Qfläche.Text == "cm²")
-                    {
-                        qfläche = qfläche / 100;
-
-                    }
-
-                    if (cbx_Qfläche.Text == "m²")
-                    {
-                        qfläche = qfläche / 10000;
-
-                    }
-
-                    //Für Volumen
-                    if (cbx_Volumen.Text == "mm³")
-
-                    {
-                        volumen = volumen * 1;
-
-                    }
-
-                    if (cbx_Volumen.Text == "cm³")
-                    {
-                        volumen = volumen / 1000;
-
-                    }
-
-                    if (cbx_Volumen.Text == "m³")
-                    {
-                        volumen = volumen / 1000000;
-
-                    }
-
-                    //Für Wiederstandsmoment Wx
-                    if (cbx_Wx.Text == "mm³")
-
-                    {
-                        Wy = Wy * 1;
-
-                    }
-
-                    if (cbx_Wx.Text == "cm³")
-                    {
-                        Wy = Wy / 1000;
-
-                    }
-
-                    if (cbx_Wx.Text == "m³")
-                    {
-                        Wy = Wy / 1000000;
-
-                    }
-
-
-                    //Für Wiederstandsmoment Wy
-                    if (cbx_Wy.Text == "mm³")
-
-                    {
-                        Wz = Wz * 1;
-
-                    }
-
-                    if (cbx_Wy.Text == "cm³")
-                    {
-                        Wz = Wz / 1000;
-
-                    }
-
-                    if (cbx_Wy.Text == "m³")
-                    {
-                        Wz = Wz / 1000000;
-
-                    }
-
-
-                    //Für TrägheitsMoment Ix
-                    if (cbx_Ix.Text == "mm^4")
-
-                    {
-                        Iy = Iy * 1;
-
-                    }
-
-                    if (cbx_Ix.Text == "cm^4")
-                    {
-                        Iy = Iy / 10000;
-
-                    }
-
-
-
-
-                    //Für TrägheitsMoment Iy
-                    if (cbx_Iy.Text == "mm^4")
-
-                    {
-                        Iz = Iz * 1;
-
-                    }
-
-                    if (cbx_Iy.Text == "cm^4")
-                    {
-                        Iz = Iz / 10000;
-
-                    }
-
-
-
-
-
-                    //Für TrägheitsMoment Polar
-                    if (cbx_Polar.Text == "mm^4")
-
-                    {
-                        Polar = Polar * 1;
-
-                    }
-
-                    if (cbx_Polar.Text == "cm^4")
-                    {
-                        Polar = Polar / 10000;
-
-                    }
-
-
-                    //Hier Enden Die Comboboxen!
-
-
-                    ///Auswahl Stahl
-                    if (cb_Material_TPro.Text == "Stahl")
-                    {///Berechnung
-                        gewicht = volumen * 0.00000785;
-                        preis = gewicht * 1.5;
-
-                    }
-                    /// Auswahl Aluminim
-                    if (cb_Material_TPro.Text == "Aluminium")
-                    {///Berechnung
-                        gewicht = volumen * 0.0000027;
-                        preis = gewicht * 2.5;
-                    }
-
-                    grd_Ergebnisse.Visibility = Visibility.Visible;
-
-                    lbl_Gewicht.Content = gewicht.ToString("0.###");
-                    lbl_Preis.Content = preis.ToString("0.###");
-                    lbl_qfläche.Content = qfläche.ToString("0.###");
-                    lbl_volumen.Content = volumen.ToString("0.###");
-                    lbl_Wy.Content = Wy.ToString("0.###");
-                    lbl_Wz.Content = Wz.ToString("0.###");
-                    lbl_Iy.Content = Iy.ToString("0.###");
-                    Lbl_Iz.Content = Iz.ToString("0.###");
-                    lbl_Polar.Content = Polar.ToString("0.###");
-
-                }
-            }
-            catch
-            { MessageBox.Show("Ihre Eingabe war Fehlerhaft! Bitte verwenden Sie nur Zahlen!"); }
-        }
-
-        private void btn_UPro_berechnung_Click(object sender, RoutedEventArgs e)
-        {
-
-            try
-            {
-
-                double H = Convert.ToDouble(TxtBox_UPro_Höhe.Text);
-                double B = Convert.ToDouble(TxtBox_UPro_Breite.Text);
-                double länge = Convert.ToDouble(TxtBox_UPro_Länge.Text);
-                double h = Convert.ToDouble(TxtBox_UPro_Wandstärkeh.Text);
-                double b = Convert.ToDouble(TxtBox_UPro_Wandstärkeb.Text);
-
-                ///Zwischenergebnisse
-                double e3 = (2 * h * B * B + (H - 2 * h) * b * b) * 0.5 / (2 * h * B + (H - 2 * h) * b);
-                double y = (2 * h * B + (H - 2 * h) * b);
-                double x = (2 * h * B * B * B + (H - 2 * h) * b * b * b) / 3;
-
-                double qfläche = (H * B) - ((H - 2 * h) * (B - b));
-                double volumen = qfläche * länge;
-
-
-                double Iy = (B * H * H * H - (B - b) * ((H - 2 * h) * (H - 2 * h) * (H - 2 * h))) / 12;
-                double Iz = x - (y * e3 * e3);
-                double Wy = (B * H * H * H - (B - b) * ((H - 2 * h) * (H - 2 * h) * (H - 2 * h))) / 6 / H;
-                double Wz = Iz / (B - e3);
-                double Polar = Iy + Iz;
-
                 double gewicht = 0;
                 double preis = 0;
 
-                if (H <= 0 || B <= 0 || länge <= 0 || h <= 0 || b <= 0)
 
-                {
-                    MessageBox.Show("Ihre Parameter Eingabe war Fehlerhaft");
-                }
-                else
                 {
 
                     //Hier Beginnen Die Comboxen Für ErgebnisFenster
@@ -1355,19 +1817,19 @@ namespace WpfHSPB1
                     if (cbx_Qfläche.Text == "mm²")
 
                     {
-                        qfläche = qfläche * 1;
+                        lbl_qfläche.Content = neuIProfil.QFläche() * 1;
 
                     }
 
                     if (cbx_Qfläche.Text == "cm²")
                     {
-                        qfläche = qfläche / 100;
+                        lbl_qfläche.Content = neuIProfil.QFläche() / 100;
 
                     }
 
                     if (cbx_Qfläche.Text == "m²")
                     {
-                        qfläche = qfläche / 10000;
+                        lbl_qfläche.Content = neuIProfil.QFläche() / 10000;
 
                     }
 
@@ -1375,19 +1837,19 @@ namespace WpfHSPB1
                     if (cbx_Volumen.Text == "mm³")
 
                     {
-                        volumen = volumen * 1;
+                        lbl_volumen.Content = neuIProfil.Volumen() * 1;
 
                     }
 
                     if (cbx_Volumen.Text == "cm³")
                     {
-                        volumen = volumen / 1000;
+                        lbl_volumen.Content = neuIProfil.Volumen() / 1000;
 
                     }
 
                     if (cbx_Volumen.Text == "m³")
                     {
-                        volumen = volumen / 1000000;
+                        lbl_volumen.Content = neuIProfil.Volumen() / 1000000;
 
                     }
 
@@ -1395,19 +1857,19 @@ namespace WpfHSPB1
                     if (cbx_Wx.Text == "mm³")
 
                     {
-                        Wy = Wy * 1;
+                        lbl_Wy.Content = neuIProfil.WiederstandsMoment_Wy() * 1;
 
                     }
 
                     if (cbx_Wx.Text == "cm³")
                     {
-                        Wy = Wy / 1000;
+                        lbl_Wy.Content = neuIProfil.WiederstandsMoment_Wy() / 1000;
 
                     }
 
                     if (cbx_Wx.Text == "m³")
                     {
-                        Wy = Wy / 1000000;
+                        lbl_Wy.Content = neuIProfil.WiederstandsMoment_Wy() / 1000000;
 
                     }
 
@@ -1416,19 +1878,19 @@ namespace WpfHSPB1
                     if (cbx_Wy.Text == "mm³")
 
                     {
-                        Wz = Wz * 1;
+                        lbl_Wz.Content = neuIProfil.WiederstandsMoment_Wz() * 1;
 
                     }
 
                     if (cbx_Wy.Text == "cm³")
                     {
-                        Wz = Wz / 1000;
+                        lbl_Wz.Content = neuIProfil.WiederstandsMoment_Wz() / 1000;
 
                     }
 
                     if (cbx_Wy.Text == "m³")
                     {
-                        Wz = Wz / 1000000;
+                        lbl_Wz.Content = neuIProfil.WiederstandsMoment_Wz() / 1000000;
 
                     }
 
@@ -1437,13 +1899,13 @@ namespace WpfHSPB1
                     if (cbx_Ix.Text == "mm^4")
 
                     {
-                        Iy = Iy * 1;
+                        lbl_Iy.Content = neuIProfil.FTM_Iy() * 1;
 
                     }
 
                     if (cbx_Ix.Text == "cm^4")
                     {
-                        Iy = Iy / 10000;
+                        lbl_Iy.Content = neuIProfil.FTM_Iy() / 10000;
 
                     }
 
@@ -1454,13 +1916,13 @@ namespace WpfHSPB1
                     if (cbx_Iy.Text == "mm^4")
 
                     {
-                        Iz = Iz * 1;
+                        Lbl_Iz.Content = neuIProfil.FTM_Iz() * 1;
 
                     }
 
                     if (cbx_Iy.Text == "cm^4")
                     {
-                        Iz = Iz / 10000;
+                        Lbl_Iz.Content = neuIProfil.FTM_Iz() / 10000;
 
                     }
 
@@ -1472,232 +1934,31 @@ namespace WpfHSPB1
                     if (cbx_Polar.Text == "mm^4")
 
                     {
-                        Polar = Polar * 1;
+                        lbl_Polar.Content = neuIProfil.FTM_Polar() * 1;
 
                     }
 
                     if (cbx_Polar.Text == "cm^4")
                     {
-                        Polar = Polar / 10000;
+                        lbl_Polar.Content = neuIProfil.FTM_Polar() / 10000;
 
                     }
 
 
                     //Hier Enden Die Comboboxen!
-
-
-                    ///Auswahl Stahl
-                    if (cb_Material_UPro.Text == "Stahl")
-                    {///Berechnung
-                        gewicht = volumen * 0.00000785;
-                        preis = gewicht * 1.5;
-
-                    }
-                    /// Auswahl Aluminim
-                    if (cb_Material_UPro.Text == "Aluminium")
-                    {///Berechnung
-                        gewicht = volumen * 0.0000027;
-                        preis = gewicht * 2.5;
-                    }
-
-                    grd_Ergebnisse.Visibility = Visibility.Visible;
-
-                    lbl_Gewicht.Content = gewicht.ToString("0.###");
-                    lbl_Preis.Content = preis.ToString("0.###");
-                    lbl_qfläche.Content = qfläche.ToString("0.###");
-                    lbl_volumen.Content = volumen.ToString("0.###");
-                    lbl_Wy.Content = Wy.ToString("0.###");
-                    lbl_Wz.Content = Wz.ToString("0.###");
-                    lbl_Iy.Content = Iy.ToString("0.###");
-                    Lbl_Iz.Content = Iz.ToString("0.###");
-                    lbl_Polar.Content = Polar.ToString("0.###");
-                }
-
-            }
-            catch
-            { MessageBox.Show("Ihre Eingabe war Fehlerhaft! Bitte verwenden Sie nur Zahlen!"); }
-        }
-
-        private void btn_IPro_berechnung_Click(object sender, RoutedEventArgs e)
-        {
-
-            try
-            {
-
-                double H = Convert.ToDouble(TxtBox_IPro_Höhe.Text);
-                double B = Convert.ToDouble(TxtBox_IPro_Breite.Text);
-                double länge = Convert.ToDouble(TxtBox_IPro_Länge.Text);
-                double h = Convert.ToDouble(TxtBox_IPro_Wandstärkeh.Text);
-                double b = Convert.ToDouble(TxtBox_IPro_Wandstärkeb.Text);
-
-                double qfläche = (H * B) - ((H - 2 * h) * (B - b));
-                double volumen = qfläche * länge;
-
-                double Wz = (2 * h * B * B * B + (H - 2 * h) * b * b * b) / (6 * B);
-                double Iy = (B * H * H * H - (B - b) * ((H - 2 * h) * (H - 2 * h) * (H - 2 * h))) / 12;
-                double Iz = (2 * h * B * B * B + (H - 2 * h) * b * b * b) / 12;
-                double Wy = (B * H * H * H - (B - b) * ((H - 2 * h) * (H - 2 * h) * (H - 2 * h))) / 6 / H;
-                double Polar = Iy + Iz;
-
-                double gewicht = 0;
-                double preis = 0;
-
-                if (H <= 0 || B <= 0 || länge <= 0 || h <= 0 || b <= 0)
-
-                {
-                    MessageBox.Show("Ihre Parameter Eingabe war Fehlerhaft");
-                }
-                else
-                {
-
-                    //Hier Beginnen Die Comboxen Für ErgebnisFenster
-
-                    //Für Qfläche
-                    if (cbx_Qfläche.Text == "mm²")
-
-                    {
-                        qfläche = qfläche * 1;
-
-                    }
-
-                    if (cbx_Qfläche.Text == "cm²")
-                    {
-                        qfläche = qfläche / 100;
-
-                    }
-
-                    if (cbx_Qfläche.Text == "m²")
-                    {
-                        qfläche = qfläche / 10000;
-
-                    }
-
-                    //Für Volumen
-                    if (cbx_Volumen.Text == "mm³")
-
-                    {
-                        volumen = volumen * 1;
-
-                    }
-
-                    if (cbx_Volumen.Text == "cm³")
-                    {
-                        volumen = volumen / 1000;
-
-                    }
-
-                    if (cbx_Volumen.Text == "m³")
-                    {
-                        volumen = volumen / 1000000;
-
-                    }
-
-                    //Für Wiederstandsmoment Wx
-                    if (cbx_Wx.Text == "mm³")
-
-                    {
-                        Wy = Wy * 1;
-
-                    }
-
-                    if (cbx_Wx.Text == "cm³")
-                    {
-                        Wy = Wy / 1000;
-
-                    }
-
-                    if (cbx_Wx.Text == "m³")
-                    {
-                        Wy = Wy / 1000000;
-
-                    }
-
-
-                    //Für Wiederstandsmoment Wy
-                    if (cbx_Wy.Text == "mm³")
-
-                    {
-                        Wz = Wz * 1;
-
-                    }
-
-                    if (cbx_Wy.Text == "cm³")
-                    {
-                        Wz = Wz / 1000;
-
-                    }
-
-                    if (cbx_Wy.Text == "m³")
-                    {
-                        Wz = Wz / 1000000;
-
-                    }
-
-
-                    //Für TrägheitsMoment Ix
-                    if (cbx_Ix.Text == "mm^4")
-
-                    {
-                        Iy = Iy * 1;
-
-                    }
-
-                    if (cbx_Ix.Text == "cm^4")
-                    {
-                        Iy = Iy / 10000;
-
-                    }
-
-
-
-
-                    //Für TrägheitsMoment Iy
-                    if (cbx_Iy.Text == "mm^4")
-
-                    {
-                        Iz = Iz * 1;
-
-                    }
-
-                    if (cbx_Iy.Text == "cm^4")
-                    {
-                        Iz = Iz / 10000;
-
-                    }
-
-
-
-
-
-                    //Für TrägheitsMoment Polar
-                    if (cbx_Polar.Text == "mm^4")
-
-                    {
-                        Polar = Polar * 1;
-
-                    }
-
-                    if (cbx_Polar.Text == "cm^4")
-                    {
-                        Polar = Polar / 10000;
-
-                    }
-
-
-                    //Hier Enden Die Comboboxen!
-
+                } //Combobox für Ergebnisfenster
 
                     ///Auswahl Stahl
                     if (cb_Material_IPro.Text == "Stahl")
                     {///Berechnung
-                        gewicht = volumen * 0.00000785;
+                        gewicht = neuIProfil.Volumen() * 0.00000785;
                         preis = gewicht * 1.5;
 
                     }
                     /// Auswahl Aluminim
                     if (cb_Material_IPro.Text == "Aluminium")
                     {///Berechnung
-                        gewicht = volumen * 0.0000027;
+                        gewicht = neuIProfil.Volumen() * 0.0000027;
                         preis = gewicht * 2.5;
                     }
 
@@ -1705,457 +1966,37 @@ namespace WpfHSPB1
 
                     lbl_Gewicht.Content = gewicht.ToString("0.###");
                     lbl_Preis.Content = preis.ToString("0.###");
-                    lbl_qfläche.Content = qfläche.ToString("0.###");
-                    lbl_volumen.Content = volumen.ToString("0.###");
-                    lbl_Wy.Content = Wy.ToString("0.###");
-                    lbl_Wz.Content = Wz.ToString("0.###");
-                    lbl_Iy.Content = Iy.ToString("0.###");
-                    Lbl_Iz.Content = Iz.ToString("0.###");
-                    lbl_Polar.Content = Polar.ToString("0.###");
-                }
+                    lbl_qfläche.Content = neuIProfil.QFläche().ToString("0.###");
+                    lbl_volumen.Content = neuIProfil.Volumen().ToString("0.###");
+                    lbl_Wy.Content = neuIProfil.WiederstandsMoment_Wy().ToString("0.###");
+                    lbl_Wz.Content = neuIProfil.WiederstandsMoment_Wz().ToString("0.###");
+                    lbl_Iy.Content = neuIProfil.FTM_Iy().ToString("0.###");
+                    Lbl_Iz.Content = neuIProfil.FTM_Iz().ToString("0.###");
+                    lbl_Polar.Content = neuIProfil.FTM_Polar().ToString("0.###");
+                
 
             }
             catch
             { MessageBox.Show("Ihre Eingabe war Fehlerhaft! Bitte verwenden Sie nur Zahlen!"); }
         }
-
-        private void btn_HaRu_berechnung_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-
-             
-                    double radius = Convert.ToDouble(TxtBox_HaRu_Radius.Text);
-                    double länge = Convert.ToDouble(TxtBox_HaRu_Länge.Text);
-
-                    double qfläche = Math.PI * radius * radius / 2;
-                    double volumen = qfläche * länge;
-                    double Wy = 0.1908 * radius * radius;
-                double Wz = (Math.PI * (radius * radius * radius * radius)) / 8;
-                    double Iy = 0.1098 * radius * radius * radius * radius;
-                double Iz = (Math.PI * ((2 * radius) * (2 * radius) * (2 * radius))) / 64;
-                    double Polar = 00;
-
-                    double gewicht = 0;
-                    double preis = 0;
-
-                if (radius <= 0 || länge <= 0)
-                {
-
-                    MessageBox.Show("Ihre Parameter Eingabe war Fehlerhaft");
-
-                }
-                else
-                {
-
-
-                    //Hier Beginnen Die Comboxen Für ErgebnisFenster
-
-                    //Für Qfläche
-                    if (cbx_Qfläche.Text == "mm²")
-
-                    {
-                        qfläche = qfläche * 1;
-
-                    }
-
-                    if (cbx_Qfläche.Text == "cm²")
-                    {
-                        qfläche = qfläche / 100;
-
-                    }
-
-                    if (cbx_Qfläche.Text == "m²")
-                    {
-                        qfläche = qfläche / 10000;
-
-                    }
-
-                    //Für Volumen
-                    if (cbx_Volumen.Text == "mm³")
-
-                    {
-                        volumen = volumen * 1;
-
-                    }
-
-                    if (cbx_Volumen.Text == "cm³")
-                    {
-                        volumen = volumen / 1000;
-
-                    }
-
-                    if (cbx_Volumen.Text == "m³")
-                    {
-                        volumen = volumen / 1000000;
-
-                    }
-
-                    //Für Wiederstandsmoment Wx
-                    if (cbx_Wx.Text == "mm³")
-
-                    {
-                        Wy = Wy * 1;
-
-                    }
-
-                    if (cbx_Wx.Text == "cm³")
-                    {
-                        Wy = Wy / 1000;
-
-                    }
-
-                    if (cbx_Wx.Text == "m³")
-                    {
-                        Wy = Wy / 1000000;
-
-                    }
-
-
-                    //Für Wiederstandsmoment Wy
-                    if (cbx_Wy.Text == "mm³")
-
-                    {
-                        Wz = Wz * 1;
-
-                    }
-
-                    if (cbx_Wy.Text == "cm³")
-                    {
-                        Wz = Wz / 1000;
-
-                    }
-
-                    if (cbx_Wy.Text == "m³")
-                    {
-                        Wz = Wz / 1000000;
-
-                    }
-
-
-                    //Für TrägheitsMoment Ix
-                    if (cbx_Ix.Text == "mm^4")
-
-                    {
-                        Iy = Iy * 1;
-
-                    }
-
-                    if (cbx_Ix.Text == "cm^4")
-                    {
-                        Iy = Iy / 10000;
-
-                    }
-
-
-
-
-                    //Für TrägheitsMoment Iy
-                    if (cbx_Iy.Text == "mm^4")
-
-                    {
-                        Iz = Iz * 1;
-
-                    }
-
-                    if (cbx_Iy.Text == "cm^4")
-                    {
-                        Iz = Iz / 10000;
-
-                    }
-
-
-
-
-
-                    //Für TrägheitsMoment Polar
-                    if (cbx_Polar.Text == "mm^4")
-
-                    {
-                        Polar = Polar * 1;
-
-                    }
-
-                    if (cbx_Polar.Text == "cm^4")
-                    {
-                        Polar = Polar / 10000;
-
-                    }
-
-
-                    //Hier Enden Die Comboboxen!
-
-                    ///Auswahl Stahl
-                    if (cb_Material_HaRu.Text == "Stahl")
-                    {///Berechnung
-                        gewicht = volumen * 0.00000785;
-                        preis = gewicht * 1.5;
-
-                    }
-                    /// Auswahl Aluminim
-                    if (cb_Material_HaRu.Text == "Aluminium")
-                    {///Berechnung
-                        gewicht = volumen * 0.0000027;
-                        preis = gewicht * 2.5;
-                    }
-
-                    grd_Ergebnisse.Visibility = Visibility.Visible;
-
-
-                    lbl_Gewicht.Content = gewicht.ToString("0.###");
-                    lbl_Preis.Content = preis.ToString("0.###");
-
-                    lbl_qfläche.Content = qfläche.ToString("0.###");
-                    lbl_volumen.Content = volumen.ToString("0.###");
-                    lbl_Wy.Content = Wy.ToString("0.###");
-                    lbl_Wz.Content = Wz.ToString("0.###");
-                    lbl_Iy.Content = Iy.ToString("0.###");
-                    Lbl_Iz.Content = Iz.ToString("0.###");
-                    lbl_Polar.Content = Polar.ToString("0.###");
-                }
-            }
-
-            catch
-            { MessageBox.Show("Ihre Eingabe war Fehlerhaft! Bitte verwenden Sie nur Zahlen!"); }
-
-        }
-
-        private void btn_Rohr_berechnung_Click(object sender, RoutedEventArgs e)
-        {
-
-            try
-            {
-
-                double durchmesser = Convert.ToDouble(TxtBox_Rohr_Durchmesser.Text);
-                double wandstärke = Convert.ToDouble(TxtBox_Rohr_Wandstärke.Text);
-                double länge = Convert.ToDouble(TxtBox_Rohr_Länge.Text);
-
-                double qfläche = (Math.PI * durchmesser * durchmesser / 4) - (Math.PI * (durchmesser - 2 * wandstärke) * (durchmesser - 2 * wandstärke) / 4);
-                double volumen = qfläche * länge;
-                double Wy = Math.PI * (durchmesser * durchmesser * durchmesser * durchmesser - (durchmesser - 2 * wandstärke) * (durchmesser - 2 * wandstärke) * (durchmesser - 2 * wandstärke) * (durchmesser - 2 * wandstärke) * (durchmesser - 2 * wandstärke)) / (32 * durchmesser);
-                double Wz = Math.PI * (durchmesser * durchmesser * durchmesser * durchmesser - (durchmesser - 2 * wandstärke) * (durchmesser - 2 * wandstärke) * (durchmesser - 2 * wandstärke) * (durchmesser - 2 * wandstärke) * (durchmesser - 2 * wandstärke)) / (32 * durchmesser);
-                double Iy = Math.PI * (durchmesser * durchmesser * durchmesser * durchmesser - (durchmesser - 2 * wandstärke) * (durchmesser - 2 * wandstärke) * (durchmesser - 2 * wandstärke) * (durchmesser - 2 * wandstärke) * (durchmesser - 2 * wandstärke)) / 64;
-                double Iz = Math.PI * (durchmesser * durchmesser * durchmesser * durchmesser - (durchmesser - 2 * wandstärke) * (durchmesser - 2 * wandstärke) * (durchmesser - 2 * wandstärke) * (durchmesser - 2 * wandstärke) * (durchmesser - 2 * wandstärke)) / 64;
-                double Polar = Iy + Iz;
-
-                double gewicht = 0;
-                double preis = 0;
-
-                if (durchmesser <= 0 || wandstärke <= 0 || länge <= 0)
-
-                {
-                    MessageBox.Show("Ihre Parameter Eingabe war Fehlerhaft");
-
-                }
-                else
-                {
-
-
-                    //Hier Beginnen Die Comboxen Für ErgebnisFenster
-
-                    //Für Qfläche
-                    if (cbx_Qfläche.Text == "mm²")
-
-                    {
-                        qfläche = qfläche * 1;
-
-                    }
-
-                    if (cbx_Qfläche.Text == "cm²")
-                    {
-                        qfläche = qfläche / 100;
-
-                    }
-
-                    if (cbx_Qfläche.Text == "m²")
-                    {
-                        qfläche = qfläche / 10000;
-
-                    }
-
-                    //Für Volumen
-                    if (cbx_Volumen.Text == "mm³")
-
-                    {
-                        volumen = volumen * 1;
-
-                    }
-
-                    if (cbx_Volumen.Text == "cm³")
-                    {
-                        volumen = volumen / 1000;
-
-                    }
-
-                    if (cbx_Volumen.Text == "m³")
-                    {
-                        volumen = volumen / 1000000;
-
-                    }
-
-                    //Für Wiederstandsmoment Wx
-                    if (cbx_Wx.Text == "mm³")
-
-                    {
-                        Wy = Wy * 1;
-
-                    }
-
-                    if (cbx_Wx.Text == "cm³")
-                    {
-                        Wy = Wy / 1000;
-
-                    }
-
-                    if (cbx_Wx.Text == "m³")
-                    {
-                        Wy = Wy / 1000000;
-
-                    }
-
-
-                    //Für Wiederstandsmoment Wy
-                    if (cbx_Wy.Text == "mm³")
-
-                    {
-                        Wz = Wz * 1;
-
-                    }
-
-                    if (cbx_Wy.Text == "cm³")
-                    {
-                        Wz = Wz / 1000;
-
-                    }
-
-                    if (cbx_Wy.Text == "m³")
-                    {
-                        Wz = Wz / 1000000;
-
-                    }
-
-
-                    //Für TrägheitsMoment Ix
-                    if (cbx_Ix.Text == "mm^4")
-
-                    {
-                        Iy = Iy * 1;
-
-                    }
-
-                    if (cbx_Ix.Text == "cm^4")
-                    {
-                        Iy = Iy / 10000;
-
-                    }
-
-
-
-
-                    //Für TrägheitsMoment Iy
-                    if (cbx_Iy.Text == "mm^4")
-
-                    {
-                        Iz = Iz * 1;
-
-                    }
-
-                    if (cbx_Iy.Text == "cm^4")
-                    {
-                        Iz = Iz / 10000;
-
-                    }
-
-
-
-
-
-                    //Für TrägheitsMoment Polar
-                    if (cbx_Polar.Text == "mm^4")
-
-                    {
-                        Polar = Polar * 1;
-
-                    }
-
-                    if (cbx_Polar.Text == "cm^4")
-                    {
-                        Polar = Polar / 10000;
-
-                    }
-
-
-                    //Hier Enden Die Comboboxen!
-
-                    ///Auswahl Stahl
-                    if (cb_Material_RuHo.Text == "Stahl")
-                    {///Berechnung
-                        gewicht = volumen * 0.00000785;
-                        preis = gewicht * 1.5;
-
-                    }
-                    /// Auswahl Aluminim
-                    if (cb_Material_RuHo.Text == "Aluminium")
-                    {///Berechnung
-                        gewicht = volumen * 0.0000027;
-                        preis = gewicht * 2.5;
-                    }
-
-                    grd_Ergebnisse.Visibility = Visibility.Visible;
-
-                    lbl_Gewicht.Content = gewicht.ToString("0.###");
-                    lbl_Preis.Content = preis.ToString("0.###");
-                    lbl_qfläche.Content = qfläche.ToString("0.###");
-                    lbl_volumen.Content = volumen.ToString("0.###");
-                    lbl_Wy.Content = Wy.ToString("0.###");
-                    lbl_Wz.Content = Wz.ToString("0.###");
-                    lbl_Iy.Content = Iy.ToString("0.###");
-                    Lbl_Iz.Content = Iz.ToString("0.###");
-                    lbl_Polar.Content = Polar.ToString("0.###");
-                }
-
-            }
-
-            catch
-            { MessageBox.Show("Ihre Eingabe war Fehlerhaft! Bitte verwenden Sie nur Zahlen!"); }
-        }
-
+     
         private void btn_LPro_Berechnung_Click(object sender, RoutedEventArgs e)
         {
+            LProfil neuLProfil = new LProfil();
 
             try
             {
 
-                double H = Convert.ToDouble(TxtBox_LPro_Höhe.Text);
-                double B = Convert.ToDouble(TxtBox_LPro_Breite.Text);
-                double länge = Convert.ToDouble(TxtBox_LPro_Länge.Text);
-                double h = Convert.ToDouble(TxtBox_LPro_Wandstärkeh.Text);
-                double b = Convert.ToDouble(TxtBox_LPro_Wandstärkeb.Text);
-
-                ///Zwischenergebnisse
-                double e2 = ((b * H * H + (B - b) * h * h) * 0.5) / (b * H + (B - b) * h);
-                double y = (b * H + (B - b) * h);
-                double z = (b * H * H * H + (B - b) * h * h * h) / 3;
-
-
-                double qfläche = (H * B) - ((H - h) * (B - b));
-                double volumen = qfläche * länge;
-
-                double Wz = (h * B * B * B + (H - h) * b * b * b) / (6 * B);
-                double Iy = z - y * (e2 * e2);
-                double Iz = (h * B * B * B + (H - h) * b * b * b) / 12;
-                double Wy = Iy / (H - e2);
-                double Polar = Iy + Iz;
-
+                neuLProfil.H1 = Convert.ToDouble(TxtBox_LPro_Höhe.Text);
+                neuLProfil.B1 = Convert.ToDouble(TxtBox_LPro_Breite.Text);
+                neuLProfil.Länge = Convert.ToDouble(TxtBox_LPro_Länge.Text);
+                neuLProfil.H2 = Convert.ToDouble(TxtBox_LPro_Wandstärkeh.Text);
+                neuLProfil.B2 = Convert.ToDouble(TxtBox_LPro_Wandstärkeb.Text);
+           
                 double gewicht = 0;
                 double preis = 0;
 
-                if (H <= 0 || B <= 0 || länge <= 0 || h <= 0 || b <= 0)
 
-                {
-                    MessageBox.Show("Ihre Parameter Eingabe war Fehlerhaft");
-                }
-                else
                 {
                     //Hier Beginnen Die Comboxen Für ErgebnisFenster
 
@@ -2163,19 +2004,19 @@ namespace WpfHSPB1
                     if (cbx_Qfläche.Text == "mm²")
 
                     {
-                        qfläche = qfläche * 1;
+                        lbl_qfläche.Content = neuLProfil.QFläche() * 1;
 
                     }
 
                     if (cbx_Qfläche.Text == "cm²")
                     {
-                        qfläche = qfläche / 100;
+                        lbl_qfläche.Content = neuLProfil.QFläche() / 100;
 
                     }
 
                     if (cbx_Qfläche.Text == "m²")
                     {
-                        qfläche = qfläche / 10000;
+                        lbl_qfläche.Content = neuLProfil.QFläche() / 10000;
 
                     }
 
@@ -2183,19 +2024,19 @@ namespace WpfHSPB1
                     if (cbx_Volumen.Text == "mm³")
 
                     {
-                        volumen = volumen * 1;
+                        lbl_volumen.Content = neuLProfil.Volumen() * 1;
 
                     }
 
                     if (cbx_Volumen.Text == "cm³")
                     {
-                        volumen = volumen / 1000;
+                        lbl_volumen.Content = neuLProfil.Volumen() / 1000;
 
                     }
 
                     if (cbx_Volumen.Text == "m³")
                     {
-                        volumen = volumen / 1000000;
+                        lbl_volumen.Content = neuLProfil.Volumen() / 1000000;
 
                     }
 
@@ -2203,19 +2044,19 @@ namespace WpfHSPB1
                     if (cbx_Wx.Text == "mm³")
 
                     {
-                        Wy = Wy * 1;
+                        lbl_Wy.Content = neuLProfil.WiederstandsMoment_Wy() * 1;
 
                     }
 
                     if (cbx_Wx.Text == "cm³")
                     {
-                        Wy = Wy / 1000;
+                        lbl_Wy.Content = neuLProfil.WiederstandsMoment_Wy() / 1000;
 
                     }
 
                     if (cbx_Wx.Text == "m³")
                     {
-                        Wy = Wy / 1000000;
+                        lbl_Wy.Content = neuLProfil.WiederstandsMoment_Wy() / 1000000;
 
                     }
 
@@ -2224,19 +2065,19 @@ namespace WpfHSPB1
                     if (cbx_Wy.Text == "mm³")
 
                     {
-                        Wz = Wz * 1;
+                        lbl_Wz.Content = neuLProfil.WiederstandsMoment_Wz() * 1;
 
                     }
 
                     if (cbx_Wy.Text == "cm³")
                     {
-                        Wz = Wz / 1000;
+                        lbl_Wz.Content = neuLProfil.WiederstandsMoment_Wz() / 1000;
 
                     }
 
                     if (cbx_Wy.Text == "m³")
                     {
-                        Wz = Wz / 1000000;
+                        lbl_Wz.Content = neuLProfil.WiederstandsMoment_Wz() / 1000000;
 
                     }
 
@@ -2245,66 +2086,61 @@ namespace WpfHSPB1
                     if (cbx_Ix.Text == "mm^4")
 
                     {
-                        Iy = Iy * 1;
+                        lbl_Iy.Content = neuLProfil.FTM_Iy() * 1;
 
                     }
 
                     if (cbx_Ix.Text == "cm^4")
                     {
-                        Iy = Iy / 10000;
+                        lbl_Iy.Content = neuLProfil.FTM_Iy() / 10000;
 
                     }
-
-
 
 
                     //Für TrägheitsMoment Iy
                     if (cbx_Iy.Text == "mm^4")
 
                     {
-                        Iz = Iz * 1;
+                        Lbl_Iz.Content = neuLProfil.FTM_Iz() * 1;
 
                     }
 
                     if (cbx_Iy.Text == "cm^4")
                     {
-                        Iz = Iz / 10000;
+                        Lbl_Iz.Content = neuLProfil.FTM_Iz() / 10000;
 
                     }
-
-
-
 
 
                     //Für TrägheitsMoment Polar
                     if (cbx_Polar.Text == "mm^4")
 
                     {
-                        Polar = Polar * 1;
+                        lbl_Polar.Content = neuLProfil.FTM_Polar() * 1;
 
                     }
 
                     if (cbx_Polar.Text == "cm^4")
                     {
-                        Polar = Polar / 10000;
+                        lbl_Polar.Content = neuLProfil.FTM_Polar() / 10000;
 
                     }
 
 
                     //Hier Enden Die Comboboxen!
-
+                }//Combobox Ergebnisfenster
 
                     ///Auswahl Stahl
                     if (cb_Material_LPro.Text == "Stahl")
                     {///Berechnung
-                        gewicht = volumen * 0.00000785;
+                        gewicht = neuLProfil.Volumen() * 0.00000785;
                         preis = gewicht * 1.5;
 
                     }
                     /// Auswahl Aluminim
                     if (cb_Material_LPro.Text == "Aluminium")
                     {///Berechnung
-                        gewicht = volumen * 0.0000027;
+                        gewicht = neuLProfil.Volumen() * 0.0000027;
                         preis = gewicht * 2.5;
                     }
 
@@ -2312,19 +2148,24 @@ namespace WpfHSPB1
 
                     lbl_Gewicht.Content = gewicht.ToString("0.###");
                     lbl_Preis.Content = preis.ToString("0.###");
-                    lbl_qfläche.Content = qfläche.ToString("0.###");
-                    lbl_volumen.Content = volumen.ToString("0.###");
-                    lbl_Wy.Content = Wy.ToString("0.###");
-                    lbl_Wz.Content = Wz.ToString("0.###");
-                    lbl_Iy.Content = Iy.ToString("0.###");
-                    Lbl_Iz.Content = Iz.ToString("0.###");
-                    lbl_Polar.Content = Polar.ToString("0.###");
+                    lbl_qfläche.Content = neuLProfil.QFläche().ToString("0.###");
+                    lbl_volumen.Content = neuLProfil.Volumen().ToString("0.###");
+                    lbl_Wy.Content = neuLProfil.WiederstandsMoment_Wy().ToString("0.###");
+                    lbl_Wz.Content = neuLProfil.WiederstandsMoment_Wz().ToString("0.###");
+                    lbl_Iy.Content = neuLProfil.FTM_Iy().ToString("0.###");
+                    Lbl_Iz.Content = neuLProfil.FTM_Iz().ToString("0.###");
+                    lbl_Polar.Content = neuLProfil.FTM_Polar().ToString("0.###");
 
-                }
+                
             }
             catch
             { MessageBox.Show("Ihre Eingabe war Fehlerhaft! Bitte verwenden Sie nur Zahlen!"); }
         }
+
+
+
+
+
 
         private void cb_Material_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
