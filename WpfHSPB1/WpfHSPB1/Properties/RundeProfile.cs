@@ -7,7 +7,7 @@ using WpfHSPB1;
 
 namespace Profile_Muster
 {
-    class RundeProfile 
+    class  RundeProfile 
     {   //Eigenschaften Private gegen Fernzugriff
         private double länge;
 
@@ -26,7 +26,7 @@ namespace Profile_Muster
                     länge = value;
                 }
                 else
-                {MessageBox.Show("Das Profil muss einen positiven Wert haben"); 
+                {MessageBox.Show("Das Profil muss einen positiven Wert haben","Eingabefehler!", MessageBoxButton.OK, MessageBoxImage.Error); 
                 }
             }
         }
@@ -50,7 +50,8 @@ namespace Profile_Muster
                 {
                     durchmesser = value;
                 }
-             
+                else
+                { MessageBox.Show("Bitte geben Sie einen positiven Wert ein!", "Eingabefehler!", MessageBoxButton.OK, MessageBoxImage.Error); }
             }
         }
 
@@ -114,7 +115,7 @@ namespace Profile_Muster
                     durchmesser = value;
                 }
                 else
-                { MessageBox.Show("Das Profil muss einen positiven Wert haben"); }
+                { MessageBox.Show("Bitte geben Sie einen positiven Wert ein!", "Eingabefehler!", MessageBoxButton.OK, MessageBoxImage.Error); }
             }
         }
         public double Wandstärke
@@ -132,13 +133,11 @@ namespace Profile_Muster
                 }
                 if(value>=durchmesser)
                 {
-                    MessageBox.Show("Die Wandstärke kann nicht genauso groß oder größer sein wie der Durchmesser") ;
+                    MessageBox.Show("Die Wandstärke kann nicht genauso groß oder größer sein wie der Durchmesser", "Eingabefehler" , MessageBoxButton.OK , MessageBoxImage.Error) ;
                     
                 }
                 else
-                { MessageBox.Show("Das Profil muss einen positiven Wert haben");
-                    
-                }
+                { MessageBox.Show("Bitte geben Sie einen positiven Wert ein!", "Eingabefehler!", MessageBoxButton.OK, MessageBoxImage.Error); }
             }
         }
 
@@ -201,7 +200,7 @@ namespace Profile_Muster
                     radius= value;
                 }
                 else
-                { MessageBox.Show("Das Profil muss einen positiven Wert haben");  }
+                { MessageBox.Show("Bitte geben Sie einen positiven Wert ein!", "Eingabefehler!", MessageBoxButton.OK, MessageBoxImage.Error); }
             }
         }
       

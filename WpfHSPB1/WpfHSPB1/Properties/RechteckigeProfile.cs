@@ -27,7 +27,7 @@ namespace Profile_Muster
                     länge = value;
                 }
                 else
-                { MessageBox.Show("Bitte geben Sie einen positiven Wert ein!"); }
+                { MessageBox.Show("Bitte geben Sie einen positiven Wert ein!","Eingabefehler!", MessageBoxButton.OK, MessageBoxImage.Error); }
             }
         }
     }
@@ -52,7 +52,7 @@ namespace Profile_Muster
                     höhe = value;
                 }
                 else
-                { MessageBox.Show("Das Profil muss einen positiven Wert haben"); }
+                { MessageBox.Show("Bitte geben Sie einen positiven Wert ein!", "Eingabefehler!", MessageBoxButton.OK, MessageBoxImage.Error); }
             }
         }
         public double Breite
@@ -67,7 +67,7 @@ namespace Profile_Muster
                     breite = value;
                 }
                 else
-                { MessageBox.Show("Das Profil muss einen positiven Wert haben");  }
+                { MessageBox.Show("Bitte geben Sie einen positiven Wert ein!", "Eingabefehler!", MessageBoxButton.OK, MessageBoxImage.Error); }
             }
         }
 
@@ -130,7 +130,7 @@ namespace Profile_Muster
                     höhe = value;
                 }
                 else
-                { MessageBox.Show("Das Profil muss einen positiven Wert haben");  }
+                { MessageBox.Show("Bitte geben Sie einen positiven Wert ein!", "Eingabefehler!", MessageBoxButton.OK, MessageBoxImage.Error); }
             }
         }
         public double Breite
@@ -145,7 +145,7 @@ namespace Profile_Muster
                     breite = value;
                 }
                 else
-                { MessageBox.Show("Das Profil muss einen positiven Wert haben");  }
+                { MessageBox.Show("Bitte geben Sie einen positiven Wert ein!", "Eingabefehler!", MessageBoxButton.OK, MessageBoxImage.Error); }
             }
         }
         public double Wandstärke
@@ -161,10 +161,10 @@ namespace Profile_Muster
                 }
 
                 if(value >= breite)
-                { MessageBox.Show("Die Wandstärke darf nicht größer als das Profil sein!");  }
+                { MessageBox.Show("Die Wandstärke darf nicht größer als das Profil sein!", "Eingabefehler" , MessageBoxButton.OK, MessageBoxImage.Error);  }
 
                 if(value<=0)
-                { MessageBox.Show("Das Profil muss einen positiven Wert haben"); }
+                { MessageBox.Show("Bitte geben Sie einen positiven Wert ein!", "Eingabefehler!", MessageBoxButton.OK, MessageBoxImage.Error); }
             }
         }
 
@@ -227,7 +227,7 @@ namespace Profile_Muster
                     radius = value;
                 }
                 else
-                { MessageBox.Show("Das Profil muss einen positiven Wert haben");}
+                { MessageBox.Show("Bitte geben Sie einen positiven Wert ein!", "Eingabefehler!", MessageBoxButton.OK, MessageBoxImage.Error); }
             }
         }
 

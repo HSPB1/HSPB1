@@ -26,7 +26,8 @@ namespace Profile_Muster
                     länge = value;
                 }
                 else
-                { MessageBox.Show("Das Profil muss einen positiven Wert haben");  }
+                { MessageBox.Show("Bitte geben Sie einen positiven Wert ein!", "Eingabefehler!", MessageBoxButton.OK, MessageBoxImage.Error); }
+            
             }
         }
     }
@@ -53,9 +54,7 @@ namespace Profile_Muster
                     h = value;
                 }
                 else
-                { MessageBox.Show("Das Profil muss einen positiven Wert haben");
-                    
-                }
+                { MessageBox.Show("Bitte geben Sie einen positiven Wert ein!", "Eingabefehler!", MessageBoxButton.OK, MessageBoxImage.Error); }
             }
         }
         public double B1
@@ -70,7 +69,7 @@ namespace Profile_Muster
                     b = value;
                 }
                 else
-                { MessageBox.Show("Das Profil muss einen positiven Wert haben"); }
+                { MessageBox.Show("Bitte geben Sie einen positiven Wert ein!", "Eingabefehler!", MessageBoxButton.OK, MessageBoxImage.Error); }
             }
         }
         public double H2
@@ -85,7 +84,7 @@ namespace Profile_Muster
                     H = value;
                 }
                 else
-                { MessageBox.Show("Das Profil muss einen positiven Wert haben"); }
+                { MessageBox.Show("Bitte geben Sie einen positiven Wert ein!", "Eingabefehler!", MessageBoxButton.OK, MessageBoxImage.Error); }
             }
         }
         public double B2
@@ -100,7 +99,7 @@ namespace Profile_Muster
                     B = value;
                 }
                 else
-                { MessageBox.Show("Das Profil muss einen positiven Wert haben");  }
+                { MessageBox.Show("Bitte geben Sie einen positiven Wert ein!", "Eingabefehler!", MessageBoxButton.OK, MessageBoxImage.Error); }
             }
         }
 
@@ -184,7 +183,7 @@ namespace Profile_Muster
                     h = value;
                 }
                 else
-                { MessageBox.Show("Das Profil muss einen positiven Wert haben");  }
+                { MessageBox.Show("Bitte geben Sie einen positiven Wert ein!", "Eingabefehler!", MessageBoxButton.OK, MessageBoxImage.Error); }
             }
         }
         public double B1
@@ -199,7 +198,7 @@ namespace Profile_Muster
                     b = value;
                 }
                 else
-                { MessageBox.Show("Das Profil muss einen positiven Wert haben");  }
+                { MessageBox.Show("Bitte geben Sie einen positiven Wert ein!", "Eingabefehler!", MessageBoxButton.OK, MessageBoxImage.Error); }
             }
         }
         public double H2
@@ -214,7 +213,7 @@ namespace Profile_Muster
                     H = value;
                 }
                 else
-                { MessageBox.Show("Das Profil muss einen positiven Wert haben");  }
+                { MessageBox.Show("Bitte geben Sie einen positiven Wert ein!", "Eingabefehler!", MessageBoxButton.OK, MessageBoxImage.Error); }
             }
         }
         public double B2
@@ -229,7 +228,7 @@ namespace Profile_Muster
                     B = value;
                 }
                 else
-                { MessageBox.Show("Das Profil muss einen positiven Wert haben"); }
+                { MessageBox.Show("Bitte geben Sie einen positiven Wert ein!", "Eingabefehler!", MessageBoxButton.OK, MessageBoxImage.Error); }
             }
         }
 
@@ -314,7 +313,7 @@ namespace Profile_Muster
                     h = value;
                 }
                 else
-                { MessageBox.Show("Das Profil muss einen positiven Wert haben");  }
+                { MessageBox.Show("Bitte geben Sie einen positiven Wert ein!", "Eingabefehler!", MessageBoxButton.OK, MessageBoxImage.Error); }
             }
         }
         public double B1
@@ -329,7 +328,7 @@ namespace Profile_Muster
                     b = value;
                 }
                 else
-                { MessageBox.Show("Das Profil muss einen positiven Wert haben");  }
+                { MessageBox.Show("Bitte geben Sie einen positiven Wert ein!", "Eingabefehler!", MessageBoxButton.OK, MessageBoxImage.Error); }
             }
         }
         public double H2
@@ -344,7 +343,7 @@ namespace Profile_Muster
                     H = value;
                 }
                 else
-                { MessageBox.Show("Das Profil muss einen positiven Wert haben");  }
+                { MessageBox.Show("Bitte geben Sie einen positiven Wert ein!", "Eingabefehler!", MessageBoxButton.OK, MessageBoxImage.Error); }
             }
         }
         public double B2
@@ -359,7 +358,7 @@ namespace Profile_Muster
                     B = value;
                 }
                 else
-                { MessageBox.Show("Das Profil muss einen positiven Wert haben"); }
+                { MessageBox.Show("Bitte geben Sie einen positiven Wert ein!", "Eingabefehler!", MessageBoxButton.OK, MessageBoxImage.Error); }
             }
         }
 
@@ -424,7 +423,7 @@ namespace Profile_Muster
                     h = value;
                 }
                 else
-                { MessageBox.Show("Das Profil muss einen positiven Wert haben"); }
+                { MessageBox.Show("Bitte geben Sie einen positiven Wert ein!", "Eingabefehler!", MessageBoxButton.OK, MessageBoxImage.Error); }
             }
         }
         public double B1
@@ -439,7 +438,7 @@ namespace Profile_Muster
                     b = value;
                 }
                 else
-                { MessageBox.Show("Das Profil muss einen positiven Wert haben");  }
+                { MessageBox.Show("Bitte geben Sie einen positiven Wert ein!", "Eingabefehler!", MessageBoxButton.OK, MessageBoxImage.Error); }
             }
         }
         public double H2
@@ -454,7 +453,7 @@ namespace Profile_Muster
                     H = value;
                 }
                 else
-                { MessageBox.Show("Das Profil muss einen positiven Wert haben");  }
+                { MessageBox.Show("Bitte geben Sie einen positiven Wert ein!", "Eingabefehler!", MessageBoxButton.OK, MessageBoxImage.Error); }
             }
         }
         public double B2
@@ -469,7 +468,7 @@ namespace Profile_Muster
                     B = value;
                 }
                 else
-                { MessageBox.Show("Das Profil muss einen positiven Wert haben"); }
+                { MessageBox.Show("Bitte geben Sie einen positiven Wert ein!", "Eingabefehler!", MessageBoxButton.OK, MessageBoxImage.Error); }
             }
         }
 

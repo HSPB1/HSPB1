@@ -14,6 +14,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using MECMOD;
+using System.Diagnostics;
+
 
 
 namespace WpfHSPB1
@@ -33,8 +36,7 @@ namespace WpfHSPB1
         {
             InitializeComponent();
         }
-
-
+       
 
         internal void trv_RundRohr_Selected(object sender, RoutedEventArgs e)
         {
@@ -289,11 +291,10 @@ namespace WpfHSPB1
         
 
         private void Schließen_Click(object sender, RoutedEventArgs e)
-        {
-            
-            MessageBox.Show("Wollen Sie das Programm wirklich beenden ?") ;
-            
-            Close();
+        { 
+            if (MessageBox.Show("Soll das Programm beendet werden?", "Programmende", MessageBoxButton.YesNo, MessageBoxImage.Question, MessageBoxResult.No) == MessageBoxResult.Yes)
+                System.Environment.Exit(0);
+                                   
         }
 
 
@@ -305,7 +306,7 @@ namespace WpfHSPB1
         {
             //Erzeugen des Objekts für ein RechteckVollprofil
             RechteckVoll rechteckVoll = new RechteckVoll();
-            
+            CatiaAPIConection Neu = new CatiaAPIConection();
             try
             { 
                                              
@@ -475,9 +476,26 @@ namespace WpfHSPB1
                     lbl_Polar.Content = rechteckVoll.FTM_Polar().ToString("0.###");
                     lbl_Preis.Content = preis.ToString("#.###");
                 lbl_Gewicht.Content = gewicht.ToString("#.###");
+
+                //Neu.StartCatia();
+              
+                if (Neu.CatiaLaeuft())
+                {
+                    Neu.CatiaLaeuft();
+                    Neu.ErzeugePart();
+                    Neu.ErzeugeSkizze();
+                    Neu.ErzeugeProfilRechteckVoll(rechteckVoll);
+                    Neu.ErzeugeExtrusionVoll(rechteckVoll);
+                }
+                else
+                {
+                   MessageBox.Show("Laufende Catia Application nicht gefunden");
+                }
+
+
             }
             catch
-            { MessageBox.Show("Ihre Eingabe war Fehlerhaft! Bitte verwenden Sie nur Zahlen!"); }
+            { MessageBox.Show("Ihre Eingabe war Fehlerhaft! Bitte verwenden Sie nur Zahlen!", "Eingabefehler!", MessageBoxButton.OK, MessageBoxImage.Error); }
 
             
 
@@ -664,7 +682,7 @@ namespace WpfHSPB1
             }
 
             catch
-            { MessageBox.Show("Ihre Eingabe war Fehlerhaft! Bitte verwenden Sie nur Zahlen!"); }
+            { MessageBox.Show("Ihre Eingabe war Fehlerhaft! Bitte verwenden Sie nur Zahlen!", "Eingabefehler!", MessageBoxButton.OK, MessageBoxImage.Error); }
         }
         
        private void btn_SeVo_berechnung_Click(object sender, RoutedEventArgs e)
@@ -844,7 +862,7 @@ namespace WpfHSPB1
             }
 
             catch
-            { MessageBox.Show("Ihre Eingabe war Fehlerhaft! Bitte verwenden Sie nur Zahlen!"); }
+            { MessageBox.Show("Ihre Eingabe war Fehlerhaft! Bitte verwenden Sie nur Zahlen!", "Eingabefehler!", MessageBoxButton.OK, MessageBoxImage.Error); }
         }
 
         //Runde Profile
@@ -1027,7 +1045,7 @@ namespace WpfHSPB1
             }
 
             catch
-            { MessageBox.Show("Ihre Eingabe war Fehlerhaft! Bitte verwenden Sie nur Zahlen!"); }
+            { MessageBox.Show("Ihre Eingabe war Fehlerhaft! Bitte verwenden Sie nur Zahlen!", "Eingabefehler!", MessageBoxButton.OK, MessageBoxImage.Error); }
         }
         private void btn_Rohr_berechnung_Click(object sender, RoutedEventArgs e)
         {   
@@ -1210,7 +1228,7 @@ namespace WpfHSPB1
             }
 
             catch
-            { MessageBox.Show("Ihre Eingabe war Fehlerhaft! Bitte verwenden Sie nur Zahlen!"); }
+            { MessageBox.Show("Ihre Eingabe war Fehlerhaft! Bitte verwenden Sie nur Zahlen!", "Eingabefehler!", MessageBoxButton.OK, MessageBoxImage.Error); }
         }
         private void btn_HaRu_berechnung_Click(object sender, RoutedEventArgs e)
         {   
@@ -1400,7 +1418,7 @@ namespace WpfHSPB1
             }
 
             catch
-            { MessageBox.Show("Ihre Eingabe war Fehlerhaft! Bitte verwenden Sie nur Zahlen!"); }
+            { MessageBox.Show("Ihre Eingabe war Fehlerhaft! Bitte verwenden Sie nur Zahlen!", "Eingabefehler!", MessageBoxButton.OK, MessageBoxImage.Error); }
 
         }
 
@@ -1595,7 +1613,7 @@ namespace WpfHSPB1
                 
             }
             catch
-            { MessageBox.Show("Ihre Eingabe war Fehlerhaft! Bitte verwenden Sie nur Zahlen!"); }
+            { MessageBox.Show("Ihre Eingabe war Fehlerhaft! Bitte verwenden Sie nur Zahlen!", "Eingabefehler!", MessageBoxButton.OK, MessageBoxImage.Error); }
         }
 
         private void btn_UPro_berechnung_Click(object sender, RoutedEventArgs e)
@@ -1787,7 +1805,7 @@ namespace WpfHSPB1
             }
 
             catch
-            { MessageBox.Show("Ihre Eingabe war Fehlerhaft! Bitte verwenden Sie nur Zahlen!"); }
+            { MessageBox.Show("Ihre Eingabe war Fehlerhaft! Bitte verwenden Sie nur Zahlen!", "Eingabefehler!", MessageBoxButton.OK, MessageBoxImage.Error); }
         }
 
         private void btn_IPro_berechnung_Click(object sender, RoutedEventArgs e)
@@ -1977,7 +1995,7 @@ namespace WpfHSPB1
 
             }
             catch
-            { MessageBox.Show("Ihre Eingabe war Fehlerhaft! Bitte verwenden Sie nur Zahlen!"); }
+            { MessageBox.Show("Ihre Eingabe war Fehlerhaft! Bitte verwenden Sie nur Zahlen!", "Eingabefehler!", MessageBoxButton.OK, MessageBoxImage.Error); }
         }
      
         private void btn_LPro_Berechnung_Click(object sender, RoutedEventArgs e)
@@ -2159,7 +2177,7 @@ namespace WpfHSPB1
                 
             }
             catch
-            { MessageBox.Show("Ihre Eingabe war Fehlerhaft! Bitte verwenden Sie nur Zahlen!"); }
+            { MessageBox.Show("Ihre Eingabe war Fehlerhaft! Bitte verwenden Sie nur Zahlen!", "Eingabefehler!", MessageBoxButton.OK, MessageBoxImage.Error); }
         }
 
 

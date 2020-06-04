@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using System.Diagnostics; //Nötig für das ausführen des Catia Programm
 namespace WpfHSPB1
 {
     /// <summary>
@@ -25,7 +25,7 @@ namespace WpfHSPB1
             InitializeComponent();
         }
 
-        private void btn_Weiter_Click(object sender, RoutedEventArgs e)
+        internal void btn_Weiter_Click(object sender, RoutedEventArgs e)
         {
             //Objekterzeugung
 
@@ -42,6 +42,20 @@ namespace WpfHSPB1
         private void btn_Beenden_Click(object sender, RoutedEventArgs e)
         {
             Close();
+        }
+
+        private void btn__Catia_Starten_Click(object sender, RoutedEventArgs e)
+        {
+            Window1 Berechnung = new Window1();
+
+            //Starten der Catia App ;D ;D ;D 
+            string Programmname = "CNEXT.exe";
+            Process.Start(Programmname);
+
+
+            Berechnung.Show();
+            
+            this.Close();
         }
     }
 

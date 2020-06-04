@@ -54,7 +54,7 @@
             <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
 
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="80"/>
+                    <RowDefinition Height="89"/>
                     <RowDefinition Height="30"/>
                     <RowDefinition Height="10"/>
                     <RowDefinition Height="30"/>
@@ -63,6 +63,8 @@
                     <RowDefinition Height="30"/>
                     <RowDefinition Height="30"/>
                     <RowDefinition Height="30"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="20"/>
                     <RowDefinition Height="30"/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
@@ -77,17 +79,21 @@
                 <TextBlock Grid.Row="7" Foreground="White" FontSize="16" Margin="30 0 0 0 ">und können daher von Literarturwerten abweichen!</TextBlock>
                 <TextBlock Grid.Row="8" Foreground="White" FontSize="16" Margin="30 0 0 0 ">Implementierte Berechnungen sind:</TextBlock>
                 <TextBlock Grid.Row="9" Foreground="White" FontSize="16" Margin="30 0 0 0 ">Querschnitt, Volumen,Gewicht, Massenträgheitsmomente und Biegemomente</TextBlock>
+                <TextBlock Grid.Row="11" Foreground="White" FontSize="16" Margin="30 0 0 0 ">Wenn Sie CatiaV5 starten, haben Sie die Möglichkeit sich ein 3D Modell</TextBlock>
+                <TextBlock Grid.Row="12" Foreground="White" FontSize="16" Margin="30 0 0 0 ">automatisch erzeugen zu lassen!</TextBlock>
 
-                <Grid Grid.Row="10" Margin="0 90 0 0">
+                <Grid Grid.Row="12" Margin="0 34 0 0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition />
+                        <ColumnDefinition/>
                         <ColumnDefinition/>
 
                     </Grid.ColumnDefinitions>
                     
                     <!-- Buttons zum Weiterführen oder Beenden des Programms -->
                     <Button  x:Name="btn_Weiter" Grid.Column="0"   Width="100" Click="btn_Weiter_Click" >Weiter</Button>
-                    <Button  x:Name="btn_Beenden" Grid.Column="1"  Width="100" Click="btn_Beenden_Click">Beenden</Button>
+                    <Button  x:Name="btn_Beenden" Grid.Column="2"  Width="100" Click="btn_Beenden_Click">Beenden</Button>
+                    <Button x:Name="btn__Catia_Starten" Grid.Column="1" Click="btn__Catia_Starten_Click">CatiaV5 Starten</Button>
 
                 </Grid>
 
