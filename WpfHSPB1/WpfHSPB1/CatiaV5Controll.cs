@@ -270,6 +270,82 @@ namespace WpfHSPB1
         //Ende RechteckVoll
 
 
+        //Sechseck 
+        //Erzeugen der Geometrie Sechseck
+        internal void ErzeugeSechseckVoll(SechseckVoll neuSechseckVoll)
+        {
+
+
+            hspB1_catia_Profil.set_Name("Sechseck");
+            Factory2D factory2D = hspB1_catia_Profil.OpenEdition();
+
+            //Setzen der Punkte
+            Point2D catPoint2D1 = factory2D.CreatePoint(-neuSechseckVoll.Radius/2,Math.Sqrt(neuSechseckVoll.Radius* neuSechseckVoll.Radius-((neuSechseckVoll.Radius/2)* (neuSechseckVoll.Radius / 2))));
+            Point2D catPoint2D2 = factory2D.CreatePoint(neuSechseckVoll.Radius / 2, Math.Sqrt(neuSechseckVoll.Radius * neuSechseckVoll.Radius - ((neuSechseckVoll.Radius / 2) * (neuSechseckVoll.Radius / 2))));
+            Point2D catPoint2D3 = factory2D.CreatePoint(neuSechseckVoll.Radius,0);
+            Point2D catPoint2D4 = factory2D.CreatePoint(neuSechseckVoll.Radius / 2,- Math.Sqrt(neuSechseckVoll.Radius * neuSechseckVoll.Radius - ((neuSechseckVoll.Radius / 2) * (neuSechseckVoll.Radius / 2))));
+
+            Point2D catPoint2D5 = factory2D.CreatePoint(-neuSechseckVoll.Radius /2,- Math.Sqrt(neuSechseckVoll.Radius * neuSechseckVoll.Radius - ((neuSechseckVoll.Radius / 2) * (neuSechseckVoll.Radius / 2))));
+            Point2D catPoint2D6 = factory2D.CreatePoint(-neuSechseckVoll.Radius,0);
+
+
+            // Linien
+            Line2D catLine2D1 = factory2D.CreateLine(-neuSechseckVoll.Radius / 2, Math.Sqrt(neuSechseckVoll.Radius * neuSechseckVoll.Radius - ((neuSechseckVoll.Radius / 2) * (neuSechseckVoll.Radius / 2))), neuSechseckVoll.Radius / 2, Math.Sqrt(neuSechseckVoll.Radius * neuSechseckVoll.Radius - ((neuSechseckVoll.Radius / 2) * (neuSechseckVoll.Radius / 2))));
+            catLine2D1.StartPoint = catPoint2D1;
+            catLine2D1.EndPoint = catPoint2D2;
+
+            Line2D catLine2D2 = factory2D.CreateLine(neuSechseckVoll.Radius / 2, Math.Sqrt(neuSechseckVoll.Radius * neuSechseckVoll.Radius - ((neuSechseckVoll.Radius / 2) * (neuSechseckVoll.Radius / 2))),neuSechseckVoll.Radius, 0);
+            catLine2D2.StartPoint = catPoint2D2;
+            catLine2D2.EndPoint = catPoint2D3;
+
+            Line2D catLine2D3 = factory2D.CreateLine(neuSechseckVoll.Radius, 0, neuSechseckVoll.Radius / 2, -Math.Sqrt(neuSechseckVoll.Radius * neuSechseckVoll.Radius - ((neuSechseckVoll.Radius / 2) * (neuSechseckVoll.Radius / 2))));
+            catLine2D3.StartPoint = catPoint2D3;
+            catLine2D3.EndPoint = catPoint2D4;
+            
+            Line2D catLine2D4 = factory2D.CreateLine(neuSechseckVoll.Radius / 2, -Math.Sqrt(neuSechseckVoll.Radius * neuSechseckVoll.Radius - ((neuSechseckVoll.Radius / 2) * (neuSechseckVoll.Radius / 2))), -neuSechseckVoll.Radius / 2, -Math.Sqrt(neuSechseckVoll.Radius * neuSechseckVoll.Radius - ((neuSechseckVoll.Radius / 2) * (neuSechseckVoll.Radius / 2))));
+            catLine2D4.StartPoint = catPoint2D4;
+            catLine2D4.EndPoint = catPoint2D5;
+
+            Line2D catLine2D5 = factory2D.CreateLine(-neuSechseckVoll.Radius /2, - Math.Sqrt(neuSechseckVoll.Radius * neuSechseckVoll.Radius - ((neuSechseckVoll.Radius / 2) * (neuSechseckVoll.Radius / 2))), -neuSechseckVoll.Radius, 0);
+            catLine2D5.StartPoint = catPoint2D5;
+            catLine2D5.EndPoint = catPoint2D6;
+
+            Line2D catLine2D6 = factory2D.CreateLine(-neuSechseckVoll.Radius, 0, -neuSechseckVoll.Radius / 2, Math.Sqrt(neuSechseckVoll.Radius * neuSechseckVoll.Radius - ((neuSechseckVoll.Radius / 2) * (neuSechseckVoll.Radius / 2))));
+            catLine2D6.StartPoint = catPoint2D6;
+            catLine2D6.EndPoint = catPoint2D1;
+
+
+
+            // Skizzierer verlassen
+            hspB1_catia_Profil.CloseEdition();
+
+
+            // Part aktualisieren
+            hspB1_catiaPart.Part.Update();
+
+
+        }
+
+        //Erzeugen der Extrusionfür Sechseck
+        internal void ErzeugeExtrusionSechseck(SechseckVoll neuSechseckVoll)
+        {
+            hspB1_catiaPart.Part.InWorkObject = hspB1_catiaPart.Part.MainBody;
+
+
+            // Extrusion erzeugen
+            ShapeFactory catShapeFactory1 = (ShapeFactory)hspB1_catiaPart.Part.ShapeFactory;
+            Pad catPad1 = catShapeFactory1.AddNewPad(hspB1_catia_Profil, neuSechseckVoll.Länge);
+
+            // Block umbenennen
+            catPad1.set_Name("Sechseck");
+
+            // Part aktualisieren
+            hspB1_catiaPart.Part.Update();
+
+        }
+        //Ende Sechseck
+
+
         //Hier Enden die Rechteckprofile!!
 
 
@@ -287,7 +363,7 @@ namespace WpfHSPB1
 
 
         //TProfiiiiiiiiiiiiiiiiiiiiiiil!
-        //Erzeugen der Geometrie RechteckVoll
+        //Erzeugen der Geometrie T Profil
         internal void ErzeugeTProfil(TProfil neuTProfil)
         {
 
@@ -397,7 +473,7 @@ namespace WpfHSPB1
         //Ende TProfiiiiiiiiiiiiiiiiiiiiiiil
 
         //L Profiiil
-        //Erzeugen der Geometrie RechteckVoll
+        //Erzeugen der Geometrie L Profil
         internal void ErzeugeLProfil(LProfil neuLProfil)
         {
 
@@ -496,7 +572,7 @@ namespace WpfHSPB1
         //Ende L Profil
 
         //UProfil!
-        //Erzeugen der Geometrie RechteckVoll
+        //Erzeugen der Geometrie U Profil
         internal void ErzeugeUProfil(UProfil neuUProfil)
         {
 
@@ -608,7 +684,7 @@ namespace WpfHSPB1
         //Ende UProfil
 
         //IProfil!
-        //Erzeugen der Geometrie RechteckVoll
+        //Erzeugen der Geometrie I Profil
         internal void ErzeugeIProfil(IProfil neuIProfil)
         {
 

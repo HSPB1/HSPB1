@@ -1,21 +1,7 @@
-﻿using Profile_Muster;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
+﻿using System;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using MECMOD;
-using System.Diagnostics;
+using Profile_Muster;
 
 
 
@@ -26,9 +12,9 @@ namespace WpfHSPB1
     /// </summary>
     /// 
 
-   
-        
-    
+
+
+
 
     public partial class Window1 : Window
     {
@@ -317,6 +303,16 @@ namespace WpfHSPB1
                     double preis = 0;
                     double gewicht = 0;
 
+                ///Ausgabe der berechneten Werte für das Profil
+                lbl_qfläche.Content = rechteckVoll.QFläche().ToString("0.###");
+                lbl_volumen.Content = rechteckVoll.Volumen().ToString("0.###");
+                lbl_Wy.Content = rechteckVoll.WiederstandsMoment_Wy().ToString("0.###");
+                lbl_Wz.Content = rechteckVoll.WiederstandsMoment_Wz().ToString("0.###");
+                lbl_Iy.Content = rechteckVoll.FTM_Iy().ToString("0.###");
+                Lbl_Iz.Content = rechteckVoll.FTM_Iz().ToString("0.###");
+                lbl_Polar.Content = rechteckVoll.FTM_Polar().ToString("0.###");
+                
+
 
                 {
                     //Hier Beginnen Die Comboxen Für ErgebnisFenster
@@ -467,18 +463,13 @@ namespace WpfHSPB1
 
                     grd_Ergebnisse.Visibility = Visibility.Visible;
 
-                    lbl_qfläche.Content = rechteckVoll.QFläche().ToString("0.###");
-                    lbl_volumen.Content = rechteckVoll.Volumen().ToString("0.###");
-                    lbl_Wy.Content = rechteckVoll.WiederstandsMoment_Wy().ToString("0.###");
-                    lbl_Wz.Content = rechteckVoll.WiederstandsMoment_Wz().ToString("0.###");
-                    lbl_Iy.Content = rechteckVoll.FTM_Iy().ToString("0.###");
-                    Lbl_Iz.Content = rechteckVoll.FTM_Iz().ToString("0.###");
-                    lbl_Polar.Content = rechteckVoll.FTM_Polar().ToString("0.###");
-                    lbl_Preis.Content = preis.ToString("#.###");
+                lbl_Preis.Content = preis.ToString("#.###");
                 lbl_Gewicht.Content = gewicht.ToString("#.###");
 
+
+
                 //Neu.StartCatia();
-              
+
                 if (Neu.CatiaLaeuft())
                 {
                     Neu.CatiaLaeuft();
@@ -515,6 +506,16 @@ namespace WpfHSPB1
 
                     double gewicht = 0;
                     double preis = 0;
+
+                ///Ausgabe der berechneten Werte für das Profil
+               
+                lbl_qfläche.Content = rechteckHohl.QFläche().ToString("0.###");
+                lbl_volumen.Content = rechteckHohl.Volumen().ToString("0.###");
+                lbl_Wy.Content = rechteckHohl.WiederstandsMoment_Wy().ToString("0.###");
+                lbl_Wz.Content = rechteckHohl.WiederstandsMoment_Wz().ToString("0.###");
+                lbl_Iy.Content = rechteckHohl.FTM_Iy().ToString("0.###");
+                Lbl_Iz.Content = rechteckHohl.FTM_Iz().ToString("0.###");
+                lbl_Polar.Content = rechteckHohl.FTM_Polar().ToString("0.###");
 
 
                 {
@@ -665,20 +666,11 @@ namespace WpfHSPB1
 
              
                         grd_Ergebnisse.Visibility = Visibility.Visible;
-               
-                   
-                        
-                    lbl_Gewicht.Content = gewicht.ToString("0.###");
-                    lbl_Preis.Content = preis.ToString("0.###");
-                    lbl_qfläche.Content = rechteckHohl.QFläche().ToString("0.###");
-                    lbl_volumen.Content = rechteckHohl.Volumen().ToString("0.###");
-                    lbl_Wy.Content = rechteckHohl.WiederstandsMoment_Wy().ToString("0.###");
-                    lbl_Wz.Content = rechteckHohl.WiederstandsMoment_Wz().ToString("0.###");
-                    lbl_Iy.Content = rechteckHohl.FTM_Iy().ToString("0.###");
-                    Lbl_Iz.Content = rechteckHohl.FTM_Iz().ToString("0.###");
-                    lbl_Polar.Content = rechteckHohl.FTM_Polar().ToString("0.###");
 
-                
+                lbl_Gewicht.Content = gewicht.ToString("0.###");
+                lbl_Preis.Content = preis.ToString("0.###");
+
+
             }
 
             catch
@@ -688,6 +680,7 @@ namespace WpfHSPB1
        private void btn_SeVo_berechnung_Click(object sender, RoutedEventArgs e)
         {   //Erzeugen eines Objektes vom Typ SechseckVollProfiö
             SechseckVoll neuSechseckVoll = new SechseckVoll();
+            CatiaAPIConection Neu = new CatiaAPIConection();
 
             try
             {
@@ -698,6 +691,16 @@ namespace WpfHSPB1
                 
                     double gewicht = 0;
                     double preis = 0;
+
+                ///Ausgabe der berechneten Werte für das Profil Vollmaterial Sechseck
+                
+                lbl_qfläche.Content = neuSechseckVoll.QFläche().ToString("0.###");
+                lbl_volumen.Content = neuSechseckVoll.Volumen().ToString("0.###");
+                lbl_Wy.Content = neuSechseckVoll.WiederstandsMoment_Wy().ToString("0.###");
+                lbl_Wz.Content = neuSechseckVoll.WiederstandsMoment_Wz().ToString("0.###");
+                lbl_Iy.Content = neuSechseckVoll.FTM_Iy().ToString("0.###");
+                Lbl_Iz.Content = neuSechseckVoll.FTM_Iz().ToString("0.###");
+                lbl_Polar.Content = neuSechseckVoll.FTM_Polar().ToString("0.###");
 
 
                 {
@@ -848,17 +851,26 @@ namespace WpfHSPB1
 
                     grd_Ergebnisse.Visibility = Visibility.Visible;
 
-                    ///Ausgabe der berechneten Werte für das Profil Vollmaterial Sechseck
-                    lbl_Gewicht.Content = gewicht.ToString("0.###");
-                    lbl_Preis.Content = preis.ToString("0.###");
-                    lbl_qfläche.Content = neuSechseckVoll.QFläche().ToString("0.###");
-                    lbl_volumen.Content = neuSechseckVoll.Volumen().ToString("0.###");
-                    lbl_Wy.Content = neuSechseckVoll.WiederstandsMoment_Wy().ToString("0.###");
-                    lbl_Wz.Content = neuSechseckVoll.WiederstandsMoment_Wz().ToString("0.###");
-                    lbl_Iy.Content = neuSechseckVoll.FTM_Iy().ToString("0.###");
-                    Lbl_Iz.Content = neuSechseckVoll.FTM_Iz().ToString("0.###");
-                    lbl_Polar.Content = neuSechseckVoll.FTM_Polar().ToString("0.###");
-                
+                lbl_Gewicht.Content = gewicht.ToString("0.###");
+                lbl_Preis.Content = preis.ToString("0.###");
+
+
+
+                //Neu.StartCatia();
+
+                if (Neu.CatiaLaeuft())
+                {
+                    Neu.CatiaLaeuft();
+                    Neu.ErzeugePart();
+                    Neu.ErzeugeSkizze();
+                    Neu.ErzeugeSechseckVoll(neuSechseckVoll);
+                    Neu.ErzeugeExtrusionSechseck(neuSechseckVoll);
+                }
+                else
+                {
+                    MessageBox.Show("Laufende Catia Application nicht gefunden");
+                }
+
             }
 
             catch
@@ -878,6 +890,16 @@ namespace WpfHSPB1
 
                     double gewicht = 0;
                     double preis = 0;
+
+                ///Ausgabe der berechneten Werte für das Profil
+                
+                lbl_qfläche.Content = neuRundVoll.QFläche().ToString("0.###");
+                lbl_volumen.Content = neuRundVoll.Volumen().ToString("0.###");
+                lbl_Wy.Content = neuRundVoll.WiederstandsMoment_Wy().ToString("0.###");
+                lbl_Wz.Content = neuRundVoll.WiederstandsMoment_Wz().ToString("0.###");
+                lbl_Iy.Content = neuRundVoll.FTM_Iy().ToString("0.###");
+                Lbl_Iz.Content = neuRundVoll.FTM_Iz().ToString("0.###");
+                lbl_Polar.Content = neuRundVoll.FTM_Polar().ToString("0.###");
 
                 {
 
@@ -1030,18 +1052,13 @@ namespace WpfHSPB1
 
                     grd_Ergebnisse.Visibility = Visibility.Visible;
 
-                    ///Ausgabe der berechneten Werte für das Profil Vollmaterial Rund
-                    lbl_Gewicht.Content = gewicht.ToString("0.###");
-                    lbl_Preis.Content = preis.ToString("0.###");
-                    lbl_qfläche.Content = neuRundVoll.QFläche().ToString("0.###");
-                    lbl_volumen.Content = neuRundVoll.Volumen().ToString("0.###");
-                    lbl_Wy.Content = neuRundVoll.WiederstandsMoment_Wy().ToString("0.###");
-                    lbl_Wz.Content = neuRundVoll.WiederstandsMoment_Wz().ToString("0.###");
-                    lbl_Iy.Content = neuRundVoll.FTM_Iy().ToString("0.###");
-                    Lbl_Iz.Content = neuRundVoll.FTM_Iz().ToString("0.###");
-                    lbl_Polar.Content = neuRundVoll.FTM_Polar().ToString("0.###");
-                
-                
+                lbl_Gewicht.Content = gewicht.ToString("0.###");
+                lbl_Preis.Content = preis.ToString("0.###");
+
+                ///Ausgabe der berechneten Werte für das Profil Vollmaterial Rund
+
+
+
             }
 
             catch
@@ -1063,6 +1080,16 @@ namespace WpfHSPB1
 
                 double gewicht = 0;
                 double preis = 0;
+
+                ///Ausgabe der berechneten Werte für das Profil
+                
+                lbl_qfläche.Content = neuRundHohl.QFläche().ToString("0.###");
+                lbl_volumen.Content = neuRundHohl.Volumen().ToString("0.###");
+                lbl_Wy.Content = neuRundHohl.WiederstandsMoment_Wy().ToString("0.###");
+                lbl_Wz.Content = neuRundHohl.WiederstandsMoment_Wz().ToString("0.###");
+                lbl_Iy.Content = neuRundHohl.FTM_Iy().ToString("0.###");
+                Lbl_Iz.Content = neuRundHohl.FTM_Iz().ToString("0.###");
+                lbl_Polar.Content = neuRundHohl.FTM_Polar().ToString("0.###");
 
 
                 {
@@ -1215,16 +1242,11 @@ namespace WpfHSPB1
 
                     grd_Ergebnisse.Visibility = Visibility.Visible;
 
-                    lbl_Gewicht.Content = gewicht.ToString("0.###");
-                    lbl_Preis.Content = preis.ToString("0.###");
-                    lbl_qfläche.Content = neuRundHohl.QFläche().ToString("0.###");
-                    lbl_volumen.Content = neuRundHohl.Volumen().ToString("0.###");
-                    lbl_Wy.Content = neuRundHohl.WiederstandsMoment_Wy().ToString("0.###");
-                    lbl_Wz.Content = neuRundHohl.WiederstandsMoment_Wz().ToString("0.###");
-                    lbl_Iy.Content = neuRundHohl.FTM_Iy().ToString("0.###");
-                    Lbl_Iz.Content = neuRundHohl.FTM_Iz().ToString("0.###");
-                    lbl_Polar.Content = neuRundHohl.FTM_Polar().ToString("0.###");
-               
+                lbl_Gewicht.Content = gewicht.ToString("0.###");
+                lbl_Preis.Content = preis.ToString("0.###");
+
+
+
             }
 
             catch
@@ -1246,6 +1268,16 @@ namespace WpfHSPB1
 
                     double gewicht = 0;
                     double preis = 0;
+
+                ///Ausgabe der berechneten Werte für das Profil
+                
+                lbl_qfläche.Content = neuHalbRund.QFläche().ToString("0.###");
+                lbl_volumen.Content = neuHalbRund.Volumen().ToString("0.###");
+                lbl_Wy.Content = neuHalbRund.WiederstandsMoment_Wy().ToString("0.###");
+                lbl_Wz.Content = neuHalbRund.WiederstandsMoment_Wz().ToString("0.###");
+                lbl_Iy.Content = neuHalbRund.FTM_Iy().ToString("0.###");
+                Lbl_Iz.Content = neuHalbRund.FTM_Iz().ToString("0.###");
+                lbl_Polar.Content = neuHalbRund.FTM_Polar().ToString("0.###");
 
                 {
 
@@ -1403,18 +1435,12 @@ namespace WpfHSPB1
 
                     grd_Ergebnisse.Visibility = Visibility.Visible;
 
+                lbl_Gewicht.Content = gewicht.ToString("0.###");
+                lbl_Preis.Content = preis.ToString("0.###");
 
-                    lbl_Gewicht.Content = gewicht.ToString("0.###");
-                    lbl_Preis.Content = preis.ToString("0.###");
 
-                    lbl_qfläche.Content = neuHalbRund.QFläche().ToString("0.###");
-                    lbl_volumen.Content = neuHalbRund.Volumen().ToString("0.###");
-                    lbl_Wy.Content = neuHalbRund.WiederstandsMoment_Wy().ToString("0.###");
-                    lbl_Wz.Content = neuHalbRund.WiederstandsMoment_Wz().ToString("0.###");
-                    lbl_Iy.Content = neuHalbRund.FTM_Iy().ToString("0.###");
-                    Lbl_Iz.Content = neuHalbRund.FTM_Iz().ToString("0.###");
-                    lbl_Polar.Content = neuHalbRund.FTM_Polar().ToString("0.###");
-                
+
+
             }
 
             catch
@@ -1443,7 +1469,15 @@ namespace WpfHSPB1
                 double gewicht = 0;
                     double preis = 0;
 
-          
+                ///Ausgabe der berechneten Werte für das Profil
+                
+                lbl_qfläche.Content = neuTProfil.QFläche().ToString("0.###");
+                lbl_volumen.Content = neuTProfil.Volumen().ToString("0.###");
+                lbl_Wy.Content = neuTProfil.WiederstandsMoment_Wy().ToString("0.###");
+                lbl_Wz.Content = neuTProfil.WiederstandsMoment_Wz().ToString("0.###");
+                lbl_Iy.Content = neuTProfil.FTM_Iy().ToString("0.###");
+                Lbl_Iz.Content = neuTProfil.FTM_Iz().ToString("0.###");
+                lbl_Polar.Content = neuTProfil.FTM_Polar().ToString("0.###");
 
                 {
 
@@ -1601,15 +1635,8 @@ namespace WpfHSPB1
 
                     grd_Ergebnisse.Visibility = Visibility.Visible;
 
-                    lbl_Gewicht.Content = gewicht.ToString("0.###");
-                    lbl_Preis.Content = preis.ToString("0.###");
-                    lbl_qfläche.Content = neuTProfil.QFläche().ToString("0.###");
-                    lbl_volumen.Content = neuTProfil.Volumen().ToString("0.###");
-                    lbl_Wy.Content = neuTProfil.WiederstandsMoment_Wy().ToString("0.###");
-                    lbl_Wz.Content = neuTProfil.WiederstandsMoment_Wz().ToString("0.###");
-                    lbl_Iy.Content = neuTProfil.FTM_Iy().ToString("0.###");
-                    Lbl_Iz.Content = neuTProfil.FTM_Iz().ToString("0.###");
-                    lbl_Polar.Content = neuTProfil.FTM_Polar().ToString("0.###");
+                lbl_Gewicht.Content = gewicht.ToString("0.###");
+                lbl_Preis.Content = preis.ToString("0.###");
 
                 //Neu.StartCatia();
 
@@ -1653,6 +1680,15 @@ namespace WpfHSPB1
                 double gewicht = 0;
                 double preis = 0;
 
+                ///Ausgabe der berechneten Werte für das Profil
+                
+                lbl_qfläche.Content = neuUProfil.QFläche().ToString("0.###");
+                lbl_volumen.Content = neuUProfil.Volumen().ToString("0.###");
+                lbl_Wy.Content = neuUProfil.WiederstandsMoment_Wy().ToString("0.###");
+                lbl_Wz.Content = neuUProfil.WiederstandsMoment_Wz().ToString("0.###");
+                lbl_Iy.Content = neuUProfil.FTM_Iy().ToString("0.###");
+                Lbl_Iz.Content = neuUProfil.FTM_Iz().ToString("0.###");
+                lbl_Polar.Content = neuUProfil.FTM_Polar().ToString("0.###");
 
                 {
 
@@ -1810,15 +1846,10 @@ namespace WpfHSPB1
 
                     grd_Ergebnisse.Visibility = Visibility.Visible;
 
-                    lbl_Gewicht.Content = gewicht.ToString("0.###");
-                    lbl_Preis.Content = preis.ToString("0.###");
-                    lbl_qfläche.Content = neuUProfil.QFläche().ToString("0.###");
-                    lbl_volumen.Content = neuUProfil.Volumen().ToString("0.###");
-                    lbl_Wy.Content = neuUProfil.WiederstandsMoment_Wy().ToString("0.###");
-                    lbl_Wz.Content = neuUProfil.WiederstandsMoment_Wz().ToString("0.###");
-                    lbl_Iy.Content = neuUProfil.FTM_Iy().ToString("0.###");
-                    Lbl_Iz.Content = neuUProfil.FTM_Iz().ToString("0.###");
-                    lbl_Polar.Content = neuUProfil.FTM_Polar().ToString("0.###");
+                lbl_Gewicht.Content = gewicht.ToString("0.###");
+                lbl_Preis.Content = preis.ToString("0.###");
+
+
 
                 //Neu.StartCatia();
 
@@ -1860,6 +1891,16 @@ namespace WpfHSPB1
               
                 double gewicht = 0;
                 double preis = 0;
+
+                ///Ausgabe der berechneten Werte für das Profil
+               
+                lbl_qfläche.Content = neuIProfil.QFläche().ToString("0.###");
+                lbl_volumen.Content = neuIProfil.Volumen().ToString("0.###");
+                lbl_Wy.Content = neuIProfil.WiederstandsMoment_Wy().ToString("0.###");
+                lbl_Wz.Content = neuIProfil.WiederstandsMoment_Wz().ToString("0.###");
+                lbl_Iy.Content = neuIProfil.FTM_Iy().ToString("0.###");
+                Lbl_Iz.Content = neuIProfil.FTM_Iz().ToString("0.###");
+                lbl_Polar.Content = neuIProfil.FTM_Polar().ToString("0.###");
 
 
                 {
@@ -2017,15 +2058,10 @@ namespace WpfHSPB1
 
                     grd_Ergebnisse.Visibility = Visibility.Visible;
 
-                    lbl_Gewicht.Content = gewicht.ToString("0.###");
-                    lbl_Preis.Content = preis.ToString("0.###");
-                    lbl_qfläche.Content = neuIProfil.QFläche().ToString("0.###");
-                    lbl_volumen.Content = neuIProfil.Volumen().ToString("0.###");
-                    lbl_Wy.Content = neuIProfil.WiederstandsMoment_Wy().ToString("0.###");
-                    lbl_Wz.Content = neuIProfil.WiederstandsMoment_Wz().ToString("0.###");
-                    lbl_Iy.Content = neuIProfil.FTM_Iy().ToString("0.###");
-                    Lbl_Iz.Content = neuIProfil.FTM_Iz().ToString("0.###");
-                    lbl_Polar.Content = neuIProfil.FTM_Polar().ToString("0.###");
+                lbl_Gewicht.Content = gewicht.ToString("0.###");
+                lbl_Preis.Content = preis.ToString("0.###");
+
+
 
                 //Neu.StartCatia();
 
@@ -2065,6 +2101,16 @@ namespace WpfHSPB1
            
                 double gewicht = 0;
                 double preis = 0;
+
+                ///Ausgabe der berechneten Werte für das Profil
+                
+                lbl_qfläche.Content = neuLProfil.QFläche().ToString("0.###");
+                lbl_volumen.Content = neuLProfil.Volumen().ToString("0.###");
+                lbl_Wy.Content = neuLProfil.WiederstandsMoment_Wy().ToString("0.###");
+                lbl_Wz.Content = neuLProfil.WiederstandsMoment_Wz().ToString("0.###");
+                lbl_Iy.Content = neuLProfil.FTM_Iy().ToString("0.###");
+                Lbl_Iz.Content = neuLProfil.FTM_Iz().ToString("0.###");
+                lbl_Polar.Content = neuLProfil.FTM_Polar().ToString("0.###");
 
 
                 {
@@ -2216,15 +2262,10 @@ namespace WpfHSPB1
 
                     grd_Ergebnisse.Visibility = Visibility.Visible;
 
-                    lbl_Gewicht.Content = gewicht.ToString("0.###");
-                    lbl_Preis.Content = preis.ToString("0.###");
-                    lbl_qfläche.Content = neuLProfil.QFläche().ToString("0.###");
-                    lbl_volumen.Content = neuLProfil.Volumen().ToString("0.###");
-                    lbl_Wy.Content = neuLProfil.WiederstandsMoment_Wy().ToString("0.###");
-                    lbl_Wz.Content = neuLProfil.WiederstandsMoment_Wz().ToString("0.###");
-                    lbl_Iy.Content = neuLProfil.FTM_Iy().ToString("0.###");
-                    Lbl_Iz.Content = neuLProfil.FTM_Iz().ToString("0.###");
-                    lbl_Polar.Content = neuLProfil.FTM_Polar().ToString("0.###");
+                lbl_Gewicht.Content = gewicht.ToString("0.###");
+                lbl_Preis.Content = preis.ToString("0.###");
+
+
 
                 //Neu.StartCatia();
 
