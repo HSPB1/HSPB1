@@ -1429,6 +1429,7 @@ namespace WpfHSPB1
 
             //Erzeugung eines Objektes der Klasse TProfil
             TProfil neuTProfil = new TProfil();
+            CatiaAPIConection Neu = new CatiaAPIConection();
 
             try
             {
@@ -1610,7 +1611,23 @@ namespace WpfHSPB1
                     Lbl_Iz.Content = neuTProfil.FTM_Iz().ToString("0.###");
                     lbl_Polar.Content = neuTProfil.FTM_Polar().ToString("0.###");
 
-                
+                //Neu.StartCatia();
+
+
+                if (Neu.CatiaLaeuft())
+                {
+                    Neu.CatiaLaeuft();
+                    Neu.ErzeugePart();
+                    Neu.ErzeugeSkizze();
+                    Neu.ErzeugeTProfil(neuTProfil);
+                    Neu.ErzeugeExtrusionT(neuTProfil);
+                }
+                else
+                {
+                    MessageBox.Show("Laufende Catia Application nicht gefunden");
+                }
+
+
             }
             catch
             { MessageBox.Show("Ihre Eingabe war Fehlerhaft! Bitte verwenden Sie nur Zahlen!", "Eingabefehler!", MessageBoxButton.OK, MessageBoxImage.Error); }
@@ -1621,6 +1638,7 @@ namespace WpfHSPB1
 
             //Erzeugung des Objektes der Klasse UProfil
             UProfil neuUProfil = new UProfil();
+            CatiaAPIConection Neu = new CatiaAPIConection();
 
             try
             {
@@ -1801,7 +1819,23 @@ namespace WpfHSPB1
                     lbl_Iy.Content = neuUProfil.FTM_Iy().ToString("0.###");
                     Lbl_Iz.Content = neuUProfil.FTM_Iz().ToString("0.###");
                     lbl_Polar.Content = neuUProfil.FTM_Polar().ToString("0.###");
-                
+
+                //Neu.StartCatia();
+
+
+                if (Neu.CatiaLaeuft())
+                {
+                    Neu.CatiaLaeuft();
+                    Neu.ErzeugePart();
+                    Neu.ErzeugeSkizze();
+                    Neu.ErzeugeUProfil(neuUProfil);
+                    Neu.ErzeugeExtrusionU(neuUProfil);
+                }
+                else
+                {
+                    MessageBox.Show("Laufende Catia Application nicht gefunden");
+                }
+
             }
 
             catch
@@ -1812,6 +1846,7 @@ namespace WpfHSPB1
         {   
             //Erzeugung eines Objektes der Klasse IProfil
             IProfil neuIProfil = new IProfil();
+            CatiaAPIConection Neu = new CatiaAPIConection();
 
             try
             {
@@ -1991,7 +2026,23 @@ namespace WpfHSPB1
                     lbl_Iy.Content = neuIProfil.FTM_Iy().ToString("0.###");
                     Lbl_Iz.Content = neuIProfil.FTM_Iz().ToString("0.###");
                     lbl_Polar.Content = neuIProfil.FTM_Polar().ToString("0.###");
-                
+
+                //Neu.StartCatia();
+
+
+                if (Neu.CatiaLaeuft())
+                {
+                    Neu.CatiaLaeuft();
+                    Neu.ErzeugePart();
+                    Neu.ErzeugeSkizze();
+                    Neu.ErzeugeIProfil(neuIProfil);
+                    Neu.ErzeugeExtrusionI(neuIProfil);
+                }
+                else
+                {
+                    MessageBox.Show("Laufende Catia Application nicht gefunden");
+                }
+
 
             }
             catch
@@ -2001,6 +2052,7 @@ namespace WpfHSPB1
         private void btn_LPro_Berechnung_Click(object sender, RoutedEventArgs e)
         {
             LProfil neuLProfil = new LProfil();
+            CatiaAPIConection Neu = new CatiaAPIConection();
 
             try
             {
@@ -2174,7 +2226,23 @@ namespace WpfHSPB1
                     Lbl_Iz.Content = neuLProfil.FTM_Iz().ToString("0.###");
                     lbl_Polar.Content = neuLProfil.FTM_Polar().ToString("0.###");
 
-                
+                //Neu.StartCatia();
+
+
+                if (Neu.CatiaLaeuft())
+                {
+                    Neu.CatiaLaeuft();
+                    Neu.ErzeugePart();
+                    Neu.ErzeugeSkizze();
+                    Neu.ErzeugeLProfil(neuLProfil);
+                    Neu.ErzeugeExtrusionL(neuLProfil);
+                }
+                else
+                {
+                    MessageBox.Show("Laufende Catia Application nicht gefunden");
+                }
+
+
             }
             catch
             { MessageBox.Show("Ihre Eingabe war Fehlerhaft! Bitte verwenden Sie nur Zahlen!", "Eingabefehler!", MessageBoxButton.OK, MessageBoxImage.Error); }

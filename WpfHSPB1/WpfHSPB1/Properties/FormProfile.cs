@@ -42,7 +42,7 @@ namespace Profile_Muster
 
 
         //Getter und Setter für Private Variablen
-        public double H1
+        public double H2
         {
             get
             { return h; }
@@ -57,7 +57,7 @@ namespace Profile_Muster
                 { MessageBox.Show("Bitte geben Sie einen positiven Wert ein!", "Eingabefehler!", MessageBoxButton.OK, MessageBoxImage.Error); }
             }
         }
-        public double B1
+        public double B2
         {
             get
             { return b; }
@@ -72,7 +72,7 @@ namespace Profile_Muster
                 { MessageBox.Show("Bitte geben Sie einen positiven Wert ein!", "Eingabefehler!", MessageBoxButton.OK, MessageBoxImage.Error); }
             }
         }
-        public double H2
+        public double H1
         {
             get
             { return H; }
@@ -87,7 +87,7 @@ namespace Profile_Muster
                 { MessageBox.Show("Bitte geben Sie einen positiven Wert ein!", "Eingabefehler!", MessageBoxButton.OK, MessageBoxImage.Error); }
             }
         }
-        public double B2
+        public double B1
         {
             get
             { return B; }
