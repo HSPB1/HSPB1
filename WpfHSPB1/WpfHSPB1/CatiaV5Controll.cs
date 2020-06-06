@@ -101,6 +101,8 @@ namespace WpfHSPB1
         
 
 
+        //Hier beginnen RechteckProfile 
+
 
         //RechteckVoll!
         //Erzeugen der Geometrie RechteckVoll
@@ -167,6 +169,121 @@ namespace WpfHSPB1
         }
         //Ende RechteckVoll
 
+
+
+        //RechteckHohl!
+        //Erzeugen der Geometrie RechteckHohl
+        internal void ErzeugeProfilRechteckHohl(RechteckHohl rechteckHohl)
+        {
+
+
+            hspB1_catia_Profil.set_Name("Rechteck_Hohl");
+            Factory2D factory2D = hspB1_catia_Profil.OpenEdition();
+
+            //Setzen der Punkte Aussen
+            Point2D catPoint2D1 = factory2D.CreatePoint(-rechteckHohl.Breite / 2, rechteckHohl.Höhe / 2);
+            Point2D catPoint2D2 = factory2D.CreatePoint(rechteckHohl.Breite / 2, rechteckHohl.Höhe / 2);
+            Point2D catPoint2D3 = factory2D.CreatePoint(rechteckHohl.Breite / 2, -rechteckHohl.Höhe / 2);
+            Point2D catPoint2D4 = factory2D.CreatePoint(-rechteckHohl.Breite / 2, -rechteckHohl.Höhe / 2);
+            //Setzen der Punkte Innen
+            Point2D catPoint12D1 = factory2D.CreatePoint(-rechteckHohl.Breite / 2 + rechteckHohl.Wandstärke, rechteckHohl.Höhe / 2 - rechteckHohl.Wandstärke);
+            Point2D catPoint12D2 = factory2D.CreatePoint(rechteckHohl.Breite / 2 - rechteckHohl.Wandstärke, rechteckHohl.Höhe / 2 - rechteckHohl.Wandstärke);
+            Point2D catPoint12D3 = factory2D.CreatePoint(rechteckHohl.Breite / 2 - rechteckHohl.Wandstärke, -rechteckHohl.Höhe / 2 + rechteckHohl.Wandstärke);
+            Point2D catPoint12D4 = factory2D.CreatePoint(-rechteckHohl.Breite / 2 + rechteckHohl.Wandstärke, -rechteckHohl.Höhe / 2 + rechteckHohl.Wandstärke);
+
+
+
+
+
+            //Linie Horrizontal Oben
+            Line2D catLine2D1 = factory2D.CreateLine(-rechteckHohl.Breite / 2, rechteckHohl.Höhe / 2, rechteckHohl.Breite / 2, rechteckHohl.Höhe / 2);
+            catLine2D1.StartPoint = catPoint2D1;
+            catLine2D1.EndPoint = catPoint2D2;
+
+            //Linie Horrizontal Innen
+            Line2D catLine12D1 = factory2D.CreateLine(-rechteckHohl.Breite / 2 + rechteckHohl.Wandstärke, rechteckHohl.Höhe / 2 - rechteckHohl.Wandstärke, rechteckHohl.Breite / 2 - rechteckHohl.Wandstärke, rechteckHohl.Höhe / 2 - rechteckHohl.Wandstärke);
+            catLine12D1.StartPoint = catPoint12D1;
+            catLine12D1.EndPoint = catPoint12D2;
+
+
+
+            //Linie Vertikal Rechts
+            Line2D catLine2D2 = factory2D.CreateLine(rechteckHohl.Breite / 2, rechteckHohl.Höhe / 2, rechteckHohl.Breite / 2, -rechteckHohl.Höhe / 2);
+            catLine2D2.StartPoint = catPoint2D2;
+            catLine2D2.EndPoint = catPoint2D3;
+
+            //Linie Vertikal Rechts Innen
+            Line2D catLine12D2 = factory2D.CreateLine(rechteckHohl.Breite / 2 - rechteckHohl.Wandstärke, rechteckHohl.Höhe / 2 - rechteckHohl.Wandstärke, rechteckHohl.Breite / 2 - rechteckHohl.Wandstärke, -rechteckHohl.Höhe / 2 + rechteckHohl.Wandstärke);
+            catLine12D2.StartPoint = catPoint12D2;
+            catLine12D2.EndPoint = catPoint12D3;
+
+
+            //Linie Horizontal Unten
+            Line2D catLine2D3 = factory2D.CreateLine(rechteckHohl.Breite / 2, -rechteckHohl.Höhe / 2, -rechteckHohl.Breite / 2, -rechteckHohl.Höhe / 2);
+            catLine2D3.StartPoint = catPoint2D3;
+            catLine2D3.EndPoint = catPoint2D4;
+
+            //Linie Horizontal Unten Innen
+            Line2D catLine12D3 = factory2D.CreateLine(rechteckHohl.Breite / 2 - rechteckHohl.Wandstärke, -rechteckHohl.Höhe / 2 + rechteckHohl.Wandstärke, -rechteckHohl.Breite / 2 + rechteckHohl.Wandstärke, -rechteckHohl.Höhe / 2 + rechteckHohl.Wandstärke);
+            catLine12D3.StartPoint = catPoint12D3;
+            catLine12D3.EndPoint = catPoint12D4;
+
+
+
+            //Linie Vertikal Links
+            Line2D catLine2D4 = factory2D.CreateLine(-rechteckHohl.Breite / 2, rechteckHohl.Höhe / 2, -rechteckHohl.Breite / 2, -rechteckHohl.Höhe / 2);
+            catLine2D4.StartPoint = catPoint2D4;
+            catLine2D4.EndPoint = catPoint2D1;
+
+            //Linie Vertikal Links Innen
+            Line2D catLine12D4 = factory2D.CreateLine(-rechteckHohl.Breite / 2 + rechteckHohl.Wandstärke, rechteckHohl.Höhe / 2 - rechteckHohl.Wandstärke, -rechteckHohl.Breite / 2 + rechteckHohl.Wandstärke, -rechteckHohl.Höhe / 2 + rechteckHohl.Wandstärke);
+            catLine12D4.StartPoint = catPoint12D4;
+            catLine12D4.EndPoint = catPoint12D1;
+
+            // Skizzierer verlassen
+            hspB1_catia_Profil.CloseEdition();
+
+
+            // Part aktualisieren
+            hspB1_catiaPart.Part.Update();
+
+
+        }
+
+        //Erzeugen der Extrusion für RechteckHohl
+        internal void ErzeugeExtrusionRechteckHohl(RechteckHohl rechteckHohl)
+        {
+
+
+
+            // Extrusion erzeugen
+            ShapeFactory catShapeFactory1 = (ShapeFactory)hspB1_catiaPart.Part.ShapeFactory;
+            Pad catPad1 = catShapeFactory1.AddNewPad(hspB1_catia_Profil, rechteckHohl.Länge);
+
+            // Block umbenennen
+            catPad1.set_Name("Profil Rechteck hohl");
+
+            // Part aktualisieren
+            hspB1_catiaPart.Part.Update();
+
+        }
+        //Ende RechteckVoll
+
+
+        //Hier Enden die Rechteckprofile!!
+
+
+
+
+
+
+
+
+
+
+
+
+        //Hier beginnen FormProfile
 
 
         //TProfiiiiiiiiiiiiiiiiiiiiiiil!
@@ -641,7 +758,7 @@ namespace WpfHSPB1
         //Ende I Profil
 
 
-
+        //Hier Enden die Formprofile!!!
 
 
 

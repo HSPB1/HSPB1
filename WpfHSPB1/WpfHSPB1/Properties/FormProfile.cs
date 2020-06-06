@@ -414,36 +414,6 @@ namespace Profile_Muster
         public double H1
         {
             get
-            { return h; }
-
-            set
-            {
-                if (value > 0)
-                {
-                    h = value;
-                }
-                else
-                { MessageBox.Show("Bitte geben Sie einen positiven Wert ein!", "Eingabefehler!", MessageBoxButton.OK, MessageBoxImage.Error); }
-            }
-        }
-        public double B1
-        {
-            get
-            { return b; }
-
-            set
-            {
-                if (value > 0)
-                {
-                    b = value;
-                }
-                else
-                { MessageBox.Show("Bitte geben Sie einen positiven Wert ein!", "Eingabefehler!", MessageBoxButton.OK, MessageBoxImage.Error); }
-            }
-        }
-        public double H2
-        {
-            get
             { return H; }
 
             set
@@ -456,7 +426,7 @@ namespace Profile_Muster
                 { MessageBox.Show("Bitte geben Sie einen positiven Wert ein!", "Eingabefehler!", MessageBoxButton.OK, MessageBoxImage.Error); }
             }
         }
-        public double B2
+        public double B1
         {
             get
             { return B; }
@@ -466,6 +436,36 @@ namespace Profile_Muster
                 if (value > 0)
                 {
                     B = value;
+                }
+                else
+                { MessageBox.Show("Bitte geben Sie einen positiven Wert ein!", "Eingabefehler!", MessageBoxButton.OK, MessageBoxImage.Error); }
+            }
+        }
+        public double H2
+        {
+            get
+            { return h; }
+
+            set
+            {
+                if (value > 0)
+                {
+                    h = value;
+                }
+                else
+                { MessageBox.Show("Bitte geben Sie einen positiven Wert ein!", "Eingabefehler!", MessageBoxButton.OK, MessageBoxImage.Error); }
+            }
+        }
+        public double B2
+        {
+            get
+            { return b; }
+
+            set
+            {
+                if (value > 0)
+                {
+                    b = value;
                 }
                 else
                 { MessageBox.Show("Bitte geben Sie einen positiven Wert ein!", "Eingabefehler!", MessageBoxButton.OK, MessageBoxImage.Error); }
