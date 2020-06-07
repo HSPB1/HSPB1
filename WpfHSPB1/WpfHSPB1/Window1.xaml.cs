@@ -495,20 +495,22 @@ namespace WpfHSPB1
         private void btn_ReHo_berechnung_Click(object sender, RoutedEventArgs e)
         {
             RechteckHohl rechteckHohl = new RechteckHohl();
+            CatiaAPIConection Neu = new CatiaAPIConection();
+
             try
             {
-             
-                    rechteckHohl.Höhe = Convert.ToDouble(TxtBox_ReHo_Höhe.Text);
-                    rechteckHohl.Breite = Convert.ToDouble(TxtBox_ReHo_Breite.Text);
-                    rechteckHohl.Länge = Convert.ToDouble(TxtBox_ReHo_Länge.Text);
-                    rechteckHohl.Wandstärke = Convert.ToDouble(TxtBox_ReHo_Wandstärke.Text);
+
+                rechteckHohl.Höhe = Convert.ToDouble(TxtBox_ReHo_Höhe.Text);
+                rechteckHohl.Breite = Convert.ToDouble(TxtBox_ReHo_Breite.Text);
+                rechteckHohl.Länge = Convert.ToDouble(TxtBox_ReHo_Länge.Text);
+                rechteckHohl.Wandstärke = Convert.ToDouble(TxtBox_ReHo_Wandstärke.Text);
 
 
-                    double gewicht = 0;
-                    double preis = 0;
+                double gewicht = 0;
+                double preis = 0;
 
                 ///Ausgabe der berechneten Werte für das Profil
-               
+
                 lbl_qfläche.Content = rechteckHohl.QFläche().ToString("0.###");
                 lbl_volumen.Content = rechteckHohl.Volumen().ToString("0.###");
                 lbl_Wy.Content = rechteckHohl.WiederstandsMoment_Wy().ToString("0.###");
@@ -650,28 +652,44 @@ namespace WpfHSPB1
                     //Hier Enden Die Comboboxen!
                 }//Comboboxen Ergebnisfenster
 
-                    //Materialauswahl
-                    if (cb_Material_ReHo.Text == "Stahl")
-                    {
-                        gewicht = rechteckHohl.Volumen() * 0.00000785;
-                        preis = gewicht * 1.5;
+                //Materialauswahl
+                if (cb_Material_ReHo.Text == "Stahl")
+                {
+                    gewicht = rechteckHohl.Volumen() * 0.00000785;
+                    preis = gewicht * 1.5;
 
-                    }
+                }
 
-                    if (cb_Material_ReHo.Text == "Aluminium")
-                    {
-                        gewicht = rechteckHohl.Volumen() * 0.0000027;
-                        preis = gewicht * 2.5;
-                    }
+                if (cb_Material_ReHo.Text == "Aluminium")
+                {
+                    gewicht = rechteckHohl.Volumen() * 0.0000027;
+                    preis = gewicht * 2.5;
+                }
 
-             
-                        grd_Ergebnisse.Visibility = Visibility.Visible;
+
+                grd_Ergebnisse.Visibility = Visibility.Visible;
 
                 lbl_Gewicht.Content = gewicht.ToString("0.###");
                 lbl_Preis.Content = preis.ToString("0.###");
 
 
+
+
+                if (Neu.CatiaLaeuft())
+                {
+                    Neu.CatiaLaeuft();
+                    Neu.ErzeugePart();
+                    Neu.ErzeugeSkizze();
+                    Neu.ErzeugeProfilRechteckHohl(rechteckHohl);
+                    Neu.ErzeugeExtrusionRechteckHohl(rechteckHohl);
+                }
+
+                else
+                {
+                    MessageBox.Show("Laufende Catia Application nicht gefunden");
+                }
             }
+
 
             catch
             { MessageBox.Show("Ihre Eingabe war Fehlerhaft! Bitte verwenden Sie nur Zahlen!", "Eingabefehler!", MessageBoxButton.OK, MessageBoxImage.Error); }
@@ -1068,6 +1086,8 @@ namespace WpfHSPB1
         {   
             //Erzeugung eines neuen Objekts der Klasse RundHohlProfil
             RundHohlProfil neuRundHohl = new RundHohlProfil();
+            CatiaAPIConection neu = new CatiaAPIConection();
+
                 
             try
             {
@@ -1245,7 +1265,12 @@ namespace WpfHSPB1
                 lbl_Gewicht.Content = gewicht.ToString("0.###");
                 lbl_Preis.Content = preis.ToString("0.###");
 
-
+                neu.CatiaLaeuft();
+                neu.ErzeugePart();
+                neu.ErzeugeSkizze();
+                neu.ErzeugeProfilRundHohlProfil(neuRundHohl);
+                neu.ErzeugeExtrusionRundHohlProfil(neuRundHohl);
+                
 
             }
 

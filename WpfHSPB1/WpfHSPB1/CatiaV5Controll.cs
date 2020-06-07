@@ -253,10 +253,11 @@ namespace WpfHSPB1
         //Erzeugen der Extrusion für RechteckHohl
         internal void ErzeugeExtrusionRechteckHohl(RechteckHohl rechteckHohl)
         {
-
+            hspB1_catiaPart.Part.InWorkObject = hspB1_catiaPart.Part.MainBody;
 
 
             // Extrusion erzeugen
+
             ShapeFactory catShapeFactory1 = (ShapeFactory)hspB1_catiaPart.Part.ShapeFactory;
             Pad catPad1 = catShapeFactory1.AddNewPad(hspB1_catia_Profil, rechteckHohl.Länge);
 
@@ -839,7 +840,55 @@ namespace WpfHSPB1
 
 
 
+        // Hier beginnen die runden Profile!!!
 
+        //Anfang RundHohlProfil!!
+
+        internal void ErzeugeProfilRundHohlProfil(RundHohlProfil rundHohlProfil)
+        {
+            hspB1_catia_Profil.set_Name("RundHohlProfil");
+            Factory2D factory2D = hspB1_catia_Profil.OpenEdition();
+
+
+            //Setzen der Punkte/Kreise
+
+            Point2D catpoint2D1 = factory2D.CreatePoint(0, 0);
+            
+            Circle2D catCircle2D1 = factory2D.CreateCircle(0, 0, rundHohlProfil.Durchmesser / 2, 0, 0);
+            catCircle2D1.CenterPoint = catpoint2D1;
+            
+            Circle2D catCircle2D2 = factory2D.CreateCircle(0, 0, (rundHohlProfil.Durchmesser - rundHohlProfil.Wandstärke) / 2, 0, 0);
+            catCircle2D2.CenterPoint = catpoint2D1;
+
+
+            // Skizzierer verlassen
+            hspB1_catia_Profil.CloseEdition();
+
+            // Part aktualisieren
+            hspB1_catiaPart.Part.Update();
+
+
+        }
+
+        //Erzeugen der Extrusion für RechteckHohl
+        internal void ErzeugeExtrusionRundHohlProfil(RundHohlProfil rundHohlProfil)
+        {
+            hspB1_catiaPart.Part.InWorkObject = hspB1_catiaPart.Part.MainBody;
+
+
+            // Extrusion erzeugen
+            ShapeFactory catShapeFactory1 = (ShapeFactory)hspB1_catiaPart.Part.ShapeFactory;
+            Pad catPad1 = catShapeFactory1.AddNewPad(hspB1_catia_Profil, rundHohlProfil.Länge);
+
+            // Block umbenennen
+            catPad1.set_Name("RundHohlProfil");
+
+            // Part aktualisieren
+            hspB1_catiaPart.Part.Update();
+
+        }
+
+        //Ende RundHohlProfil
 
 
 

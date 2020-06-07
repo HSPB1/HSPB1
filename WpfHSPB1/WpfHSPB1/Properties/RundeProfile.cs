@@ -136,8 +136,7 @@ namespace Profile_Muster
                     MessageBox.Show("Die Wandstärke kann nicht genauso groß oder größer sein wie der Durchmesser", "Eingabefehler" , MessageBoxButton.OK , MessageBoxImage.Error) ;
                     
                 }
-                else
-                { MessageBox.Show("Bitte geben Sie einen positiven Wert ein!", "Eingabefehler!", MessageBoxButton.OK, MessageBoxImage.Error); }
+                
             }
         }
 
