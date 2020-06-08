@@ -303,14 +303,7 @@ namespace WpfHSPB1
                     double preis = 0;
                     double gewicht = 0;
 
-                ///Ausgabe der berechneten Werte für das Profil
-                lbl_qfläche.Content = rechteckVoll.QFläche().ToString("0.###");
-                lbl_volumen.Content = rechteckVoll.Volumen().ToString("0.###");
-                lbl_Wy.Content = rechteckVoll.WiederstandsMoment_Wy().ToString("0.###");
-                lbl_Wz.Content = rechteckVoll.WiederstandsMoment_Wz().ToString("0.###");
-                lbl_Iy.Content = rechteckVoll.FTM_Iy().ToString("0.###");
-                Lbl_Iz.Content = rechteckVoll.FTM_Iz().ToString("0.###");
-                lbl_Polar.Content = rechteckVoll.FTM_Polar().ToString("0.###");
+             
                 
 
 
@@ -320,22 +313,24 @@ namespace WpfHSPB1
                     if (cbx_Qfläche.Text == "mm²")
 
                     {
-
-                        lbl_qfläche.Content = rechteckVoll.QFläche() * 1;
+                        double qfläche = rechteckVoll.QFläche() * 1;
+                        lbl_qfläche.Content = qfläche.ToString("0.###");
 
                     }
 
                     if (cbx_Qfläche.Text == "cm²")
                     {
 
-                        lbl_qfläche.Content = rechteckVoll.QFläche() / 100;
+                        double qfläche = rechteckVoll.QFläche()/100;
+                        lbl_qfläche.Content = qfläche.ToString("0.###");
 
                     }
 
                     if (cbx_Qfläche.Text == "m²")
                     {
 
-                        lbl_qfläche.Content = rechteckVoll.QFläche() / 10000;
+                        double qfläche = rechteckVoll.QFläche()/1000;
+                        lbl_qfläche.Content = qfläche.ToString("0.###"); 
 
                     }
 
@@ -343,19 +338,22 @@ namespace WpfHSPB1
                     if (cbx_Volumen.Text == "mm³")
 
                     {
-                        lbl_volumen.Content = rechteckVoll.Volumen() * 1;
+                        double volumen = rechteckVoll.Volumen() * 1;
+                        lbl_volumen.Content = volumen.ToString("0.###");
 
                     }
 
                     if (cbx_Volumen.Text == "cm³")
                     {
-                        lbl_volumen.Content = rechteckVoll.Volumen() / 1000;
+                        double volumen = rechteckVoll.Volumen() /1000;
+                        lbl_volumen.Content = volumen.ToString("0.###");
 
                     }
 
                     if (cbx_Volumen.Text == "m³")
                     {
-                        lbl_volumen.Content = rechteckVoll.Volumen() / 1000000;
+                        double volumen = rechteckVoll.Volumen() / 1000000;
+                        lbl_volumen.Content = volumen.ToString("0.###"); 
 
                     }
 
@@ -363,19 +361,23 @@ namespace WpfHSPB1
                     if (cbx_Wx.Text == "mm³")
 
                     {
-                        lbl_Wy.Content = rechteckVoll.WiederstandsMoment_Wy() * 1;
+                        double wx = rechteckVoll.WiederstandsMoment_Wy() * 1;
+                        lbl_Wy.Content = wx.ToString("0.###");
 
                     }
 
                     if (cbx_Wx.Text == "cm³")
                     {
-                        lbl_Wy.Content = rechteckVoll.WiederstandsMoment_Wy() / 1000;
+                        double wx = rechteckVoll.WiederstandsMoment_Wy() / 1000;
+                        lbl_Wy.Content = wx.ToString("0.###");
 
                     }
 
                     if (cbx_Wx.Text == "m³")
                     {
-                        lbl_Wy.Content = rechteckVoll.WiederstandsMoment_Wy() / 1000000;
+                        double wx = rechteckVoll.WiederstandsMoment_Wy() / 1000000;
+                        lbl_Wy.Content = wx.ToString("0.###");
+
 
                     }
 
@@ -384,19 +386,22 @@ namespace WpfHSPB1
                     if (cbx_Wy.Text == "mm³")
 
                     {
-                        lbl_Wz.Content = rechteckVoll.WiederstandsMoment_Wz() * 1;
+                        double wy= rechteckVoll.WiederstandsMoment_Wz() * 1;
+                        lbl_Wz.Content = wy.ToString("0.###");
 
                     }
 
                     if (cbx_Wy.Text == "cm³")
                     {
-                        lbl_Wz.Content = rechteckVoll.WiederstandsMoment_Wz() / 1000;
+                        double wy = rechteckVoll.WiederstandsMoment_Wz() /1000;
+                        lbl_Wz.Content = wy.ToString("0.###");
 
                     }
 
                     if (cbx_Wy.Text == "m³")
                     {
-                        lbl_Wz.Content = rechteckVoll.WiederstandsMoment_Wz() / 1000000;
+                        double wy = rechteckVoll.WiederstandsMoment_Wz() / 1000000;
+                        lbl_Wz.Content = wy.ToString("0.###"); 
 
                     }
 
@@ -405,13 +410,15 @@ namespace WpfHSPB1
                     if (cbx_Ix.Text == "mm^4")
 
                     {
-                        lbl_Iy.Content = rechteckVoll.FTM_Iy() * 1;
+                        double ix= rechteckVoll.FTM_Iy() * 1;
+                        lbl_Iy.Content = ix.ToString("0.###");
 
                     }
 
                     if (cbx_Ix.Text == "cm^4")
                     {
-                        lbl_Iy.Content = rechteckVoll.FTM_Iy() / 10000;
+                        double ix = rechteckVoll.FTM_Iy() /10000;
+                        lbl_Iy.Content = ix.ToString("0.###");
 
                     }
 
@@ -420,13 +427,15 @@ namespace WpfHSPB1
                     if (cbx_Iy.Text == "mm^4")
 
                     {
-                        lbl_Iy.Content = rechteckVoll.FTM_Iz() * 1;
+                        double iy = rechteckVoll.FTM_Iz() * 1;
+                        Lbl_Iz.Content = iy.ToString("0.###");
 
                     }
 
                     if (cbx_Iy.Text == "cm^4")
                     {
-                        lbl_Iy.Content = rechteckVoll.FTM_Iz() / 10000;
+                        double iy = rechteckVoll.FTM_Iz() /10000;
+                        Lbl_Iz.Content = iy.ToString("0.###");
 
                     }
 
@@ -435,13 +444,15 @@ namespace WpfHSPB1
                     if (cbx_Polar.Text == "mm^4")
 
                     {
-                        lbl_Polar.Content = rechteckVoll.FTM_Polar() * 1;
+                        double polar= rechteckVoll.FTM_Polar() * 1;
+                        lbl_Polar.Content = polar.ToString("0.###");
 
                     }
 
                     if (cbx_Polar.Text == "cm^4")
                     {
-                        lbl_Polar.Content = rechteckVoll.FTM_Polar() / 10000;
+                        double polar = rechteckVoll.FTM_Polar() /10000;
+                        lbl_Polar.Content = polar.ToString("0.###");
 
                     }
                     //Hier Enden Die Comboboxen!
@@ -461,10 +472,17 @@ namespace WpfHSPB1
                     }
 
 
-                    grd_Ergebnisse.Visibility = Visibility.Visible;
+                grd_Ergebnisse.Visibility = Visibility.Visible;
 
-                lbl_Preis.Content = preis.ToString("#.###");
-                lbl_Gewicht.Content = gewicht.ToString("#.###");
+                //Schwerpunkt
+                lbl_GX.Content = rechteckVoll.Breite / 2;
+                lbl_Gy.Content = rechteckVoll.Höhe / 2;
+                lbl_Gz.Content = rechteckVoll.Länge / 2;
+
+                
+
+                lbl_Preis.Content = preis.ToString("0.###");
+                lbl_Gewicht.Content = gewicht.ToString("0.###");
 
 
 
@@ -509,16 +527,7 @@ namespace WpfHSPB1
                 double gewicht = 0;
                 double preis = 0;
 
-                ///Ausgabe der berechneten Werte für das Profil
-
-                lbl_qfläche.Content = rechteckHohl.QFläche().ToString("0.###");
-                lbl_volumen.Content = rechteckHohl.Volumen().ToString("0.###");
-                lbl_Wy.Content = rechteckHohl.WiederstandsMoment_Wy().ToString("0.###");
-                lbl_Wz.Content = rechteckHohl.WiederstandsMoment_Wz().ToString("0.###");
-                lbl_Iy.Content = rechteckHohl.FTM_Iy().ToString("0.###");
-                Lbl_Iz.Content = rechteckHohl.FTM_Iz().ToString("0.###");
-                lbl_Polar.Content = rechteckHohl.FTM_Polar().ToString("0.###");
-
+               
 
                 {
                     //Hier Beginnen Die Comboxen Für ErgebnisFenster
@@ -527,19 +536,19 @@ namespace WpfHSPB1
                     if (cbx_Qfläche.Text == "mm²")
 
                     {
-                        lbl_qfläche.Content = rechteckHohl.QFläche() * 1;
+                        lbl_qfläche.Content = (rechteckHohl.QFläche() * 1).ToString("0.###");
 
                     }
 
                     if (cbx_Qfläche.Text == "cm²")
                     {
-                        lbl_qfläche.Content = rechteckHohl.QFläche() / 100;
+                        lbl_qfläche.Content = (rechteckHohl.QFläche() / 100).ToString("0.###");
 
                     }
 
                     if (cbx_Qfläche.Text == "m²")
                     {
-                        lbl_qfläche.Content = rechteckHohl.QFläche() / 10000;
+                        lbl_qfläche.Content = (rechteckHohl.QFläche() / 10000).ToString("0.###");
 
                     }
 
@@ -547,19 +556,19 @@ namespace WpfHSPB1
                     if (cbx_Volumen.Text == "mm³")
 
                     {
-                        lbl_volumen.Content = rechteckHohl.Volumen() * 1;
+                        lbl_volumen.Content = (rechteckHohl.Volumen() * 1).ToString("0.###");
 
                     }
 
                     if (cbx_Volumen.Text == "cm³")
                     {
-                        lbl_volumen.Content = rechteckHohl.Volumen() / 1000;
+                        lbl_volumen.Content = (rechteckHohl.Volumen() / 1000).ToString("0.###");
 
                     }
 
                     if (cbx_Volumen.Text == "m³")
                     {
-                        lbl_volumen.Content = rechteckHohl.Volumen() / 1000000;
+                        lbl_volumen.Content = (rechteckHohl.Volumen() / 1000000).ToString("0.###");
 
                     }
 
@@ -567,19 +576,19 @@ namespace WpfHSPB1
                     if (cbx_Wx.Text == "mm³")
 
                     {
-                        lbl_Wy.Content = rechteckHohl.WiederstandsMoment_Wy() * 1;
+                        lbl_Wy.Content = (rechteckHohl.WiederstandsMoment_Wy() * 1).ToString("0.###");
 
                     }
 
                     if (cbx_Wx.Text == "cm³")
                     {
-                        lbl_Wy.Content = rechteckHohl.WiederstandsMoment_Wy() / 1000;
+                        lbl_Wy.Content = (rechteckHohl.WiederstandsMoment_Wy() / 1000).ToString("0.###");
 
                     }
 
                     if (cbx_Wx.Text == "m³")
                     {
-                        lbl_Wy.Content = rechteckHohl.WiederstandsMoment_Wy() / 1000000;
+                        lbl_Wy.Content = (rechteckHohl.WiederstandsMoment_Wy() / 1000000).ToString("0.###");
 
                     }
 
@@ -588,19 +597,19 @@ namespace WpfHSPB1
                     if (cbx_Wy.Text == "mm³")
 
                     {
-                        lbl_Wz.Content = rechteckHohl.WiederstandsMoment_Wz() * 1;
+                        lbl_Wz.Content = (rechteckHohl.WiederstandsMoment_Wz() * 1).ToString("0.###");
 
                     }
 
                     if (cbx_Wy.Text == "cm³")
                     {
-                        lbl_Wz.Content = rechteckHohl.WiederstandsMoment_Wz() / 1000;
+                        lbl_Wz.Content = (rechteckHohl.WiederstandsMoment_Wz() / 1000).ToString("0.###");
 
                     }
 
                     if (cbx_Wy.Text == "m³")
                     {
-                        lbl_Wz.Content = rechteckHohl.WiederstandsMoment_Wz() / 1000000;
+                        lbl_Wz.Content = (rechteckHohl.WiederstandsMoment_Wz() / 1000000).ToString("0.###");
 
                     }
 
@@ -609,13 +618,13 @@ namespace WpfHSPB1
                     if (cbx_Ix.Text == "mm^4")
 
                     {
-                        lbl_Iy.Content = rechteckHohl.FTM_Iy() * 1;
+                        lbl_Iy.Content = (rechteckHohl.FTM_Iy() * 1).ToString("0.###");
 
                     }
 
                     if (cbx_Ix.Text == "cm^4")
                     {
-                        lbl_Iy.Content = rechteckHohl.FTM_Iy() / 10000;
+                        lbl_Iy.Content = (rechteckHohl.FTM_Iy() / 10000).ToString("0.###");
 
                     }
 
@@ -624,13 +633,13 @@ namespace WpfHSPB1
                     if (cbx_Iy.Text == "mm^4")
 
                     {
-                        Lbl_Iz.Content = rechteckHohl.FTM_Iz() * 1;
+                        Lbl_Iz.Content = (rechteckHohl.FTM_Iz() * 1).ToString("0.###");
 
                     }
 
                     if (cbx_Iy.Text == "cm^4")
                     {
-                        Lbl_Iz.Content = rechteckHohl.FTM_Iz() / 10000;
+                        Lbl_Iz.Content = (rechteckHohl.FTM_Iz() / 10000).ToString("0.###");
 
                     }
 
@@ -639,13 +648,13 @@ namespace WpfHSPB1
                     if (cbx_Polar.Text == "mm^4")
 
                     {
-                        lbl_Polar.Content = rechteckHohl.FTM_Polar() * 1;
+                        lbl_Polar.Content = (rechteckHohl.FTM_Polar() * 1).ToString("0.###");
 
                     }
 
                     if (cbx_Polar.Text == "cm^4")
                     {
-                        lbl_Polar.Content = rechteckHohl.FTM_Polar() / 10000;
+                        lbl_Polar.Content = (rechteckHohl.FTM_Polar() / 10000).ToString("0.###");
 
                     }
 
@@ -668,6 +677,12 @@ namespace WpfHSPB1
 
 
                 grd_Ergebnisse.Visibility = Visibility.Visible;
+
+
+                //Schwerpunkt
+                lbl_GX.Content = rechteckHohl.Breite / 2;
+                lbl_Gy.Content = rechteckHohl.Höhe / 2;
+                lbl_Gz.Content = rechteckHohl.Länge / 2;
 
                 lbl_Gewicht.Content = gewicht.ToString("0.###");
                 lbl_Preis.Content = preis.ToString("0.###");
@@ -710,16 +725,6 @@ namespace WpfHSPB1
                     double gewicht = 0;
                     double preis = 0;
 
-                ///Ausgabe der berechneten Werte für das Profil Vollmaterial Sechseck
-                
-                lbl_qfläche.Content = neuSechseckVoll.QFläche().ToString("0.###");
-                lbl_volumen.Content = neuSechseckVoll.Volumen().ToString("0.###");
-                lbl_Wy.Content = neuSechseckVoll.WiederstandsMoment_Wy().ToString("0.###");
-                lbl_Wz.Content = neuSechseckVoll.WiederstandsMoment_Wz().ToString("0.###");
-                lbl_Iy.Content = neuSechseckVoll.FTM_Iy().ToString("0.###");
-                Lbl_Iz.Content = neuSechseckVoll.FTM_Iz().ToString("0.###");
-                lbl_Polar.Content = neuSechseckVoll.FTM_Polar().ToString("0.###");
-
 
                 {
                     //Hier Beginnen Die Comboxen Für ErgebnisFenster
@@ -728,19 +733,19 @@ namespace WpfHSPB1
                     if (cbx_Qfläche.Text == "mm²")
 
                     {
-                        lbl_qfläche.Content = neuSechseckVoll.QFläche() * 1;
+                        lbl_qfläche.Content = (neuSechseckVoll.QFläche() * 1).ToString("0.###");
 
                     }
 
                     if (cbx_Qfläche.Text == "cm²")
                     {
-                        lbl_qfläche.Content = neuSechseckVoll.QFläche() / 100;
+                        lbl_qfläche.Content = (neuSechseckVoll.QFläche() / 100).ToString("0.###");
 
                     }
 
                     if (cbx_Qfläche.Text == "m²")
                     {
-                        lbl_qfläche.Content = neuSechseckVoll.QFläche() / 10000;
+                        lbl_qfläche.Content = (neuSechseckVoll.QFläche() / 10000).ToString("0.###");
 
                     }
 
@@ -748,19 +753,19 @@ namespace WpfHSPB1
                     if (cbx_Volumen.Text == "mm³")
 
                     {
-                        lbl_volumen.Content = neuSechseckVoll.Volumen() * 1;
+                        lbl_volumen.Content = (neuSechseckVoll.Volumen() * 1).ToString("0.###");
 
                     }
 
                     if (cbx_Volumen.Text == "cm³")
                     {
-                        lbl_volumen.Content = neuSechseckVoll.Volumen() / 1000;
+                        lbl_volumen.Content =( neuSechseckVoll.Volumen() / 1000).ToString("0.###");
 
                     }
 
                     if (cbx_Volumen.Text == "m³")
                     {
-                        lbl_volumen.Content = neuSechseckVoll.Volumen() / 1000000;
+                        lbl_volumen.Content = (neuSechseckVoll.Volumen() / 1000000).ToString("0.###");
 
                     }
 
@@ -768,19 +773,19 @@ namespace WpfHSPB1
                     if (cbx_Wx.Text == "mm³")
 
                     {
-                        lbl_Wy.Content = neuSechseckVoll.WiederstandsMoment_Wy() * 1;
+                        lbl_Wy.Content =( neuSechseckVoll.WiederstandsMoment_Wy() * 1).ToString("0.###");
 
                     }
 
                     if (cbx_Wx.Text == "cm³")
                     {
-                        lbl_Wy.Content = neuSechseckVoll.WiederstandsMoment_Wy() / 1000;
+                        lbl_Wy.Content = (neuSechseckVoll.WiederstandsMoment_Wy() / 1000).ToString("0.###");
 
                     }
 
                     if (cbx_Wx.Text == "m³")
                     {
-                        lbl_Wy.Content = neuSechseckVoll.WiederstandsMoment_Wy() / 1000000;
+                        lbl_Wy.Content = (neuSechseckVoll.WiederstandsMoment_Wy() / 1000000).ToString("0.###");
 
                     }
 
@@ -789,19 +794,19 @@ namespace WpfHSPB1
                     if (cbx_Wy.Text == "mm³")
 
                     {
-                        lbl_Wz.Content = neuSechseckVoll.WiederstandsMoment_Wz() * 1;
+                        lbl_Wz.Content = (neuSechseckVoll.WiederstandsMoment_Wz() * 1).ToString("0.###");
 
                     }
 
                     if (cbx_Wy.Text == "cm³")
                     {
-                        lbl_Wz.Content = neuSechseckVoll.WiederstandsMoment_Wz() / 1000;
+                        lbl_Wz.Content = (neuSechseckVoll.WiederstandsMoment_Wz() / 1000).ToString("0.###");
 
                     }
 
                     if (cbx_Wy.Text == "m³")
                     {
-                        lbl_Wz.Content = neuSechseckVoll.WiederstandsMoment_Wz() / 1000000;
+                        lbl_Wz.Content = (neuSechseckVoll.WiederstandsMoment_Wz() / 1000000).ToString("0.###");
 
                     }
 
@@ -810,13 +815,13 @@ namespace WpfHSPB1
                     if (cbx_Ix.Text == "mm^4")
 
                     {
-                        lbl_Iy.Content = neuSechseckVoll.FTM_Iy() * 1;
+                        lbl_Iy.Content = (neuSechseckVoll.FTM_Iy() * 1).ToString("0.###");
 
                     }
 
                     if (cbx_Ix.Text == "cm^4")
                     {
-                        lbl_Iy.Content = neuSechseckVoll.FTM_Iy() / 10000;
+                        lbl_Iy.Content =( neuSechseckVoll.FTM_Iy() / 10000).ToString("0.###");
 
                     }
 
@@ -827,13 +832,13 @@ namespace WpfHSPB1
                     if (cbx_Iy.Text == "mm^4")
 
                     {
-                        Lbl_Iz.Content = neuSechseckVoll.FTM_Iz() * 1;
+                        Lbl_Iz.Content = (neuSechseckVoll.FTM_Iz() * 1).ToString("0.###");
 
                     }
 
                     if (cbx_Iy.Text == "cm^4")
                     {
-                        Lbl_Iz.Content = neuSechseckVoll.FTM_Iz() / 10000;
+                        Lbl_Iz.Content = (neuSechseckVoll.FTM_Iz() / 10000).ToString("0.###");
 
                     }
 
@@ -842,13 +847,13 @@ namespace WpfHSPB1
                     if (cbx_Polar.Text == "mm^4")
 
                     {
-                        lbl_Polar.Content = neuSechseckVoll.FTM_Polar() * 1;
+                        lbl_Polar.Content = (neuSechseckVoll.FTM_Polar() * 1).ToString("0.###");
 
                     }
 
                     if (cbx_Polar.Text == "cm^4")
                     {
-                        lbl_Polar.Content = neuSechseckVoll.FTM_Polar() / 10000;
+                        lbl_Polar.Content = (neuSechseckVoll.FTM_Polar() / 10000).ToString("0.###");
 
                     }//Hier Enden Die Comboboxen!
                 } // Comboboxen für Ergebnisfenster
@@ -868,6 +873,11 @@ namespace WpfHSPB1
                     }
 
                     grd_Ergebnisse.Visibility = Visibility.Visible;
+
+                //Schwerpunkt
+                lbl_GX.Content = neuSechseckVoll.Radius;
+                lbl_Gy.Content = neuSechseckVoll.Radius * 0.8667;
+                lbl_Gz.Content = neuSechseckVoll.Länge / 2;
 
                 lbl_Gewicht.Content = gewicht.ToString("0.###");
                 lbl_Preis.Content = preis.ToString("0.###");
@@ -909,15 +919,6 @@ namespace WpfHSPB1
                     double gewicht = 0;
                     double preis = 0;
 
-                ///Ausgabe der berechneten Werte für das Profil
-                
-                lbl_qfläche.Content = neuRundVoll.QFläche().ToString("0.###");
-                lbl_volumen.Content = neuRundVoll.Volumen().ToString("0.###");
-                lbl_Wy.Content = neuRundVoll.WiederstandsMoment_Wy().ToString("0.###");
-                lbl_Wz.Content = neuRundVoll.WiederstandsMoment_Wz().ToString("0.###");
-                lbl_Iy.Content = neuRundVoll.FTM_Iy().ToString("0.###");
-                Lbl_Iz.Content = neuRundVoll.FTM_Iz().ToString("0.###");
-                lbl_Polar.Content = neuRundVoll.FTM_Polar().ToString("0.###");
 
                 {
 
@@ -927,19 +928,19 @@ namespace WpfHSPB1
                     if (cbx_Qfläche.Text == "mm²")
 
                     {
-                        lbl_qfläche.Content = neuRundVoll.QFläche() * 1;
+                        lbl_qfläche.Content = (neuRundVoll.QFläche() * 1).ToString("0.###");
 
                     }
 
                     if (cbx_Qfläche.Text == "cm²")
                     {
-                        lbl_qfläche.Content = neuRundVoll.QFläche() / 100;
+                        lbl_qfläche.Content = (neuRundVoll.QFläche() / 100).ToString("0.###");
 
                     }
 
                     if (cbx_Qfläche.Text == "m²")
                     {
-                        lbl_qfläche.Content = neuRundVoll.QFläche() / 10000;
+                        lbl_qfläche.Content = (neuRundVoll.QFläche() / 10000).ToString("0.###");
 
                     }
 
@@ -947,19 +948,19 @@ namespace WpfHSPB1
                     if (cbx_Volumen.Text == "mm³")
 
                     {
-                        lbl_volumen.Content = neuRundVoll.Volumen() * 1;
+                        lbl_volumen.Content = (neuRundVoll.Volumen() * 1).ToString("0.###");
 
                     }
 
                     if (cbx_Volumen.Text == "cm³")
                     {
-                        lbl_volumen.Content = neuRundVoll.Volumen() / 1000;
+                        lbl_volumen.Content = (neuRundVoll.Volumen() / 1000).ToString("0.###");
 
                     }
 
                     if (cbx_Volumen.Text == "m³")
                     {
-                        lbl_volumen.Content = neuRundVoll.Volumen() / 1000000;
+                        lbl_volumen.Content = (neuRundVoll.Volumen() / 1000000).ToString("0.###");
 
                     }
 
@@ -967,19 +968,19 @@ namespace WpfHSPB1
                     if (cbx_Wx.Text == "mm³")
 
                     {
-                        lbl_Wy.Content = neuRundVoll.WiederstandsMoment_Wy() * 1;
+                        lbl_Wy.Content = (neuRundVoll.WiederstandsMoment_Wy() * 1).ToString("0.###");
 
                     }
 
                     if (cbx_Wx.Text == "cm³")
                     {
-                        lbl_Wy.Content = neuRundVoll.WiederstandsMoment_Wy() / 1000;
+                        lbl_Wy.Content = (neuRundVoll.WiederstandsMoment_Wy() / 1000).ToString("0.###");
 
                     }
 
                     if (cbx_Wx.Text == "m³")
                     {
-                        lbl_Wy.Content = neuRundVoll.WiederstandsMoment_Wy() / 1000000;
+                        lbl_Wy.Content = (neuRundVoll.WiederstandsMoment_Wy() / 1000000).ToString("0.###");
 
                     }
 
@@ -988,19 +989,19 @@ namespace WpfHSPB1
                     if (cbx_Wy.Text == "mm³")
 
                     {
-                        lbl_Wy.Content = neuRundVoll.WiederstandsMoment_Wz() * 1;
+                        lbl_Wy.Content = (neuRundVoll.WiederstandsMoment_Wz() * 1).ToString("0.###");
 
                     }
 
                     if (cbx_Wy.Text == "cm³")
                     {
-                        lbl_Wy.Content = neuRundVoll.WiederstandsMoment_Wz() / 1000;
+                        lbl_Wy.Content = (neuRundVoll.WiederstandsMoment_Wz() / 1000).ToString("0.###");
 
                     }
 
                     if (cbx_Wy.Text == "m³")
                     {
-                        lbl_Wy.Content = neuRundVoll.WiederstandsMoment_Wz() / 1000000;
+                        lbl_Wy.Content = (neuRundVoll.WiederstandsMoment_Wz() / 1000000).ToString("0.###");
 
                     }
 
@@ -1009,13 +1010,13 @@ namespace WpfHSPB1
                     if (cbx_Ix.Text == "mm^4")
 
                     {
-                        lbl_Iy.Content = neuRundVoll.FTM_Iy() * 1;
+                        lbl_Iy.Content = (neuRundVoll.FTM_Iy() * 1).ToString("0.###");
 
                     }
 
                     if (cbx_Ix.Text == "cm^4")
                     {
-                        lbl_Iy.Content = neuRundVoll.FTM_Iy() / 10000;
+                        lbl_Iy.Content = (neuRundVoll.FTM_Iy() / 10000).ToString("0.###");
 
                     }
 
@@ -1026,13 +1027,13 @@ namespace WpfHSPB1
                     if (cbx_Iy.Text == "mm^4")
 
                     {
-                        Lbl_Iz.Content = neuRundVoll.FTM_Iz() * 1;
+                        Lbl_Iz.Content = (neuRundVoll.FTM_Iz() * 1).ToString("0.###");
 
                     }
 
                     if (cbx_Iy.Text == "cm^4")
                     {
-                        Lbl_Iz.Content = neuRundVoll.FTM_Iz() / 10000;
+                        Lbl_Iz.Content = (neuRundVoll.FTM_Iz() / 10000).ToString("0.###");
 
                     }
 
@@ -1040,13 +1041,13 @@ namespace WpfHSPB1
                     if (cbx_Polar.Text == "mm^4")
 
                     {
-                        lbl_Polar.Content = neuRundVoll.FTM_Polar() * 1;
+                        lbl_Polar.Content = (neuRundVoll.FTM_Polar() * 1).ToString("0.###");
 
                     }
 
                     if (cbx_Polar.Text == "cm^4")
                     {
-                        lbl_Polar.Content = neuRundVoll.FTM_Polar() / 10000;
+                        lbl_Polar.Content = (neuRundVoll.FTM_Polar() / 10000).ToString("0.###");
 
                     }
 
@@ -1069,6 +1070,11 @@ namespace WpfHSPB1
 
 
                     grd_Ergebnisse.Visibility = Visibility.Visible;
+
+                //Schwerpunkt
+                lbl_GX.Content = neuRundVoll.Durchmesser / 2;
+                lbl_Gy.Content = neuRundVoll.Durchmesser / 2;
+                lbl_Gz.Content = neuRundVoll.Länge / 2;
 
                 lbl_Gewicht.Content = gewicht.ToString("0.###");
                 lbl_Preis.Content = preis.ToString("0.###");
@@ -1101,16 +1107,7 @@ namespace WpfHSPB1
                 double gewicht = 0;
                 double preis = 0;
 
-                ///Ausgabe der berechneten Werte für das Profil
-                
-                lbl_qfläche.Content = neuRundHohl.QFläche().ToString("0.###");
-                lbl_volumen.Content = neuRundHohl.Volumen().ToString("0.###");
-                lbl_Wy.Content = neuRundHohl.WiederstandsMoment_Wy().ToString("0.###");
-                lbl_Wz.Content = neuRundHohl.WiederstandsMoment_Wz().ToString("0.###");
-                lbl_Iy.Content = neuRundHohl.FTM_Iy().ToString("0.###");
-                Lbl_Iz.Content = neuRundHohl.FTM_Iz().ToString("0.###");
-                lbl_Polar.Content = neuRundHohl.FTM_Polar().ToString("0.###");
-
+               
 
                 {
 
@@ -1121,19 +1118,19 @@ namespace WpfHSPB1
                     if (cbx_Qfläche.Text == "mm²")
 
                     {
-                        lbl_qfläche.Content = neuRundHohl.QFläche() * 1;
+                        lbl_qfläche.Content = (neuRundHohl.QFläche() * 1).ToString("0.###");
 
                     }
 
                     if (cbx_Qfläche.Text == "cm²")
                     {
-                        lbl_qfläche.Content = neuRundHohl.QFläche() / 100;
+                        lbl_qfläche.Content = (neuRundHohl.QFläche() / 100).ToString("0.###");
 
                     }
 
                     if (cbx_Qfläche.Text == "m²")
                     {
-                        lbl_qfläche.Content = neuRundHohl.QFläche() / 10000;
+                        lbl_qfläche.Content = (neuRundHohl.QFläche() / 10000).ToString("0.###");
 
                     }
 
@@ -1141,19 +1138,19 @@ namespace WpfHSPB1
                     if (cbx_Volumen.Text == "mm³")
 
                     {
-                        lbl_volumen.Content = neuRundHohl.Volumen() * 1;
+                        lbl_volumen.Content = (neuRundHohl.Volumen() * 1).ToString("0.###");
 
                     }
 
                     if (cbx_Volumen.Text == "cm³")
                     {
-                        lbl_volumen.Content = neuRundHohl.Volumen() / 1000;
+                        lbl_volumen.Content = (neuRundHohl.Volumen() / 1000).ToString("0.###");
 
                     }
 
                     if (cbx_Volumen.Text == "m³")
                     {
-                        lbl_volumen.Content = neuRundHohl.Volumen() / 1000000;
+                        lbl_volumen.Content = (neuRundHohl.Volumen() / 1000000).ToString("0.###");
 
                     }
 
@@ -1161,19 +1158,19 @@ namespace WpfHSPB1
                     if (cbx_Wx.Text == "mm³")
 
                     {
-                        lbl_Wy.Content = neuRundHohl.WiederstandsMoment_Wy() * 1;
+                        lbl_Wy.Content = (neuRundHohl.WiederstandsMoment_Wy() * 1).ToString("0.###");
 
                     }
 
                     if (cbx_Wx.Text == "cm³")
                     {
-                        lbl_Wy.Content = neuRundHohl.WiederstandsMoment_Wy() / 1000;
+                        lbl_Wy.Content = (neuRundHohl.WiederstandsMoment_Wy() / 1000).ToString("0.###");
 
                     }
 
                     if (cbx_Wx.Text == "m³")
                     {
-                        lbl_Wy.Content = neuRundHohl.WiederstandsMoment_Wy() / 1000000;
+                        lbl_Wy.Content = (neuRundHohl.WiederstandsMoment_Wy() / 1000000).ToString("0.###");
 
                     }
 
@@ -1182,19 +1179,19 @@ namespace WpfHSPB1
                     if (cbx_Wy.Text == "mm³")
 
                     {
-                        lbl_Wz.Content = neuRundHohl.WiederstandsMoment_Wz() * 1;
+                        lbl_Wz.Content = (neuRundHohl.WiederstandsMoment_Wz() * 1).ToString("0.###");
 
                     }
 
                     if (cbx_Wy.Text == "cm³")
                     {
-                        lbl_Wz.Content = neuRundHohl.WiederstandsMoment_Wz() / 1000;
+                        lbl_Wz.Content = (neuRundHohl.WiederstandsMoment_Wz() / 1000).ToString("0.###");
 
                     }
 
                     if (cbx_Wy.Text == "m³")
                     {
-                        lbl_Wz.Content = neuRundHohl.WiederstandsMoment_Wz() / 1000000;
+                        lbl_Wz.Content = (neuRundHohl.WiederstandsMoment_Wz() / 1000000).ToString("0.###");
 
                     }
 
@@ -1203,13 +1200,13 @@ namespace WpfHSPB1
                     if (cbx_Ix.Text == "mm^4")
 
                     {
-                        lbl_Iy.Content = neuRundHohl.FTM_Iy() * 1;
+                        lbl_Iy.Content = (neuRundHohl.FTM_Iy() * 1).ToString("0.###");
 
                     }
 
                     if (cbx_Ix.Text == "cm^4")
                     {
-                        lbl_Iy.Content = neuRundHohl.FTM_Iy() / 10000;
+                        lbl_Iy.Content = (neuRundHohl.FTM_Iy() / 10000).ToString("0.###");
 
                     }
 
@@ -1218,13 +1215,13 @@ namespace WpfHSPB1
                     if (cbx_Iy.Text == "mm^4")
 
                     {
-                        Lbl_Iz.Content = neuRundHohl.FTM_Iz() * 1;
+                        Lbl_Iz.Content = (neuRundHohl.FTM_Iz() * 1).ToString("0.###");
 
                     }
 
                     if (cbx_Iy.Text == "cm^4")
                     {
-                        Lbl_Iz.Content = neuRundHohl.FTM_Iz() / 10000;
+                        Lbl_Iz.Content = (neuRundHohl.FTM_Iz() / 10000).ToString("0.###");
 
                     }
 
@@ -1233,13 +1230,13 @@ namespace WpfHSPB1
                     if (cbx_Polar.Text == "mm^4")
 
                     {
-                        lbl_Polar.Content = neuRundHohl.FTM_Polar() * 1;
+                        lbl_Polar.Content = (neuRundHohl.FTM_Polar() * 1).ToString("0.###");
 
                     }
 
                     if (cbx_Polar.Text == "cm^4")
                     {
-                        lbl_Polar.Content = neuRundHohl.FTM_Polar() / 10000;
+                        lbl_Polar.Content = (neuRundHohl.FTM_Polar() / 10000).ToString("0.###");
 
                     }
 
@@ -1261,6 +1258,11 @@ namespace WpfHSPB1
 
 
                     grd_Ergebnisse.Visibility = Visibility.Visible;
+
+                //Schwerpunkt
+                lbl_GX.Content = neuRundHohl.Durchmesser / 2;
+                lbl_Gy.Content = neuRundHohl.Durchmesser / 2;
+                lbl_Gz.Content = neuRundHohl.Länge / 2;
 
                 lbl_Gewicht.Content = gewicht.ToString("0.###");
                 lbl_Preis.Content = preis.ToString("0.###");
@@ -1294,15 +1296,7 @@ namespace WpfHSPB1
                     double gewicht = 0;
                     double preis = 0;
 
-                ///Ausgabe der berechneten Werte für das Profil
-                
-                lbl_qfläche.Content = neuHalbRund.QFläche().ToString("0.###");
-                lbl_volumen.Content = neuHalbRund.Volumen().ToString("0.###");
-                lbl_Wy.Content = neuHalbRund.WiederstandsMoment_Wy().ToString("0.###");
-                lbl_Wz.Content = neuHalbRund.WiederstandsMoment_Wz().ToString("0.###");
-                lbl_Iy.Content = neuHalbRund.FTM_Iy().ToString("0.###");
-                Lbl_Iz.Content = neuHalbRund.FTM_Iz().ToString("0.###");
-                lbl_Polar.Content = neuHalbRund.FTM_Polar().ToString("0.###");
+               
 
                 {
 
@@ -1313,19 +1307,19 @@ namespace WpfHSPB1
                     if (cbx_Qfläche.Text == "mm²")
 
                     {
-                        lbl_qfläche.Content = neuHalbRund.QFläche() * 1;
+                        lbl_qfläche.Content = (neuHalbRund.QFläche() * 1).ToString("0.###");
 
                     }
 
                     if (cbx_Qfläche.Text == "cm²")
                     {
-                        lbl_qfläche.Content = neuHalbRund.QFläche() / 100;
+                        lbl_qfläche.Content = (neuHalbRund.QFläche() / 100).ToString("0.###");
 
                     }
 
                     if (cbx_Qfläche.Text == "m²")
                     {
-                        lbl_qfläche.Content = neuHalbRund.QFläche() / 10000;
+                        lbl_qfläche.Content = (neuHalbRund.QFläche() / 10000).ToString("0.###");
 
                     }
 
@@ -1333,19 +1327,19 @@ namespace WpfHSPB1
                     if (cbx_Volumen.Text == "mm³")
 
                     {
-                        lbl_volumen.Content = neuHalbRund.Volumen() * 1;
+                        lbl_volumen.Content = (neuHalbRund.Volumen() * 1).ToString("0.###");
 
                     }
 
                     if (cbx_Volumen.Text == "cm³")
                     {
-                        lbl_volumen.Content = neuHalbRund.Volumen() / 1000;
+                        lbl_volumen.Content = (neuHalbRund.Volumen() / 1000).ToString("0.###");
 
                     }
 
                     if (cbx_Volumen.Text == "m³")
                     {
-                        lbl_volumen.Content = neuHalbRund.Volumen() / 1000000;
+                        lbl_volumen.Content = (neuHalbRund.Volumen() / 1000000).ToString("0.###");
 
                     }
 
@@ -1353,19 +1347,19 @@ namespace WpfHSPB1
                     if (cbx_Wx.Text == "mm³")
 
                     {
-                        lbl_Wy.Content = neuHalbRund.WiederstandsMoment_Wy() * 1;
+                        lbl_Wy.Content = (neuHalbRund.WiederstandsMoment_Wy() * 1).ToString("0.###");
 
                     }
 
                     if (cbx_Wx.Text == "cm³")
                     {
-                        lbl_Wy.Content = neuHalbRund.WiederstandsMoment_Wy() / 1000;
+                        lbl_Wy.Content = (neuHalbRund.WiederstandsMoment_Wy() / 1000).ToString("0.###");
 
                     }
 
                     if (cbx_Wx.Text == "m³")
                     {
-                        lbl_Wy.Content = neuHalbRund.WiederstandsMoment_Wy() / 1000000;
+                        lbl_Wy.Content = (neuHalbRund.WiederstandsMoment_Wy() / 1000000).ToString("0.###");
 
                     }
 
@@ -1374,19 +1368,19 @@ namespace WpfHSPB1
                     if (cbx_Wy.Text == "mm³")
 
                     {
-                        lbl_Wz.Content = neuHalbRund.WiederstandsMoment_Wz() * 1;
+                        lbl_Wz.Content = (neuHalbRund.WiederstandsMoment_Wz() * 1).ToString("0.###");
 
                     }
 
                     if (cbx_Wy.Text == "cm³")
                     {
-                        lbl_Wz.Content = neuHalbRund.WiederstandsMoment_Wz() / 1000;
+                        lbl_Wz.Content = (neuHalbRund.WiederstandsMoment_Wz() / 1000).ToString("0.###");
 
                     }
 
                     if (cbx_Wy.Text == "m³")
                     {
-                        lbl_Wz.Content = neuHalbRund.WiederstandsMoment_Wz() / 1000000;
+                        lbl_Wz.Content = (neuHalbRund.WiederstandsMoment_Wz() / 1000000).ToString("0.###");
 
                     }
 
@@ -1395,13 +1389,13 @@ namespace WpfHSPB1
                     if (cbx_Ix.Text == "mm^4")
 
                     {
-                        lbl_Iy.Content = neuHalbRund.FTM_Iy() * 1;
+                        lbl_Iy.Content = (neuHalbRund.FTM_Iy() * 1).ToString("0.###");
 
                     }
 
                     if (cbx_Ix.Text == "cm^4")
                     {
-                        lbl_Iy.Content = neuHalbRund.FTM_Iy() / 10000;
+                        lbl_Iy.Content = (neuHalbRund.FTM_Iy() / 10000).ToString("0.###");
 
                     }
 
@@ -1412,13 +1406,13 @@ namespace WpfHSPB1
                     if (cbx_Iy.Text == "mm^4")
 
                     {
-                        Lbl_Iz.Content = neuHalbRund.FTM_Iz() * 1;
+                        Lbl_Iz.Content = (neuHalbRund.FTM_Iz() * 1).ToString("0.###");
 
                     }
 
                     if (cbx_Iy.Text == "cm^4")
                     {
-                        Lbl_Iz.Content = neuHalbRund.FTM_Iz() / 10000;
+                        Lbl_Iz.Content = (neuHalbRund.FTM_Iz() / 10000).ToString("0.###");
 
                     }
 
@@ -1430,13 +1424,13 @@ namespace WpfHSPB1
                     if (cbx_Polar.Text == "mm^4")
 
                     {
-                        lbl_Polar.Content = neuHalbRund.FTM_Polar() * 1;
+                        lbl_Polar.Content = (neuHalbRund.FTM_Polar() * 1).ToString("0.###");
 
                     }
 
                     if (cbx_Polar.Text == "cm^4")
                     {
-                        lbl_Polar.Content = neuHalbRund.FTM_Polar() / 10000;
+                        lbl_Polar.Content = (neuHalbRund.FTM_Polar() / 10000).ToString("0.###");
 
                     }
 
@@ -1459,6 +1453,11 @@ namespace WpfHSPB1
                     }
 
                     grd_Ergebnisse.Visibility = Visibility.Visible;
+
+                //Schwerpunkt
+                lbl_GX.Content = neuHalbRund.Radius;
+                lbl_Gy.Content = (4 * neuHalbRund.Radius) / (3 * Math.PI);
+                lbl_Gz.Content = neuHalbRund.Länge / 2;
 
                 lbl_Gewicht.Content = gewicht.ToString("0.###");
                 lbl_Preis.Content = preis.ToString("0.###");
@@ -1494,15 +1493,7 @@ namespace WpfHSPB1
                 double gewicht = 0;
                     double preis = 0;
 
-                ///Ausgabe der berechneten Werte für das Profil
-                
-                lbl_qfläche.Content = neuTProfil.QFläche().ToString("0.###");
-                lbl_volumen.Content = neuTProfil.Volumen().ToString("0.###");
-                lbl_Wy.Content = neuTProfil.WiederstandsMoment_Wy().ToString("0.###");
-                lbl_Wz.Content = neuTProfil.WiederstandsMoment_Wz().ToString("0.###");
-                lbl_Iy.Content = neuTProfil.FTM_Iy().ToString("0.###");
-                Lbl_Iz.Content = neuTProfil.FTM_Iz().ToString("0.###");
-                lbl_Polar.Content = neuTProfil.FTM_Polar().ToString("0.###");
+              
 
                 {
 
@@ -1513,19 +1504,19 @@ namespace WpfHSPB1
                     if (cbx_Qfläche.Text == "mm²")
 
                     {
-                        lbl_qfläche.Content = neuTProfil.QFläche() * 1;
+                        lbl_qfläche.Content = (neuTProfil.QFläche() * 1).ToString("0.###");
 
                     }
 
                     if (cbx_Qfläche.Text == "cm²")
                     {
-                        lbl_qfläche.Content = neuTProfil.QFläche() / 100;
+                        lbl_qfläche.Content = (neuTProfil.QFläche() / 100).ToString("0.###");
 
                     }
 
                     if (cbx_Qfläche.Text == "m²")
                     {
-                        lbl_qfläche.Content = neuTProfil.QFläche() / 10000;
+                        lbl_qfläche.Content = (neuTProfil.QFläche() / 10000).ToString("0.###");
 
                     }
 
@@ -1533,19 +1524,19 @@ namespace WpfHSPB1
                     if (cbx_Volumen.Text == "mm³")
 
                     {
-                        lbl_volumen.Content = neuTProfil.Volumen() * 1;
+                        lbl_volumen.Content = (neuTProfil.Volumen() * 1).ToString("0.###");
 
                     }
 
                     if (cbx_Volumen.Text == "cm³")
                     {
-                        lbl_volumen.Content = neuTProfil.Volumen() / 1000;
+                        lbl_volumen.Content = (neuTProfil.Volumen() / 1000).ToString("0.###");
 
                     }
 
                     if (cbx_Volumen.Text == "m³")
                     {
-                        lbl_volumen.Content = neuTProfil.Volumen() / 1000000;
+                        lbl_volumen.Content = (neuTProfil.Volumen() / 1000000).ToString("0.###");
 
                     }
 
@@ -1553,19 +1544,19 @@ namespace WpfHSPB1
                     if (cbx_Wx.Text == "mm³")
 
                     {
-                        lbl_Wy.Content = neuTProfil.WiederstandsMoment_Wy() * 1;
+                        lbl_Wy.Content = (neuTProfil.WiederstandsMoment_Wy() * 1).ToString("0.###");
 
                     }
 
                     if (cbx_Wx.Text == "cm³")
                     {
-                        lbl_Wy.Content = neuTProfil.WiederstandsMoment_Wy()/ 1000;
+                        lbl_Wy.Content = (neuTProfil.WiederstandsMoment_Wy()/ 1000).ToString("0.###");
 
                     }
 
                     if (cbx_Wx.Text == "m³")
                     {
-                        lbl_Wy.Content = neuTProfil.WiederstandsMoment_Wy() / 1000000;
+                        lbl_Wy.Content = (neuTProfil.WiederstandsMoment_Wy() / 1000000).ToString("0.###");
 
                     }
 
@@ -1574,19 +1565,19 @@ namespace WpfHSPB1
                     if (cbx_Wy.Text == "mm³")
 
                     {
-                        lbl_Wz.Content = neuTProfil.WiederstandsMoment_Wz() * 1;
+                        lbl_Wz.Content = (neuTProfil.WiederstandsMoment_Wz() * 1).ToString("0.###");
 
                     }
 
                     if (cbx_Wy.Text == "cm³")
                     {
-                        lbl_Wz.Content = neuTProfil.WiederstandsMoment_Wz() / 1000;
+                        lbl_Wz.Content = (neuTProfil.WiederstandsMoment_Wz() / 1000).ToString("0.###");
 
                     }
 
                     if (cbx_Wy.Text == "m³")
                     {
-                        lbl_Wz.Content = neuTProfil.WiederstandsMoment_Wz() / 1000000;
+                        lbl_Wz.Content = (neuTProfil.WiederstandsMoment_Wz() / 1000000).ToString("0.###");
 
                     }
 
@@ -1595,13 +1586,13 @@ namespace WpfHSPB1
                     if (cbx_Ix.Text == "mm^4")
 
                     {
-                        lbl_Iy.Content = neuTProfil.FTM_Iy() * 1;
+                        lbl_Iy.Content = (neuTProfil.FTM_Iy() * 1).ToString("0.###");
 
                     }
 
                     if (cbx_Ix.Text == "cm^4")
                     {
-                        lbl_Iy.Content = neuTProfil.FTM_Iy()/ 10000;
+                        lbl_Iy.Content = (neuTProfil.FTM_Iy()/ 10000).ToString("0.###");
 
                     }
 
@@ -1612,13 +1603,13 @@ namespace WpfHSPB1
                     if (cbx_Iy.Text == "mm^4")
 
                     {
-                        Lbl_Iz.Content = neuTProfil.FTM_Iz() * 1;
+                        Lbl_Iz.Content =(neuTProfil.FTM_Iz() * 1).ToString("0.###");
 
                     }
 
                     if (cbx_Iy.Text == "cm^4")
                     {
-                        Lbl_Iz.Content = neuTProfil.FTM_Iz() / 10000;
+                        Lbl_Iz.Content =( neuTProfil.FTM_Iz() / 10000).ToString("0.###");
 
                     }
 
@@ -1630,13 +1621,13 @@ namespace WpfHSPB1
                     if (cbx_Polar.Text == "mm^4")
 
                     {
-                        lbl_Polar.Content = neuTProfil.FTM_Polar() * 1;
+                        lbl_Polar.Content = (neuTProfil.FTM_Polar() * 1).ToString("0.###");
 
                     }
 
                     if (cbx_Polar.Text == "cm^4")
                     {
-                        lbl_Polar.Content = neuTProfil.FTM_Polar() / 10000;
+                        lbl_Polar.Content = (neuTProfil.FTM_Polar() / 10000).ToString("0.###");
 
                     }
 
@@ -1659,6 +1650,12 @@ namespace WpfHSPB1
                     }
 
                     grd_Ergebnisse.Visibility = Visibility.Visible;
+
+                //Schwerpunkt
+                lbl_GX.Content = neuTProfil.B1 / 2;
+                lbl_Gy.Content = ((((neuTProfil.H1 - neuTProfil.H2) / 2) * neuTProfil.H1 * neuTProfil.B2) + ((neuTProfil.H1 - (neuTProfil.H2 / 2)) * neuTProfil.B1 * neuTProfil.H2)) / ((neuTProfil.H1 * neuTProfil.B2) + (neuTProfil.B1 * neuTProfil.H2));
+                lbl_Gz.Content = neuTProfil.Länge / 2;
+
 
                 lbl_Gewicht.Content = gewicht.ToString("0.###");
                 lbl_Preis.Content = preis.ToString("0.###");
@@ -1705,15 +1702,7 @@ namespace WpfHSPB1
                 double gewicht = 0;
                 double preis = 0;
 
-                ///Ausgabe der berechneten Werte für das Profil
-                
-                lbl_qfläche.Content = neuUProfil.QFläche().ToString("0.###");
-                lbl_volumen.Content = neuUProfil.Volumen().ToString("0.###");
-                lbl_Wy.Content = neuUProfil.WiederstandsMoment_Wy().ToString("0.###");
-                lbl_Wz.Content = neuUProfil.WiederstandsMoment_Wz().ToString("0.###");
-                lbl_Iy.Content = neuUProfil.FTM_Iy().ToString("0.###");
-                Lbl_Iz.Content = neuUProfil.FTM_Iz().ToString("0.###");
-                lbl_Polar.Content = neuUProfil.FTM_Polar().ToString("0.###");
+               
 
                 {
 
@@ -1723,19 +1712,19 @@ namespace WpfHSPB1
                     if (cbx_Qfläche.Text == "mm²")
 
                     {
-                        lbl_qfläche.Content = neuUProfil.QFläche() * 1;
+                        lbl_qfläche.Content = (neuUProfil.QFläche() * 1).ToString("0.###");
 
                     }
 
                     if (cbx_Qfläche.Text == "cm²")
                     {
-                        lbl_qfläche.Content = neuUProfil.QFläche() / 100;
+                        lbl_qfläche.Content = (neuUProfil.QFläche() / 100).ToString("0.###");
 
                     }
 
                     if (cbx_Qfläche.Text == "m²")
                     {
-                        lbl_qfläche.Content = neuUProfil.QFläche() / 10000;
+                        lbl_qfläche.Content = (neuUProfil.QFläche() / 10000).ToString("0.###");
 
                     }
 
@@ -1743,19 +1732,19 @@ namespace WpfHSPB1
                     if (cbx_Volumen.Text == "mm³")
 
                     {
-                        lbl_volumen.Content = neuUProfil.Volumen() * 1;
+                        lbl_volumen.Content = (neuUProfil.Volumen() * 1).ToString("0.###");
 
                     }
 
                     if (cbx_Volumen.Text == "cm³")
                     {
-                        lbl_volumen.Content = neuUProfil.Volumen() / 1000;
+                        lbl_volumen.Content = (neuUProfil.Volumen() / 1000).ToString("0.###");
 
                     }
 
                     if (cbx_Volumen.Text == "m³")
                     {
-                        lbl_volumen.Content = neuUProfil.Volumen() / 1000000;
+                        lbl_volumen.Content = (neuUProfil.Volumen() / 1000000).ToString("0.###");
 
                     }
 
@@ -1763,19 +1752,19 @@ namespace WpfHSPB1
                     if (cbx_Wx.Text == "mm³")
 
                     {
-                         lbl_Wy.Content = neuUProfil.WiederstandsMoment_Wy() * 1;
+                         lbl_Wy.Content = (neuUProfil.WiederstandsMoment_Wy() * 1).ToString("0.###");
 
                     }
 
                     if (cbx_Wx.Text == "cm³")
                     {
-                        lbl_Wy.Content = neuUProfil.WiederstandsMoment_Wy() / 1000;
+                        lbl_Wy.Content = (neuUProfil.WiederstandsMoment_Wy() / 1000).ToString("0.###");
 
                     }
 
                     if (cbx_Wx.Text == "m³")
                     {
-                        lbl_Wy.Content = neuUProfil.WiederstandsMoment_Wy() / 1000000;
+                        lbl_Wy.Content = (neuUProfil.WiederstandsMoment_Wy() / 1000000).ToString("0.###");
 
                     }
 
@@ -1784,19 +1773,19 @@ namespace WpfHSPB1
                     if (cbx_Wy.Text == "mm³")
 
                     {
-                        lbl_Wz.Content = neuUProfil.WiederstandsMoment_Wz() * 1;
+                        lbl_Wz.Content = (neuUProfil.WiederstandsMoment_Wz() * 1).ToString("0.###");
 
                     }
 
                     if (cbx_Wy.Text == "cm³")
                     {
-                        lbl_Wz.Content = neuUProfil.WiederstandsMoment_Wz() / 1000;
+                        lbl_Wz.Content = (neuUProfil.WiederstandsMoment_Wz() / 1000).ToString("0.###");
 
                     }
 
                     if (cbx_Wy.Text == "m³")
                     {
-                        lbl_Wz.Content = neuUProfil.WiederstandsMoment_Wz() / 1000000;
+                        lbl_Wz.Content = (neuUProfil.WiederstandsMoment_Wz() / 1000000).ToString("0.###");
 
                     }
 
@@ -1805,13 +1794,13 @@ namespace WpfHSPB1
                     if (cbx_Ix.Text == "mm^4")
 
                     {
-                        lbl_Iy.Content = neuUProfil.FTM_Iy() * 1;
+                        lbl_Iy.Content = (neuUProfil.FTM_Iy() * 1).ToString("0.###");
 
                     }
 
                     if (cbx_Ix.Text == "cm^4")
                     {
-                        lbl_Iy.Content = neuUProfil.FTM_Iy() / 10000;
+                        lbl_Iy.Content = (neuUProfil.FTM_Iy() / 10000).ToString("0.###");
 
                     }
 
@@ -1822,13 +1811,13 @@ namespace WpfHSPB1
                     if (cbx_Iy.Text == "mm^4")
 
                     {
-                        Lbl_Iz.Content = neuUProfil.FTM_Iz() * 1;
+                        Lbl_Iz.Content = (neuUProfil.FTM_Iz() * 1).ToString("0.###");
 
                     }
 
                     if (cbx_Iy.Text == "cm^4")
                     {
-                        Lbl_Iz.Content = neuUProfil.FTM_Iz() / 10000;
+                        Lbl_Iz.Content = (neuUProfil.FTM_Iz() / 10000).ToString("0.###");
 
                     }
 
@@ -1840,13 +1829,13 @@ namespace WpfHSPB1
                     if (cbx_Polar.Text == "mm^4")
 
                     {
-                        lbl_Polar.Content = neuUProfil.FTM_Polar() * 1;
+                        lbl_Polar.Content = (neuUProfil.FTM_Polar() * 1).ToString("0.###");
 
                     }
 
                     if (cbx_Polar.Text == "cm^4")
                     {
-                        lbl_Polar.Content = neuUProfil.FTM_Polar() / 10000;
+                        lbl_Polar.Content = (neuUProfil.FTM_Polar() / 10000).ToString("0.###");
 
                     }
 
@@ -1870,6 +1859,12 @@ namespace WpfHSPB1
                     }
 
                     grd_Ergebnisse.Visibility = Visibility.Visible;
+
+                //Schwerpunkt
+                lbl_GX.Content = (((neuUProfil.H1 - (neuUProfil.H2 / 2)) * neuUProfil.H2 * neuUProfil.B1) + ((neuUProfil.H1 / 2) * (neuUProfil.H1 - 2 * neuUProfil.H2) * neuUProfil.B2) + (neuUProfil.H2 * neuUProfil.H2 * neuUProfil.B1 / 2)) / ((neuUProfil.B1 * neuUProfil.H2) + ((neuUProfil.H1 - 2 * neuUProfil.H2) * neuUProfil.B1) + (neuUProfil.H2 * neuUProfil.B1));
+                lbl_Gy.Content = neuUProfil.H1 / 2;
+                lbl_Gz.Content = neuUProfil.Länge / 2;
+
 
                 lbl_Gewicht.Content = gewicht.ToString("0.###");
                 lbl_Preis.Content = preis.ToString("0.###");
@@ -1917,15 +1912,7 @@ namespace WpfHSPB1
                 double gewicht = 0;
                 double preis = 0;
 
-                ///Ausgabe der berechneten Werte für das Profil
                
-                lbl_qfläche.Content = neuIProfil.QFläche().ToString("0.###");
-                lbl_volumen.Content = neuIProfil.Volumen().ToString("0.###");
-                lbl_Wy.Content = neuIProfil.WiederstandsMoment_Wy().ToString("0.###");
-                lbl_Wz.Content = neuIProfil.WiederstandsMoment_Wz().ToString("0.###");
-                lbl_Iy.Content = neuIProfil.FTM_Iy().ToString("0.###");
-                Lbl_Iz.Content = neuIProfil.FTM_Iz().ToString("0.###");
-                lbl_Polar.Content = neuIProfil.FTM_Polar().ToString("0.###");
 
 
                 {
@@ -1936,19 +1923,19 @@ namespace WpfHSPB1
                     if (cbx_Qfläche.Text == "mm²")
 
                     {
-                        lbl_qfläche.Content = neuIProfil.QFläche() * 1;
+                        lbl_qfläche.Content = (neuIProfil.QFläche() * 1).ToString("0.###");
 
                     }
 
                     if (cbx_Qfläche.Text == "cm²")
                     {
-                        lbl_qfläche.Content = neuIProfil.QFläche() / 100;
+                        lbl_qfläche.Content = (neuIProfil.QFläche() / 100).ToString("0.###");
 
                     }
 
                     if (cbx_Qfläche.Text == "m²")
                     {
-                        lbl_qfläche.Content = neuIProfil.QFläche() / 10000;
+                        lbl_qfläche.Content = (neuIProfil.QFläche() / 10000).ToString("0.###");
 
                     }
 
@@ -1956,19 +1943,19 @@ namespace WpfHSPB1
                     if (cbx_Volumen.Text == "mm³")
 
                     {
-                        lbl_volumen.Content = neuIProfil.Volumen() * 1;
+                        lbl_volumen.Content = (neuIProfil.Volumen() * 1).ToString("0.###");
 
                     }
 
                     if (cbx_Volumen.Text == "cm³")
                     {
-                        lbl_volumen.Content = neuIProfil.Volumen() / 1000;
+                        lbl_volumen.Content = (neuIProfil.Volumen() / 1000).ToString("0.###");
 
                     }
 
                     if (cbx_Volumen.Text == "m³")
                     {
-                        lbl_volumen.Content = neuIProfil.Volumen() / 1000000;
+                        lbl_volumen.Content = (neuIProfil.Volumen() / 1000000).ToString("0.###");
 
                     }
 
@@ -1976,19 +1963,19 @@ namespace WpfHSPB1
                     if (cbx_Wx.Text == "mm³")
 
                     {
-                        lbl_Wy.Content = neuIProfil.WiederstandsMoment_Wy() * 1;
+                        lbl_Wy.Content = (neuIProfil.WiederstandsMoment_Wy() * 1).ToString("0.###");
 
                     }
 
                     if (cbx_Wx.Text == "cm³")
                     {
-                        lbl_Wy.Content = neuIProfil.WiederstandsMoment_Wy() / 1000;
+                        lbl_Wy.Content = (neuIProfil.WiederstandsMoment_Wy() / 1000).ToString("0.###");
 
                     }
 
                     if (cbx_Wx.Text == "m³")
                     {
-                        lbl_Wy.Content = neuIProfil.WiederstandsMoment_Wy() / 1000000;
+                        lbl_Wy.Content = (neuIProfil.WiederstandsMoment_Wy() / 1000000).ToString("0.###");
 
                     }
 
@@ -1997,19 +1984,19 @@ namespace WpfHSPB1
                     if (cbx_Wy.Text == "mm³")
 
                     {
-                        lbl_Wz.Content = neuIProfil.WiederstandsMoment_Wz() * 1;
+                        lbl_Wz.Content = (neuIProfil.WiederstandsMoment_Wz() * 1).ToString("0.###");
 
                     }
 
                     if (cbx_Wy.Text == "cm³")
                     {
-                        lbl_Wz.Content = neuIProfil.WiederstandsMoment_Wz() / 1000;
+                        lbl_Wz.Content = (neuIProfil.WiederstandsMoment_Wz() / 1000).ToString("0.###");
 
                     }
 
                     if (cbx_Wy.Text == "m³")
                     {
-                        lbl_Wz.Content = neuIProfil.WiederstandsMoment_Wz() / 1000000;
+                        lbl_Wz.Content = (neuIProfil.WiederstandsMoment_Wz() / 1000000).ToString("0.###");
 
                     }
 
@@ -2018,13 +2005,13 @@ namespace WpfHSPB1
                     if (cbx_Ix.Text == "mm^4")
 
                     {
-                        lbl_Iy.Content = neuIProfil.FTM_Iy() * 1;
+                        lbl_Iy.Content = (neuIProfil.FTM_Iy() * 1).ToString("0.###");
 
                     }
 
                     if (cbx_Ix.Text == "cm^4")
                     {
-                        lbl_Iy.Content = neuIProfil.FTM_Iy() / 10000;
+                        lbl_Iy.Content = (neuIProfil.FTM_Iy() / 10000).ToString("0.###");
 
                     }
 
@@ -2035,13 +2022,13 @@ namespace WpfHSPB1
                     if (cbx_Iy.Text == "mm^4")
 
                     {
-                        Lbl_Iz.Content = neuIProfil.FTM_Iz() * 1;
+                        Lbl_Iz.Content = (neuIProfil.FTM_Iz() * 1).ToString("0.###");
 
                     }
 
                     if (cbx_Iy.Text == "cm^4")
                     {
-                        Lbl_Iz.Content = neuIProfil.FTM_Iz() / 10000;
+                        Lbl_Iz.Content = (neuIProfil.FTM_Iz() / 10000).ToString("0.###");
 
                     }
 
@@ -2053,13 +2040,13 @@ namespace WpfHSPB1
                     if (cbx_Polar.Text == "mm^4")
 
                     {
-                        lbl_Polar.Content = neuIProfil.FTM_Polar() * 1;
+                        lbl_Polar.Content =( neuIProfil.FTM_Polar() * 1).ToString("0.###");
 
                     }
 
                     if (cbx_Polar.Text == "cm^4")
                     {
-                        lbl_Polar.Content = neuIProfil.FTM_Polar() / 10000;
+                        lbl_Polar.Content = (neuIProfil.FTM_Polar() / 10000).ToString("0.###");
 
                     }
 
@@ -2082,6 +2069,11 @@ namespace WpfHSPB1
                     }
 
                     grd_Ergebnisse.Visibility = Visibility.Visible;
+
+                //Schwerpunkt
+                lbl_GX.Content = neuIProfil.B1 / 2;
+                lbl_Gy.Content = neuIProfil.H1 / 2;
+                lbl_Gz.Content = neuIProfil.Länge / 2;
 
                 lbl_Gewicht.Content = gewicht.ToString("0.###");
                 lbl_Preis.Content = preis.ToString("0.###");
@@ -2127,15 +2119,7 @@ namespace WpfHSPB1
                 double gewicht = 0;
                 double preis = 0;
 
-                ///Ausgabe der berechneten Werte für das Profil
-                
-                lbl_qfläche.Content = neuLProfil.QFläche().ToString("0.###");
-                lbl_volumen.Content = neuLProfil.Volumen().ToString("0.###");
-                lbl_Wy.Content = neuLProfil.WiederstandsMoment_Wy().ToString("0.###");
-                lbl_Wz.Content = neuLProfil.WiederstandsMoment_Wz().ToString("0.###");
-                lbl_Iy.Content = neuLProfil.FTM_Iy().ToString("0.###");
-                Lbl_Iz.Content = neuLProfil.FTM_Iz().ToString("0.###");
-                lbl_Polar.Content = neuLProfil.FTM_Polar().ToString("0.###");
+               
 
 
                 {
@@ -2145,19 +2129,19 @@ namespace WpfHSPB1
                     if (cbx_Qfläche.Text == "mm²")
 
                     {
-                        lbl_qfläche.Content = neuLProfil.QFläche() * 1;
+                        lbl_qfläche.Content =( neuLProfil.QFläche() * 1).ToString("0.###");
 
                     }
 
                     if (cbx_Qfläche.Text == "cm²")
                     {
-                        lbl_qfläche.Content = neuLProfil.QFläche() / 100;
+                        lbl_qfläche.Content =( neuLProfil.QFläche() / 100).ToString("0.###");
 
                     }
 
                     if (cbx_Qfläche.Text == "m²")
                     {
-                        lbl_qfläche.Content = neuLProfil.QFläche() / 10000;
+                        lbl_qfläche.Content = (neuLProfil.QFläche() / 10000).ToString("0.###");
 
                     }
 
@@ -2165,19 +2149,19 @@ namespace WpfHSPB1
                     if (cbx_Volumen.Text == "mm³")
 
                     {
-                        lbl_volumen.Content = neuLProfil.Volumen() * 1;
+                        lbl_volumen.Content = (neuLProfil.Volumen() * 1).ToString("0.###");
 
                     }
 
                     if (cbx_Volumen.Text == "cm³")
                     {
-                        lbl_volumen.Content = neuLProfil.Volumen() / 1000;
+                        lbl_volumen.Content = (neuLProfil.Volumen() / 1000).ToString("0.###");
 
                     }
 
                     if (cbx_Volumen.Text == "m³")
                     {
-                        lbl_volumen.Content = neuLProfil.Volumen() / 1000000;
+                        lbl_volumen.Content = (neuLProfil.Volumen() / 1000000).ToString("0.###");
 
                     }
 
@@ -2185,19 +2169,19 @@ namespace WpfHSPB1
                     if (cbx_Wx.Text == "mm³")
 
                     {
-                        lbl_Wy.Content = neuLProfil.WiederstandsMoment_Wy() * 1;
+                        lbl_Wy.Content = (neuLProfil.WiederstandsMoment_Wy() * 1).ToString("0.###");
 
                     }
 
                     if (cbx_Wx.Text == "cm³")
                     {
-                        lbl_Wy.Content = neuLProfil.WiederstandsMoment_Wy() / 1000;
+                        lbl_Wy.Content = (neuLProfil.WiederstandsMoment_Wy() / 1000).ToString("0.###");
 
                     }
 
                     if (cbx_Wx.Text == "m³")
                     {
-                        lbl_Wy.Content = neuLProfil.WiederstandsMoment_Wy() / 1000000;
+                        lbl_Wy.Content = (neuLProfil.WiederstandsMoment_Wy() / 1000000).ToString("0.###");
 
                     }
 
@@ -2206,19 +2190,19 @@ namespace WpfHSPB1
                     if (cbx_Wy.Text == "mm³")
 
                     {
-                        lbl_Wz.Content = neuLProfil.WiederstandsMoment_Wz() * 1;
+                        lbl_Wz.Content = (neuLProfil.WiederstandsMoment_Wz() * 1).ToString("0.###");
 
                     }
 
                     if (cbx_Wy.Text == "cm³")
                     {
-                        lbl_Wz.Content = neuLProfil.WiederstandsMoment_Wz() / 1000;
+                        lbl_Wz.Content = (neuLProfil.WiederstandsMoment_Wz() / 1000).ToString("0.###");
 
                     }
 
                     if (cbx_Wy.Text == "m³")
                     {
-                        lbl_Wz.Content = neuLProfil.WiederstandsMoment_Wz() / 1000000;
+                        lbl_Wz.Content = (neuLProfil.WiederstandsMoment_Wz() / 1000000).ToString("0.###");
 
                     }
 
@@ -2227,13 +2211,13 @@ namespace WpfHSPB1
                     if (cbx_Ix.Text == "mm^4")
 
                     {
-                        lbl_Iy.Content = neuLProfil.FTM_Iy() * 1;
+                        lbl_Iy.Content = (neuLProfil.FTM_Iy() * 1).ToString("0.###");
 
                     }
 
                     if (cbx_Ix.Text == "cm^4")
                     {
-                        lbl_Iy.Content = neuLProfil.FTM_Iy() / 10000;
+                        lbl_Iy.Content = (neuLProfil.FTM_Iy() / 10000).ToString("0.###");
 
                     }
 
@@ -2242,13 +2226,13 @@ namespace WpfHSPB1
                     if (cbx_Iy.Text == "mm^4")
 
                     {
-                        Lbl_Iz.Content = neuLProfil.FTM_Iz() * 1;
+                        Lbl_Iz.Content = (neuLProfil.FTM_Iz() * 1).ToString("0.###");
 
                     }
 
                     if (cbx_Iy.Text == "cm^4")
                     {
-                        Lbl_Iz.Content = neuLProfil.FTM_Iz() / 10000;
+                        Lbl_Iz.Content = (neuLProfil.FTM_Iz() / 10000).ToString("0.###");
 
                     }
 
@@ -2257,13 +2241,13 @@ namespace WpfHSPB1
                     if (cbx_Polar.Text == "mm^4")
 
                     {
-                        lbl_Polar.Content = neuLProfil.FTM_Polar() * 1;
+                        lbl_Polar.Content = (neuLProfil.FTM_Polar() * 1).ToString("0.###");
 
                     }
 
                     if (cbx_Polar.Text == "cm^4")
                     {
-                        lbl_Polar.Content = neuLProfil.FTM_Polar() / 10000;
+                        lbl_Polar.Content = (neuLProfil.FTM_Polar() / 10000).ToString("0.###");
 
                     }
 
@@ -2286,6 +2270,11 @@ namespace WpfHSPB1
                     }
 
                     grd_Ergebnisse.Visibility = Visibility.Visible;
+
+                //Schwerpunkt
+                lbl_GX.Content = ((neuLProfil.B2 / 2 * neuLProfil.H1 * neuLProfil.B2) + (((neuLProfil.B1 - neuLProfil.B2) / 2 + neuLProfil.B2) * neuLProfil.H2 * (neuLProfil.B1 - neuLProfil.B2))) / ((neuLProfil.H1 * neuLProfil.B2) + (neuLProfil.H2 * (neuLProfil.B1 - neuLProfil.B2)));
+                lbl_Gy.Content = ((neuLProfil.H1 * neuLProfil.H1 * neuLProfil.B2 / 2) + (neuLProfil.H2 * (neuLProfil.B1 - neuLProfil.B2) * neuLProfil.H2 / 2)) / ((neuLProfil.H1 * neuLProfil.B2) + (neuLProfil.H2 * (neuLProfil.B1 - neuLProfil.B2)));
+                lbl_Gz.Content = neuLProfil.Länge / 2;
 
                 lbl_Gewicht.Content = gewicht.ToString("0.###");
                 lbl_Preis.Content = preis.ToString("0.###");
