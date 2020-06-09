@@ -131,7 +131,7 @@ namespace Profile_Muster
                 {
                    wandstärke = value;
                 }
-                if(value>=durchmesser)
+                if(value>=durchmesser/2)
                 {
                     MessageBox.Show("Die Wandstärke kann nicht genauso groß oder größer sein wie der Durchmesser", "Eingabefehler" , MessageBoxButton.OK , MessageBoxImage.Error) ;
                     
@@ -153,23 +153,23 @@ namespace Profile_Muster
         }
         public double WiederstandsMoment_Wy()
         {
-            double Wy = Math.PI * (durchmesser * durchmesser * durchmesser * durchmesser - (durchmesser - 2 * wandstärke) * (durchmesser - 2 * wandstärke) * (durchmesser - 2 * wandstärke) * (durchmesser - 2 * wandstärke) * (durchmesser - 2 * wandstärke)) / (32 * durchmesser);
+            double Wy = Math.PI * (durchmesser * durchmesser * durchmesser * durchmesser - (durchmesser - 2 * wandstärke) * (durchmesser - 2 * wandstärke) * (durchmesser - 2 * wandstärke) * (durchmesser - 2 * wandstärke)) / (32 * durchmesser);
             return Wy;
         }
         public double WiederstandsMoment_Wz()
         {
-            double Wz = Math.PI * (durchmesser * durchmesser * durchmesser * durchmesser - (durchmesser - 2 * wandstärke) * (durchmesser - 2 * wandstärke) * (durchmesser - 2 * wandstärke) * (durchmesser - 2 * wandstärke) * (durchmesser - 2 * wandstärke)) / (32 * durchmesser);
+            double Wz = Math.PI * (durchmesser * durchmesser * durchmesser * durchmesser - (durchmesser - 2 * wandstärke) * (durchmesser - 2 * wandstärke) * (durchmesser - 2 * wandstärke) * (durchmesser - 2 * wandstärke)) / (32 * durchmesser);
             return Wz;
         }
         public double FTM_Iy()
 
         {
-            double Iy = Math.PI * (durchmesser * durchmesser * durchmesser * durchmesser - (durchmesser - 2 * wandstärke) * (durchmesser - 2 * wandstärke) * (durchmesser - 2 * wandstärke) * (durchmesser - 2 * wandstärke) * (durchmesser - 2 * wandstärke)) / 64;
+            double Iy = Math.PI * (durchmesser * durchmesser * durchmesser * durchmesser -  (durchmesser - 2 * wandstärke) * (durchmesser - 2 * wandstärke) * (durchmesser - 2 * wandstärke) * (durchmesser - 2 * wandstärke)) / 64;
             return Iy;
         }
         public double FTM_Iz()
         {
-            double Iz = Math.PI * (durchmesser * durchmesser * durchmesser * durchmesser - (durchmesser - 2 * wandstärke) * (durchmesser - 2 * wandstärke) * (durchmesser - 2 * wandstärke) * (durchmesser - 2 * wandstärke) * (durchmesser - 2 * wandstärke)) / 64;
+            double Iz = Math.PI * (durchmesser * durchmesser * durchmesser * durchmesser -  (durchmesser - 2 * wandstärke) * (durchmesser - 2 * wandstärke) * (durchmesser - 2 * wandstärke) * (durchmesser - 2 * wandstärke)) / 64;
             return Iz;
         }
         public double FTM_Polar()

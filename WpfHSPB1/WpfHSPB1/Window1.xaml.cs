@@ -909,6 +909,7 @@ namespace WpfHSPB1
         private void btn_RuVo_berechnung_Click(object sender, RoutedEventArgs e)
         {       //Erzeugen eines Objektes vom Typ RunVollProfil
                 RundVollProfil neuRundVoll = new RundVollProfil();
+            CatiaAPIConection Neu = new CatiaAPIConection();
 
             try
             {
@@ -1081,6 +1082,20 @@ namespace WpfHSPB1
 
                 ///Ausgabe der berechneten Werte für das Profil Vollmaterial Rund
 
+                //Neu.StartCatia();
+
+                if (Neu.CatiaLaeuft())
+                {
+                    Neu.CatiaLaeuft();
+                    Neu.ErzeugePart();
+                    Neu.ErzeugeSkizze();
+                    Neu.ErzeugeProfilRundVoll(neuRundVoll);
+                    Neu.ErzeugeExtrusionRundVoll(neuRundVoll);
+                }
+                else
+                {
+                    MessageBox.Show("Laufende Catia Application nicht gefunden");
+                }
 
 
             }
@@ -1094,20 +1109,20 @@ namespace WpfHSPB1
             RundHohlProfil neuRundHohl = new RundHohlProfil();
             CatiaAPIConection neu = new CatiaAPIConection();
 
-                
+
             try
             {
 
                 neuRundHohl.Durchmesser = Convert.ToDouble(TxtBox_Rohr_Durchmesser.Text);
                 neuRundHohl.Wandstärke = Convert.ToDouble(TxtBox_Rohr_Wandstärke.Text);
                 neuRundHohl.Länge = Convert.ToDouble(TxtBox_Rohr_Länge.Text);
+           
 
-     
 
-                double gewicht = 0;
+            double gewicht = 0;
                 double preis = 0;
 
-               
+
 
                 {
 
@@ -1243,21 +1258,21 @@ namespace WpfHSPB1
 
                     //Hier Enden Die Comboboxen!
                 }// Combboxen Ergebnisfenster
-                    ///Auswahl Stahl
-                    if (cb_Material_RuHo.Text == "Stahl")
-                    {///Berechnung
-                        gewicht = neuRundHohl.Volumen() * 0.00000785;
-                        preis = gewicht * 1.5;
-                    }
-                    /// Auswahl Aluminim
-                    if (cb_Material_RuHo.Text == "Aluminium")
-                    {///Berechnung
-                        gewicht = neuRundHohl.Volumen() * 0.0000027;
-                        preis = gewicht * 2.5;
-                    }
+                ///Auswahl Stahl
+                if (cb_Material_RuHo.Text == "Stahl")
+                {///Berechnung
+                    gewicht = neuRundHohl.Volumen() * 0.00000785;
+                    preis = gewicht * 1.5;
+                }
+                /// Auswahl Aluminim
+                if (cb_Material_RuHo.Text == "Aluminium")
+                {///Berechnung
+                    gewicht = neuRundHohl.Volumen() * 0.0000027;
+                    preis = gewicht * 2.5;
+                }
 
 
-                    grd_Ergebnisse.Visibility = Visibility.Visible;
+                grd_Ergebnisse.Visibility = Visibility.Visible;
 
                 //Schwerpunkt
                 lbl_GX.Content = neuRundHohl.Durchmesser / 2;
@@ -1267,22 +1282,37 @@ namespace WpfHSPB1
                 lbl_Gewicht.Content = gewicht.ToString("0.###");
                 lbl_Preis.Content = preis.ToString("0.###");
 
+            //Neu.StartCatia();
+
+            if (neu.CatiaLaeuft())
+            {
                 neu.CatiaLaeuft();
                 neu.ErzeugePart();
                 neu.ErzeugeSkizze();
                 neu.ErzeugeProfilRundHohlProfil(neuRundHohl);
                 neu.ErzeugeExtrusionRundHohlProfil(neuRundHohl);
-                
+            }
+            else
+            {
+                MessageBox.Show("Laufende Catia Application nicht gefunden");
+            }
 
             }
 
             catch
-            { MessageBox.Show("Ihre Eingabe war Fehlerhaft! Bitte verwenden Sie nur Zahlen!", "Eingabefehler!", MessageBoxButton.OK, MessageBoxImage.Error); }
+            {
+                MessageBox.Show("Ihre Eingabe war Fehlerhaft! Bitte verwenden Sie nur Zahlen!", "Eingabefehler!", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+
+
+
+
         }
         private void btn_HaRu_berechnung_Click(object sender, RoutedEventArgs e)
         {   
             //Erzeugun eines Objektes der klasse HalbRundProfil
             HalbrundProfil neuHalbRund = new HalbrundProfil();
+            CatiaAPIConection Neu = new CatiaAPIConection();
 
             try
             {
@@ -1462,13 +1492,29 @@ namespace WpfHSPB1
                 lbl_Gewicht.Content = gewicht.ToString("0.###");
                 lbl_Preis.Content = preis.ToString("0.###");
 
+                //Neu.StartCatia();
+
+                if (Neu.CatiaLaeuft())
+                {
+                    Neu.CatiaLaeuft();
+                    Neu.ErzeugePart();
+                    Neu.ErzeugeSkizze();
+                    Neu.ErzeugeProfilHalbRund(neuHalbRund);
+                    Neu.ErzeugeExtrusionHalbRund(neuHalbRund);
+                }
+                else
+                {
+                    MessageBox.Show("Laufende Catia Application nicht gefunden");
+                }
 
 
 
             }
 
             catch
-            { MessageBox.Show("Ihre Eingabe war Fehlerhaft! Bitte verwenden Sie nur Zahlen!", "Eingabefehler!", MessageBoxButton.OK, MessageBoxImage.Error); }
+            { MessageBox.Show("Ihre Eingabe war Fehlerhaft! Bitte verwenden Sie nur Zahlen!", "Eingabefehler!", MessageBoxButton.OK, MessageBoxImage.Error);
+            
+            }
 
         }
 

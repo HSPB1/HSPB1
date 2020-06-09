@@ -270,6 +270,86 @@ namespace WpfHSPB1
         }
         //Ende RechteckVoll
 
+        //RundVoll
+        //Erzeugen der Geometrie RundVoll
+        internal void ErzeugeProfilRundVoll(RundVollProfil neuRundVoll)
+        {
+            hspB1_catia_Profil.set_Name("Rund_Voll");
+            Factory2D factory2D = hspB1_catia_Profil.OpenEdition();
+
+            //Kreis Erzeugen
+            Circle2D circle2D1 = factory2D.CreateClosedCircle(0.000000, 0.000000, neuRundVoll.Durchmesser / 2);
+
+
+            // Skizzierer verlassen
+            hspB1_catia_Profil.CloseEdition();
+
+
+            // Part aktualisieren
+            hspB1_catiaPart.Part.Update();
+        }
+        // Extrudieren RundVoll
+        internal void ErzeugeExtrusionRundVoll(RundVollProfil neuRundVoll)
+        {
+            hspB1_catiaPart.Part.InWorkObject = hspB1_catiaPart.Part.MainBody;
+
+
+            // Extrusion erzeugen
+            ShapeFactory catShapeFactory1 = (ShapeFactory)hspB1_catiaPart.Part.ShapeFactory;
+            Pad catPad1 = catShapeFactory1.AddNewPad(hspB1_catia_Profil, neuRundVoll.Länge);
+
+            // Block umbenennen
+            catPad1.set_Name("Profil Rund voll");
+
+            // Part aktualisieren
+            hspB1_catiaPart.Part.Update();
+        }
+        //Ende RundVoll
+
+
+        //Halbrund
+        //Erzeugen der Geometrie Halbrund
+        internal void ErzeugeProfilHalbRund(HalbrundProfil neuHalbRund)
+        {
+            hspB1_catia_Profil.set_Name("Halbrund");
+            Factory2D factory2D = hspB1_catia_Profil.OpenEdition();
+
+            //Setzen der Punkte
+            Point2D catPoint2D1 = factory2D.CreatePoint(-neuHalbRund.Radius, 0);
+            Point2D catPoint2D2 = factory2D.CreatePoint(neuHalbRund.Radius, 0);
+
+            //Kreis Erzeugen
+            Circle2D circle2D1 = factory2D.CreateClosedCircle(0.000000, 0.000000, neuHalbRund.Radius);
+            circle2D1.StartPoint = catPoint2D2;
+            circle2D1.EndPoint = catPoint2D1;
+
+            //Linie Ziehen
+            Line2D line2D1 = factory2D.CreateLine(-(neuHalbRund.Radius), 0.000000, neuHalbRund.Radius, 0.000000);
+
+            // Skizzierer verlassen
+            hspB1_catia_Profil.CloseEdition();
+
+
+            // Part aktualisieren
+            hspB1_catiaPart.Part.Update();
+        }
+        // Extrudieren RundVoll
+        internal void ErzeugeExtrusionHalbRund(HalbrundProfil neuHalbRund)
+        {
+            hspB1_catiaPart.Part.InWorkObject = hspB1_catiaPart.Part.MainBody;
+
+
+            // Extrusion erzeugen
+            ShapeFactory catShapeFactory1 = (ShapeFactory)hspB1_catiaPart.Part.ShapeFactory;
+            Pad catPad1 = catShapeFactory1.AddNewPad(hspB1_catia_Profil, neuHalbRund.Länge);
+
+            // Block umbenennen
+            catPad1.set_Name("Profil HalbRund");
+
+            // Part aktualisieren
+            hspB1_catiaPart.Part.Update();
+        }
+        //Ende RundVoll
 
         //Sechseck 
         //Erzeugen der Geometrie Sechseck
