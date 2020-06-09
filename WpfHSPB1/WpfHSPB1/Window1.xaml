@@ -282,16 +282,16 @@
                         </StackPanel>
 
                         <!-- Anzeige Button Programm Schließen-->
-                        <StackPanel Grid.Row="4" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center">
-
+                        <StackPanel Orientation="Horizontal" Grid.Row="4" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            <Button x:Name="Schwerpunkt" Content="Schwerpunkt" Click="btn_Schwerpunkt"  />
                             <Button x:Name="Schließen" Click="Schließen_Click">Programm schließen</Button>
 
                         </StackPanel>
 
                     </Grid>
-                    <Label x:Name="lbl_GX" Content="Gx" Grid.Column="1" HorizontalAlignment="Left" Margin="319,110,0,0" Grid.Row="1" VerticalAlignment="Top"/>
-                    <Label x:Name="lbl_Gy" Content="Gy" Grid.Column="1" HorizontalAlignment="Left" Margin="319,131,0,0" Grid.Row="1" VerticalAlignment="Top"/>
-                    <Label x:Name="lbl_Gz" Content="Gz" Grid.Column="1" HorizontalAlignment="Left" Margin="286,139,0,0" Grid.Row="1" VerticalAlignment="Top"/>
+                    <Label x:Name="lbl_GX" Content="Gx" Grid.Column="1" HorizontalAlignment="Left" Margin="319,110,0,0" Grid.Row="1" VerticalAlignment="Top" Visibility="Hidden"/>
+                    <Label x:Name="lbl_Gy" Content="Gy" Grid.Column="1" HorizontalAlignment="Left" Margin="319,131,0,0" Grid.Row="1" VerticalAlignment="Top" Visibility="Hidden"/>
+                    <Label x:Name="lbl_Gz" Content="Gz" Grid.Column="1" HorizontalAlignment="Left" Margin="286,139,0,0" Grid.Row="1" VerticalAlignment="Top" Visibility="Hidden"/>
 
 
 

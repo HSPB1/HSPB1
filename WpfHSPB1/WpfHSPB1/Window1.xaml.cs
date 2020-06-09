@@ -475,9 +475,9 @@ namespace WpfHSPB1
                 grd_Ergebnisse.Visibility = Visibility.Visible;
 
                 //Schwerpunkt
-                lbl_GX.Content = rechteckVoll.Breite / 2;
-                lbl_Gy.Content = rechteckVoll.Höhe / 2;
-                lbl_Gz.Content = rechteckVoll.Länge / 2;
+                lbl_GX.Content = (rechteckVoll.Breite / 2).ToString("0.###");
+                lbl_Gy.Content = (rechteckVoll.Höhe / 2).ToString("0.###");
+                lbl_Gz.Content = (rechteckVoll.Länge / 2).ToString("0.###");
 
                 
 
@@ -680,9 +680,9 @@ namespace WpfHSPB1
 
 
                 //Schwerpunkt
-                lbl_GX.Content = rechteckHohl.Breite / 2;
-                lbl_Gy.Content = rechteckHohl.Höhe / 2;
-                lbl_Gz.Content = rechteckHohl.Länge / 2;
+                lbl_GX.Content = (rechteckHohl.Breite / 2).ToString("0.###");
+                lbl_Gy.Content = (rechteckHohl.Höhe / 2).ToString("0.###");
+                lbl_Gz.Content = (rechteckHohl.Länge / 2).ToString("0.###");
 
                 lbl_Gewicht.Content = gewicht.ToString("0.###");
                 lbl_Preis.Content = preis.ToString("0.###");
@@ -875,9 +875,9 @@ namespace WpfHSPB1
                     grd_Ergebnisse.Visibility = Visibility.Visible;
 
                 //Schwerpunkt
-                lbl_GX.Content = neuSechseckVoll.Radius;
-                lbl_Gy.Content = neuSechseckVoll.Radius * 0.8667;
-                lbl_Gz.Content = neuSechseckVoll.Länge / 2;
+                lbl_GX.Content = (neuSechseckVoll.Radius).ToString("0.###");
+                lbl_Gy.Content = (neuSechseckVoll.Radius * 0.8667).ToString("0.###");
+                lbl_Gz.Content = (neuSechseckVoll.Länge / 2).ToString("0.###");
 
                 lbl_Gewicht.Content = gewicht.ToString("0.###");
                 lbl_Preis.Content = preis.ToString("0.###");
@@ -1073,9 +1073,9 @@ namespace WpfHSPB1
                     grd_Ergebnisse.Visibility = Visibility.Visible;
 
                 //Schwerpunkt
-                lbl_GX.Content = neuRundVoll.Durchmesser / 2;
-                lbl_Gy.Content = neuRundVoll.Durchmesser / 2;
-                lbl_Gz.Content = neuRundVoll.Länge / 2;
+                lbl_GX.Content = (neuRundVoll.Durchmesser / 2).ToString("0.###");
+                lbl_Gy.Content = (neuRundVoll.Durchmesser / 2).ToString("0.###");
+                lbl_Gz.Content = (neuRundVoll.Länge / 2).ToString("0.###");
 
                 lbl_Gewicht.Content = gewicht.ToString("0.###");
                 lbl_Preis.Content = preis.ToString("0.###");
@@ -1275,9 +1275,9 @@ namespace WpfHSPB1
                 grd_Ergebnisse.Visibility = Visibility.Visible;
 
                 //Schwerpunkt
-                lbl_GX.Content = neuRundHohl.Durchmesser / 2;
-                lbl_Gy.Content = neuRundHohl.Durchmesser / 2;
-                lbl_Gz.Content = neuRundHohl.Länge / 2;
+                lbl_GX.Content = (neuRundHohl.Durchmesser / 2).ToString("0.###");
+                lbl_Gy.Content = (neuRundHohl.Durchmesser / 2).ToString("0.###");
+                lbl_Gz.Content = (neuRundHohl.Länge / 2).ToString("0.###");
 
                 lbl_Gewicht.Content = gewicht.ToString("0.###");
                 lbl_Preis.Content = preis.ToString("0.###");
@@ -1485,9 +1485,9 @@ namespace WpfHSPB1
                     grd_Ergebnisse.Visibility = Visibility.Visible;
 
                 //Schwerpunkt
-                lbl_GX.Content = neuHalbRund.Radius;
-                lbl_Gy.Content = (4 * neuHalbRund.Radius) / (3 * Math.PI);
-                lbl_Gz.Content = neuHalbRund.Länge / 2;
+                lbl_GX.Content = (neuHalbRund.Radius).ToString("0.###");
+                lbl_Gy.Content = ((4 * neuHalbRund.Radius) / (3 * Math.PI)).ToString("0.###");
+                lbl_Gz.Content = (neuHalbRund.Länge / 2).ToString("0.###");
 
                 lbl_Gewicht.Content = gewicht.ToString("0.###");
                 lbl_Preis.Content = preis.ToString("0.###");
@@ -1698,9 +1698,9 @@ namespace WpfHSPB1
                     grd_Ergebnisse.Visibility = Visibility.Visible;
 
                 //Schwerpunkt
-                lbl_GX.Content = neuTProfil.B1 / 2;
-                lbl_Gy.Content = ((((neuTProfil.H1 - neuTProfil.H2) / 2) * neuTProfil.H1 * neuTProfil.B2) + ((neuTProfil.H1 - (neuTProfil.H2 / 2)) * neuTProfil.B1 * neuTProfil.H2)) / ((neuTProfil.H1 * neuTProfil.B2) + (neuTProfil.B1 * neuTProfil.H2));
-                lbl_Gz.Content = neuTProfil.Länge / 2;
+                lbl_GX.Content = (neuTProfil.B1 / 2).ToString("0.###");
+                lbl_Gy.Content = (((((neuTProfil.H1 - neuTProfil.H2) / 2) * neuTProfil.H1 * neuTProfil.B2) + ((neuTProfil.H1 - (neuTProfil.H2 / 2)) * neuTProfil.B1 * neuTProfil.H2)) / ((neuTProfil.H1 * neuTProfil.B2) + (neuTProfil.B1 * neuTProfil.H2))).ToString("0.###");
+                lbl_Gz.Content = (neuTProfil.Länge / 2).ToString("0.###");
 
 
                 lbl_Gewicht.Content = gewicht.ToString("0.###");
@@ -1907,9 +1907,9 @@ namespace WpfHSPB1
                     grd_Ergebnisse.Visibility = Visibility.Visible;
 
                 //Schwerpunkt
-                lbl_GX.Content = (((neuUProfil.H1 - (neuUProfil.H2 / 2)) * neuUProfil.H2 * neuUProfil.B1) + ((neuUProfil.H1 / 2) * (neuUProfil.H1 - 2 * neuUProfil.H2) * neuUProfil.B2) + (neuUProfil.H2 * neuUProfil.H2 * neuUProfil.B1 / 2)) / ((neuUProfil.B1 * neuUProfil.H2) + ((neuUProfil.H1 - 2 * neuUProfil.H2) * neuUProfil.B1) + (neuUProfil.H2 * neuUProfil.B1));
-                lbl_Gy.Content = neuUProfil.H1 / 2;
-                lbl_Gz.Content = neuUProfil.Länge / 2;
+                lbl_GX.Content = ((((neuUProfil.H1 - (neuUProfil.H2 / 2)) * neuUProfil.H2 * neuUProfil.B1) + ((neuUProfil.H1 / 2) * (neuUProfil.H1 - 2 * neuUProfil.H2) * neuUProfil.B2) + (neuUProfil.H2 * neuUProfil.H2 * neuUProfil.B1 / 2)) / ((neuUProfil.B1 * neuUProfil.H2) + ((neuUProfil.H1 - 2 * neuUProfil.H2) * neuUProfil.B1) + (neuUProfil.H2 * neuUProfil.B1))).ToString("0.###");
+                lbl_Gy.Content = (neuUProfil.H1 / 2).ToString("0.###");
+                lbl_Gz.Content = (neuUProfil.Länge / 2).ToString("0.###");
 
 
                 lbl_Gewicht.Content = gewicht.ToString("0.###");
@@ -2117,9 +2117,9 @@ namespace WpfHSPB1
                     grd_Ergebnisse.Visibility = Visibility.Visible;
 
                 //Schwerpunkt
-                lbl_GX.Content = neuIProfil.B1 / 2;
-                lbl_Gy.Content = neuIProfil.H1 / 2;
-                lbl_Gz.Content = neuIProfil.Länge / 2;
+                lbl_GX.Content = (neuIProfil.B1 / 2).ToString("0.###");
+                lbl_Gy.Content = (neuIProfil.H1 / 2).ToString("0.###");
+                lbl_Gz.Content = (neuIProfil.Länge / 2).ToString("0.###");
 
                 lbl_Gewicht.Content = gewicht.ToString("0.###");
                 lbl_Preis.Content = preis.ToString("0.###");
@@ -2318,9 +2318,9 @@ namespace WpfHSPB1
                     grd_Ergebnisse.Visibility = Visibility.Visible;
 
                 //Schwerpunkt
-                lbl_GX.Content = ((neuLProfil.B2 / 2 * neuLProfil.H1 * neuLProfil.B2) + (((neuLProfil.B1 - neuLProfil.B2) / 2 + neuLProfil.B2) * neuLProfil.H2 * (neuLProfil.B1 - neuLProfil.B2))) / ((neuLProfil.H1 * neuLProfil.B2) + (neuLProfil.H2 * (neuLProfil.B1 - neuLProfil.B2)));
-                lbl_Gy.Content = ((neuLProfil.H1 * neuLProfil.H1 * neuLProfil.B2 / 2) + (neuLProfil.H2 * (neuLProfil.B1 - neuLProfil.B2) * neuLProfil.H2 / 2)) / ((neuLProfil.H1 * neuLProfil.B2) + (neuLProfil.H2 * (neuLProfil.B1 - neuLProfil.B2)));
-                lbl_Gz.Content = neuLProfil.Länge / 2;
+                lbl_GX.Content = (((neuLProfil.B2 / 2 * neuLProfil.H1 * neuLProfil.B2) + (((neuLProfil.B1 - neuLProfil.B2) / 2 + neuLProfil.B2) * neuLProfil.H2 * (neuLProfil.B1 - neuLProfil.B2))) / ((neuLProfil.H1 * neuLProfil.B2) + (neuLProfil.H2 * (neuLProfil.B1 - neuLProfil.B2)))).ToString("0.###");
+                lbl_Gy.Content = (((neuLProfil.H1 * neuLProfil.H1 * neuLProfil.B2 / 2) + (neuLProfil.H2 * (neuLProfil.B1 - neuLProfil.B2) * neuLProfil.H2 / 2)) / ((neuLProfil.H1 * neuLProfil.B2) + (neuLProfil.H2 * (neuLProfil.B1 - neuLProfil.B2)))).ToString("0.###");
+                lbl_Gz.Content = (neuLProfil.Länge / 2).ToString("0.###");
 
                 lbl_Gewicht.Content = gewicht.ToString("0.###");
                 lbl_Preis.Content = preis.ToString("0.###");
@@ -2357,6 +2357,11 @@ namespace WpfHSPB1
         private void cb_Material_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             
+        }
+
+        private void btn_Schwerpunkt(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Gx= " + lbl_GX.Content + Environment.NewLine + "Gy= " + lbl_Gy.Content + Environment.NewLine + "Gz= " + lbl_Gz.Content);
         }
     }
     
