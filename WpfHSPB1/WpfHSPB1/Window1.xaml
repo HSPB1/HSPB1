@@ -146,7 +146,7 @@
             
 
             <!-- Rand für Ergebnis Ausgabe -->
-            <Border x:Name="grd_Ergebnisse" Grid.Row="1" BorderBrush="White" BorderThickness="2" CornerRadius="10" Margin="10" Visibility="Visible">
+            <Border x:Name="grd_Ergebnisse" Grid.Row="1" BorderBrush="White" BorderThickness="2" CornerRadius="10" Margin="10" Visibility="Hidden">
 
                 <!-- Ergebniss Fenster Gitter -->
                 <Grid x:Name="grd_ErgebnisFenster" >
@@ -282,9 +282,10 @@
                         </StackPanel>
 
                         <!-- Anzeige Button Programm Schließen-->
-                        <StackPanel Orientation="Horizontal" Grid.Row="4" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <Button x:Name="Schwerpunkt" Content="Schwerpunkt" Click="btn_Schwerpunkt"  />
-                            <Button x:Name="Schließen" Click="Schließen_Click">Programm schließen</Button>
+                        <StackPanel Orientation="Horizontal" Grid.Row="4" Grid.Column="0"  VerticalAlignment="Center">
+                            
+                            <Button x:Name="Schließen" Margin=" 5 5 5 5" Click="Schließen_Click">Programm schließen</Button>
+                            <Button x:Name="Schwerpunkt" Margin="75 5 5 5" Content="Schwerpunkt" Click="btn_Schwerpunkt"  />
 
                         </StackPanel>
 
