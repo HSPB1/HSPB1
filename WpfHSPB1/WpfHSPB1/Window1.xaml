@@ -379,7 +379,7 @@
                     <!-- Rand Für das Bild-->
                     <Border Grid.Column="1" BorderBrush="White" BorderThickness="1" Margin="20" CornerRadius="10" Height="160" ToolTip="Quelle: Dubel Taschenbuch für Maschinenbauer">
 
-                        <Image Margin="5" Grid.Column="1"  Source="Rechteckprofil_Voll_bearbeitet.jpg"></Image>
+                        <Image Margin="5" Grid.Column="1"  Source="RechteckVoll.PNG"></Image>
                     </Border>
                     <!-- Ab hier endet das Bild-->
 
@@ -465,7 +465,7 @@
                     <!-- Rand Für das Bild-->
                     <Border Grid.Column="1" BorderBrush="White" BorderThickness="1" Margin="20" CornerRadius="10" Height="160" ToolTip="Quelle: Rolof Matek Maschinenelemente" >
 
-                        <Image Margin="5" Grid.Column="1"  Source="Rechteckprofil_Hohl.jpg"></Image>
+                        <Image Margin="5" Grid.Column="1"  Source="RechteckHohl.PNG"></Image>
                     </Border>
                     <!-- Ab hier endet das Bild-->
                     <Button x:Name="btn_ReHo_Berechnung" Margin="50,175,52.333,40" Width="80" Height="25" VerticalAlignment="Center" HorizontalAlignment="Center" Click="btn_ReHo_berechnung_Click">Berechnung</Button>
@@ -534,7 +534,7 @@
                     <!-- Rand Für das Bild-->
                     <Border Grid.Column="1" BorderBrush="White" BorderThickness="1" Margin="20" CornerRadius="10" Height="160" ToolTip="Quelle: Dubel Taschenbuch für Maschinenbauer" >
 
-                        <Image Margin="5" Grid.Column="1"  Source="Rundprofil_Voll.jpg"></Image>
+                        <Image Margin="5" Grid.Column="1"  Source="RundVoll.jpg"></Image>
                     </Border>
                     <!-- Ab hier endet das Bild-->
                     <Button x:Name="btn_RuVo_Berechnung" Margin="50,175,52.333,40" Width="80" Height="25" VerticalAlignment="Center" HorizontalAlignment="Center" Click="btn_RuVo_berechnung_Click">Berechnung</Button>
@@ -603,7 +603,7 @@
                     <!-- Rand Für das Bild-->
                     <Border Grid.Column="1" BorderBrush="White" BorderThickness="1" Margin="20" CornerRadius="10" Height="160" ToolTip="Quelle: Dubel Taschenbuch für Maschinenbauer">
 
-                        <Image Margin="5" Grid.Column="1"  Source="Eckig_Profil_Sechseck.jpg"></Image>
+                        <Image Margin="5" Grid.Column="1"  Source="Sechseck.png"></Image>
                     </Border>
                     <!-- Ab hier endet das Bild-->
                     <Button x:Name="btn_SeVo_Berechnung" Margin="90,175,52.333,40" Width="80" Height="25" VerticalAlignment="Center" HorizontalAlignment="Center" Click="btn_SeVo_berechnung_Click">Berechnung</Button>
@@ -701,7 +701,7 @@
                     <!-- Rand Für das Bild-->
                     <Border Grid.Column="1" BorderBrush="White" BorderThickness="1" Margin="20" CornerRadius="10" Height="160" ToolTip="Quelle: Rolof Matek Maschinenelemente">
 
-                        <Image Margin="5" Grid.Column="1"  Source="T-Profil_bearbeitet.jpg"></Image>
+                        <Image Margin="5" Grid.Column="1"  Source="TProfil.jpg"></Image>
                     </Border>
                     <!-- Ab hier endet das Bild-->
                     <Button x:Name="btn_TPro_Berechnung" Margin="50,175,52.333,40" Width="80" Height="25" VerticalAlignment="Center" HorizontalAlignment="Center" Click="btn_TPro_berechnung_Click">Berechnung</Button>
@@ -800,7 +800,7 @@
                     <!-- Rand Für das Bild-->
                     <Border Grid.Column="1" BorderBrush="White" BorderThickness="1" Margin="20" CornerRadius="10" Height="160" ToolTip="Quelle: Roloff Matek Maschinenelemente">
 
-                        <Image Margin="5" Grid.Column="1"  Source="U-Profil_bearbeitet.jpg"></Image>
+                        <Image Margin="5" Grid.Column="1"  Source="U-Profil.jpg"></Image>
                     </Border>
                     <!-- Ab hier endet das Bild-->
                     <Button x:Name="btn_UPro_Berechnung" Margin="50,175,52.333,40" Width="80" Height="25" VerticalAlignment="Center" HorizontalAlignment="Center" Click="btn_UPro_berechnung_Click">Berechnung</Button>
@@ -898,7 +898,7 @@
                     <!-- Rand Für das Bild-->
                     <Border Grid.Column="1" BorderBrush="White" BorderThickness="1" Margin="20" CornerRadius="10" Height="160" ToolTip="Quelle: Roloff Matek Maschinenelemente" >
 
-                        <Image Margin="5" Grid.Column="1"  Source="I-Profil_bearbeitet.jpg"></Image>
+                        <Image Margin="5" Grid.Column="1"  Source="I-Profil.jpg"></Image>
                     </Border>
                     <!-- Ab hier endet das Bild-->
                     <Button x:Name="btn_IPro_Berechnung" Margin="50,175,52.333,40" Width="80" Height="25" VerticalAlignment="Center" HorizontalAlignment="Center" Click="btn_IPro_berechnung_Click">Berechnung</Button>
@@ -968,7 +968,7 @@
                     <!-- Rand Für das Bild-->
                     <Border Grid.Column="1" BorderBrush="White" BorderThickness="1" Margin="20" CornerRadius="10" Height="160" ToolTip="Quelle: Dubel Taaschenbuch für Maschinenebauer">
 
-                        <Image Margin="5" Grid.Column="1"  Source="Rundprofil_HalbrundVoll_bearbeitet.jpg"></Image>
+                        <Image Margin="5" Grid.Column="1"  Source="Halbrund.jpg"></Image>
                     </Border>
                     <!-- Ab hier endet das Bild-->
                     <Button x:Name="btn_HaRu_Berechnung" Margin="80,175,52.333,40" Width="80" Height="25" VerticalAlignment="Center" HorizontalAlignment="Center" Click="btn_HaRu_berechnung_Click">Berechnung</Button>
@@ -1043,7 +1043,7 @@
                     <!-- Rand Für das Bild-->
                     <Border Grid.Column="1" BorderBrush="White" BorderThickness="1" Margin="20" CornerRadius="10" Height="160" ToolTip="Quelle: Roloff Matek Maschinenelemente">
 
-                        <Image Margin="5" Grid.Column="1"  Source="Rundprofil_Hohl.jpg"></Image>
+                        <Image Margin="5" Grid.Column="1"  Source="RundHohl.jpg"></Image>
                     </Border>
                     <!-- Ab hier endet das Bild-->
                     <Button x:Name="btn_Rohr_Berechnung" Margin="50,175,52.333,40" Width="80" Height="25" VerticalAlignment="Center" HorizontalAlignment="Center" Click="btn_Rohr_berechnung_Click">Berechnung</Button>
@@ -1133,7 +1133,7 @@
                     <!-- Rand Für das Bild-->
                     <Border Grid.Column="1" BorderBrush="White" BorderThickness="1" Margin="20" CornerRadius="10" Height="160" ToolTip="Quelle: Dubel Taschenbuch für Maschinenbauer">
 
-                        <Image Margin="5" Grid.Column="1"  Source="L-ProfilAchsen_bearbeitet.jpg"></Image>
+                        <Image Margin="5" Grid.Column="1"  Source="L-Profil.jpg"></Image>
                     </Border>
                     <!-- Ab hier endet das Bild-->
                     <Button x:Name="btn_LPro_Berechnung" Margin="50,175,52.333,40" Width="80" Height="25" VerticalAlignment="Center" HorizontalAlignment="Center" Click="btn_LPro_Berechnung_Click">Berechnung</Button>
