@@ -157,9 +157,6 @@
     <Resource Include="Rundprofil_Voll.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Eckig_Profil_Sechseck.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="T-Profil_bearbeitet.jpg" />
   </ItemGroup>
   <ItemGroup>
