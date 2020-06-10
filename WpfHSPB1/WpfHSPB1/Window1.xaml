@@ -146,7 +146,7 @@
             
 
             <!-- Rand für Ergebnis Ausgabe -->
-            <Border x:Name="grd_Ergebnisse" Grid.Row="1" BorderBrush="White" BorderThickness="2" CornerRadius="10" Margin="10" Visibility="Hidden">
+            <Border x:Name="grd_Ergebnisse" Grid.Row="1" BorderBrush="White" BorderThickness="2" CornerRadius="10" Margin="10" Visibility="Visible">
 
                 <!-- Ergebniss Fenster Gitter -->
                 <Grid x:Name="grd_ErgebnisFenster" >
@@ -185,7 +185,7 @@
                         <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
                             <Label  HorizontalAlignment="Left" Foreground="White" FontSize="14">Querschnittsfläche:</Label>
                             <Label x:Name="lbl_qfläche"  Foreground="White" FontSize="13" Margin="0 1 0 5" Width="80"></Label>
-                            <ComboBox HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="cbx_Qfläche" SelectedIndex="0" ToolTip="Hier können Sie Ihr Ergebnis nach Wunsch von der Einheit umrechnen">
+                            <ComboBox HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="cbx_Qfläche" SelectedIndex="0" ToolTip="Hier können Sie Ihr Ergebnis nach Wunsch von der Einheit umrechnen" SelectionChanged="cbx_Qfläche_SelectionChanged">
                                 <ListBoxItem Content="mm²" ></ListBoxItem>
                                 <ListBoxItem Content="cm²"></ListBoxItem>
                                 <ListBoxItem Content="m²"></ListBoxItem>
@@ -197,7 +197,7 @@
                         <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
                             <Label   HorizontalAlignment="Left" Foreground="White" FontSize="14">Volumen:</Label>
                             <Label x:Name="lbl_volumen"  Foreground="White" FontSize="13" Margin="58 1 0 5" Width="80"></Label>
-                            <ComboBox HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="cbx_Volumen" SelectedIndex="0" ToolTip="Hier können Sie Ihr Ergebnis nach Wunsch von der Einheit umrechnen" >
+                            <ComboBox HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="cbx_Volumen" SelectedIndex="0" ToolTip="Hier können Sie Ihr Ergebnis nach Wunsch von der Einheit umrechnen" SelectionChanged="cbx_Volumen_SelectionChanged" >
                                 <ListBoxItem Content="mm³" ></ListBoxItem>
                                 <ListBoxItem Content="cm³"></ListBoxItem>
                                 <ListBoxItem Content="m³"></ListBoxItem>
@@ -217,7 +217,7 @@
                             <Label   HorizontalAlignment="Left" Foreground="White" FontSize="14">Widerstandsmoment Axial Wy:</Label>
                             <Label x:Name="lbl_Wy" Foreground="White" FontSize="13" Margin="17 1 -16 5" Width="85"></Label>
 
-                            <ComboBox HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="cbx_Wx" SelectedIndex="1" ToolTip="Hier können Sie Ihr Ergebnis nach Wunsch von der Einheit umrechnen" >
+                            <ComboBox HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="cbx_Wx" SelectedIndex="1" ToolTip="Hier können Sie Ihr Ergebnis nach Wunsch von der Einheit umrechnen" SelectionChanged="cbx_Wx_SelectionChanged" >
                                 <ListBoxItem Content="mm³" ></ListBoxItem>
                                 <ListBoxItem Content="cm³"></ListBoxItem>
                                 <ListBoxItem Content="m³"></ListBoxItem>
@@ -229,7 +229,7 @@
                         <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
                             <Label   HorizontalAlignment="Left" Foreground="White" FontSize="14">Widerstandsmoment Axial Wz:</Label>
                             <Label x:Name="lbl_Wz"  Foreground="White" FontSize="13" Margin="17 1 -17 5" Width="85" ></Label>
-                            <ComboBox HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="cbx_Wy" SelectedIndex="1"  ToolTip="Hier können Sie Ihr Ergebnis nach Wunsch von der Einheit umrechnen">
+                            <ComboBox HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="cbx_Wy" SelectedIndex="1"  ToolTip="Hier können Sie Ihr Ergebnis nach Wunsch von der Einheit umrechnen" SelectionChanged="cbx_Wy_SelectionChanged">
                                 <ListBoxItem Content="mm³" ></ListBoxItem>
                                 <ListBoxItem Content="cm³"></ListBoxItem>
                                 <ListBoxItem Content="m³"></ListBoxItem>
@@ -242,7 +242,7 @@
                         <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
                             <Label   HorizontalAlignment="Left" Foreground="White" FontSize="14">FlächenträgheitsMoment Axial Iy:</Label>
                             <Label x:Name="lbl_Iy" Foreground="White" FontSize="13" Margin="0 1 0 5" Width="70" ></Label>
-                            <ComboBox HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="cbx_Ix" SelectedIndex="1" ToolTip="Hier können Sie Ihr Ergebnis nach Wunsch von der Einheit umrechnen" >
+                            <ComboBox HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="cbx_Ix" SelectedIndex="1" ToolTip="Hier können Sie Ihr Ergebnis nach Wunsch von der Einheit umrechnen" SelectionChanged="cbx_Ix_SelectionChanged" >
                                 <ListBoxItem Content="mm^4" ></ListBoxItem>
                                 <ListBoxItem Content="cm^4"></ListBoxItem>
                            
@@ -254,7 +254,7 @@
                         <StackPanel Grid.Row="3" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
                             <Label   HorizontalAlignment="Left" Foreground="White" FontSize="14"  >FlächenträgheitsMoment Axial Iz:</Label>
                             <Label x:Name="Lbl_Iz" Foreground="White" FontSize="13" Margin="0 1 0 5" Width="70"></Label>
-                            <ComboBox HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="cbx_Iy" SelectedIndex="1" ToolTip="Hier können Sie Ihr Ergebnis nach Wunsch von der Einheit umrechnen" >
+                            <ComboBox HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="cbx_Iy" SelectedIndex="1" ToolTip="Hier können Sie Ihr Ergebnis nach Wunsch von der Einheit umrechnen" SelectionChanged="cbx_Iy_SelectionChanged" >
                                 <ListBoxItem Content="mm^4" ></ListBoxItem>
                                 <ListBoxItem Content="cm^4"></ListBoxItem>
                               
@@ -266,7 +266,7 @@
                         <StackPanel Grid.Row="4" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
                             <Label   HorizontalAlignment="Left" Foreground="White" FontSize="14">FlächenträgheitsMoment Polar:</Label>
                             <Label x:Name="lbl_Polar" Foreground="White" FontSize="13" Margin="12 1 0 5" Width="70"></Label>
-                            <ComboBox HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="cbx_Polar" SelectedIndex="1"  ToolTip="Hier können Sie Ihr Ergebnis nach Wunsch von der Einheit umrechnen">
+                            <ComboBox HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="cbx_Polar" SelectedIndex="1"  ToolTip="Hier können Sie Ihr Ergebnis nach Wunsch von der Einheit umrechnen" SelectionChanged="cbx_Polar_SelectionChanged">
                                 <ListBoxItem Content="mm^4" ></ListBoxItem>
                                 <ListBoxItem Content="cm^4"></ListBoxItem>
                                 

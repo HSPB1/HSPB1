@@ -22,7 +22,17 @@ namespace WpfHSPB1
         {
             InitializeComponent();
         }
-       
+
+        RechteckVoll rechteckVoll;
+        RechteckHohl rechteckHohl;
+        SechseckVoll neuSechseckVoll;
+        RundVollProfil neuRundVoll;
+        RundHohlProfil neuRundHohl;
+        HalbrundProfil neuHalbRund;
+        TProfil neuTProfil;
+        UProfil neuUProfil;
+        IProfil neuIProfil;
+        LProfil neuLProfil;
 
         internal void trv_RundRohr_Selected(object sender, RoutedEventArgs e)
         {
@@ -286,12 +296,12 @@ namespace WpfHSPB1
 
 
 
-
+        //Button Berechnung
         //Rechteckige Profile
         private void btn_ReVo_berechnung_Click(object sender, RoutedEventArgs e)
         {
             //Erzeugen des Objekts für ein RechteckVollprofil
-            RechteckVoll rechteckVoll = new RechteckVoll();
+            rechteckVoll = new RechteckVoll();
             CatiaAPIConection Neu = new CatiaAPIConection();
             try
             { 
@@ -512,7 +522,7 @@ namespace WpfHSPB1
 
         private void btn_ReHo_berechnung_Click(object sender, RoutedEventArgs e)
         {
-            RechteckHohl rechteckHohl = new RechteckHohl();
+            rechteckHohl = new RechteckHohl();
             CatiaAPIConection Neu = new CatiaAPIConection();
 
             try
@@ -712,7 +722,7 @@ namespace WpfHSPB1
         
        private void btn_SeVo_berechnung_Click(object sender, RoutedEventArgs e)
         {   //Erzeugen eines Objektes vom Typ SechseckVollProfiö
-            SechseckVoll neuSechseckVoll = new SechseckVoll();
+             neuSechseckVoll = new SechseckVoll();
             CatiaAPIConection Neu = new CatiaAPIConection();
 
             try
@@ -908,7 +918,7 @@ namespace WpfHSPB1
         //Runde Profile
         private void btn_RuVo_berechnung_Click(object sender, RoutedEventArgs e)
         {       //Erzeugen eines Objektes vom Typ RunVollProfil
-                RundVollProfil neuRundVoll = new RundVollProfil();
+            neuRundVoll = new RundVollProfil();
             CatiaAPIConection Neu = new CatiaAPIConection();
 
             try
@@ -1106,7 +1116,7 @@ namespace WpfHSPB1
         private void btn_Rohr_berechnung_Click(object sender, RoutedEventArgs e)
         {   
             //Erzeugung eines neuen Objekts der Klasse RundHohlProfil
-            RundHohlProfil neuRundHohl = new RundHohlProfil();
+             neuRundHohl = new RundHohlProfil();
             CatiaAPIConection neu = new CatiaAPIConection();
 
 
@@ -1311,7 +1321,7 @@ namespace WpfHSPB1
         private void btn_HaRu_berechnung_Click(object sender, RoutedEventArgs e)
         {   
             //Erzeugun eines Objektes der klasse HalbRundProfil
-            HalbrundProfil neuHalbRund = new HalbrundProfil();
+            neuHalbRund = new HalbrundProfil();
             CatiaAPIConection Neu = new CatiaAPIConection();
 
             try
@@ -1524,7 +1534,7 @@ namespace WpfHSPB1
         {   
 
             //Erzeugung eines Objektes der Klasse TProfil
-            TProfil neuTProfil = new TProfil();
+             neuTProfil = new TProfil();
             CatiaAPIConection Neu = new CatiaAPIConection();
 
             try
@@ -1732,7 +1742,7 @@ namespace WpfHSPB1
         {   
 
             //Erzeugung des Objektes der Klasse UProfil
-            UProfil neuUProfil = new UProfil();
+            neuUProfil = new UProfil();
             CatiaAPIConection Neu = new CatiaAPIConection();
 
             try
@@ -1942,7 +1952,7 @@ namespace WpfHSPB1
         private void btn_IPro_berechnung_Click(object sender, RoutedEventArgs e)
         {   
             //Erzeugung eines Objektes der Klasse IProfil
-            IProfil neuIProfil = new IProfil();
+            neuIProfil = new IProfil();
             CatiaAPIConection Neu = new CatiaAPIConection();
 
             try
@@ -2150,7 +2160,7 @@ namespace WpfHSPB1
      
         private void btn_LPro_Berechnung_Click(object sender, RoutedEventArgs e)
         {
-            LProfil neuLProfil = new LProfil();
+            neuLProfil = new LProfil();
             CatiaAPIConection Neu = new CatiaAPIConection();
 
             try
@@ -2349,9 +2359,11 @@ namespace WpfHSPB1
             { MessageBox.Show("Ihre Eingabe war Fehlerhaft! Bitte verwenden Sie nur Zahlen!", "Eingabefehler!", MessageBoxButton.OK, MessageBoxImage.Error); }
         }
 
-
-
-
+        private void btn_Schwerpunkt(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Schwerpunk Gx: " + lbl_GX.Content + Environment.NewLine + "Schwerpunkt Gy: " + lbl_Gy.Content + Environment.NewLine + "Schwerpunkt Gz: " + lbl_Gz.Content , "Schwerpunktsberechnung" ,MessageBoxButton.OK , MessageBoxImage.Information);
+        }
+        //Hier Enden die Berechnungsbuttons
 
 
         private void cb_Material_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -2359,9 +2371,1692 @@ namespace WpfHSPB1
             
         }
 
-        private void btn_Schwerpunkt(object sender, RoutedEventArgs e)
+
+
+
+        //Comboboxen (Umrechnung)
+        private void cbx_Qfläche_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            MessageBox.Show("Gx= " + lbl_GX.Content + Environment.NewLine + "Gy= " + lbl_Gy.Content + Environment.NewLine + "Gz= " + lbl_Gz.Content);
+            //Bedingung Rechteckige Profile
+            if (rechteckVoll != null)// objekt Rechteckvoll global definieren
+            {
+                if (cbx_Qfläche.SelectedIndex == 0)
+                {
+
+                    lbl_qfläche.Content = Convert.ToDouble(rechteckVoll.QFläche()) * 1;
+
+
+
+                }
+
+                if (cbx_Qfläche.SelectedIndex == 1)
+                {
+
+
+                    lbl_qfläche.Content = Convert.ToDouble(rechteckVoll.QFläche()) / 100;
+
+                }
+
+                if (cbx_Qfläche.SelectedIndex == 2)
+                {
+
+                    lbl_qfläche.Content = Convert.ToDouble(rechteckVoll.QFläche()) / 10000;
+
+                }
+
+            }
+            if (rechteckHohl != null)// objekt Rechteckvoll global definieren
+            {
+                if (cbx_Qfläche.SelectedIndex == 0)
+                {
+
+                    lbl_qfläche.Content = Convert.ToDouble(rechteckHohl.QFläche()) * 1;
+
+
+
+                }
+
+                if (cbx_Qfläche.SelectedIndex == 1)
+                {
+
+
+                    lbl_qfläche.Content = Convert.ToDouble(rechteckHohl.QFläche()) / 100;
+
+                }
+
+                if (cbx_Qfläche.SelectedIndex == 2)
+                {
+
+                    lbl_qfläche.Content = Convert.ToDouble(rechteckHohl.QFläche()) / 10000;
+
+                }
+
+            }
+            if (neuSechseckVoll != null)// objekt Rechteckvoll global definieren
+            {
+                if (cbx_Qfläche.SelectedIndex == 0)
+                {
+
+                    lbl_qfläche.Content = Convert.ToDouble(neuSechseckVoll.QFläche()) * 1;
+
+
+
+                }
+
+                if (cbx_Qfläche.SelectedIndex == 1)
+                {
+
+
+                    lbl_qfläche.Content = Convert.ToDouble(neuSechseckVoll.QFläche()) / 100;
+
+                }
+
+                if (cbx_Qfläche.SelectedIndex == 2)
+                {
+
+                    lbl_qfläche.Content = Convert.ToDouble(neuSechseckVoll.QFläche()) / 10000;
+
+                }
+
+            }
+            //Bedingung RundeProfile
+            if (neuRundVoll != null)
+            {
+                if (cbx_Qfläche.SelectedIndex == 0)
+                {
+
+                    lbl_qfläche.Content = Convert.ToDouble(neuRundVoll.QFläche()) * 1;
+
+
+
+                }
+
+                if (cbx_Qfläche.SelectedIndex == 1)
+                {
+
+
+                    lbl_qfläche.Content = Convert.ToDouble(neuRundVoll.QFläche()) / 100;
+
+                }
+
+                if (cbx_Qfläche.SelectedIndex == 2)
+                {
+
+                    lbl_qfläche.Content = Convert.ToDouble(neuRundVoll.QFläche()) / 10000;
+
+                }
+            }
+            if (neuRundHohl != null)
+            {
+                if (cbx_Qfläche.SelectedIndex == 0)
+                {
+
+                    lbl_qfläche.Content = Convert.ToDouble(neuRundHohl.QFläche()) * 1;
+
+
+
+                }
+
+                if (cbx_Qfläche.SelectedIndex == 1)
+                {
+
+
+                    lbl_qfläche.Content = Convert.ToDouble(neuRundHohl.QFläche()) / 100;
+
+                }
+
+                if (cbx_Qfläche.SelectedIndex == 2)
+                {
+
+                    lbl_qfläche.Content = Convert.ToDouble(neuRundHohl.QFläche()) / 10000;
+
+                }
+            }
+            if (neuHalbRund != null)
+            {
+                if (cbx_Qfläche.SelectedIndex == 0)
+                {
+
+                    lbl_qfläche.Content = Convert.ToDouble(neuHalbRund.QFläche()) * 1;
+
+
+
+                }
+
+                if (cbx_Qfläche.SelectedIndex == 1)
+                {
+
+
+                    lbl_qfläche.Content = Convert.ToDouble(neuHalbRund.QFläche()) / 100;
+
+                }
+
+                if (cbx_Qfläche.SelectedIndex == 2)
+                {
+
+                    lbl_qfläche.Content = Convert.ToDouble(neuHalbRund.QFläche()) / 10000;
+
+                }
+            }
+            //Bedingung Formprofile
+            if (neuTProfil != null)
+            {
+                if (cbx_Qfläche.SelectedIndex == 0)
+                {
+
+                    lbl_qfläche.Content = Convert.ToDouble(neuTProfil.QFläche()) * 1;
+
+
+
+                }
+
+                if (cbx_Qfläche.SelectedIndex == 1)
+                {
+
+
+                    lbl_qfläche.Content = Convert.ToDouble(neuTProfil.QFläche()) / 100;
+
+                }
+
+                if (cbx_Qfläche.SelectedIndex == 2)
+                {
+
+                    lbl_qfläche.Content = Convert.ToDouble(neuTProfil.QFläche()) / 10000;
+
+                }
+            }
+            if (neuLProfil != null)
+            {
+                if (cbx_Qfläche.SelectedIndex == 0)
+                {
+
+                    lbl_qfläche.Content = Convert.ToDouble(neuLProfil.QFläche()) * 1;
+
+
+
+                }
+
+                if (cbx_Qfläche.SelectedIndex == 1)
+                {
+
+
+                    lbl_qfläche.Content = Convert.ToDouble(neuLProfil.QFläche()) / 100;
+
+                }
+
+                if (cbx_Qfläche.SelectedIndex == 2)
+                {
+
+                    lbl_qfläche.Content = Convert.ToDouble(neuLProfil.QFläche()) / 10000;
+
+                }
+            }
+            if (neuUProfil != null)
+            {
+                if (cbx_Qfläche.SelectedIndex == 0)
+                {
+
+                    lbl_qfläche.Content = Convert.ToDouble(neuUProfil.QFläche()) * 1;
+
+
+
+                }
+
+                if (cbx_Qfläche.SelectedIndex == 1)
+                {
+
+
+                    lbl_qfläche.Content = Convert.ToDouble(neuUProfil.QFläche()) / 100;
+
+                }
+
+                if (cbx_Qfläche.SelectedIndex == 2)
+                {
+
+                    lbl_qfläche.Content = Convert.ToDouble(neuUProfil.QFläche()) / 10000;
+
+                }
+            }
+            if (neuIProfil != null)
+            {
+                if (cbx_Qfläche.SelectedIndex == 0)
+                {
+
+                    lbl_qfläche.Content = Convert.ToDouble(neuIProfil.QFläche()) * 1;
+
+
+
+                }
+
+                if (cbx_Qfläche.SelectedIndex == 1)
+                {
+
+
+                    lbl_qfläche.Content = Convert.ToDouble(neuIProfil.QFläche()) / 100;
+
+                }
+
+                if (cbx_Qfläche.SelectedIndex == 2)
+                {
+
+                    lbl_qfläche.Content = Convert.ToDouble(neuIProfil.QFläche()) / 10000;
+
+                }
+            }
+
+        }
+
+        private void cbx_Volumen_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            //Bedingung Rechteckige Profile
+            if (rechteckVoll != null)// objekt Rechteckvoll global definieren
+            {
+                if (cbx_Volumen.SelectedIndex == 0)
+                {
+
+                    lbl_volumen.Content = Convert.ToDouble(rechteckVoll.Volumen()) * 1;
+
+
+
+                }
+
+                if (cbx_Volumen.SelectedIndex == 1)
+                {
+
+
+                    lbl_volumen.Content = Convert.ToDouble(rechteckVoll.Volumen()) / 1000;
+
+                }
+
+                if (cbx_Volumen.SelectedIndex == 2)
+                {
+
+                    lbl_volumen.Content = Convert.ToDouble(rechteckVoll.Volumen()) / 1000000;
+
+                }
+
+            }
+            if (rechteckHohl != null)// objekt Rechteckvoll global definieren
+            {
+                if (cbx_Volumen.SelectedIndex == 0)
+                {
+
+                    lbl_volumen.Content = Convert.ToDouble(rechteckHohl.Volumen()) * 1;
+
+
+
+                }
+
+                if (cbx_Volumen.SelectedIndex == 1)
+                {
+
+
+                    lbl_volumen.Content = Convert.ToDouble(rechteckHohl.Volumen()) / 1000;
+
+                }
+
+                if (cbx_Volumen.SelectedIndex == 2)
+                {
+
+                    lbl_volumen.Content = Convert.ToDouble(rechteckHohl.Volumen()) / 1000000;
+
+                }
+
+            }
+            if (neuSechseckVoll != null)// objekt Rechteckvoll global definieren
+            {
+                if (cbx_Volumen.SelectedIndex == 0)
+                {
+
+                    lbl_volumen.Content = Convert.ToDouble(neuSechseckVoll.Volumen()) * 1;
+
+
+
+                }
+
+                if (cbx_Volumen.SelectedIndex == 1)
+                {
+
+
+                    lbl_volumen.Content = Convert.ToDouble(neuSechseckVoll.Volumen()) / 1000;
+
+                }
+
+                if (cbx_Volumen.SelectedIndex == 2)
+                {
+
+                    lbl_volumen.Content = Convert.ToDouble(neuSechseckVoll.Volumen()) / 1000000;
+
+                }
+
+            }
+            //Bedingung RundeProfile
+            if (neuRundVoll != null)
+            {
+                if (cbx_Volumen.SelectedIndex == 0)
+                {
+
+                    lbl_volumen.Content = Convert.ToDouble(neuRundVoll.Volumen()) * 1;
+
+
+
+                }
+
+                if (cbx_Volumen.SelectedIndex == 1)
+                {
+
+
+                    lbl_volumen.Content = Convert.ToDouble(neuRundVoll.Volumen()) / 1000;
+
+                }
+
+                if (cbx_Volumen.SelectedIndex == 2)
+                {
+
+                    lbl_volumen.Content = Convert.ToDouble(neuRundVoll.Volumen()) / 1000000;
+
+                }
+            }
+            if (neuRundHohl != null)
+            {
+                if (cbx_Volumen.SelectedIndex == 0)
+                {
+
+                    lbl_volumen.Content = Convert.ToDouble(neuRundHohl.Volumen()) * 1;
+
+
+
+                }
+
+                if (cbx_Volumen.SelectedIndex == 1)
+                {
+
+
+                    lbl_volumen.Content = Convert.ToDouble(neuRundHohl.Volumen()) / 1000;
+
+                }
+
+                if (cbx_Volumen.SelectedIndex == 2)
+                {
+
+                    lbl_volumen.Content = Convert.ToDouble(neuRundHohl.Volumen()) / 1000000;
+
+                }
+            }
+            if (neuHalbRund != null)
+            {
+                if (cbx_Volumen.SelectedIndex == 0)
+                {
+
+                    lbl_volumen.Content = Convert.ToDouble(neuHalbRund.Volumen()) * 1;
+
+
+
+                }
+
+                if (cbx_Volumen.SelectedIndex == 1)
+                {
+
+
+                    lbl_volumen.Content = Convert.ToDouble(neuHalbRund.Volumen()) / 1000;
+
+                }
+
+                if (cbx_Volumen.SelectedIndex == 2)
+                {
+
+                    lbl_volumen.Content = Convert.ToDouble(neuHalbRund.Volumen()) / 1000000;
+
+                }
+            }
+            //Bedingung Formprofile
+            if (neuTProfil != null)
+            {
+                if (cbx_Volumen.SelectedIndex == 0)
+                {
+
+                    lbl_volumen.Content = Convert.ToDouble(neuTProfil.Volumen()) * 1;
+
+
+
+                }
+
+                if (cbx_Volumen.SelectedIndex == 1)
+                {
+
+
+                    lbl_volumen.Content = Convert.ToDouble(neuTProfil.Volumen()) / 1000;
+
+                }
+
+                if (cbx_Volumen.SelectedIndex == 2)
+                {
+
+                    lbl_volumen.Content = Convert.ToDouble(neuTProfil.Volumen()) / 1000000;
+
+                }
+            }
+            if (neuLProfil != null)
+            {
+                if (cbx_Volumen.SelectedIndex == 0)
+                {
+
+                    lbl_volumen.Content = Convert.ToDouble(neuLProfil.Volumen()) * 1;
+
+
+
+                }
+
+                if (cbx_Volumen.SelectedIndex == 1)
+                {
+
+
+                    lbl_volumen.Content = Convert.ToDouble(neuLProfil.Volumen()) / 1000;
+
+                }
+
+                if (cbx_Volumen.SelectedIndex == 2)
+                {
+
+                    lbl_volumen.Content = Convert.ToDouble(neuLProfil.Volumen()) / 1000000;
+
+                }
+            }
+            if (neuUProfil != null)
+            {
+                if (cbx_Volumen.SelectedIndex == 0)
+                {
+
+                    lbl_volumen.Content = Convert.ToDouble(neuUProfil.Volumen()) * 1;
+
+
+
+                }
+
+                if (cbx_Volumen.SelectedIndex == 1)
+                {
+
+
+                    lbl_volumen.Content = Convert.ToDouble(neuUProfil.Volumen()) / 1000;
+
+                }
+
+                if (cbx_Volumen.SelectedIndex == 2)
+                {
+
+                    lbl_volumen.Content = Convert.ToDouble(neuUProfil.Volumen()) / 1000000;
+
+                }
+            }
+            if (neuIProfil != null)
+            {
+                if (cbx_Volumen.SelectedIndex == 0)
+                {
+
+                    lbl_volumen.Content = Convert.ToDouble(neuIProfil.Volumen()) * 1;
+
+
+
+                }
+
+                if (cbx_Volumen.SelectedIndex == 1)
+                {
+
+
+                    lbl_volumen.Content = Convert.ToDouble(neuIProfil.Volumen()) / 1000;
+
+                }
+
+                if (cbx_Volumen.SelectedIndex == 2)
+                {
+
+                    lbl_volumen.Content = Convert.ToDouble(neuIProfil.Volumen()) / 1000000;
+
+                }
+            }
+
+
+        }
+
+        private void cbx_Wx_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            //Bedingung Rechteckige Profile
+            if (rechteckVoll != null)// objekt Rechteckvoll global definieren
+            {
+                if (cbx_Wx.SelectedIndex == 0)
+                {
+
+                    lbl_Wy.Content = Convert.ToDouble(rechteckVoll.WiederstandsMoment_Wy()) * 1;
+
+
+
+                }
+
+                if (cbx_Wx.SelectedIndex == 1)
+                {
+
+
+                    lbl_Wy.Content = Convert.ToDouble(rechteckVoll.WiederstandsMoment_Wy()) / 1000;
+
+                }
+
+                if (cbx_Wx.SelectedIndex == 2)
+                {
+
+                    lbl_Wy.Content = Convert.ToDouble(rechteckVoll.WiederstandsMoment_Wy()) / 1000000;
+
+                }
+
+            }
+            if (rechteckHohl != null)// objekt Rechteckvoll global definieren
+            {
+                if (cbx_Wx.SelectedIndex == 0)
+                {
+
+                    lbl_Wy.Content = Convert.ToDouble(rechteckHohl.WiederstandsMoment_Wy()) * 1;
+
+
+
+                }
+
+                if (cbx_Wx.SelectedIndex == 1)
+                {
+
+
+                    lbl_Wy.Content = Convert.ToDouble(rechteckHohl.WiederstandsMoment_Wy()) / 1000;
+
+                }
+
+                if (cbx_Wx.SelectedIndex == 2)
+                {
+
+                    lbl_Wy.Content = Convert.ToDouble(rechteckHohl.WiederstandsMoment_Wy()) / 1000000;
+
+                }
+
+            }
+            if (neuSechseckVoll != null)// objekt Rechteckvoll global definieren
+            {
+                if (cbx_Wx.SelectedIndex == 0)
+                {
+
+                    lbl_Wy.Content = Convert.ToDouble(neuSechseckVoll.WiederstandsMoment_Wy()) * 1;
+
+
+
+                }
+
+                if (cbx_Wx.SelectedIndex == 1)
+                {
+
+
+                    lbl_Wy.Content = Convert.ToDouble(neuSechseckVoll.WiederstandsMoment_Wy()) / 1000;
+
+                }
+
+                if (cbx_Wx.SelectedIndex == 2)
+                {
+
+                    lbl_Wy.Content = Convert.ToDouble(neuSechseckVoll.WiederstandsMoment_Wy()) / 1000000;
+
+                }
+
+            }
+            //Bedingung RundeProfile
+            if (neuRundVoll != null)
+            {
+                if (cbx_Wx.SelectedIndex == 0)
+                {
+
+                    lbl_Wy.Content = Convert.ToDouble(neuRundVoll.WiederstandsMoment_Wy()) * 1;
+
+
+
+                }
+
+                if (cbx_Wx.SelectedIndex == 1)
+                {
+
+
+                    lbl_Wy.Content = Convert.ToDouble(neuRundVoll.WiederstandsMoment_Wy()) / 1000;
+
+                }
+
+                if (cbx_Wx.SelectedIndex == 2)
+                {
+
+                    lbl_Wy.Content = Convert.ToDouble(neuRundVoll.WiederstandsMoment_Wy()) / 1000000;
+
+                }
+            }
+            if (neuRundHohl != null)
+            {
+                if (cbx_Wx.SelectedIndex == 0)
+                {
+
+                    lbl_Wy.Content = Convert.ToDouble(neuRundHohl.WiederstandsMoment_Wy()) * 1;
+
+
+
+                }
+
+                if (cbx_Wx.SelectedIndex == 1)
+                {
+
+
+                    lbl_Wy.Content = Convert.ToDouble(neuRundHohl.WiederstandsMoment_Wy()) / 1000;
+
+                }
+
+                if (cbx_Wx.SelectedIndex == 2)
+                {
+
+                    lbl_Wy.Content = Convert.ToDouble(neuRundHohl.WiederstandsMoment_Wy()) / 1000000;
+
+                }
+            }
+            if (neuHalbRund != null)
+            {
+                if (cbx_Wx.SelectedIndex == 0)
+                {
+
+                    lbl_Wy.Content = Convert.ToDouble(neuHalbRund.WiederstandsMoment_Wy()) * 1;
+
+
+
+                }
+
+                if (cbx_Wx.SelectedIndex == 1)
+                {
+
+
+                    lbl_Wy.Content = Convert.ToDouble(neuHalbRund.WiederstandsMoment_Wy()) / 1000;
+
+                }
+
+                if (cbx_Wx.SelectedIndex == 2)
+                {
+
+                    lbl_Wy.Content = Convert.ToDouble(neuHalbRund.WiederstandsMoment_Wy()) / 1000000;
+
+                }
+            }
+            //Bedingung Formprofile
+            if (neuTProfil != null)
+            {
+                if (cbx_Wx.SelectedIndex == 0)
+                {
+
+                    lbl_Wy.Content = Convert.ToDouble(neuTProfil.WiederstandsMoment_Wy()) * 1;
+
+
+
+                }
+
+                if (cbx_Wx.SelectedIndex == 1)
+                {
+
+
+                    lbl_Wy.Content = Convert.ToDouble(neuTProfil.WiederstandsMoment_Wy()) / 1000;
+
+                }
+
+                if (cbx_Wx.SelectedIndex == 2)
+                {
+
+                    lbl_Wy.Content = Convert.ToDouble(neuTProfil.WiederstandsMoment_Wy()) / 1000000;
+
+                }
+            }
+            if (neuLProfil != null)
+            {
+                if (cbx_Wx.SelectedIndex == 0)
+                {
+
+                    lbl_Wy.Content = Convert.ToDouble(neuLProfil.WiederstandsMoment_Wy()) * 1;
+
+
+
+                }
+
+                if (cbx_Wx.SelectedIndex == 1)
+                {
+
+
+                    lbl_Wy.Content = Convert.ToDouble(neuLProfil.WiederstandsMoment_Wy()) / 1000;
+
+                }
+
+                if (cbx_Wx.SelectedIndex == 2)
+                {
+
+                    lbl_Wy.Content = Convert.ToDouble(neuLProfil.WiederstandsMoment_Wy()) / 1000000;
+
+                }
+            }
+            if (neuUProfil != null)
+            {
+                if (cbx_Wx.SelectedIndex == 0)
+                {
+
+                    lbl_Wy.Content = Convert.ToDouble(neuUProfil.WiederstandsMoment_Wy()) * 1;
+
+
+
+                }
+
+                if (cbx_Wx.SelectedIndex == 1)
+                {
+
+
+                    lbl_Wy.Content = Convert.ToDouble(neuUProfil.WiederstandsMoment_Wy()) / 1000;
+
+                }
+
+                if (cbx_Wx.SelectedIndex == 2)
+                {
+
+                    lbl_Wy.Content = Convert.ToDouble(neuUProfil.WiederstandsMoment_Wy()) / 1000000;
+
+                }
+            }
+            if (neuIProfil != null)
+            {
+                if (cbx_Wx.SelectedIndex == 0)
+                {
+
+                    lbl_Wy.Content = Convert.ToDouble(neuIProfil.WiederstandsMoment_Wy()) * 1;
+
+
+
+                }
+
+                if (cbx_Wx.SelectedIndex == 1)
+                {
+
+
+                    lbl_Wy.Content = Convert.ToDouble(neuIProfil.WiederstandsMoment_Wy()) / 1000;
+
+                }
+
+                if (cbx_Wx.SelectedIndex == 2)
+                {
+
+                    lbl_Wy.Content = Convert.ToDouble(neuIProfil.WiederstandsMoment_Wy()) / 1000000;
+
+                }
+            }
+        }
+
+        private void cbx_Wy_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            //Bedingung Rechteckige Profile
+            if (rechteckVoll != null)// objekt Rechteckvoll global definieren
+            {
+                if (cbx_Wy.SelectedIndex == 0)
+                {
+
+                    lbl_Wz.Content = Convert.ToDouble(rechteckVoll.WiederstandsMoment_Wz()) * 1;
+
+
+
+                }
+
+                if (cbx_Wy.SelectedIndex == 1)
+                {
+
+
+                    lbl_Wz.Content = Convert.ToDouble(rechteckVoll.WiederstandsMoment_Wz()) / 1000;
+
+                }
+
+                if (cbx_Wy.SelectedIndex == 2)
+                {
+
+                    lbl_Wz.Content = Convert.ToDouble(rechteckVoll.WiederstandsMoment_Wz()) / 1000000;
+
+                }
+
+            }
+            if (rechteckHohl != null)// objekt Rechteckvoll global definieren
+            {
+                if (cbx_Wy.SelectedIndex == 0)
+                {
+
+                    lbl_Wz.Content = Convert.ToDouble(rechteckHohl.WiederstandsMoment_Wz()) * 1;
+
+
+
+                }
+
+                if (cbx_Wy.SelectedIndex == 1)
+                {
+
+
+                    lbl_Wz.Content = Convert.ToDouble(rechteckHohl.WiederstandsMoment_Wz()) / 1000;
+
+                }
+
+                if (cbx_Wx.SelectedIndex == 2)
+                {
+
+                    lbl_Wz.Content = Convert.ToDouble(rechteckHohl.WiederstandsMoment_Wz()) / 1000000;
+
+                }
+
+            }
+            if (neuSechseckVoll != null)// objekt Rechteckvoll global definieren
+            {
+                if (cbx_Wy.SelectedIndex == 0)
+                {
+
+                    lbl_Wz.Content = Convert.ToDouble(neuSechseckVoll.WiederstandsMoment_Wz()) * 1;
+
+
+
+                }
+
+                if (cbx_Wy.SelectedIndex == 1)
+                {
+
+
+                    lbl_Wz.Content = Convert.ToDouble(neuSechseckVoll.WiederstandsMoment_Wz()) / 1000;
+
+                }
+
+                if (cbx_Wy.SelectedIndex == 2)
+                {
+
+                    lbl_Wz.Content = Convert.ToDouble(neuSechseckVoll.WiederstandsMoment_Wz()) / 1000000;
+
+                }
+
+            }
+            //Bedingung RundeProfile
+            if (neuRundVoll != null)
+            {
+                if (cbx_Wy.SelectedIndex == 0)
+                {
+
+                    lbl_Wz.Content = Convert.ToDouble(neuRundVoll.WiederstandsMoment_Wz()) * 1;
+
+
+
+                }
+
+                if (cbx_Wy.SelectedIndex == 1)
+                {
+
+
+                    lbl_Wz.Content = Convert.ToDouble(neuRundVoll.WiederstandsMoment_Wz()) / 1000;
+
+                }
+
+                if (cbx_Wy.SelectedIndex == 2)
+                {
+
+                    lbl_Wz.Content = Convert.ToDouble(neuRundVoll.WiederstandsMoment_Wz()) / 1000000;
+
+                }
+            }
+            if (neuRundHohl != null)
+            {
+                if (cbx_Wy.SelectedIndex == 0)
+                {
+
+                    lbl_Wz.Content = Convert.ToDouble(neuRundHohl.WiederstandsMoment_Wz()) * 1;
+
+
+
+                }
+
+                if (cbx_Wy.SelectedIndex == 1)
+                {
+
+
+                    lbl_Wz.Content = Convert.ToDouble(neuRundHohl.WiederstandsMoment_Wz()) / 1000;
+
+                }
+
+                if (cbx_Wy.SelectedIndex == 2)
+                {
+
+                    lbl_Wz.Content = Convert.ToDouble(neuRundHohl.WiederstandsMoment_Wz()) / 1000000;
+
+                }
+            }
+            if (neuHalbRund != null)
+            {
+                if (cbx_Wy.SelectedIndex == 0)
+                {
+
+                    lbl_Wz.Content = Convert.ToDouble(neuHalbRund.WiederstandsMoment_Wz()) * 1;
+
+
+
+                }
+
+                if (cbx_Wy.SelectedIndex == 1)
+                {
+
+
+                    lbl_Wz.Content = Convert.ToDouble(neuHalbRund.WiederstandsMoment_Wz()) / 1000;
+
+                }
+
+                if (cbx_Wy.SelectedIndex == 2)
+                {
+
+                    lbl_Wz.Content = Convert.ToDouble(neuHalbRund.WiederstandsMoment_Wz()) / 1000000;
+
+                }
+            }
+            //Bedingung Formprofile
+            if (neuTProfil != null)
+            {
+                if (cbx_Wy.SelectedIndex == 0)
+                {
+
+                    lbl_Wz.Content = Convert.ToDouble(neuTProfil.WiederstandsMoment_Wz()) * 1;
+
+
+
+                }
+
+                if (cbx_Wy.SelectedIndex == 1)
+                {
+
+
+                    lbl_Wz.Content = Convert.ToDouble(neuTProfil.WiederstandsMoment_Wz()) / 1000;
+
+                }
+
+                if (cbx_Wy.SelectedIndex == 2)
+                {
+
+                    lbl_Wz.Content = Convert.ToDouble(neuTProfil.WiederstandsMoment_Wz()) / 1000000;
+
+                }
+            }
+            if (neuLProfil != null)
+            {
+                if (cbx_Wy.SelectedIndex == 0)
+                {
+
+                    lbl_Wz.Content = Convert.ToDouble(neuLProfil.WiederstandsMoment_Wz()) * 1;
+
+
+
+                }
+
+                if (cbx_Wy.SelectedIndex == 1)
+                {
+
+
+                    lbl_Wz.Content = Convert.ToDouble(neuLProfil.WiederstandsMoment_Wz()) / 1000;
+
+                }
+
+                if (cbx_Wy.SelectedIndex == 2)
+                {
+
+                    lbl_Wz.Content = Convert.ToDouble(neuLProfil.WiederstandsMoment_Wz()) / 1000000;
+
+                }
+            }
+            if (neuUProfil != null)
+            {
+                if (cbx_Wy.SelectedIndex == 0)
+                {
+
+                    lbl_Wz.Content = Convert.ToDouble(neuUProfil.WiederstandsMoment_Wz()) * 1;
+
+
+
+                }
+
+                if (cbx_Wy.SelectedIndex == 1)
+                {
+
+
+                    lbl_Wz.Content = Convert.ToDouble(neuUProfil.WiederstandsMoment_Wz()) / 1000;
+
+                }
+
+                if (cbx_Wy.SelectedIndex == 2)
+                {
+
+                    lbl_Wz.Content = Convert.ToDouble(neuUProfil.WiederstandsMoment_Wz()) / 1000000;
+
+                }
+            }
+            if (neuIProfil != null)
+            {
+                if (cbx_Wy.SelectedIndex == 0)
+                {
+
+                    lbl_Wz.Content = Convert.ToDouble(neuIProfil.WiederstandsMoment_Wz()) * 1;
+
+
+
+                }
+
+                if (cbx_Wy.SelectedIndex == 1)
+                {
+
+
+                    lbl_Wz.Content = Convert.ToDouble(neuIProfil.WiederstandsMoment_Wz()) / 1000;
+
+                }
+
+                if (cbx_Wy.SelectedIndex == 2)
+                {
+
+                    lbl_Wz.Content = Convert.ToDouble(neuIProfil.WiederstandsMoment_Wz()) / 1000000;
+
+                }
+            }
+        }
+
+        private void cbx_Ix_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            //Bedingung Rechteckige Profile
+            if (rechteckVoll != null)// objekt Rechteckvoll global definieren
+            {
+                if (cbx_Ix.SelectedIndex == 0)
+                {
+
+                    lbl_Iy.Content = Convert.ToDouble(rechteckVoll.FTM_Iy()) * 1;
+
+
+
+                }
+
+
+                if (cbx_Ix.SelectedIndex == 1)
+                {
+
+                    lbl_Iy.Content = Convert.ToDouble(rechteckVoll.FTM_Iy()) / 10000;
+
+                }
+
+            }
+            if (rechteckHohl != null)// objekt Rechteckvoll global definieren
+            {
+                if (cbx_Ix.SelectedIndex == 0)
+                {
+
+                    lbl_Iy.Content = Convert.ToDouble(rechteckHohl.FTM_Iy()) * 1;
+
+
+
+                }
+
+
+                if (cbx_Ix.SelectedIndex == 1)
+                {
+
+                    lbl_Iy.Content = Convert.ToDouble(rechteckHohl.FTM_Iy()) / 10000;
+
+                }
+
+            }
+            if (neuSechseckVoll != null)// objekt Rechteckvoll global definieren
+            {
+                if (cbx_Ix.SelectedIndex == 0)
+                {
+
+                    lbl_Iy.Content = Convert.ToDouble(neuSechseckVoll.FTM_Iy()) * 1;
+
+
+
+                }
+
+
+                if (cbx_Ix.SelectedIndex == 1)
+                {
+
+                    lbl_Iy.Content = Convert.ToDouble(neuSechseckVoll.FTM_Iy()) / 10000;
+
+                }
+
+            }
+            //Bedingung RundeProfile
+            if (neuRundVoll != null)
+            {
+                if (cbx_Ix.SelectedIndex == 0)
+                {
+
+                    lbl_Iy.Content = Convert.ToDouble(neuRundVoll.FTM_Iy()) * 1;
+
+
+
+                }
+
+
+                if (cbx_Ix.SelectedIndex == 1)
+                {
+
+                    lbl_Iy.Content = Convert.ToDouble(neuRundVoll.FTM_Iy()) / 10000;
+
+                }
+            }
+            if (neuRundHohl != null)
+            {
+                if (cbx_Ix.SelectedIndex == 0)
+                {
+
+                    lbl_Iy.Content = Convert.ToDouble(neuRundHohl.FTM_Iy()) * 1;
+
+
+
+                }
+
+                if (cbx_Ix.SelectedIndex == 1)
+                {
+
+                    lbl_Iy.Content = Convert.ToDouble(neuRundHohl.FTM_Iy()) / 10000;
+
+                }
+            }
+            if (neuHalbRund != null)
+            {
+                if (cbx_Ix.SelectedIndex == 0)
+                {
+
+                    lbl_Iy.Content = Convert.ToDouble(neuHalbRund.FTM_Iy()) * 1;
+
+
+
+                }
+
+
+                if (cbx_Ix.SelectedIndex == 1)
+                {
+
+                    lbl_Iy.Content = Convert.ToDouble(neuHalbRund.FTM_Iy()) / 10000;
+
+                }
+            }
+            //Bedingung Formprofile
+            if (neuTProfil != null)
+            {
+                if (cbx_Ix.SelectedIndex == 0)
+                {
+
+                    lbl_Iy.Content = Convert.ToDouble(neuTProfil.FTM_Iy()) * 1;
+
+
+
+                }
+
+
+                if (cbx_Ix.SelectedIndex == 1)
+                {
+
+                    lbl_Iy.Content = Convert.ToDouble(neuTProfil.FTM_Iy()) / 10000;
+
+                }
+            }
+            if (neuLProfil != null)
+            {
+                if (cbx_Ix.SelectedIndex == 0)
+                {
+
+                    lbl_Iy.Content = Convert.ToDouble(neuLProfil.FTM_Iy()) * 1;
+
+
+
+                }
+
+
+                if (cbx_Ix.SelectedIndex == 1)
+                {
+
+                    lbl_Iy.Content = Convert.ToDouble(neuLProfil.FTM_Iy()) / 10000;
+
+                }
+            }
+            if (neuUProfil != null)
+            {
+                if (cbx_Ix.SelectedIndex == 0)
+                {
+
+                    lbl_Iy.Content = Convert.ToDouble(neuUProfil.FTM_Iy()) * 1;
+
+
+
+                }
+
+
+
+                if (cbx_Ix.SelectedIndex == 1)
+                {
+
+                    lbl_Iy.Content = Convert.ToDouble(neuUProfil.FTM_Iy()) / 10000;
+
+                }
+            }
+            if (neuIProfil != null)
+            {
+                if (cbx_Ix.SelectedIndex == 0)
+                {
+
+                    lbl_Iy.Content = Convert.ToDouble(neuIProfil.FTM_Iy()) * 1;
+
+
+
+                }
+
+
+                if (cbx_Ix.SelectedIndex == 1)
+                {
+
+                    lbl_Iy.Content = Convert.ToDouble(neuIProfil.FTM_Iy()) / 10000;
+
+                }
+            }
+        }
+
+        private void cbx_Iy_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            //Bedingung Rechteckige Profile
+            if (rechteckVoll != null)// objekt Rechteckvoll global definieren
+            {
+                if (cbx_Iy.SelectedIndex == 0)
+                {
+
+                    Lbl_Iz.Content = Convert.ToDouble(rechteckVoll.FTM_Iz()) * 1;
+
+
+
+                }
+
+
+                if (cbx_Iy.SelectedIndex == 1)
+                {
+
+                    Lbl_Iz.Content = Convert.ToDouble(rechteckVoll.FTM_Iz()) / 10000;
+
+                }
+
+            }
+            if (rechteckHohl != null)// objekt Rechteckvoll global definieren
+            {
+                if (cbx_Iy.SelectedIndex == 0)
+                {
+
+                    Lbl_Iz.Content = Convert.ToDouble(rechteckHohl.FTM_Iz()) * 1;
+
+
+
+                }
+
+
+                if (cbx_Iy.SelectedIndex == 1)
+                {
+
+                    Lbl_Iz.Content = Convert.ToDouble(rechteckHohl.FTM_Iz()) / 10000;
+
+                }
+
+            }
+            if (neuSechseckVoll != null)// objekt Rechteckvoll global definieren
+            {
+                if (cbx_Iy.SelectedIndex == 0)
+                {
+
+                    Lbl_Iz.Content = Convert.ToDouble(neuSechseckVoll.FTM_Iz()) * 1;
+
+
+
+                }
+
+
+                if (cbx_Iy.SelectedIndex == 1)
+                {
+
+                    Lbl_Iz.Content = Convert.ToDouble(neuSechseckVoll.FTM_Iz()) / 10000;
+
+                }
+
+            }
+            //Bedingung RundeProfile
+            if (neuRundVoll != null)
+            {
+                if (cbx_Iy.SelectedIndex == 0)
+                {
+
+                    Lbl_Iz.Content = Convert.ToDouble(neuRundVoll.FTM_Iz()) * 1;
+
+
+
+                }
+
+
+                if (cbx_Iy.SelectedIndex == 1)
+                {
+
+                    Lbl_Iz.Content = Convert.ToDouble(neuRundVoll.FTM_Iz()) / 10000;
+
+                }
+            }
+            if (neuRundHohl != null)
+            {
+                if (cbx_Iy.SelectedIndex == 0)
+                {
+
+                    Lbl_Iz.Content = Convert.ToDouble(neuRundHohl.FTM_Iz()) * 1;
+
+
+
+                }
+
+                if (cbx_Iy.SelectedIndex == 1)
+                {
+
+                    Lbl_Iz.Content = Convert.ToDouble(neuRundHohl.FTM_Iz()) / 10000;
+
+                }
+            }
+            if (neuHalbRund != null)
+            {
+                if (cbx_Iy.SelectedIndex == 0)
+                {
+
+                    Lbl_Iz.Content = Convert.ToDouble(neuHalbRund.FTM_Iz()) * 1;
+
+
+
+                }
+
+
+                if (cbx_Iy.SelectedIndex == 1)
+                {
+
+                    Lbl_Iz.Content = Convert.ToDouble(neuHalbRund.FTM_Iz()) / 10000;
+
+                }
+            }
+            //Bedingung Formprofile
+            if (neuTProfil != null)
+            {
+                if (cbx_Iy.SelectedIndex == 0)
+                {
+
+                    Lbl_Iz.Content = Convert.ToDouble(neuTProfil.FTM_Iz()) * 1;
+
+
+
+                }
+
+
+                if (cbx_Iy.SelectedIndex == 1)
+                {
+
+                    Lbl_Iz.Content = Convert.ToDouble(neuTProfil.FTM_Iz()) / 10000;
+
+                }
+            }
+            if (neuLProfil != null)
+            {
+                if (cbx_Iy.SelectedIndex == 0)
+                {
+
+                    Lbl_Iz.Content = Convert.ToDouble(neuLProfil.FTM_Iz()) * 1;
+
+
+
+                }
+
+
+                if (cbx_Iy.SelectedIndex == 1)
+                {
+
+                    Lbl_Iz.Content = Convert.ToDouble(neuLProfil.FTM_Iz()) / 10000;
+
+                }
+            }
+            if (neuUProfil != null)
+            {
+                if (cbx_Iy.SelectedIndex == 0)
+                {
+
+                    Lbl_Iz.Content = Convert.ToDouble(neuUProfil.FTM_Iz()) * 1;
+
+
+
+                }
+
+
+
+                if (cbx_Iy.SelectedIndex == 1)
+                {
+
+                    Lbl_Iz.Content = Convert.ToDouble(neuUProfil.FTM_Iz()) / 10000;
+
+                }
+            }
+            if (neuIProfil != null)
+            {
+                if (cbx_Iy.SelectedIndex == 0)
+                {
+
+                    Lbl_Iz.Content = Convert.ToDouble(neuIProfil.FTM_Iz()) * 1;
+
+
+
+                }
+
+
+                if (cbx_Iy.SelectedIndex == 1)
+                {
+
+                    Lbl_Iz.Content = Convert.ToDouble(neuIProfil.FTM_Iz()) / 10000;
+
+                }
+            }
+
+        }
+
+        private void cbx_Polar_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            //Bedingung Rechteckige Profile
+            if (rechteckVoll != null)// objekt Rechteckvoll global definieren
+            {
+                if (cbx_Polar.SelectedIndex == 0)
+                {
+
+                    lbl_Polar.Content = Convert.ToDouble(rechteckVoll.FTM_Polar()) * 1;
+
+
+
+                }
+
+
+                if (cbx_Polar.SelectedIndex == 1)
+                {
+
+                    lbl_Polar.Content = Convert.ToDouble(rechteckVoll.FTM_Polar()) / 10000;
+
+                }
+
+            }
+            if (rechteckHohl != null)// objekt Rechteckvoll global definieren
+            {
+                if (cbx_Polar.SelectedIndex == 0)
+                {
+
+                    lbl_Polar.Content = Convert.ToDouble(rechteckHohl.FTM_Polar()) * 1;
+
+
+
+                }
+
+
+                if (cbx_Polar.SelectedIndex == 1)
+                {
+
+                    lbl_Polar.Content = Convert.ToDouble(rechteckHohl.FTM_Polar()) / 10000;
+
+                }
+
+            }
+            if (neuSechseckVoll != null)// objekt Rechteckvoll global definieren
+            {
+                if (cbx_Polar.SelectedIndex == 0)
+                {
+
+                    lbl_Polar.Content = Convert.ToDouble(neuSechseckVoll.FTM_Polar()) * 1;
+
+
+
+                }
+
+
+                if (cbx_Polar.SelectedIndex == 1)
+                {
+
+                    lbl_Polar.Content = Convert.ToDouble(neuSechseckVoll.FTM_Polar()) / 10000;
+
+                }
+
+            }
+            //Bedingung RundeProfile
+            if (neuRundVoll != null)
+            {
+                if (cbx_Polar.SelectedIndex == 0)
+                {
+
+                    lbl_Polar.Content = Convert.ToDouble(neuRundVoll.FTM_Polar()) * 1;
+
+
+
+                }
+
+
+                if (cbx_Polar.SelectedIndex == 1)
+                {
+
+                    lbl_Polar.Content = Convert.ToDouble(neuRundVoll.FTM_Polar()) / 10000;
+
+                }
+            }
+            if (neuRundHohl != null)
+            {
+                if (cbx_Polar.SelectedIndex == 0)
+                {
+
+                    lbl_Polar.Content = Convert.ToDouble(neuRundHohl.FTM_Polar()) * 1;
+
+
+
+                }
+
+                if (cbx_Polar.SelectedIndex == 1)
+                {
+
+                    lbl_Polar.Content = Convert.ToDouble(neuRundHohl.FTM_Polar()) / 10000;
+
+                }
+            }
+            if (neuHalbRund != null)
+            {
+                if (cbx_Polar.SelectedIndex == 0)
+                {
+
+                    lbl_Polar.Content = Convert.ToDouble(neuHalbRund.FTM_Polar()) * 1;
+
+
+
+                }
+
+
+                if (cbx_Polar.SelectedIndex == 1)
+                {
+
+                    lbl_Polar.Content = Convert.ToDouble(neuHalbRund.FTM_Polar()) / 10000;
+
+                }
+            }
+            //Bedingung Formprofile
+            if (neuTProfil != null)
+            {
+                if (cbx_Polar.SelectedIndex == 0)
+                {
+
+                    lbl_Polar.Content = Convert.ToDouble(neuTProfil.FTM_Polar()) * 1;
+
+
+
+                }
+
+
+                if (cbx_Polar.SelectedIndex == 1)
+                {
+
+                    lbl_Polar.Content = Convert.ToDouble(neuTProfil.FTM_Polar()) / 10000;
+
+                }
+            }
+            if (neuLProfil != null)
+            {
+                if (cbx_Polar.SelectedIndex == 0)
+                {
+
+                    lbl_Polar.Content = Convert.ToDouble(neuLProfil.FTM_Polar()) * 1;
+
+
+
+                }
+
+
+                if (cbx_Polar.SelectedIndex == 1)
+                {
+
+                    lbl_Polar.Content = Convert.ToDouble(neuLProfil.FTM_Polar()) / 10000;
+
+                }
+            }
+            if (neuUProfil != null)
+            {
+                if (cbx_Polar.SelectedIndex == 0)
+                {
+
+                    lbl_Iy.Content = Convert.ToDouble(neuUProfil.FTM_Polar()) * 1;
+
+
+
+                }
+
+
+
+                if (cbx_Polar.SelectedIndex == 1)
+                {
+
+                    lbl_Iy.Content = Convert.ToDouble(neuUProfil.FTM_Polar()) / 10000;
+
+                }
+            }
+            if (neuIProfil != null)
+            {
+                if (cbx_Polar.SelectedIndex == 0)
+                {
+
+                    lbl_Polar.Content = Convert.ToDouble(neuIProfil.FTM_Polar()) * 1;
+
+
+
+                }
+
+
+                if (cbx_Polar.SelectedIndex == 1)
+                {
+
+                    lbl_Polar.Content = Convert.ToDouble(neuIProfil.FTM_Polar()) / 10000;
+
+                }
+            }
         }
     }
     
