@@ -2361,7 +2361,7 @@ namespace WpfHSPB1
 
         private void btn_Schwerpunkt(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Schwerpunk Gx: " + lbl_GX.Content + Environment.NewLine + "Schwerpunkt Gy: " + lbl_Gy.Content + Environment.NewLine + "Schwerpunkt Gz: " + lbl_Gz.Content , "Schwerpunktsberechnung" ,MessageBoxButton.OK , MessageBoxImage.Information);
+            MessageBox.Show("Schwerpunkt Gx: " + lbl_GX.Content + Environment.NewLine + "Schwerpunkt Gy: " + lbl_Gy.Content + Environment.NewLine + "Schwerpunkt Gz: " + lbl_Gz.Content , "Schwerpunktsberechnung" ,MessageBoxButton.OK , MessageBoxImage.Information);
         }
         //Hier Enden die Berechnungsbuttons
 
