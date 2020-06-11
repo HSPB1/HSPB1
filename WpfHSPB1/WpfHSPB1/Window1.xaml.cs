@@ -33,6 +33,7 @@ namespace WpfHSPB1
         UProfil neuUProfil;
         IProfil neuIProfil;
         LProfil neuLProfil;
+        ExcelApi neu = null;
 
         internal void trv_RundRohr_Selected(object sender, RoutedEventArgs e)
         {
@@ -303,6 +304,7 @@ namespace WpfHSPB1
             //Erzeugen des Objekts für ein RechteckVollprofil
             rechteckVoll = new RechteckVoll();
             CatiaAPIConection Neu = new CatiaAPIConection();
+        
             try
             { 
                                              
@@ -495,8 +497,15 @@ namespace WpfHSPB1
                 lbl_Gewicht.Content = gewicht.ToString("0.###");
 
 
+                if (neu == null)
+                {
+                    neu = new ExcelApi();
+                    neu.ExelControll();
 
-                //Neu.StartCatia();
+                }
+
+                neu.ExcelReVo(rechteckVoll);
+
 
                 if (Neu.CatiaLaeuft())
                 {
@@ -698,7 +707,14 @@ namespace WpfHSPB1
                 lbl_Preis.Content = preis.ToString("0.###");
 
 
+                if (neu == null)
+                {
+                    neu = new ExcelApi();
+                    neu.ExelControll();
 
+                }
+
+                neu.ExcelReHo(rechteckHohl);
 
                 if (Neu.CatiaLaeuft())
                 {
@@ -893,8 +909,16 @@ namespace WpfHSPB1
                 lbl_Preis.Content = preis.ToString("0.###");
 
 
+                if (neu == null)
+                {
+                    neu = new ExcelApi();
+                    neu.ExelControll();
 
-                //Neu.StartCatia();
+                }
+
+
+                neu.ExcelSeVo(neuSechseckVoll);
+
 
                 if (Neu.CatiaLaeuft())
                 {
@@ -1090,9 +1114,18 @@ namespace WpfHSPB1
                 lbl_Gewicht.Content = gewicht.ToString("0.###");
                 lbl_Preis.Content = preis.ToString("0.###");
 
-                ///Ausgabe der berechneten Werte für das Profil Vollmaterial Rund
+              
 
-                //Neu.StartCatia();
+
+                if (neu == null)
+                {
+                    neu = new ExcelApi();
+                    neu.ExelControll();
+
+                }
+
+                neu.ExcelRuVo(neuRundVoll);
+
 
                 if (Neu.CatiaLaeuft())
                 {
@@ -1117,7 +1150,7 @@ namespace WpfHSPB1
         {   
             //Erzeugung eines neuen Objekts der Klasse RundHohlProfil
              neuRundHohl = new RundHohlProfil();
-            CatiaAPIConection neu = new CatiaAPIConection();
+            CatiaAPIConection Neu = new CatiaAPIConection();
 
 
             try
@@ -1126,7 +1159,8 @@ namespace WpfHSPB1
                 neuRundHohl.Durchmesser = Convert.ToDouble(TxtBox_Rohr_Durchmesser.Text);
                 neuRundHohl.Wandstärke = Convert.ToDouble(TxtBox_Rohr_Wandstärke.Text);
                 neuRundHohl.Länge = Convert.ToDouble(TxtBox_Rohr_Länge.Text);
-           
+                
+
 
 
             double gewicht = 0;
@@ -1292,20 +1326,31 @@ namespace WpfHSPB1
                 lbl_Gewicht.Content = gewicht.ToString("0.###");
                 lbl_Preis.Content = preis.ToString("0.###");
 
-            //Neu.StartCatia();
 
-            if (neu.CatiaLaeuft())
-            {
-                neu.CatiaLaeuft();
-                neu.ErzeugePart();
-                neu.ErzeugeSkizze();
-                neu.ErzeugeProfilRundHohlProfil(neuRundHohl);
-                neu.ErzeugeExtrusionRundHohlProfil(neuRundHohl);
-            }
-            else
-            {
+                if (neu == null)
+                {
+                    neu = new ExcelApi();
+                    neu.ExelControll();
+
+                }
+
+
+                neu.ExcelRundHo(neuRundHohl);
+
+
+                if (Neu.CatiaLaeuft())
+                {
+                Neu.CatiaLaeuft();
+                Neu.ErzeugePart();
+                Neu.ErzeugeSkizze();
+                Neu.ErzeugeProfilRundHohlProfil(neuRundHohl);
+                Neu.ErzeugeExtrusionRundHohlProfil(neuRundHohl);
+                }
+
+                else
+                {
                 MessageBox.Show("Laufende Catia Application nicht gefunden");
-            }
+                 }
 
             }
 
@@ -1502,7 +1547,15 @@ namespace WpfHSPB1
                 lbl_Gewicht.Content = gewicht.ToString("0.###");
                 lbl_Preis.Content = preis.ToString("0.###");
 
-                //Neu.StartCatia();
+                if (neu == null)
+                {
+                    neu = new ExcelApi();
+                    neu.ExelControll();
+
+                }
+
+
+                neu.ExcelHaRu(neuHalbRund);
 
                 if (Neu.CatiaLaeuft())
                 {
@@ -1716,7 +1769,15 @@ namespace WpfHSPB1
                 lbl_Gewicht.Content = gewicht.ToString("0.###");
                 lbl_Preis.Content = preis.ToString("0.###");
 
-                //Neu.StartCatia();
+                if (neu == null)
+                {
+                    neu = new ExcelApi();
+                    neu.ExelControll();
+
+                }
+
+
+                neu.ExcelTProfil(neuTProfil);
 
 
                 if (Neu.CatiaLaeuft())
@@ -1927,7 +1988,15 @@ namespace WpfHSPB1
 
 
 
-                //Neu.StartCatia();
+                if (neu == null)
+                {
+                    neu = new ExcelApi();
+                    neu.ExelControll();
+
+                }
+
+
+                neu.ExcelUProfil(neuUProfil);
 
 
                 if (Neu.CatiaLaeuft())
@@ -2136,7 +2205,15 @@ namespace WpfHSPB1
 
 
 
-                //Neu.StartCatia();
+                if (neu == null)
+                {
+                    neu = new ExcelApi();
+                    neu.ExelControll();
+
+                }
+
+
+                neu.ExcelIProfil(neuIProfil);
 
 
                 if (Neu.CatiaLaeuft())
@@ -2337,7 +2414,15 @@ namespace WpfHSPB1
 
 
 
-                //Neu.StartCatia();
+                if (neu == null)
+                {
+                    neu = new ExcelApi();
+                    neu.ExelControll();
+
+                }
+
+
+                neu.ExcelLProfil(neuLProfil);
 
 
                 if (Neu.CatiaLaeuft())
