@@ -160,8 +160,10 @@ namespace Profile_Muster
                     wandstärke = value;
                 }
 
-                if(value >= breite)
-                { MessageBox.Show("Die Wandstärke darf nicht größer als das Profil sein!", "Eingabefehler" , MessageBoxButton.OK, MessageBoxImage.Error);  }
+                if(value >= breite/2)
+                { MessageBox.Show("Die Wandstärke darf nicht größer als das Profil sein!", "Eingabefehler" , MessageBoxButton.OK, MessageBoxImage.Error);
+                   
+                }
 
                 if(value<=0)
                 { MessageBox.Show("Bitte geben Sie einen positiven Wert ein!", "Eingabefehler!", MessageBoxButton.OK, MessageBoxImage.Error); }

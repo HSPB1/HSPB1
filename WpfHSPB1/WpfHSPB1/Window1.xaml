@@ -511,7 +511,7 @@
                             <!--Eingabefeld 2 -->
                             <StackPanel HorizontalAlignment="Center" Grid.Row="2" Orientation="Horizontal">
 
-                                <Label Margin="48 5 1 5" Foreground="White" Content="Länge l:" />
+                                <Label Margin="48 5 1 5" Foreground="White" Content="Länge L:" />
                                 <TextBox x:Name="TxtBox_RuVo_Länge" Height="20" Margin="2 5 1 5" Width="30" ToolTip="Geben Sie hier die Länge Ihres Profils in Millimeter ein"/>
                                 <Label  Margin="1 5 0 5" Foreground="White" Content="mm"/>
                             </StackPanel>
@@ -579,7 +579,7 @@
                             <!--Eingabefeld 2 -->
                             <StackPanel HorizontalAlignment="Center" Grid.Row="2" Orientation="Horizontal">
 
-                                <Label Margin="10 5 1 5" Foreground="White" Content="Länge l:" />
+                                <Label Margin="10 5 1 5" Foreground="White" Content="Länge L:" />
                                 <TextBox x:Name="TxtBox_SeVo_Länge" Height="20" Margin="2 5 1 5" Width="30" ToolTip="Geben Sie hier die Länge Ihres Profils in Millimeter ein"/>
                                 <Label  Margin="1 5 0 5" Foreground="White" Content="mm"/>
                             </StackPanel>
@@ -943,7 +943,7 @@
                             <!--Eingabefeld 2 -->
                             <StackPanel HorizontalAlignment="Center" Grid.Row="2" Orientation="Horizontal">
 
-                                <Label Margin="5 5 1 5" Foreground="White" Content="Länge l:" />
+                                <Label Margin="5 5 1 5" Foreground="White" Content="Länge L:" />
                                 <TextBox x:Name="TxtBox_HaRu_Länge" Height="20" Margin="5 5 1 5" Width="30" ToolTip="Geben Sie hier die Länge Ihres Profils ein"/>
                                 <Label  Margin="1 5 0 5" Foreground="White" Content="mm"/>
                             </StackPanel>
@@ -1030,7 +1030,7 @@
                             <!--Eingabefeld 3 -->
                             <StackPanel HorizontalAlignment="Center" Grid.Row="3" Orientation="Horizontal">
 
-                                <Label Margin="50 5 1 5" Foreground="White" Content="Länge l:" />
+                                <Label Margin="50 5 1 5" Foreground="White" Content="Länge L:" />
                                 <TextBox x:Name="TxtBox_Rohr_Länge" Height="20" Margin="2 5 1 5" Width="30" ToolTip="Geben Sie hier die Länge Ihres Profils in Millimeter ein"/>
                                 <Label  Margin="1 5 0 5" Foreground="White" Content="mm"/>
                             </StackPanel>
@@ -1085,7 +1085,7 @@
                             <!-- Eingabefeld 1 -->
                             <StackPanel HorizontalAlignment="Left" Grid.Row="1" Orientation="Horizontal">
 
-                                <Label Margin="100 5 1 5" Foreground="White" Content="Höhe H:" />
+                                <Label Margin="100 5 1 5" Foreground="White" Content="Höhe h:" />
                                 <TextBox x:Name="TxtBox_LPro_Höhe" Height="20" Margin="2 5 1 5" Width="30" ToolTip="Geben Sie hier die Höhe Ihres Profils in Millimeter ein" />
                                 <Label  Margin="1 5 0 5" Foreground="White" Content="mm"/>
 

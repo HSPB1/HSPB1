@@ -53,7 +53,11 @@ namespace Profile_Muster
                 {
                     h = value;
                 }
-                else
+                if (value >= H)
+                { MessageBox.Show("Die Wandstärke darf nicht größer als das Profil sein!", "Eingabefehler", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+
+                if (value <= 0)
                 { MessageBox.Show("Bitte geben Sie einen positiven Wert ein!", "Eingabefehler!", MessageBoxButton.OK, MessageBoxImage.Error); }
             }
         }
@@ -68,7 +72,10 @@ namespace Profile_Muster
                 {
                     b = value;
                 }
-                else
+                if (value >= B)
+                { MessageBox.Show("Die Wandstärke darf nicht größer als das Profil sein!", "Eingabefehler", MessageBoxButton.OK, MessageBoxImage.Error); }
+
+                if (value <= 0)
                 { MessageBox.Show("Bitte geben Sie einen positiven Wert ein!", "Eingabefehler!", MessageBoxButton.OK, MessageBoxImage.Error); }
             }
         }
@@ -182,7 +189,10 @@ namespace Profile_Muster
                 {
                     h = value;
                 }
-                else
+                if (value >= H/2)
+                { MessageBox.Show("Die Wandstärke darf nicht größer als das Profil sein!", "Eingabefehler", MessageBoxButton.OK, MessageBoxImage.Error); }
+
+                if (value <= 0)
                 { MessageBox.Show("Bitte geben Sie einen positiven Wert ein!", "Eingabefehler!", MessageBoxButton.OK, MessageBoxImage.Error); }
             }
         }
@@ -197,7 +207,10 @@ namespace Profile_Muster
                 {
                     b = value;
                 }
-                else
+                if (value >= B)
+                { MessageBox.Show("Die Wandstärke darf nicht größer als das Profil sein!", "Eingabefehler", MessageBoxButton.OK, MessageBoxImage.Error); }
+
+                if (value <= 0)
                 { MessageBox.Show("Bitte geben Sie einen positiven Wert ein!", "Eingabefehler!", MessageBoxButton.OK, MessageBoxImage.Error); }
             }
         }
@@ -312,7 +325,10 @@ namespace Profile_Muster
                 {
                     h = value;
                 }
-                else
+                if (value >= H)
+                { MessageBox.Show("Die Wandstärke darf nicht größer als das Profil sein!", "Eingabefehler", MessageBoxButton.OK, MessageBoxImage.Error); }
+
+                if (value <= 0)
                 { MessageBox.Show("Bitte geben Sie einen positiven Wert ein!", "Eingabefehler!", MessageBoxButton.OK, MessageBoxImage.Error); }
             }
         }
@@ -327,7 +343,10 @@ namespace Profile_Muster
                 {
                     b = value;
                 }
-                else
+                if (value >= B/2)
+                { MessageBox.Show("Die Wandstärke darf nicht größer als das Profil sein!", "Eingabefehler", MessageBoxButton.OK, MessageBoxImage.Error); }
+
+                if (value <= 0)
                 { MessageBox.Show("Bitte geben Sie einen positiven Wert ein!", "Eingabefehler!", MessageBoxButton.OK, MessageBoxImage.Error); }
             }
         }
@@ -452,7 +471,10 @@ namespace Profile_Muster
                 {
                     h = value;
                 }
-                else
+                if (value >= H)
+                { MessageBox.Show("Die Wandstärke darf nicht größer als das Profil sein!", "Eingabefehler", MessageBoxButton.OK, MessageBoxImage.Error); }
+
+                if (value <= 0)
                 { MessageBox.Show("Bitte geben Sie einen positiven Wert ein!", "Eingabefehler!", MessageBoxButton.OK, MessageBoxImage.Error); }
             }
         }
@@ -467,7 +489,10 @@ namespace Profile_Muster
                 {
                     b = value;
                 }
-                else
+                if (value >= B)
+                { MessageBox.Show("Die Wandstärke darf nicht größer als das Profil sein!", "Eingabefehler", MessageBoxButton.OK, MessageBoxImage.Error); }
+
+                if (value <= 0)
                 { MessageBox.Show("Bitte geben Sie einen positiven Wert ein!", "Eingabefehler!", MessageBoxButton.OK, MessageBoxImage.Error); }
             }
         }
