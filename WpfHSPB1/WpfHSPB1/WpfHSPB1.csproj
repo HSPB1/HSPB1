@@ -140,9 +140,6 @@
     <Resource Include="RundVoll.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="TProfil.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="U-Profil.jpg" />
   </ItemGroup>
   <ItemGroup>
@@ -185,6 +182,9 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="T-Profil.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

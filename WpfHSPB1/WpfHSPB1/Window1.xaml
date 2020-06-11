@@ -701,7 +701,7 @@
                     <!-- Rand Für das Bild-->
                     <Border Grid.Column="1" BorderBrush="White" BorderThickness="1" Margin="20" CornerRadius="10" Height="160" ToolTip="Quelle: Rolof Matek Maschinenelemente">
 
-                        <Image Margin="5" Grid.Column="1"  Source="TProfil.jpg"></Image>
+                        <Image Margin="5" Grid.Column="1"  Source="T-Profil.jpg"></Image>
                     </Border>
                     <!-- Ab hier endet das Bild-->
                     <Button x:Name="btn_TPro_Berechnung" Margin="50,175,52.333,40" Width="80" Height="25" VerticalAlignment="Center" HorizontalAlignment="Center" Click="btn_TPro_berechnung_Click">Berechnung</Button>
