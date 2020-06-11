@@ -304,19 +304,19 @@ namespace WpfHSPB1
             //Erzeugen des Objekts für ein RechteckVollprofil
             rechteckVoll = new RechteckVoll();
             CatiaAPIConection Neu = new CatiaAPIConection();
-        
+
             try
-            { 
-                                             
-                    rechteckVoll.Höhe = Convert.ToDouble(TxtBox_ReVo_Höhe.Text);
-                    rechteckVoll.Breite = Convert.ToDouble(TxtBox_ReVo_Breite.Text);
-                    rechteckVoll.Länge = Convert.ToDouble(TxtBox_ReVo_Länge.Text);
+            {
 
-                    double preis = 0;
-                    double gewicht = 0;
+                rechteckVoll.Höhe = Convert.ToDouble(TxtBox_ReVo_Höhe.Text);
+                rechteckVoll.Breite = Convert.ToDouble(TxtBox_ReVo_Breite.Text);
+                rechteckVoll.Länge = Convert.ToDouble(TxtBox_ReVo_Länge.Text);
 
-             
-                
+                double preis = 0;
+                double gewicht = 0;
+
+
+
 
 
                 {
@@ -333,7 +333,7 @@ namespace WpfHSPB1
                     if (cbx_Qfläche.Text == "cm²")
                     {
 
-                        double qfläche = rechteckVoll.QFläche()/100;
+                        double qfläche = rechteckVoll.QFläche() / 100;
                         lbl_qfläche.Content = qfläche.ToString("0.###");
 
                     }
@@ -341,8 +341,8 @@ namespace WpfHSPB1
                     if (cbx_Qfläche.Text == "m²")
                     {
 
-                        double qfläche = rechteckVoll.QFläche()/1000;
-                        lbl_qfläche.Content = qfläche.ToString("0.###"); 
+                        double qfläche = rechteckVoll.QFläche() / 1000;
+                        lbl_qfläche.Content = qfläche.ToString("0.###");
 
                     }
 
@@ -357,7 +357,7 @@ namespace WpfHSPB1
 
                     if (cbx_Volumen.Text == "cm³")
                     {
-                        double volumen = rechteckVoll.Volumen() /1000;
+                        double volumen = rechteckVoll.Volumen() / 1000;
                         lbl_volumen.Content = volumen.ToString("0.###");
 
                     }
@@ -365,7 +365,7 @@ namespace WpfHSPB1
                     if (cbx_Volumen.Text == "m³")
                     {
                         double volumen = rechteckVoll.Volumen() / 1000000;
-                        lbl_volumen.Content = volumen.ToString("0.###"); 
+                        lbl_volumen.Content = volumen.ToString("0.###");
 
                     }
 
@@ -398,14 +398,14 @@ namespace WpfHSPB1
                     if (cbx_Wy.Text == "mm³")
 
                     {
-                        double wy= rechteckVoll.WiederstandsMoment_Wz() * 1;
+                        double wy = rechteckVoll.WiederstandsMoment_Wz() * 1;
                         lbl_Wz.Content = wy.ToString("0.###");
 
                     }
 
                     if (cbx_Wy.Text == "cm³")
                     {
-                        double wy = rechteckVoll.WiederstandsMoment_Wz() /1000;
+                        double wy = rechteckVoll.WiederstandsMoment_Wz() / 1000;
                         lbl_Wz.Content = wy.ToString("0.###");
 
                     }
@@ -413,7 +413,7 @@ namespace WpfHSPB1
                     if (cbx_Wy.Text == "m³")
                     {
                         double wy = rechteckVoll.WiederstandsMoment_Wz() / 1000000;
-                        lbl_Wz.Content = wy.ToString("0.###"); 
+                        lbl_Wz.Content = wy.ToString("0.###");
 
                     }
 
@@ -422,14 +422,14 @@ namespace WpfHSPB1
                     if (cbx_Ix.Text == "mm^4")
 
                     {
-                        double ix= rechteckVoll.FTM_Iy() * 1;
+                        double ix = rechteckVoll.FTM_Iy() * 1;
                         lbl_Iy.Content = ix.ToString("0.###");
 
                     }
 
                     if (cbx_Ix.Text == "cm^4")
                     {
-                        double ix = rechteckVoll.FTM_Iy() /10000;
+                        double ix = rechteckVoll.FTM_Iy() / 10000;
                         lbl_Iy.Content = ix.ToString("0.###");
 
                     }
@@ -446,7 +446,7 @@ namespace WpfHSPB1
 
                     if (cbx_Iy.Text == "cm^4")
                     {
-                        double iy = rechteckVoll.FTM_Iz() /10000;
+                        double iy = rechteckVoll.FTM_Iz() / 10000;
                         Lbl_Iz.Content = iy.ToString("0.###");
 
                     }
@@ -456,32 +456,32 @@ namespace WpfHSPB1
                     if (cbx_Polar.Text == "mm^4")
 
                     {
-                        double polar= rechteckVoll.FTM_Polar() * 1;
+                        double polar = rechteckVoll.FTM_Polar() * 1;
                         lbl_Polar.Content = polar.ToString("0.###");
 
                     }
 
                     if (cbx_Polar.Text == "cm^4")
                     {
-                        double polar = rechteckVoll.FTM_Polar() /10000;
+                        double polar = rechteckVoll.FTM_Polar() / 10000;
                         lbl_Polar.Content = polar.ToString("0.###");
 
                     }
                     //Hier Enden Die Comboboxen!
                 }//Comboboxen Ergebnisfenster
 
-                 //Materialauswahl
+                //Materialauswahl
                 if (cb_Material.Text == "Stahl")
-                    {
-                        gewicht = rechteckVoll.Volumen() * 0.00000785;
-                        preis = gewicht * 1.5;
+                {
+                    gewicht = rechteckVoll.Volumen() * 0.00000785;
+                    preis = gewicht * 1.5;
 
-                    }
+                }
                 if (cb_Material.Text == "Aluminium")
-                    {
-                        gewicht = rechteckVoll.Volumen() * 0.0000027;
-                         preis = gewicht * 2.5;
-                    }
+                {
+                    gewicht = rechteckVoll.Volumen() * 0.0000027;
+                    preis = gewicht * 2.5;
+                }
 
 
                 grd_Ergebnisse.Visibility = Visibility.Visible;
@@ -491,22 +491,30 @@ namespace WpfHSPB1
                 lbl_Gy.Content = (rechteckVoll.Höhe / 2).ToString("0.###");
                 lbl_Gz.Content = (rechteckVoll.Länge / 2).ToString("0.###");
 
-                
+
 
                 lbl_Preis.Content = preis.ToString("0.###");
                 lbl_Gewicht.Content = gewicht.ToString("0.###");
 
+    
+                //Bedingung für Excle
+                    if (neu == null)
+                    {
+                        neu = new ExcelApi();
+                        neu.ExelControll();
 
-                if (neu == null)
+                    }
+
+                if (rechteckVoll.Höhe <= 0 || rechteckVoll.Breite <= 0 || rechteckVoll.Länge <= 0)
+                { MessageBox.Show("Die Eingabe wurde nicht in der Excel Tabbel übernommen!", " Eingabefehler", MessageBoxButton.OK, MessageBoxImage.Error); }
+
+                else
                 {
-                    neu = new ExcelApi();
-                    neu.ExelControll();
-
+                    neu.ExcelReVo(rechteckVoll);
                 }
 
-                neu.ExcelReVo(rechteckVoll);
 
-
+                //Bedignung für Catia
                 if (Neu.CatiaLaeuft())
                 {
                     Neu.CatiaLaeuft();
@@ -706,16 +714,24 @@ namespace WpfHSPB1
                 lbl_Gewicht.Content = gewicht.ToString("0.###");
                 lbl_Preis.Content = preis.ToString("0.###");
 
+               
+                //Excelbedinung
+                    if (neu == null)
+                    {
+                        neu = new ExcelApi();
+                        neu.ExelControll();
 
-                if (neu == null)
+                    }
+
+                if (rechteckHohl.Wandstärke >= rechteckHohl.Breite || rechteckHohl.Wandstärke >= rechteckHohl.Höhe || rechteckHohl.Länge <= 0)
+                { MessageBox.Show("Die Eingabe wurde nicht in der Excel Tabbel übernommen!", " Eingabefehler", MessageBoxButton.OK, MessageBoxImage.Error); }
+                else
                 {
-                    neu = new ExcelApi();
-                    neu.ExelControll();
-
+                    neu.ExcelReHo(rechteckHohl);
                 }
 
-                neu.ExcelReHo(rechteckHohl);
-
+          
+                //Catiabedingung
                 if (Neu.CatiaLaeuft())
                 {
                     Neu.CatiaLaeuft();
@@ -908,7 +924,9 @@ namespace WpfHSPB1
                 lbl_Gewicht.Content = gewicht.ToString("0.###");
                 lbl_Preis.Content = preis.ToString("0.###");
 
-
+                //Excelbedingung
+              
+                
                 if (neu == null)
                 {
                     neu = new ExcelApi();
@@ -916,10 +934,16 @@ namespace WpfHSPB1
 
                 }
 
+                if (neuSechseckVoll.Länge <= 0 || neuSechseckVoll.Länge <= 0)
+                { MessageBox.Show("Die Eingabe wurde nicht in der Excel Tabbel übernommen!", " Eingabefehler", MessageBoxButton.OK, MessageBoxImage.Error); }
 
-                neu.ExcelSeVo(neuSechseckVoll);
+                else
+                {
+                    neu.ExcelSeVo(neuSechseckVoll);
+                }
 
 
+                //Catiabedinung
                 if (Neu.CatiaLaeuft())
                 {
                     Neu.CatiaLaeuft();
@@ -1114,9 +1138,9 @@ namespace WpfHSPB1
                 lbl_Gewicht.Content = gewicht.ToString("0.###");
                 lbl_Preis.Content = preis.ToString("0.###");
 
-              
 
 
+                //Excelbediung
                 if (neu == null)
                 {
                     neu = new ExcelApi();
@@ -1124,9 +1148,17 @@ namespace WpfHSPB1
 
                 }
 
-                neu.ExcelRuVo(neuRundVoll);
+                if(neuRundVoll.Durchmesser <=0 || neuRundVoll.Länge <=0)
+                { MessageBox.Show("Die Eingabe wurde nicht in der Excel Tabbel übernommen!", " Eingabefehler", MessageBoxButton.OK, MessageBoxImage.Error); }
+
+                else
+                {
+                    neu.ExcelRuVo(neuRundVoll);
+                }
 
 
+
+                //Catiabedingung
                 if (Neu.CatiaLaeuft())
                 {
                     Neu.CatiaLaeuft();
@@ -1326,18 +1358,22 @@ namespace WpfHSPB1
                 lbl_Gewicht.Content = gewicht.ToString("0.###");
                 lbl_Preis.Content = preis.ToString("0.###");
 
-
+                //Excelbedinung
                 if (neu == null)
                 {
                     neu = new ExcelApi();
                     neu.ExelControll();
 
                 }
+                if (neuRundHohl.Durchmesser <= 0 || neuRundHohl.Wandstärke <= 0 || neuRundHohl.Länge <= 0 || neuRundHohl.Wandstärke >= neuRundHohl.Durchmesser)
+                { MessageBox.Show("Die Eingabe wurde nicht in der Excel Tabbel übernommen!", " Eingabefehler", MessageBoxButton.OK, MessageBoxImage.Error); }
+                else
+                {
+                    neu.ExcelRundHo(neuRundHohl);
+                }
 
 
-                neu.ExcelRundHo(neuRundHohl);
-
-
+                //Catiabediung
                 if (Neu.CatiaLaeuft())
                 {
                 Neu.CatiaLaeuft();
@@ -1547,16 +1583,23 @@ namespace WpfHSPB1
                 lbl_Gewicht.Content = gewicht.ToString("0.###");
                 lbl_Preis.Content = preis.ToString("0.###");
 
+
+                //Excelbedingun
                 if (neu == null)
                 {
                     neu = new ExcelApi();
                     neu.ExelControll();
 
                 }
+                if (neuHalbRund.Radius <= 0 || neuHalbRund.Länge <= 0)
+                { MessageBox.Show("Die Eingabe wurde nicht in der Excel Tabbel übernommen!", " Eingabefehler", MessageBoxButton.OK, MessageBoxImage.Error); }
 
+                else
+                {
+                    neu.ExcelHaRu(neuHalbRund);
+                }
 
-                neu.ExcelHaRu(neuHalbRund);
-
+                //Catiabedingung
                 if (Neu.CatiaLaeuft())
                 {
                     Neu.CatiaLaeuft();
@@ -1769,6 +1812,7 @@ namespace WpfHSPB1
                 lbl_Gewicht.Content = gewicht.ToString("0.###");
                 lbl_Preis.Content = preis.ToString("0.###");
 
+                //Excelbedinung
                 if (neu == null)
                 {
                     neu = new ExcelApi();
@@ -1776,10 +1820,15 @@ namespace WpfHSPB1
 
                 }
 
+                if (neuTProfil.H1 <= 0 || neuTProfil.B1 <= 0 || neuTProfil.Länge <= 0 || neuTProfil.H2 <= 0 || neuTProfil.B2 <= 0)
+                { MessageBox.Show("Die Eingabe wurde nicht in der Excel Tabbel übernommen!", " Eingabefehler", MessageBoxButton.OK, MessageBoxImage.Error); }
+                else
+                {
+                    neu.ExcelTProfil(neuTProfil);
+                }
 
-                neu.ExcelTProfil(neuTProfil);
 
-
+                //Catiabedinugn
                 if (Neu.CatiaLaeuft())
                 {
                     Neu.CatiaLaeuft();
@@ -1987,18 +2036,22 @@ namespace WpfHSPB1
                 lbl_Preis.Content = preis.ToString("0.###");
 
 
-
+                //Exclebedinung
                 if (neu == null)
                 {
                     neu = new ExcelApi();
                     neu.ExelControll();
 
                 }
+                if (neuUProfil.H1 <= 0 || neuUProfil.B1 <= 0 || neuUProfil.Länge <= 0 || neuUProfil.H2 <= 0 || neuUProfil.B2 <= 0)
+                { MessageBox.Show("Die Eingabe wurde nicht in der Excel Tabbel übernommen!", " Eingabefehler", MessageBoxButton.OK, MessageBoxImage.Error); }
+                else
+                {
+                    neu.ExcelUProfil(neuUProfil);
+                }
 
 
-                neu.ExcelUProfil(neuUProfil);
-
-
+                //Catiabedinung
                 if (Neu.CatiaLaeuft())
                 {
                     Neu.CatiaLaeuft();
@@ -2204,18 +2257,22 @@ namespace WpfHSPB1
                 lbl_Preis.Content = preis.ToString("0.###");
 
 
-
+                //Excelbedinung
                 if (neu == null)
                 {
                     neu = new ExcelApi();
                     neu.ExelControll();
 
                 }
+                if (neuIProfil.H1 <= 0 || neuIProfil.B1 <= 0 || neuIProfil.Länge <= 0)
+                { MessageBox.Show("Die Eingabe wurde nicht in der Excel Tabbel übernommen!", " Eingabefehler", MessageBoxButton.OK, MessageBoxImage.Error); }
 
+                else
+                {
+                    neu.ExcelIProfil(neuIProfil);
+                }
 
-                neu.ExcelIProfil(neuIProfil);
-
-
+                //Catiabedinung
                 if (Neu.CatiaLaeuft())
                 {
                     Neu.CatiaLaeuft();
@@ -2413,18 +2470,23 @@ namespace WpfHSPB1
                 lbl_Preis.Content = preis.ToString("0.###");
 
 
-
+                //Excelbedingung
                 if (neu == null)
                 {
                     neu = new ExcelApi();
                     neu.ExelControll();
 
                 }
+                if (neuLProfil.H1 <= 0 || neuLProfil.B1 <= 0 || neuLProfil.Länge <= 0 || neuLProfil.H2 <= 0 || neuLProfil.B2 <= 0)
+                { MessageBox.Show("Die Eingabe wurde nicht in der Excel Tabbel übernommen!", " Eingabefehler", MessageBoxButton.OK, MessageBoxImage.Error); }
+
+                else
+                {
+                    neu.ExcelLProfil(neuLProfil);
+                }
 
 
-                neu.ExcelLProfil(neuLProfil);
-
-
+                //Catiabedingung
                 if (Neu.CatiaLaeuft())
                 {
                     Neu.CatiaLaeuft();

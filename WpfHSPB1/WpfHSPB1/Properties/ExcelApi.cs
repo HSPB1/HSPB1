@@ -31,7 +31,8 @@ namespace WpfHSPB1
 
         int i = 1;
         int z = 2;
-
+      
+        
         internal void ExelControll()
         {
 
