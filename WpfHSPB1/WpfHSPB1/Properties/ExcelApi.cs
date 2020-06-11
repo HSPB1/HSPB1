@@ -64,8 +64,7 @@ namespace WpfHSPB1
             mySheet.Cells[1, "M"] = "Iy in cm^4 ";
             mySheet.Cells[1, "N"] = "Iz in cm^4 ";
             mySheet.Cells[1, "O"] = "FTM Polar in cm^4 ";
-            mySheet.Cells[1, "P"] = "Preis in Euro ";
-            mySheet.Cells[1, "Q"] = "Gewicht in kg ";
+          
 
 
 
@@ -100,8 +99,7 @@ namespace WpfHSPB1
             mySheet.Range["L2"].EntireColumn.Font.Size = 12;
             mySheet.Range["M2"].EntireColumn.Font.Size = 12;
             mySheet.Range["N2"].EntireColumn.Font.Size = 12;
-            mySheet.Range["O2"].EntireColumn.Font.Size = 12;
-            mySheet.Range["P2"].EntireColumn.Font.Size = 12;
+         
 
             //Geschriebe Daten in Kusiv
             mySheet.Range["B2", "Q2"].EntireColumn.Font.Italic =true;
@@ -143,8 +141,7 @@ namespace WpfHSPB1
             mySheet.Cells[z, "M"] = rechteckVoll.FTM_Iy() / 10000;
             mySheet.Cells[z, "N"] = rechteckVoll.FTM_Iz() / 10000;
             mySheet.Cells[z, "O"] = rechteckVoll.FTM_Polar() / 10000;
-
-
+           
 
             i++;
             z++;

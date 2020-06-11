@@ -34,6 +34,8 @@ namespace WpfHSPB1
         IProfil neuIProfil;
         LProfil neuLProfil;
         ExcelApi neu = null;
+        double preis;
+        double gewicht;
 
         internal void trv_RundRohr_Selected(object sender, RoutedEventArgs e)
         {
@@ -2515,14 +2517,316 @@ namespace WpfHSPB1
 
         private void cb_Material_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            
+            if (rechteckVoll != null)// objekt Rechteckvoll global definieren
+            {
+                if (cb_Material.SelectedIndex == 1)
+                {
+
+
+
+                    gewicht = rechteckVoll.Volumen() * 0.00000785;
+                    preis = gewicht * 1.5;
+
+
+                    lbl_Preis.Content = preis.ToString("0.###");
+                    lbl_Gewicht.Content = gewicht.ToString("0.###");
+
+
+                }
+
+                if (cb_Material.SelectedIndex == 2)
+                {
+
+
+                    gewicht = rechteckVoll.Volumen() * 0.0000027;
+                    preis = gewicht * 2.5;
+
+                    lbl_Preis.Content = preis.ToString("0.###");
+                    lbl_Gewicht.Content = gewicht.ToString("0.###");
+
+                }
+
+
+
+            }//
+            if (rechteckHohl != null)// objekt Rechteckvoll global definieren
+            {
+                if (cb_Material_ReHo.SelectedIndex == 1)
+                {
+
+
+
+                    gewicht = rechteckHohl.Volumen() * 0.00000785;
+                    preis = gewicht * 1.5;
+
+
+                    lbl_Preis.Content = preis.ToString("0.###");
+                    lbl_Gewicht.Content = gewicht.ToString("0.###");
+
+
+                }
+
+                if (cb_Material_ReHo.SelectedIndex == 2)
+                {
+
+
+                    gewicht = rechteckHohl.Volumen() * 0.0000027;
+                    preis = gewicht * 2.5;
+
+                    lbl_Preis.Content = preis.ToString("0.###");
+                    lbl_Gewicht.Content = gewicht.ToString("0.###");
+
+                }
+
+            }//
+            if (neuSechseckVoll != null)// objekt Rechteckvoll global definieren
+            {
+                if (cb_Material_SeVoll.SelectedIndex == 1)
+                {
+
+
+
+                    gewicht = neuSechseckVoll.Volumen() * 0.00000785;
+                    preis = gewicht * 1.5;
+
+
+                    lbl_Preis.Content = preis.ToString("0.###");
+                    lbl_Gewicht.Content = gewicht.ToString("0.###");
+
+
+                }
+
+                if (cb_Material_SeVoll.SelectedIndex == 2)
+                {
+
+
+                    gewicht = neuSechseckVoll.Volumen() * 0.0000027;
+                    preis = gewicht * 2.5;
+
+                    lbl_Preis.Content = preis.ToString("0.###");
+                    lbl_Gewicht.Content = gewicht.ToString("0.###");
+
+                }
+
+            }//
+            //Bedingung RundeProfile
+            if (neuRundVoll != null)
+            {
+                if (cb_Material_RuVoll.SelectedIndex == 1)
+                {
+
+
+
+                    gewicht = neuRundVoll.Volumen() * 0.00000785;
+                    preis = gewicht * 1.5;
+
+
+                    lbl_Preis.Content = preis.ToString("0.###");
+                    lbl_Gewicht.Content = gewicht.ToString("0.###");
+
+
+                }
+
+                if (cb_Material_RuVoll.SelectedIndex == 2)
+                {
+
+
+                    gewicht = neuRundVoll.Volumen() * 0.0000027;
+                    preis = gewicht * 2.5;
+
+                    lbl_Preis.Content = preis.ToString("0.###");
+                    lbl_Gewicht.Content = gewicht.ToString("0.###");
+
+                }
+
+            }//
+            if (neuRundHohl != null)
+            {
+                if (cb_Material_RuHo.SelectedIndex == 1)
+                {
+
+
+
+                    gewicht = neuRundHohl.Volumen() * 0.00000785;
+                    preis = gewicht * 1.5;
+
+
+                    lbl_Preis.Content = preis.ToString("0.###");
+                    lbl_Gewicht.Content = gewicht.ToString("0.###");
+
+
+                }
+
+                if (cb_Material_RuHo.SelectedIndex == 2)
+                {
+
+
+                    gewicht = neuRundHohl.Volumen() * 0.0000027;
+                    preis = gewicht * 2.5;
+
+                    lbl_Preis.Content = preis.ToString("0.###");
+                    lbl_Gewicht.Content = gewicht.ToString("0.###");
+
+                }
+
+            }//
+            if (neuHalbRund != null)
+            {
+                if (cb_Material_HaRu.SelectedIndex == 1)
+                {
+
+
+
+                    gewicht = neuHalbRund.Volumen() * 0.00000785;
+                    preis = gewicht * 1.5;
+
+
+                    lbl_Preis.Content = preis.ToString("0.###");
+                    lbl_Gewicht.Content = gewicht.ToString("0.###");
+
+
+                }
+
+                if (cb_Material_HaRu.SelectedIndex == 2)
+                {
+
+
+                    gewicht = neuHalbRund.Volumen() * 0.0000027;
+                    preis = gewicht * 2.5;
+
+                    lbl_Preis.Content = preis.ToString("0.###");
+                    lbl_Gewicht.Content = gewicht.ToString("0.###");
+
+                }
+
+            }//
+            //Bedingung Formprofile
+            if (neuTProfil != null)
+            {
+                if (cb_Material_TPro.SelectedIndex == 1)
+                {
+
+
+
+                    gewicht = neuTProfil.Volumen() * 0.00000785;
+                    preis = gewicht * 1.5;
+
+
+                    lbl_Preis.Content = preis.ToString("0.###");
+                    lbl_Gewicht.Content = gewicht.ToString("0.###");
+
+
+                }
+
+                if (cb_Material_TPro.SelectedIndex == 2)
+                {
+
+
+                    gewicht = neuTProfil.Volumen() * 0.0000027;
+                    preis = gewicht * 2.5;
+
+                    lbl_Preis.Content = preis.ToString("0.###");
+                    lbl_Gewicht.Content = gewicht.ToString("0.###");
+
+                }
+
+            }//
+            if (neuLProfil != null)
+            {
+                if (cb_Material_LPro.SelectedIndex == 1)
+                {
+
+
+
+                    gewicht = neuLProfil.Volumen() * 0.00000785;
+                    preis = gewicht * 1.5;
+
+
+                    lbl_Preis.Content = preis.ToString("0.###");
+                    lbl_Gewicht.Content = gewicht.ToString("0.###");
+
+
+                }
+
+                if (cb_Material_LPro.SelectedIndex == 2)
+                {
+
+
+                    gewicht = neuLProfil.Volumen() * 0.0000027;
+                    preis = gewicht * 2.5;
+
+                    lbl_Preis.Content = preis.ToString("0.###");
+                    lbl_Gewicht.Content = gewicht.ToString("0.###");
+
+                }
+
+            }//
+            if (neuUProfil != null)
+            {
+                if (cb_Material_UPro.SelectedIndex == 1)
+                {
+
+
+
+                    gewicht = neuUProfil.Volumen() * 0.00000785;
+                    preis = gewicht * 1.5;
+
+
+                    lbl_Preis.Content = preis.ToString("0.###");
+                    lbl_Gewicht.Content = gewicht.ToString("0.###");
+
+
+                }
+
+                if (cb_Material_UPro.SelectedIndex == 2)
+                {
+
+
+                    gewicht = neuUProfil.Volumen() * 0.0000027;
+                    preis = gewicht * 2.5;
+
+                    lbl_Preis.Content = preis.ToString("0.###");
+                    lbl_Gewicht.Content = gewicht.ToString("0.###");
+
+                }
+
+
+
+            }//
+            if (neuIProfil != null)
+            {
+                if (cb_Material_IPro.SelectedIndex == 1)
+                {
+
+
+
+                    gewicht = neuIProfil.Volumen() * 0.00000785;
+                    preis = gewicht * 1.5;
+
+
+                    lbl_Preis.Content = preis.ToString("0.###");
+                    lbl_Gewicht.Content = gewicht.ToString("0.###");
+
+
+                }
+
+                if (cb_Material_IPro.SelectedIndex == 2)
+                {
+
+
+                    gewicht = neuIProfil.Volumen() * 0.0000027;
+                    preis = gewicht * 2.5;
+
+                    lbl_Preis.Content = preis.ToString("0.###");
+                    lbl_Gewicht.Content = gewicht.ToString("0.###");
+
+                }
+            }//
+
         }
 
-
-
-
-        //Comboboxen (Umrechnung)
-        private void cbx_Qfläche_SelectionChanged(object sender, SelectionChangedEventArgs e)
+            //Comboboxen (Umrechnung)
+            private void cbx_Qfläche_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             //Bedingung Rechteckige Profile
             if (rechteckVoll != null)// objekt Rechteckvoll global definieren
