@@ -78,7 +78,7 @@
                 <TextBlock Grid.Row="6" Foreground="White" FontSize="16" Margin="30 0 0 0 ">Die Berechnung erfolgen anhand der eingegebenen Paramteter</TextBlock>
                 <TextBlock Grid.Row="7" Foreground="White" FontSize="16" Margin="30 0 0 0 ">und können daher von Literarturwerten abweichen!</TextBlock>
                 <TextBlock Grid.Row="8" Foreground="White" FontSize="16" Margin="30 0 0 0 ">Implementierte Berechnungen sind:</TextBlock>
-                <TextBlock Grid.Row="9" Foreground="White" FontSize="16" Margin="30 0 0 0 ">Querschnitt, Volumen,Gewicht, Massenträgheitsmomente und Biegemomente</TextBlock>
+                <TextBlock Grid.Row="9" Foreground="White" FontSize="16" Margin="30 0 0 0 ">Querschnitt, Volumen,Gewicht, Massenträgheitsmomente und Schwerpunkte</TextBlock>
                 <TextBlock Grid.Row="11" Foreground="White" FontSize="16" Margin="30 0 0 0 ">Wenn Sie CatiaV5 starten, haben Sie die Möglichkeit sich ein 3D Modell</TextBlock>
                 <TextBlock Grid.Row="12" Foreground="White" FontSize="16" Margin="30 0 0 0 ">automatisch erzeugen zu lassen!</TextBlock>
 

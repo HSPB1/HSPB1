@@ -937,7 +937,7 @@ namespace WpfHSPB1
             Circle2D catCircle2D1 = factory2D.CreateCircle(0, 0, rundHohlProfil.Durchmesser / 2, 0, 0);
             catCircle2D1.CenterPoint = catpoint2D1;
             
-            Circle2D catCircle2D2 = factory2D.CreateCircle(0, 0, (rundHohlProfil.Durchmesser - rundHohlProfil.Wandstärke) / 2, 0, 0);
+            Circle2D catCircle2D2 = factory2D.CreateCircle(0, 0, (rundHohlProfil.Durchmesser / 2 - rundHohlProfil.Wandstärke), 0, 0);
             catCircle2D2.CenterPoint = catpoint2D1;
 
 
